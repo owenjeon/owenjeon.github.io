@@ -15,7 +15,7 @@
     
     <meta property="og:type" content="blog">
 <meta property="og:title" content="Owen's Blog">
-<meta property="og:url" content="http://wooner.net/archives/index.html">
+<meta property="og:url" content="https://owenjeon.github.io/archives/index.html">
 <meta property="og:site_name" content="Owen's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Owen's Blog">
@@ -28,10 +28,7 @@
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/font-awesome.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox-thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <link rel="stylesheet" href="/assets/css/style-gkdwv6gpmsvziyqj09onb2nm8pqnf9m6mfclab1sabtzip0qozttwf89jomo.min.css">
     <!--STYLES END-->
     
     
@@ -193,7 +190,7 @@
                 <div class="postShorten-content" itemprop="articleBody">
                     <p>Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.</p>
 <p>보통 Angular에서 컴포넌트의 추가는 <code>route</code>를 통해서만 이루어 집니다. 이때는 <code>route</code>에서 컴포넌트를 생성/제거를 해주기 때문에 우리는 크게 신경써야 할 부분이 없습니다.<br>하지만 동적으로 컴포넌트를 추가할때는 몇가지 신경써야 하는 부분들이 있습니다.</p>
-<h2 id="template에-동적-컴포넌트를-추가할-영역-정하기"><a href="#template에-동적-컴포넌트를-추가할-영역-정하기" class="headerlink" title="template에 동적 컴포넌트를 추가할 영역 정하기."></a>template에 동적 컴포넌트를 추가할 영역 정하기.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, ViewChild&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'home'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">&lt;div #container&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">`</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="template에-동적-컴포넌트를-추가할-영역-정하기"><a href="#template에-동적-컴포넌트를-추가할-영역-정하기" class="headerlink" title="template에 동적 컴포넌트를 추가할 영역 정하기."></a>template에 동적 컴포넌트를 추가할 영역 정하기.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, ViewChild&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'home'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">    &lt;div #container&gt;&lt;/div&gt;</div><div class="line">  `</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>위는 컴포넌트 템플릿의 <code>#container</code>은 컴포넌트를 추가할 영역입니다. 그럼 이제 class에서 해당 영역을 선언해봅시다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>) container;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>이 <code>container</code>를 콘솔로 직어보면 <code>ElementRef</code>라는 객체가 보입니다. 이는 native 엘리먼트에 접근하기 위한 방법입니다.<br>하지만 우리는 <code>ViewContainerRef</code>가 필요합니다. 우리는 이를 다음과 같이 써서 얻을 수 있습니다.</p>
@@ -1015,7 +1012,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/prototype/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/07/12/prototype/">
                             <h3 class="media-heading">객체 및 프로토타입</h3>
                         </a>
                         <span class="media-meta">
@@ -1034,7 +1031,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-css/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/07/12/fill-image-css/">
                             <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(css)</h3>
                         </a>
                         <span class="media-meta">
@@ -1053,7 +1050,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-javascript/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/07/12/fill-image-javascript/">
                             <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(Javascript)</h3>
                         </a>
                         <span class="media-meta">
@@ -1072,7 +1069,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/10/prototype/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/08/10/prototype/">
                             <h3 class="media-heading">자바스크립트 프로토 타입의 프로퍼티 할당</h3>
                         </a>
                         <span class="media-meta">
@@ -1091,7 +1088,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/12/array-object/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/08/12/array-object/">
                             <h3 class="media-heading">객체와 배열 구분하기</h3>
                         </a>
                         <span class="media-meta">
@@ -1110,7 +1107,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/18/develop-patten/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/08/18/develop-patten/">
                             <h3 class="media-heading">다른 퍼블리셔들의 사용패턴 설문조사</h3>
                         </a>
                         <span class="media-meta">
@@ -1129,7 +1126,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/21/valueof-tostring/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/08/21/valueof-tostring/">
                             <h3 class="media-heading">Javascript의 valueOf, toString</h3>
                         </a>
                         <span class="media-meta">
@@ -1148,7 +1145,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/22/javascript-jsonp/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/08/22/javascript-jsonp/">
                             <h3 class="media-heading">JSONP에 관하여...</h3>
                         </a>
                         <span class="media-meta">
@@ -1167,7 +1164,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/28/javascript-reduce/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/08/28/javascript-reduce/">
                             <h3 class="media-heading">ECMA5 javascript method : reduce</h3>
                         </a>
                         <span class="media-meta">
@@ -1186,7 +1183,7 @@ undefined
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/09/01/javascript-map/">
+                        <a class="link-unstyled" href="https://owenjeon.github.io/2016/09/01/javascript-map/">
                             <h3 class="media-heading">ECMA5 javascript method : map</h3>
                         </a>
                         <span class="media-meta">
@@ -1217,10 +1214,7 @@ undefined
         
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/jquery.fancybox-thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
+<script src="/assets/js/script-keald3mnqximb0hm6mvdqo5sxhnyqoujkpxdeikbcx5yiukrhiboqm2jxh0x.min.js"></script>
 <!--SCRIPTS END-->
 
 

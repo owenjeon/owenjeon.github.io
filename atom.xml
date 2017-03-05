@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://wooner.net/"/>
-  <updated>2017-03-05T13:51:43.000Z</updated>
-  <id>http://wooner.net/</id>
+  <link href="https://owenjeon.github.io/"/>
+  <updated>2017-03-05T14:58:36.000Z</updated>
+  <id>https://owenjeon.github.io/</id>
   
   <author>
     <name>Owen</name>
@@ -17,14 +17,14 @@
   
   <entry>
     <title>Angular2 Dynamic Component</title>
-    <link href="http://wooner.net/2017/03/03/angular-dynamic-component/"/>
-    <id>http://wooner.net/2017/03/03/angular-dynamic-component/</id>
+    <link href="https://owenjeon.github.io/2017/03/03/angular-dynamic-component/"/>
+    <id>https://owenjeon.github.io/2017/03/03/angular-dynamic-component/</id>
     <published>2017-03-03T03:34:00.000Z</published>
-    <updated>2017-03-05T13:51:43.000Z</updated>
+    <updated>2017-03-05T14:58:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.</p>
 <p>보통 Angular에서 컴포넌트의 추가는 <code>route</code>를 통해서만 이루어 집니다. 이때는 <code>route</code>에서 컴포넌트를 생성/제거를 해주기 때문에 우리는 크게 신경써야 할 부분이 없습니다.<br>하지만 동적으로 컴포넌트를 추가할때는 몇가지 신경써야 하는 부분들이 있습니다.</p>
-<h2 id="template에-동적-컴포넌트를-추가할-영역-정하기"><a href="#template에-동적-컴포넌트를-추가할-영역-정하기" class="headerlink" title="template에 동적 컴포넌트를 추가할 영역 정하기."></a>template에 동적 컴포넌트를 추가할 영역 정하기.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, ViewChild&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'home'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">&lt;div #container&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">`</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="template에-동적-컴포넌트를-추가할-영역-정하기"><a href="#template에-동적-컴포넌트를-추가할-영역-정하기" class="headerlink" title="template에 동적 컴포넌트를 추가할 영역 정하기."></a>template에 동적 컴포넌트를 추가할 영역 정하기.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, ViewChild&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'home'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">    &lt;div #container&gt;&lt;/div&gt;</div><div class="line">  `</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>위는 컴포넌트 템플릿의 <code>#container</code>은 컴포넌트를 추가할 영역입니다. 그럼 이제 class에서 해당 영역을 선언해봅시다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>) container;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>이 <code>container</code>를 콘솔로 직어보면 <code>ElementRef</code>라는 객체가 보입니다. 이는 native 엘리먼트에 접근하기 위한 방법입니다.<br>하지만 우리는 <code>ViewContainerRef</code>가 필요합니다. 우리는 이를 다음과 같이 써서 얻을 수 있습니다.</p>
@@ -53,19 +53,19 @@
     
     </summary>
     
-      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/categories/Angular/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/tags/Angular/"/>
     
   </entry>
   
   <entry>
     <title>Angular2 RouteReuseStrategy</title>
-    <link href="http://wooner.net/2017/03/02/angular-RouteReuseStrategy/"/>
-    <id>http://wooner.net/2017/03/02/angular-RouteReuseStrategy/</id>
+    <link href="https://owenjeon.github.io/2017/03/02/angular-RouteReuseStrategy/"/>
+    <id>https://owenjeon.github.io/2017/03/02/angular-RouteReuseStrategy/</id>
     <published>2017-03-02T03:34:00.000Z</published>
     <updated>2017-03-05T13:51:32.000Z</updated>
     
@@ -89,19 +89,19 @@
     
     </summary>
     
-      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/categories/Angular/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/tags/Angular/"/>
     
   </entry>
   
   <entry>
     <title>Angular2 Resolve</title>
-    <link href="http://wooner.net/2017/02/28/angular-resolve/"/>
-    <id>http://wooner.net/2017/02/28/angular-resolve/</id>
+    <link href="https://owenjeon.github.io/2017/02/28/angular-resolve/"/>
+    <id>https://owenjeon.github.io/2017/02/28/angular-resolve/</id>
     <published>2017-02-28T03:34:00.000Z</published>
     <updated>2017-03-05T13:51:34.000Z</updated>
     
@@ -153,19 +153,19 @@ undefined
     
     </summary>
     
-      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/categories/Angular/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/tags/Angular/"/>
     
   </entry>
   
   <entry>
     <title>RxJS Observer</title>
-    <link href="http://wooner.net/2017/02/24/observer/"/>
-    <id>http://wooner.net/2017/02/24/observer/</id>
+    <link href="https://owenjeon.github.io/2017/02/24/observer/"/>
+    <id>https://owenjeon.github.io/2017/02/24/observer/</id>
     <published>2017-02-24T03:34:00.000Z</published>
     <updated>2017-03-05T13:51:21.000Z</updated>
     
@@ -192,19 +192,19 @@ undefined
     
     </summary>
     
-      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/categories/RxJS/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/tags/RxJS/"/>
     
   </entry>
   
   <entry>
     <title>RxJS Subject</title>
-    <link href="http://wooner.net/2017/02/21/rxjs-subject/"/>
-    <id>http://wooner.net/2017/02/21/rxjs-subject/</id>
+    <link href="https://owenjeon.github.io/2017/02/21/rxjs-subject/"/>
+    <id>https://owenjeon.github.io/2017/02/21/rxjs-subject/</id>
     <published>2017-02-21T03:34:00.000Z</published>
     <updated>2017-03-05T13:51:15.000Z</updated>
     
@@ -265,19 +265,19 @@ undefined
     
     </summary>
     
-      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/categories/RxJS/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/tags/RxJS/"/>
     
   </entry>
   
   <entry>
     <title>Angular2의 변화 탐지(Change Detection)</title>
-    <link href="http://wooner.net/2017/01/27/angular-detection/"/>
-    <id>http://wooner.net/2017/01/27/angular-detection/</id>
+    <link href="https://owenjeon.github.io/2017/01/27/angular-detection/"/>
+    <id>https://owenjeon.github.io/2017/01/27/angular-detection/</id>
     <published>2017-01-27T13:34:00.000Z</published>
     <updated>2017-03-05T14:56:37.000Z</updated>
     
@@ -379,19 +379,19 @@ undefined
     
     </summary>
     
-      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/categories/Angular/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
+      <category term="Angular" scheme="https://owenjeon.github.io/tags/Angular/"/>
     
   </entry>
   
   <entry>
     <title>RxJS Transformation Operator</title>
-    <link href="http://wooner.net/2017/01/01/rxjs-trans-operator/"/>
-    <id>http://wooner.net/2017/01/01/rxjs-trans-operator/</id>
+    <link href="https://owenjeon.github.io/2017/01/01/rxjs-trans-operator/"/>
+    <id>https://owenjeon.github.io/2017/01/01/rxjs-trans-operator/</id>
     <published>2017-01-01T07:34:43.000Z</published>
     <updated>2017-03-05T13:50:56.000Z</updated>
     
@@ -432,19 +432,19 @@ undefined
     
     </summary>
     
-      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/categories/RxJS/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/tags/RxJS/"/>
     
   </entry>
   
   <entry>
     <title>RxJS Create Operator</title>
-    <link href="http://wooner.net/2016/12/31/rxjs-create-operator/"/>
-    <id>http://wooner.net/2016/12/31/rxjs-create-operator/</id>
+    <link href="https://owenjeon.github.io/2016/12/31/rxjs-create-operator/"/>
+    <id>https://owenjeon.github.io/2016/12/31/rxjs-create-operator/</id>
     <published>2016-12-31T07:34:43.000Z</published>
     <updated>2017-03-05T13:50:52.000Z</updated>
     
@@ -472,19 +472,19 @@ undefined
     
     </summary>
     
-      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/categories/RxJS/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/tags/RxJS/"/>
     
   </entry>
   
   <entry>
     <title>RxJS - Purity(순수성)</title>
-    <link href="http://wooner.net/2016/12/29/rxjs-purity/"/>
-    <id>http://wooner.net/2016/12/29/rxjs-purity/</id>
+    <link href="https://owenjeon.github.io/2016/12/29/rxjs-purity/"/>
+    <id>https://owenjeon.github.io/2016/12/29/rxjs-purity/</id>
     <published>2016-12-28T15:00:00.000Z</published>
     <updated>2017-03-05T13:50:37.000Z</updated>
     
@@ -507,19 +507,19 @@ undefined
     
     </summary>
     
-      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/categories/RxJS/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/tags/RxJS/"/>
     
   </entry>
   
   <entry>
     <title>Reactive extension JS (RxJS) 시작!</title>
-    <link href="http://wooner.net/2016/12/23/rxjs/"/>
-    <id>http://wooner.net/2016/12/23/rxjs/</id>
+    <link href="https://owenjeon.github.io/2016/12/23/rxjs/"/>
+    <id>https://owenjeon.github.io/2016/12/23/rxjs/</id>
     <published>2016-12-23T03:34:00.000Z</published>
     <updated>2017-03-05T13:50:24.000Z</updated>
     
@@ -554,19 +554,19 @@ undefined
     
     </summary>
     
-      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/categories/RxJS/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+      <category term="RxJS" scheme="https://owenjeon.github.io/tags/RxJS/"/>
     
   </entry>
   
   <entry>
     <title>React Life Cycle</title>
-    <link href="http://wooner.net/2016/12/16/react-lifecycle/"/>
-    <id>http://wooner.net/2016/12/16/react-lifecycle/</id>
+    <link href="https://owenjeon.github.io/2016/12/16/react-lifecycle/"/>
+    <id>https://owenjeon.github.io/2016/12/16/react-lifecycle/</id>
     <published>2016-12-15T15:00:00.000Z</published>
     <updated>2017-03-05T13:50:12.000Z</updated>
     
@@ -584,19 +584,19 @@ undefined
     
     </summary>
     
-      <category term="javascript" scheme="http://wooner.net/categories/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="React" scheme="http://wooner.net/tags/React/"/>
+      <category term="React" scheme="https://owenjeon.github.io/tags/React/"/>
     
   </entry>
   
   <entry>
     <title>함수형프로그래밍</title>
-    <link href="http://wooner.net/2016/12/15/javascript-funtional/"/>
-    <id>http://wooner.net/2016/12/15/javascript-funtional/</id>
+    <link href="https://owenjeon.github.io/2016/12/15/javascript-funtional/"/>
+    <id>https://owenjeon.github.io/2016/12/15/javascript-funtional/</id>
     <published>2016-12-14T15:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -620,17 +620,17 @@ undefined
     
     </summary>
     
-      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://owenjeon.github.io/categories/Javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>ECMA5 javascript method : map</title>
-    <link href="http://wooner.net/2016/09/01/javascript-map/"/>
-    <id>http://wooner.net/2016/09/01/javascript-map/</id>
+    <link href="https://owenjeon.github.io/2016/09/01/javascript-map/"/>
+    <id>https://owenjeon.github.io/2016/09/01/javascript-map/</id>
     <published>2016-08-31T15:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -649,17 +649,17 @@ undefined
     
     </summary>
     
-      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://owenjeon.github.io/categories/Javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>ECMA5 javascript method : reduce</title>
-    <link href="http://wooner.net/2016/08/28/javascript-reduce/"/>
-    <id>http://wooner.net/2016/08/28/javascript-reduce/</id>
+    <link href="https://owenjeon.github.io/2016/08/28/javascript-reduce/"/>
+    <id>https://owenjeon.github.io/2016/08/28/javascript-reduce/</id>
     <published>2016-08-28T14:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -684,17 +684,17 @@ undefined
     
     </summary>
     
-      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://owenjeon.github.io/categories/Javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>JSONP에 관하여...</title>
-    <link href="http://wooner.net/2016/08/22/javascript-jsonp/"/>
-    <id>http://wooner.net/2016/08/22/javascript-jsonp/</id>
+    <link href="https://owenjeon.github.io/2016/08/22/javascript-jsonp/"/>
+    <id>https://owenjeon.github.io/2016/08/22/javascript-jsonp/</id>
     <published>2016-08-22T03:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -720,17 +720,17 @@ undefined
     
     </summary>
     
-      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://owenjeon.github.io/categories/Javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>Javascript의 valueOf, toString</title>
-    <link href="http://wooner.net/2016/08/21/valueof-tostring/"/>
-    <id>http://wooner.net/2016/08/21/valueof-tostring/</id>
+    <link href="https://owenjeon.github.io/2016/08/21/valueof-tostring/"/>
+    <id>https://owenjeon.github.io/2016/08/21/valueof-tostring/</id>
     <published>2016-08-21T03:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -749,17 +749,17 @@ undefined
     
     </summary>
     
-      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://owenjeon.github.io/categories/Javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>다른 퍼블리셔들의 사용패턴 설문조사</title>
-    <link href="http://wooner.net/2016/08/18/develop-patten/"/>
-    <id>http://wooner.net/2016/08/18/develop-patten/</id>
+    <link href="https://owenjeon.github.io/2016/08/18/develop-patten/"/>
+    <id>https://owenjeon.github.io/2016/08/18/develop-patten/</id>
     <published>2016-08-18T03:00:00.000Z</published>
     <updated>2017-03-05T13:49:51.000Z</updated>
     
@@ -780,19 +780,19 @@ undefined
     
     </summary>
     
-      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://owenjeon.github.io/categories/Javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
-      <category term="css" scheme="http://wooner.net/tags/css/"/>
+      <category term="css" scheme="https://owenjeon.github.io/tags/css/"/>
     
   </entry>
   
   <entry>
     <title>객체와 배열 구분하기</title>
-    <link href="http://wooner.net/2016/08/12/array-object/"/>
-    <id>http://wooner.net/2016/08/12/array-object/</id>
+    <link href="https://owenjeon.github.io/2016/08/12/array-object/"/>
+    <id>https://owenjeon.github.io/2016/08/12/array-object/</id>
     <published>2016-08-12T02:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -813,17 +813,17 @@ undefined
     
     </summary>
     
-      <category term="javascript" scheme="http://wooner.net/categories/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>자바스크립트 프로토 타입의 프로퍼티 할당</title>
-    <link href="http://wooner.net/2016/08/10/prototype/"/>
-    <id>http://wooner.net/2016/08/10/prototype/</id>
+    <link href="https://owenjeon.github.io/2016/08/10/prototype/"/>
+    <id>https://owenjeon.github.io/2016/08/10/prototype/</id>
     <published>2016-08-10T03:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -843,17 +843,17 @@ undefined
     
     </summary>
     
-      <category term="javascript" scheme="http://wooner.net/categories/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>프레임에 이미지 꽉 채우기 Part2(Javascript)</title>
-    <link href="http://wooner.net/2016/07/12/fill-image-javascript/"/>
-    <id>http://wooner.net/2016/07/12/fill-image-javascript/</id>
+    <link href="https://owenjeon.github.io/2016/07/12/fill-image-javascript/"/>
+    <id>https://owenjeon.github.io/2016/07/12/fill-image-javascript/</id>
     <published>2016-07-12T03:00:00.000Z</published>
     <updated>2017-03-05T13:15:33.000Z</updated>
     
@@ -881,10 +881,10 @@ undefined
     
     </summary>
     
-      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://owenjeon.github.io/categories/Javascript/"/>
     
     
-      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
