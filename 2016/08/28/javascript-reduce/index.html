@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Owen&#39;s Blog">
+    <title>ECMA5 javascript method : reduce - Owen&#39;s Blog</title>
+    <meta name="author" content="Owen">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.
+자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효율적인 소스를 제작 할 수 있음에도 불구하고, 아직 우리나라는 익스8버젼을 고려해야하기 때문에 포기하는 경우가 많았다.
+하지만 가까운 미래에 우리나라도 EC">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="ECMA5 javascript method : reduce">
+<meta property="og:url" content="http://wooner.net/2016/08/28/javascript-reduce/index.html">
+<meta property="og:site_name" content="Owen's Blog">
+<meta property="og:description" content="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.
+자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효율적인 소스를 제작 할 수 있음에도 불구하고, 아직 우리나라는 익스8버젼을 고려해야하기 때문에 포기하는 경우가 많았다.
+하지만 가까운 미래에 우리나라도 EC">
+<meta property="og:updated_time" content="2017-03-05T13:15:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMA5 javascript method : reduce">
+<meta name="twitter:description" content="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.
+자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효율적인 소스를 제작 할 수 있음에도 불구하고, 아직 우리나라는 익스8버젼을 고려해야하기 때문에 포기하는 경우가 많았다.
+하지만 가까운 미래에 우리나라도 EC">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox-thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Owen&#39;s Blog</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            ECMA5 javascript method : reduce
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-08-28T23:00:00+09:00">
+	
+		    8월 28, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Javascript/">Javascript</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><strong>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.</strong></p>
+<p>자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효율적인 소스를 제작 할 수 있음에도 불구하고, 아직 우리나라는 익스8버젼을 고려해야하기 때문에 포기하는 경우가 많았다.</p>
+<p>하지만 가까운 미래에 우리나라도 ECMA5기반으로 만들어진 사이트 들이 늘어날 것이고, 또 node.js의 경우에는 서버단의 언어이고 V8엔진 기반으로 해석되기 때문에 익스에 대한 고민없이 ECMA5 또는 6기반으로 소스를 설계할 수 있다.</p>
+<p><a href="http://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="external">reduce 메소드</a>의 기본형태는 아래와 같다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">리턴값,현재요소,현재요소의 index,배열</span>),초기값)</span></div></pre></td></tr></table></figure></p>
+<p>여기서 리턴값이란 1번째 순회에서는 초기값을, 이후 순회에서는 그전 순회에서 받은 리턴값을 나타낸다. 아래는 reduce의 가장기본적인 예제이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> sum = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">total, val</span>)</span>&#123;<span class="keyword">return</span> total + val;&#125;, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(sum);<span class="comment">//15</span></div></pre></td></tr></table></figure>
+<p>위 예제에서는 리턴값에 현재요소를 더한값을 다음 순회로 리턴시킨다. 결국 모든 요소를 더한값을 반환한다.</p>
+<p>다음은 배열안의 수 중 가장 큰 수를 추출하는 스크립트이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>];</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;<span class="keyword">return</span> a &gt; b ? a : b;&#125;);</div><div class="line"><span class="built_in">console</span>.log(max);<span class="comment">//100</span></div></pre></td></tr></table></figure>
+<p>위 예제는 리턴된 값과 현재요소를 비교해서 큰 값을 리턴시킨다. 물론 배열에서 가장 큰 값을 구하는 방법은 apply함수를 이용하는 방법이 더 효율적이긴 하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, arr);</div></pre></td></tr></table></figure></p>
+<p>이제 좀 더 복잡한 예제를 보자. 아래는 배열중에 연속된 수들이 있으면 해당 수들을 배열로 묶어서 반환시키는 함수이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">101</span>, <span class="number">103</span>];</div><div class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;<span class="keyword">return</span> a - b&#125;); <span class="comment">//sort 메소드로 오름차순 정렬.</span></div><div class="line"><span class="keyword">var</span> cnt = <span class="number">0</span>,tArr = [],len;</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (a + <span class="number">1</span> === b) &#123; <span class="comment">//현재요소가 리턴값과 이어지는 정수면...</span></div><div class="line">        <span class="keyword">if</span> (!cnt) &#123; <span class="comment">//연속된 수의 첫 시작이면</span></div><div class="line">            <span class="keyword">var</span> tArr2 = [];</div><div class="line">            tArr2.push(a, b);</div><div class="line">            len = tArr.push(tArr2);</div><div class="line">            cnt = <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//연속된 수가 계속 이어지고 있는 상태면..</span></div><div class="line">            tArr[(len - <span class="number">1</span>)].push(b);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//수가 이어지지 않으면..</span></div><div class="line">        cnt = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> b; <span class="comment">//현재 요소를 반훤</span></div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(tArr); <span class="comment">//[[1, 2], [4, 5, 6], [100, 101]]</span></div></pre></td></tr></table></figure></p>
+<p>결론적으로 reduce는 어떤값을 리턴시키느냐에 따라 다양하게 확장해서 사용할 수 있다!</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/01/javascript-map/"  data-tooltip="ECMA5 javascript method : map">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/22/javascript-jsonp/" data-tooltip="JSONP에 관하여...">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Owen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/01/javascript-map/"  data-tooltip="ECMA5 javascript method : map">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/22/javascript-jsonp/" data-tooltip="JSONP에 관하여...">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://wooner.net/2016/08/28/javascript-reduce/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Owen</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    autofocus="autofocus"/>
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/prototype/">
+                            <h3 class="media-heading">객체 및 프로토타입</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 7월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-css/">
+                            <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(css)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 7월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-javascript/">
+                            <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(Javascript)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 7월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/10/prototype/">
+                            <h3 class="media-heading">자바스크립트 프로토 타입의 프로퍼티 할당</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 10일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/12/array-object/">
+                            <h3 class="media-heading">객체와 배열 구분하기</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/18/develop-patten/">
+                            <h3 class="media-heading">다른 퍼블리셔들의 사용패턴 설문조사</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 18일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/21/valueof-tostring/">
+                            <h3 class="media-heading">Javascript의 valueOf, toString</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 21일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/22/javascript-jsonp/">
+                            <h3 class="media-heading">JSONP에 관하여...</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 22일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/28/javascript-reduce/">
+                            <h3 class="media-heading">ECMA5 javascript method : reduce</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 28일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/09/01/javascript-map/">
+                            <h3 class="media-heading">ECMA5 javascript method : map</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 9월 1일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                22 posts found
+            </p>
+        </div>
+    </div>
+</div>
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/jquery.fancybox-thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+    </body>
+</html>

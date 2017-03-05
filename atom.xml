@@ -1,197 +1,28 @@
-
-<!DOCTYPE html>
-<html lang="ko">
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Owen&#39;s Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://wooner.net/"/>
+  <updated>2017-03-05T13:51:43.000Z</updated>
+  <id>http://wooner.net/</id>
+  
+  <author>
+    <name>Owen</name>
     
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Owen&#39;s Blog">
-    <title>Archives: 2017 - Owen&#39;s Blog</title>
-    <meta name="author" content="Owen">
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Angular2 Dynamic Component</title>
+    <link href="http://wooner.net/2017/03/03/angular-dynamic-component/"/>
+    <id>http://wooner.net/2017/03/03/angular-dynamic-component/</id>
+    <published>2017-03-03T03:34:00.000Z</published>
+    <updated>2017-03-05T13:51:43.000Z</updated>
     
-    
-    
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="Owen's Blog">
-<meta property="og:url" content="http://wooner.net/archives/2017/index.html">
-<meta property="og:site_name" content="Owen's Blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Owen's Blog">
-    
-    
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/font-awesome.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox-thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
-    
-    
-</head>
-
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
-    
-
-<header id="header" data-behavior="1">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Owen&#39;s Blog</a>
-    </div>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
-</header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="1">
-    <div class="sidebar-container">
-        
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/ "
-                            
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-categories"
-                            
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-tags"
-                            
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-archives"
-                            
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="#about"
-                            
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/atom.xml"
-                            
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
-</nav>
-
-            
-            <div id="main" data-behavior="1"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-    <section class="postShorten-group main-content-wrap">
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/03/03/angular-dynamic-component/">
-                            Angular2 Dynamic Component
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-03-03T12:34:00+09:00">
-	
-		    3월 03, 2017
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Angular/">Angular</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.</p>
+    <content type="html"><![CDATA[<p>Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.</p>
 <p>보통 Angular에서 컴포넌트의 추가는 <code>route</code>를 통해서만 이루어 집니다. 이때는 <code>route</code>에서 컴포넌트를 생성/제거를 해주기 때문에 우리는 크게 신경써야 할 부분이 없습니다.<br>하지만 동적으로 컴포넌트를 추가할때는 몇가지 신경써야 하는 부분들이 있습니다.</p>
 <h2 id="template에-동적-컴포넌트를-추가할-영역-정하기"><a href="#template에-동적-컴포넌트를-추가할-영역-정하기" class="headerlink" title="template에 동적 컴포넌트를 추가할 영역 정하기."></a>template에 동적 컴포넌트를 추가할 영역 정하기.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, ViewChild&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'home'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">&lt;div #container&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">`</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>위는 컴포넌트 템플릿의 <code>#container</code>은 컴포넌트를 추가할 영역입니다. 그럼 이제 class에서 해당 영역을 선언해봅시다.</p>
@@ -214,54 +45,31 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ngAfterViewInit()&#123;</div><div class="line">  <span class="keyword">const</span> widgetFactory = <span class="keyword">this</span>.resolver.resolveComponentFactory(WidgetThree);</div><div class="line">  <span class="keyword">const</span> widgetRef = <span class="keyword">this</span>.container.createComponent(widgetFactory);</div><div class="line">  widgetRef.instance.message = <span class="string">"I'm last!"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>이제 데이터를 전달할 준비가 되었습니다. 받는쪽은 자식 컴포넌트가 부모 컴포넌트의 데이터를 받는 방식과 동일합니다. <code>WidgetThree</code>의 클래스에서 <code>@Input</code> 데코레이터를 사용하여 <code>message</code> 프로퍼티를 받습니다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'widget-three'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">&lt;input #input type="text" [value]="message"&gt;</div><div class="line">`</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">WidgetThree</span></span>&#123;</div><div class="line">  @Input() message;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/03/03/angular-dynamic-component/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.&lt;/
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/03/02/angular-RouteReuseStrategy/">
-                            Angular2 RouteReuseStrategy
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-03-02T12:34:00+09:00">
-	
-		    3월 02, 2017
-    	
-    </time>
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
     
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Angular/">Angular</a>
-
-
+      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
     
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>컨텐츠의 리스트와 뷰를 만들다 보면, 뷰에서 리스트로 돌아갔을 때 사용자가 탐색하던 위치를 다시 보여주는 것이 중요합니다. 특히 SPA의 경우, 페이지 이동이 하나의 DOM 요소안에서 이루어지기 때문에 이를 기억하고 찾아가기 쉽지 않습니다.</p>
+  </entry>
+  
+  <entry>
+    <title>Angular2 RouteReuseStrategy</title>
+    <link href="http://wooner.net/2017/03/02/angular-RouteReuseStrategy/"/>
+    <id>http://wooner.net/2017/03/02/angular-RouteReuseStrategy/</id>
+    <published>2017-03-02T03:34:00.000Z</published>
+    <updated>2017-03-05T13:51:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>컨텐츠의 리스트와 뷰를 만들다 보면, 뷰에서 리스트로 돌아갔을 때 사용자가 탐색하던 위치를 다시 보여주는 것이 중요합니다. 특히 SPA의 경우, 페이지 이동이 하나의 DOM 요소안에서 이루어지기 때문에 이를 기억하고 찾아가기 쉽지 않습니다.</p>
 <p>Angular도 마찬가지입니다. route를 써서 페이지 이동을 하다보면, <code>history.back()</code>으로 이전페이지로 돌아간다고 해도, 해당 위치를 찾을 수 없습니다.<br>route를 통해 뷰가 변경될 때, 지난 컴포넌트 인스턴스는 제거되기 때문입니다.</p>
 <p>이런 문제는 Angular의 <code>RouteReuseStrategy</code>를 이용해서 해결 할 수 있습니다. <code>RouteReuseStrategy</code>는 route가 활성화 후 재사용 될때 커스터마이징 할 수 있는 방법을 제공합니다.<br><code>RouteReuseStrategy</code>는 route를 나중에 재사용 하기 위해서 <code>store</code>에 올려둘 수 있습니다. 즉 인스턴스를 삭제하지 않고 저장해 두었다가 다시 그 route가 호출 될 때 해당 인스턴스를 다시 가져와 보여줄 수 있습니다(싱글톤).</p>
 <p><a href="https://angular.io/docs/ts/latest/api/router/index/RouteReuseStrategy-class.html" target="_blank" rel="external">구글 공식문서</a>에도 나와 있는 내용이지만 다시 정리해보면, <code>RouteReuseStrategy</code>는 다음과 같이 생겼습니다.</p>
@@ -273,54 +81,31 @@
 <p><code>retrieve(route: ActivatedRouteSnapshot) : DetachedRouteHandle</code><br><br>이전에 저장했던 route를 검색합니다.</p>
 <p><code>shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot) : boolean</code><br><br>route를 다시 사용해야하는지 여부를 결정합니다.</p>
 <p><strong>이 글은 추후 더 업데이트 될 예정입니다.</strong></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/03/02/angular-RouteReuseStrategy/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;컨텐츠의 리스트와 뷰를 만들다 보면, 뷰에서 리스트로 돌아갔을 때 사용자가 탐색하던 위치를 다시 보여주는 것이 중요합니다. 특히 SPA의 경우, 페이지 이동이 하나의 DOM 요소안에서 이루어지기 때문에 이를 기억하고 찾아가기 쉽지 않습니다.&lt;/p
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/02/28/angular-resolve/">
-                            Angular2 Resolve
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-02-28T12:34:00+09:00">
-	
-		    2월 28, 2017
-    	
-    </time>
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
     
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Angular/">Angular</a>
-
-
+      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
     
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html" target="_blank" rel="external">Thoughtram 블로그</a>를 참고하여 작성한 것입니다.</strong></p>
+  </entry>
+  
+  <entry>
+    <title>Angular2 Resolve</title>
+    <link href="http://wooner.net/2017/02/28/angular-resolve/"/>
+    <id>http://wooner.net/2017/02/28/angular-resolve/</id>
+    <published>2017-02-28T03:34:00.000Z</published>
+    <updated>2017-03-05T13:51:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html" target="_blank" rel="external">Thoughtram 블로그</a>를 참고하여 작성한 것입니다.</strong></p>
 <p>Angular의 router를 이용하면 쉽게 페이지 전환을 할 수 있습니다. 하지만 좀 더 완벽히 구동되는 application을 만들기 위해서 router는 해결해야 할 문제점이 하나 있습니다. 바로 바인딩되는 데이터 로딩이 라우터가 실행보다 빠르게 완료되는 것이 보장되지 않는다는 것입니다. 예를들어 http통신을 통해 api로 특정 데이터를 가져오고, 이를 화면에 뿌린다고 했을때, http통신은 비동기이기 때문에 라우터가 먼저 실행되고 나서 얼마 후에 데이터 도착하면 view가 rendering 됩니다. 이 때문에 사용자들은 가끔 데이터가 듬성듬성 빠져있는 화면을 잠깐동안 보게 됩니다.</p>
 <p>이를 해결하는 방법은 여러가지가 있습니다(데이터가 들어오기 전까지 host경로에 <code>ngIf</code>를 <code>false</code>로 한다는 등의…). 여기서는 <strong>Route의 resolver를</strong> 통해 문제를 해결해 보려고 합니다.</p>
 <h3 id="무엇이-문제일까요"><a href="#무엇이-문제일까요" class="headerlink" title="무엇이 문제일까요?"></a>무엇이 문제일까요?</h3><p>자, contact 애플리케이션을 만들어 봅시다. 우리는 <code>contacts list</code>와 <code>contacts detail</code>을 위한 라우터를 가지고 있습니다.</p>
@@ -360,54 +145,31 @@ undefined
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> AppRoutes: Routes = [</div><div class="line">  ...</div><div class="line">  &#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">'contact/:id'</span>,</div><div class="line">    <span class="attr">component</span>: ContactsDetailComponent,</div><div class="line">    <span class="attr">resolve</span>: &#123;</div><div class="line">      <span class="attr">contact</span>: ContactResolve</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
 <p>Angular는 <code>resolver</code>가 함수인지, 클래스인지, <code>resolve()</code>를 호출하는 클래스인지 탐지하기에 충분히 똑똑합니다.<br>어떻게 Angular가 데이터가 도착할때까지 컴포넌트를 인스턴스화 시키는 것을 지연시키는지(3초), 아래의 데모에서 확인해보세요.</p>
 <iframe src="https://embed.plnkr.co/q8w7qf6aN5pzGw40GG0i/" frameborder="0" style="width:100%;height:500px;"></iframe>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/02/28/angular-resolve/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;이 글은 &lt;a href=&quot;https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html&quot; target=&quot;_blank&quot; rel=&quot;external
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/02/24/observer/">
-                            RxJS Observer
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-02-24T12:34:00+09:00">
-	
-		    2월 24, 2017
-    	
-    </time>
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
     
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/RxJS/">RxJS</a>
-
-
+      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
     
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h3 id="이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다"><a href="#이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다" class="headerlink" title="이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다."></a>이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다.</h3><p><code>Observable</code>에 의해 전달 된 값을 처리하는 콜백 콜렉션입니다.<br><code>Observer</code>는 <code>Observable</code>에 의해 전달되는 특정한 알림에 대한  간단한 콜백함수 집합(<code>next</code>, <code>error</code>, and <code>complete</code>)입니다.</p>
+  </entry>
+  
+  <entry>
+    <title>RxJS Observer</title>
+    <link href="http://wooner.net/2017/02/24/observer/"/>
+    <id>http://wooner.net/2017/02/24/observer/</id>
+    <published>2017-02-24T03:34:00.000Z</published>
+    <updated>2017-03-05T13:51:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다"><a href="#이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다" class="headerlink" title="이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다."></a>이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다.</h3><p><code>Observable</code>에 의해 전달 된 값을 처리하는 콜백 콜렉션입니다.<br><code>Observer</code>는 <code>Observable</code>에 의해 전달되는 특정한 알림에 대한  간단한 콜백함수 집합(<code>next</code>, <code>error</code>, and <code>complete</code>)입니다.</p>
 <p>다음은 일반적인 <code>Observer</code> 객체의 예입니다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> observer = &#123;</div><div class="line">  <span class="attr">next</span>: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  <span class="attr">error</span>: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">  <span class="attr">complete</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p><code>Observer</code>를 사용하기 위해서 <code>Observable</code>의 <code>subscribe</code>에게 <code>Observer</code>를 인자로 넘깁니다.</p>
@@ -422,54 +184,31 @@ undefined
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x));</div></pre></td></tr></table></figure>
 <p><code>observable.subscribe</code>는 첫번째 콜백 <code>argument</code>를 사용해서 <code>Observer</code> 객체의 <code>next</code>핸들러를 만듭니다. 총 3개의 콜백 타입은 아래와 같이 쓸 수 있습니다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(</div><div class="line">  <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  err =&gt; <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/02/24/observer/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다&quot;&gt;&lt;a href=&quot;#이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다&quot; class=&quot;headerlink&quot; title=&quot;이번에는 RxJS의 구성요
+    
+    </summary>
+    
+      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/02/21/rxjs-subject/">
-                            RxJS Subject
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-02-21T12:34:00+09:00">
-	
-		    2월 21, 2017
-    	
-    </time>
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
     
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/RxJS/">RxJS</a>
-
-
+      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
     
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p><em>이 글은 <a href="http://reactivex.io/rxjs/manual/overview.html#subject" target="_blank" rel="external">RxJS 공식사이트</a>의 내용 중 subject 영역을 번역한 글입니다.</em></p>
+  </entry>
+  
+  <entry>
+    <title>RxJS Subject</title>
+    <link href="http://wooner.net/2017/02/21/rxjs-subject/"/>
+    <id>http://wooner.net/2017/02/21/rxjs-subject/</id>
+    <published>2017-02-21T03:34:00.000Z</published>
+    <updated>2017-03-05T13:51:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>이 글은 <a href="http://reactivex.io/rxjs/manual/overview.html#subject" target="_blank" rel="external">RxJS 공식사이트</a>의 내용 중 subject 영역을 번역한 글입니다.</em></p>
 <p>RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)이지만, Subject는 multicast입니다.</p>
 <blockquote>
 <p>Subject는 Observable과 비슷하지만 많은 Observers에게 멀티캐스트 할 수 있습니다. Subject는 EventEmitters와 유사합니다. 많은 수의 수신자(listeners)의 레지스트리를 관리합니다.</p>
@@ -518,54 +257,31 @@ undefined
 <p>아래의 예제를 봅시다</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> refCounted = source.multicast(subject).refCount();</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line"><span class="comment">// This calls `connect()`, because</span></div><div class="line"><span class="comment">// it is the first subscriber to `refCounted`</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'observerA subscribed'</span>);</div><div class="line">subscription1 = refCounted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB subscribed'</span>);</div><div class="line">  subscription2 = refCounted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerA unsubscribed'</span>);</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// This is when the shared Observable execution will stop, because</span></div><div class="line"><span class="comment">// `refCounted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB unsubscribed'</span>);</div><div class="line">  subscription2.unsubscribe();</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line"></div><div class="line"><span class="comment">// observerA subscribed</span></div><div class="line"><span class="comment">// observerA: 0</span></div><div class="line"><span class="comment">// observerB subscribed</span></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA unsubscribed</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerB unsubscribed</span></div></pre></td></tr></table></figure>
 <p><code>refCount()</code> 메서드는 <code>ConnectableObservable</code>에만 존재하며 다른 <code>ConnectableObservable</code>이 아니라 <code>Observable</code>을 return합니다.</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/02/21/rxjs-subject/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;em&gt;이 글은 &lt;a href=&quot;http://reactivex.io/rxjs/manual/overview.html#subject&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RxJS 공식사이트&lt;/a&gt;의 내용 중 subject 영역을 
+    
+    </summary>
+    
+      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/01/27/angular-detection/">
-                            Angular2의 변화 탐지(Change Detection)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-01-27T22:34:00+09:00">
-	
-		    1월 27, 2017
-    	
-    </time>
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
     
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Angular/">Angular</a>
-
-
+      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
     
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html" target="_blank" rel="external">Thoughtram 블로그</a>의 글을 번역한 것입니다. 번역이 미흡하더라도 너그럽게 이해해주세요.</strong></p>
+  </entry>
+  
+  <entry>
+    <title>Angular2의 변화 탐지(Change Detection)</title>
+    <link href="http://wooner.net/2017/01/27/angular-detection/"/>
+    <id>http://wooner.net/2017/01/27/angular-detection/</id>
+    <published>2017-01-27T13:34:00.000Z</published>
+    <updated>2017-03-05T14:56:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html" target="_blank" rel="external">Thoughtram 블로그</a>의 글을 번역한 것입니다. 번역이 미흡하더라도 너그럽게 이해해주세요.</strong></p>
 <p>만일 이 이야기에 흥미가 있다면, 이 <a href="https://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/" target="_blank" rel="external">슬라이드</a>를 보거나 <a href="https://www.youtube.com/watch?v=CUxD91DWkGM" target="_blank" rel="external">유튜브 비디오</a>를 봐도 됩니다.</p>
 <h3 id="What’s-Change-Detection-anyways"><a href="#What’s-Change-Detection-anyways" class="headerlink" title="What’s Change Detection anyways?"></a>What’s Change Detection anyways?</h3><p>변화 감지(change detection)의 기본적인 태스크는 프로그램 내부의 상태(stats)를 가져와서 그것을 사용자 인터페이스에 구현하는 것입니다. 이 상태는 objects, arrays, primitives등 모든 종류의 자바스크립트 데이터 구조일 것입니다.</p>
 <p>이 stats는 사용자 인터페이스나 DOM 웹사이트의 특정부분의 paragraphs, forms, 링크 또는 버튼 에서 보여질 것입니다. 따라서 기본적으로 우리는 데이터 구조를 입력받아 DOM 출력을 생성하여 사용자가 화면에서 볼 수 있도록 만듭니다. 우리는 이 프로세스를 rendering이라고 부르죠.</p>
@@ -655,54 +371,31 @@ undefined
 <p>이제 변경 감지가 수행되면 단순히 위에서 아래로 이동합니다.</p>
 <p><img src="/assets/images/angular/cd-tree-13.svg" alt="" style="background-color:#0c4eb2"></p>
 <p>멋지죠? 변경 감지 실행이 끝나면 전체 트리의 <code>OnPush</code> 상태를 복원합니다.</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/01/27/angular-detection/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;이 글은 &lt;a href=&quot;https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html&quot; target=&quot;_blank&quot; rel=&quot;exter
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://wooner.net/categories/Angular/"/>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/01/01/rxjs-trans-operator/">
-                            RxJS Transformation Operator
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-01-01T16:34:43+09:00">
-	
-		    1월 01, 2017
-    	
-    </time>
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
     
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/RxJS/">RxJS</a>
-
-
+      <category term="Angular" scheme="http://wooner.net/tags/Angular/"/>
     
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h3 id="buffer"><a href="#buffer" class="headerlink" title="buffer"></a>buffer</h3><p>buffer는 말그대로 Obervable의 실행을 일정기간 미루는 것이다. 시리즈 성격의 buffer Operators는 몇가지가 있는데, 이들 모두 공통적으로 Obervable의 실행을 일정기간 미룬다.</p>
+  </entry>
+  
+  <entry>
+    <title>RxJS Transformation Operator</title>
+    <link href="http://wooner.net/2017/01/01/rxjs-trans-operator/"/>
+    <id>http://wooner.net/2017/01/01/rxjs-trans-operator/</id>
+    <published>2017-01-01T07:34:43.000Z</published>
+    <updated>2017-03-05T13:50:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="buffer"><a href="#buffer" class="headerlink" title="buffer"></a>buffer</h3><p>buffer는 말그대로 Obervable의 실행을 일정기간 미루는 것이다. 시리즈 성격의 buffer Operators는 몇가지가 있는데, 이들 모두 공통적으로 Obervable의 실행을 일정기간 미룬다.</p>
 <h4 id="buffer-1"><a href="#buffer-1" class="headerlink" title="buffer"></a>buffer</h4><p>Obervable을 인자로 받으며, 인자의 Obervable이 subscribe될 때 미루고 있던 이전의 Obervable의 subscribe값들을 배열로 반환한다.  </p>
 <p>아래 예재에서는 document 클릭할때마다 1초마다 쌓인 스트림을 배열로 반환 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obBuffer = Rx.Observable.interval(<span class="number">1000</span>)</div><div class="line">  .buffer(Rx.Observable.fromEvent(<span class="built_in">document</span>,<span class="string">'click'</span>));</div><div class="line">obBuffer.subscribe(<span class="function"><span class="params">x</span>=&gt;</span><span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
 <h4 id="bufferCount"><a href="#bufferCount" class="headerlink" title="bufferCount"></a>bufferCount</h4><p>bufferCount는 두개의 인자를 받는다. 첫 번째는 도출되는 buffer의 최대 사이즈가 오며, 두 번째는 새로운 buffer가 몇번의 스트림을 주기로 실행될것인지가 온다. 즉 bufferCount(3,2)라면 여기서 도출되는 스트림은, input Observable의 스트림중 최근 3개를 인자로 묶은 배열이 2번의 주기로 실행되는 것이다.(말이 어렵다… ㅠ)</p>
@@ -731,301 +424,468 @@ undefined
 <p>아래 소스는 클릭 스트림이 3번 쌓일때마다 클릭 Observable을 complete하고 새로운 클릭 스트림을 만든다. (순수함수라는 측면에서 전역변수를 쓰는건 안좋은 방법이지만 이해를 돕기위해 cnt라는 전역변수를 만들었다.)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cnt = <span class="number">0</span>;</div><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line"><span class="keyword">const</span> result = clicks.windowCount(<span class="number">3</span>)</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'click Observable Start'</span>); <span class="comment">//클릭 Observable 생성</span></div><div class="line">  x.subscribe(</div><div class="line">    <span class="function"><span class="params">y</span> =&gt;</span> <span class="built_in">console</span>.log(++cnt),<span class="comment">//클릭할때마다 숫자 1씩 증가</span></div><div class="line">    e =&gt; e,</div><div class="line">    () =&gt; (cnt = <span class="number">0</span>, <span class="built_in">console</span>.log(<span class="string">'click Observable completed'</span>)) <span class="comment">//클릭 Observable 종료</span></div><div class="line">  ),</div><div class="line">  e =&gt; e,</div><div class="line">  () =&gt; (<span class="built_in">console</span>.log(<span class="string">'completed'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <h4 id="windowTime"><a href="#windowTime" class="headerlink" title="windowTime"></a>windowTime</h4><p><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-windowTime" target="_blank" rel="external">windowTime</a>는 인자로 두개의 숫자를 받는다, 첫번째는 생성된 window가 지속될 시간이고, 두번째는 window의 생성 주기를 나타내는 시간이다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line"><span class="keyword">const</span> result = clicks.windowTime(<span class="number">2000</span>, <span class="number">5000</span>) <span class="comment">//Observable이 2초후 종료됨. Observable생성 5초 후에 새로운 Observable이 시작.</span></div><div class="line">  .map(<span class="function"><span class="params">win</span> =&gt;</span> win.take(<span class="number">2</span>)) <span class="comment">// 각 윈도우는 2개의 스트림만을 받는다.</span></div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'start'</span>)</div><div class="line">  x.subscribe(</div><div class="line">    <span class="function"><span class="params">y</span> =&gt;</span> <span class="built_in">console</span>.log(y), <span class="comment">//클릭할때 스트림 발생</span></div><div class="line">    err =&gt; <span class="built_in">console</span>.log(err),</div><div class="line">    () =&gt; <span class="built_in">console</span>.log(<span class="string">'finish'</span>) <span class="comment">//2초가 지나거나 클릭 스트림이 2번 발생할경우 complete</span></div><div class="line">  )</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="windowToggle"><a href="#windowToggle" class="headerlink" title="windowToggle"></a>windowToggle</h4>
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/01/01/rxjs-trans-operator/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
+<h4 id="windowToggle"><a href="#windowToggle" class="headerlink" title="windowToggle"></a>windowToggle</h4>]]></content>
     
-    <div class="pagination-bar">
-    <ul class="pagination">
-        
-        
-        <li class="pagination-number">page 1 of 1</li>
-    </ul>
-</div>
+    <summary type="html">
+    
+      &lt;h3 id=&quot;buffer&quot;&gt;&lt;a href=&quot;#buffer&quot; class=&quot;headerlink&quot; title=&quot;buffer&quot;&gt;&lt;/a&gt;buffer&lt;/h3&gt;&lt;p&gt;buffer는 말그대로 Obervable의 실행을 일정기간 미루는 것이다. 시리즈 성격의 buff
+    
+    </summary>
+    
+      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RxJS Create Operator</title>
+    <link href="http://wooner.net/2016/12/31/rxjs-create-operator/"/>
+    <id>http://wooner.net/2016/12/31/rxjs-create-operator/</id>
+    <published>2016-12-31T07:34:43.000Z</published>
+    <updated>2017-03-05T13:50:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Operators는 Observable에서 작동되는 method들이다. (<code>.map(...)</code>, <code>.filter(...)</code>, <code>.merge(...)</code> …) 이들은 실행되면 현재 Observable의 인스턴스를 바꾸지는 않는다. 다만 첫번째 Observable의 subscription 로직을 기반으로 새로운 Observable을 return한다. 따라서 이전의 Observable은 수정되거나 하지 않는다(immutability).<br>Operator는 필수적으로  Observable를 취하고, 새로운 Observable을 생성하는 순수함수이다.</p>
+<p>우선 이번 페이지에서는  Observable을 생성하는 Operators를 살펴보려고 한다.</p>
+<hr>
+<h4 id="bindCallback"><a href="#bindCallback" class="headerlink" title="bindCallback"></a>bindCallback</h4><p>인자로는 3개를 받는데, <code>1.콜백이 포함된 함수</code>, <code>2.출력될 옵저버블에 전달할 값</code>, <code>3.스케줄러</code> 로 구성된다. 해당 함수의 마지막 인자를 콜백으로 실행시킨다.아래는 <code>getJSON</code>의 예제이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getJSONAsObservable = Rx.Observable.bindCallback(jQuery.getJSON);</div><div class="line"><span class="keyword">const</span> result = getJSONAsObservable(<span class="string">'/my/url'</span>);</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x), e =&gt; <span class="built_in">console</span>.error(e));</div></pre></td></tr></table></figure>
+<h4 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h4><p>defer는 스트림의 실행을 미루는 method이다.  인자는 옵저버블이나 프라미스 객체를 리턴하는 함수를 받으며  observable을 생성한다. 따라서 defer가 어떤 observable을 리턴하느냐에 따라서 스트림이 결정된다.<br><em>public static defer(observableFactory: function(): Observable or Promise): Observable</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicksOrInterval = Rx.Observable.defer(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span>) &#123;</div><div class="line">    <span class="keyword">return</span> Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> Rx.Observable.interval(<span class="number">1000</span>);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">clicksOrInterval.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure>
+<h4 id="empty"><a href="#empty" class="headerlink" title="empty"></a>empty</h4><p>empty는 빈 스트림을 반환한다. 일단 스트림을 만들고 동적으로 값을 생성하거나 할 때, 혹은 조건에 따라 동적으로 다른 스트림을 만들때 쓰일것으로 보인다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> result = Rx.Observable.empty().startWith(<span class="number">7</span>);</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//7</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> interval = Rx.Observable.interval(<span class="number">1000</span>);</div><div class="line"><span class="keyword">const</span> result = interval.mergeMap(<span class="function"><span class="params">x</span> =&gt;</span></div><div class="line">  x % <span class="number">2</span> === <span class="number">1</span> ? Rx.Observable.of(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>) : Rx.Observable.empty()</div><div class="line">);<span class="comment">//1초에 한번씩 일어나는 스트림에 조건(x % 2 === 1)에따른 스트림을 합친다(mergeMap).</span></div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure>
+<h4 id="from"><a href="#from" class="headerlink" title="from"></a>from</h4><p>가장많이 쓰이는 생성 operator중 하나일것이다. 인자로는 Observable로 변환시킬 수 있는 모든 값을 받을 수 있다. 구독가능한 객체, Promise 객체, 배열, 유사배열, 이터러블 인터페이스를 따르는 값들이 된다. iterable interface는 ES6에 추가된 문법으로 이에 해당되는 것으로는 배열, 문자열, gernerator 함수로 부터 도출된 interator 객체, Map 객체, Set 객체 등이다.</p>
+<p>가장 기본적인 from method형태. 배열을 인자로 받아 스트림을 생성한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> input = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]);</div><div class="line">input.subscribe(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(i)</div><div class="line">&#125;,<span class="string">''</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'completed'</span>)</div><div class="line">&#125;); <span class="comment">//1, 2, 3, 4, 'completed'</span></div></pre></td></tr></table></figure></p>
+<p>from은 generator 함수로부터 생성된 interator객체도 인자로 받을 수 있다. generator에 대한 자세한 설명은 <a href="http://hacks.mozilla.or.kr/2015/08/es6-in-depth-generators/" target="_blank" rel="external">여기</a>를 참조.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generateDoubles</span>(<span class="params">seed</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> i = seed;</div><div class="line">  <span class="keyword">while</span> (i&lt;<span class="number">100</span>) &#123;</div><div class="line">    <span class="keyword">yield</span> i;</div><div class="line">    i = <span class="number">2</span> * i; <span class="comment">// double it</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> iterator = generateDoubles(<span class="number">3</span>);</div><div class="line"><span class="keyword">var</span> result = Rx.Observable.from(iterator);</div><div class="line">result.subscribe(</div><div class="line">  <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x),</div><div class="line">  e =&gt; <span class="built_in">console</span>.error(e),</div><div class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'finished'</span>));</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>앞서 야기 한대로, from operator는 promise도 받는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> data = fetch(<span class="string">'https://api.zigbang.com/v1/search/subway?q='</span>).then(<span class="function"><span class="params">data</span>=&gt;</span>&#123;</div><div class="line">  <span class="keyword">return</span> data.json();</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> ob = Rx.Observable.from(data).flatMap(<span class="function"><span class="params">x</span>=&gt;</span>x);</div><div class="line">ob.subscribe(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(e.name); <span class="comment">//지하철역들...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="fromEvent"><a href="#fromEvent" class="headerlink" title="fromEvent"></a>fromEvent</h4><p>Creates an Observable that emits events of a specific type coming from the given event target.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
+<h4 id="fromEventPattern"><a href="#fromEventPattern" class="headerlink" title="fromEventPattern"></a>fromEventPattern</h4><p>Creates an Observable from an API based on addHandler/removeHandler functions.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.removeEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> clicks = Rx.Observable.fromEventPattern(addClickHandler,removeClickHandler);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
+<h4 id="fromPromise"><a href="#fromPromise" class="headerlink" title="fromPromise"></a>fromPromise</h4><p>Promise를 Observable로 컨버팅한다. 만일 Promise가 resolve된다면 resolved value를 Observable로 넘긴다. 만일 Promise가 reject되면 Observable error를 넘긴다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Operators는 Observable에서 작동되는 method들이다. (&lt;code&gt;.map(...)&lt;/code&gt;, &lt;code&gt;.filter(...)&lt;/code&gt;, &lt;code&gt;.merge(...)&lt;/code&gt; …) 이들은 실행되면 현재 Obser
+    
+    </summary>
+    
+      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RxJS - Purity(순수성)</title>
+    <link href="http://wooner.net/2016/12/29/rxjs-purity/"/>
+    <id>http://wooner.net/2016/12/29/rxjs-purity/</id>
+    <published>2016-12-28T15:00:00.000Z</published>
+    <updated>2017-03-05T13:50:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="RxJS-Purity-순수성"><a href="#RxJS-Purity-순수성" class="headerlink" title="RxJS - Purity(순수성)"></a>RxJS - Purity(순수성)</h3><h4 id="Purity-순수성"><a href="#Purity-순수성" class="headerlink" title="Purity(순수성)"></a>Purity(순수성)</h4><p>RxJS는 순수함수로 이루어져있다는 뜻이다. 순수함수란 함수형 프로그래밍에서 쓰이는 단어이다. 사람들마다 그리고 언어들마다 순수함수에 대한 정의가 약간씩 다른 것 같긴 하지만.. 내가 아는 순수함수의 정의는 아래와 같다.</p>
+<ul>
+<li>같은 입력에 항상 같은 출력을 반환한다.</li>
+<li>사이드 이펙트가 없다.</li>
+<li>외부 상태와 무관하다.</li>
+</ul>
+<p>순수함수는 해당 함수보다 상위의 스콥에서 정의된 함수를 참조하지 않는다. 오로지 인자로 인해 제어된다. 같은 값을 출력하기때문에 랜덤(Math.random)이나 날짜(new Date)등을 사용하지 않는다. 따라서 오류가 발생할 가능성이 적다. RxJS는 이 부분을 장점으로 내세우고 있다.</p>
+<p>아래 예제를 보면…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> observable = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line"> .map(<span class="function"><span class="params">x</span> =&gt;</span> x*x)</div><div class="line"> .scan(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b, <span class="number">0</span>);</div><div class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//1, 5, 14, 50</span></div></pre></td></tr></table></figure></p>
+<p>RxJS는 위처럼 체이닝으로 method들을 이어 나간다. 그리고 다음 method들의 함수 내부는 이전함수로 부터 return받은 인자로만 이루어 진다. 물론 global 영역에 변수를 지정하고 가져오는게 불가능 한건 아니지만, 되도록 순수하게 함수를 사용하는 것을 권장한다. 아무래도 순수함수가 가진 안정성과 속도의 장점을 가져가려는 것이 아닐까 생각한다.</p>
+<h4 id="Flow-흐름"><a href="#Flow-흐름" class="headerlink" title="Flow(흐름)"></a>Flow(흐름)</h4><p>RxJS에는 관찰자를 통해 이벤트가 흐르는 방식을 제어하는 데 도움이되는 다양한 연산자(operator)가 있다. 위에서 등장한 map, scan 등이 그것이다. 하나 하나의 흐름을 operator들로 전달하는 방식으로 동작하는 것이다.</p>
+<h4 id="Values-값"><a href="#Values-값" class="headerlink" title="Values(값)"></a>Values(값)</h4><p>RxJS의 흐름이 진행되는 과정에서 인자로 값들을 넘긴다. RxJS는 operator들을 통해 이 값들을 원하는 값을 도출한다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;RxJS-Purity-순수성&quot;&gt;&lt;a href=&quot;#RxJS-Purity-순수성&quot; class=&quot;headerlink&quot; title=&quot;RxJS - Purity(순수성)&quot;&gt;&lt;/a&gt;RxJS - Purity(순수성)&lt;/h3&gt;&lt;h4 id=&quot;Purity-
+    
+    </summary>
+    
+      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reactive extension JS (RxJS) 시작!</title>
+    <link href="http://wooner.net/2016/12/23/rxjs/"/>
+    <id>http://wooner.net/2016/12/23/rxjs/</id>
+    <published>2016-12-23T03:34:00.000Z</published>
+    <updated>2017-03-05T13:50:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Reactive-extension-JS-RxJS"><a href="#Reactive-extension-JS-RxJS" class="headerlink" title="Reactive extension JS (RxJS)"></a>Reactive extension JS (RxJS)</h2><p>RxJS에 대해 학습한 내용을 정리해서 포스팅 해보고자 한다.</p>
+<p>여기 글을 RxJS공식 사이트(<a href="http://reactivex.io/rxjs)를" target="_blank" rel="external">http://reactivex.io/rxjs)를</a> 근간으로 하고 있다.</p>
+<p>RxJS 공식사이트에서는 RxJS를 한문장으로 정의하고 있다..</p>
+<blockquote>
+<p>Think of RxJS as Lodash for events.</p>
+</blockquote>
+<p>이벤트의 로다시 같다는 것이다.. 로다시가 무엇인가. 함수형 프로그래밍을 위한 라이브러리가 아닌가…? 대신 로다시가 절차지향적 방식이라면 RxJS는 이벤트 기반의 비동시 방식이라는 차이가 있는 것으로 보인다.</p>
+<p>RxJS는 다음과 같은 키워드로 정의되고 있다.</p>
+<ul>
+<li>Observable: 미래의 값(value)나 이벤트의 호출 가능한 수집의 개념을 나타냄.</li>
+<li>Observer: Observable에 의해 전달 된 값을 처리하는 콜백 콜렉션.</li>
+<li>Subscription: Observable의 실행을 나타냄. 주로 실행 취소에 유용함.</li>
+<li>Operators: map, filter, concat, flatMap 등과 같은 method를 사용하여 컬렉션을 다루는 함수 프로그래밍 스타일을 가능하게하는 순수(pure) 함수.</li>
+<li>Subject: EventEmitter와 동일하며 여러 Observers에 값 또는 이벤트를 멀티 캐스팅함.</li>
+<li>Schedulers: 동시 처리를 제어하는 중앙 집중식 디스패처로서 계산이 언제 발생하는지 조정할 수 있다. setTimeout or requestAnimationFrame or others.</li>
+</ul>
+<p>RxJS가 힘든 이유는 2가지 인것 같다.</p>
+<ul>
+<li>이벤트 기반의 비동기 처리 프로그래밍 방식이 개념적으로 익숙하지 않다.</li>
+<li>익혀야할 용어나 method들이 많다.<br>앞으로 하나씩 하나씩 익혀보자.</li>
+</ul>
+<p>초반 개념을 잡는데 네이버 김훈민 님의 강의가 많은 도움이 됐다. 아래는 관련 블로그나 강의 영상의 링크다. 내용이 많이 겹치지만 일부 다른 부분들도 있어서 되도록 알고있는 모든 링크를 첨부한다.</p>
+<p>블로그: <a href="http://huns.me/development/2051" target="_blank" rel="external">http://huns.me/development/2051</a><br>나프타 컨퍼런스 영상: <a href="https://www.youtube.com/watch?v=3FKlYO4okts" target="_blank" rel="external">https://www.youtube.com/watch?v=3FKlYO4okts</a><br>웹 프론트엔드 개발자의 얕고 넓은 Rx 이야기: <a href="http://www.slideshare.net/jeokrang/rx-70197043" target="_blank" rel="external">http://www.slideshare.net/jeokrang/rx-70197043</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Reactive-extension-JS-RxJS&quot;&gt;&lt;a href=&quot;#Reactive-extension-JS-RxJS&quot; class=&quot;headerlink&quot; title=&quot;Reactive extension JS (RxJS)&quot;&gt;&lt;/a&gt;Reacti
+    
+    </summary>
+    
+      <category term="RxJS" scheme="http://wooner.net/categories/RxJS/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+      <category term="RxJS" scheme="http://wooner.net/tags/RxJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React Life Cycle</title>
+    <link href="http://wooner.net/2016/12/16/react-lifecycle/"/>
+    <id>http://wooner.net/2016/12/16/react-lifecycle/</id>
+    <published>2016-12-15T15:00:00.000Z</published>
+    <updated>2017-03-05T13:50:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="React-Life-Cycle"><a href="#React-Life-Cycle" class="headerlink" title="React Life Cycle"></a>React Life Cycle</h4><p>자꾸 잊어버려서 기록해 둔다…</p>
+<p><img src="/images/react/react_lifecycle.png" alt="" style="max-width:100%;"></p>
+<p>컴포넌트를 생성 할 때는 constructor -&gt; componentWillMount -&gt; render -&gt; componentDidMount.</p>
+<p>컴포넌트를 제거 할 때는 componentWillUnmount 메소드만 실행.</p>
+<p>컴포넌트의 prop이 변경될 때엔 componentWillReceiveProps -&gt; shouldComponentUpdate -&gt; componentWillUpdate-&gt; render -&gt; componentDidUpdate.</p>
+<p>컴포넌트의 state가 변경될 떄엔 props 를 받았을 때 와 비슷하지만 shouldComponentUpdate 부터 시작.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;React-Life-Cycle&quot;&gt;&lt;a href=&quot;#React-Life-Cycle&quot; class=&quot;headerlink&quot; title=&quot;React Life Cycle&quot;&gt;&lt;/a&gt;React Life Cycle&lt;/h4&gt;&lt;p&gt;자꾸 잊어버려서 기록해 둔
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://wooner.net/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+      <category term="React" scheme="http://wooner.net/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>함수형프로그래밍</title>
+    <link href="http://wooner.net/2016/12/15/javascript-funtional/"/>
+    <id>http://wooner.net/2016/12/15/javascript-funtional/</id>
+    <published>2016-12-14T15:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="함수형-프로그래밍에-익숙해지기고-functional한-사고를-키우기위해-연습한-내용들을-기록한-포스트입니다"><a href="#함수형-프로그래밍에-익숙해지기고-functional한-사고를-키우기위해-연습한-내용들을-기록한-포스트입니다" class="headerlink" title="함수형 프로그래밍에 익숙해지기고 functional한 사고를 키우기위해 연습한 내용들을 기록한 포스트입니다."></a>함수형 프로그래밍에 익숙해지기고 functional한 사고를 키우기위해 연습한 내용들을 기록한 포스트입니다.</h4><p>두개의 배열을 하나의 배열로 합쳐보자.</p>
+<ol>
+<li>각 배열의 요소는 객체이다.</li>
+<li>각 배열의 객체의 “id” 프로퍼티가 일치하는 객체끼리 합친다.</li>
+<li>남자이고 나이가 30이상이면 target을 true로, 아니면 false로</li>
+</ol>
+<p>Trial 1. underscore의 map, extend, find 함수 활용</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr1 = [</div><div class="line">  &#123;<span class="attr">name</span>: <span class="string">'owen'</span>, <span class="attr">gender</span>: <span class="string">'male'</span>, <span class="attr">age</span>: <span class="number">36</span>, <span class="attr">id</span>: <span class="number">11</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>: <span class="string">'bbo'</span>, <span class="attr">gender</span>: <span class="string">'female'</span>, <span class="attr">age</span>: <span class="number">34</span>, <span class="attr">id</span>: <span class="number">12</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>: <span class="string">'woo'</span>, <span class="attr">gender</span>: <span class="string">'male'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">id</span>: <span class="number">13</span>&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">const</span> arr2 = [</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">10</span>, <span class="attr">phone</span>: <span class="string">'010-1111-1111'</span>&#125;,</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">11</span>, <span class="attr">phone</span>: <span class="string">'010-2222-2222'</span>&#125;,</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">12</span>, <span class="attr">phone</span>: <span class="string">'010-3333-3333'</span>&#125;,</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">13</span>, <span class="attr">phone</span>: <span class="string">'010-4444-4444'</span>&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">const</span> arr3 = _.map(arr1, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> _.extend(item, _.find(arr2, <span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> item.id === i.id;</div><div class="line">  &#125;), &#123;<span class="attr">target</span>: item.age &gt;= <span class="number">30</span> &amp;&amp; item.gender === <span class="string">'male'</span>&#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(arr3);</div><div class="line"><span class="comment">/*[</span></div><div class="line">&#123;'name':'owen','gender':'male','age':36,'id':11,'phone':'010-2222-2222','target':true&#125;,</div><div class="line">&#123;'name':'bbo','gender':'female','age':34,'id':12,'phone':'010-3333-3333','target':false&#125;,</div><div class="line">&#123;'name':'woo','gender':'male','age':20,'id':13,'phone':'010-4444-4444','target':false&#125;</div><div class="line">]*/</div></pre></td></tr></table></figure>
+<p>[Check]</p>
+<ul>
+<li>위에서 find는 findWhere로 대체할 수 있다. 퍼포먼스 차이는 크게 없어 보인다.</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;함수형-프로그래밍에-익숙해지기고-functional한-사고를-키우기위해-연습한-내용들을-기록한-포스트입니다&quot;&gt;&lt;a href=&quot;#함수형-프로그래밍에-익숙해지기고-functional한-사고를-키우기위해-연습한-내용들을-기록한-포스트입니다&quot; 
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ECMA5 javascript method : map</title>
+    <link href="http://wooner.net/2016/09/01/javascript-map/"/>
+    <id>http://wooner.net/2016/09/01/javascript-map/</id>
+    <published>2016-08-31T15:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="오늘은-ECMA5-javascript-메소드-중에-하나인-map에-대해서-포스팅-하고자-한다"><a href="#오늘은-ECMA5-javascript-메소드-중에-하나인-map에-대해서-포스팅-하고자-한다" class="headerlink" title="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다."></a>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.</h4><p>map메소드는 Array객체의 프로토타입 프로퍼티에 존재하는 메소드다. (즉 모든 배열에서 사용 가능하다.) 이 메소드는 배열의 각 요소들에 대해서 인자로 넘기는 함수를 실행시키고, 해당 배열을 리턴으로 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.map(<span class="function"><span class="keyword">function</span>(<span class="params">currentValue,index,arr</span>), <span class="title">thisValue</span>)</span></div></pre></td></tr></table></figure>
+<p>위에서 볼 수 있듯이 콜백함수에 첫번째 값으로 요소의 값을, 두번째로 인덱스, 세번째로 배열 자체를 넘긴다. 아래는 제곱근을 구하는 예제이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>];</div><div class="line"><span class="keyword">var</span> sq = numbers.map(<span class="function"><span class="keyword">function</span>(<span class="params">val, idx</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(val);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(sq);<span class="comment">//[2, 3, 4, 5]</span></div></pre></td></tr></table></figure>
+<p>map은 원래의 배열에 영향을 미치지는 않는다. 따라서 다시 numbers를 콘솔로 찍으면 원래 값([4, 9, 16, 25])을 반환한다.</p>
+<p>ECMA3에서 map메소드는 없지만, 다음과 같이 스크립트를 활용해 만들 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">Array</span>.prototype.map)&#123;</div><div class="line">  <span class="built_in">Array</span>.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">a, f</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> results = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = a.length; i &lt; len; i++) &#123;</div><div class="line">      <span class="keyword">if</span>(i <span class="keyword">in</span> a) results[i] = f.call(<span class="literal">null</span>, a[i], i, a);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> results;</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;오늘은-ECMA5-javascript-메소드-중에-하나인-map에-대해서-포스팅-하고자-한다&quot;&gt;&lt;a href=&quot;#오늘은-ECMA5-javascript-메소드-중에-하나인-map에-대해서-포스팅-하고자-한다&quot; class=&quot;headerlin
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ECMA5 javascript method : reduce</title>
+    <link href="http://wooner.net/2016/08/28/javascript-reduce/"/>
+    <id>http://wooner.net/2016/08/28/javascript-reduce/</id>
+    <published>2016-08-28T14:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.</strong></p>
+<p>자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효율적인 소스를 제작 할 수 있음에도 불구하고, 아직 우리나라는 익스8버젼을 고려해야하기 때문에 포기하는 경우가 많았다.</p>
+<p>하지만 가까운 미래에 우리나라도 ECMA5기반으로 만들어진 사이트 들이 늘어날 것이고, 또 node.js의 경우에는 서버단의 언어이고 V8엔진 기반으로 해석되기 때문에 익스에 대한 고민없이 ECMA5 또는 6기반으로 소스를 설계할 수 있다.</p>
+<p><a href="http://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="external">reduce 메소드</a>의 기본형태는 아래와 같다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">리턴값,현재요소,현재요소의 index,배열</span>),초기값)</span></div></pre></td></tr></table></figure></p>
+<p>여기서 리턴값이란 1번째 순회에서는 초기값을, 이후 순회에서는 그전 순회에서 받은 리턴값을 나타낸다. 아래는 reduce의 가장기본적인 예제이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> sum = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">total, val</span>)</span>&#123;<span class="keyword">return</span> total + val;&#125;, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(sum);<span class="comment">//15</span></div></pre></td></tr></table></figure>
+<p>위 예제에서는 리턴값에 현재요소를 더한값을 다음 순회로 리턴시킨다. 결국 모든 요소를 더한값을 반환한다.</p>
+<p>다음은 배열안의 수 중 가장 큰 수를 추출하는 스크립트이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>];</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;<span class="keyword">return</span> a &gt; b ? a : b;&#125;);</div><div class="line"><span class="built_in">console</span>.log(max);<span class="comment">//100</span></div></pre></td></tr></table></figure>
+<p>위 예제는 리턴된 값과 현재요소를 비교해서 큰 값을 리턴시킨다. 물론 배열에서 가장 큰 값을 구하는 방법은 apply함수를 이용하는 방법이 더 효율적이긴 하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, arr);</div></pre></td></tr></table></figure></p>
+<p>이제 좀 더 복잡한 예제를 보자. 아래는 배열중에 연속된 수들이 있으면 해당 수들을 배열로 묶어서 반환시키는 함수이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">101</span>, <span class="number">103</span>];</div><div class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;<span class="keyword">return</span> a - b&#125;); <span class="comment">//sort 메소드로 오름차순 정렬.</span></div><div class="line"><span class="keyword">var</span> cnt = <span class="number">0</span>,tArr = [],len;</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (a + <span class="number">1</span> === b) &#123; <span class="comment">//현재요소가 리턴값과 이어지는 정수면...</span></div><div class="line">        <span class="keyword">if</span> (!cnt) &#123; <span class="comment">//연속된 수의 첫 시작이면</span></div><div class="line">            <span class="keyword">var</span> tArr2 = [];</div><div class="line">            tArr2.push(a, b);</div><div class="line">            len = tArr.push(tArr2);</div><div class="line">            cnt = <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//연속된 수가 계속 이어지고 있는 상태면..</span></div><div class="line">            tArr[(len - <span class="number">1</span>)].push(b);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//수가 이어지지 않으면..</span></div><div class="line">        cnt = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> b; <span class="comment">//현재 요소를 반훤</span></div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(tArr); <span class="comment">//[[1, 2], [4, 5, 6], [100, 101]]</span></div></pre></td></tr></table></figure></p>
+<p>결론적으로 reduce는 어떤값을 리턴시키느냐에 따라 다양하게 확장해서 사용할 수 있다!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSONP에 관하여...</title>
+    <link href="http://wooner.net/2016/08/22/javascript-jsonp/"/>
+    <id>http://wooner.net/2016/08/22/javascript-jsonp/</id>
+    <published>2016-08-22T03:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>jsonp라는 놈을 처음 접한건 instagram API에 대해서 스터디 하고 있었을 때였다.<br>jquery의 ajax매소드($.ajax(인자))를 써서 api를 써보는데, datatype속성을 json으로 하면 브라우저가 크로스도메인 에러를 뿌린다.. 에러내용은 아래와 같다.</p>
+<blockquote>
+<p>XMLHttpRequest cannot load <a href="http://받는주소" target="_blank" rel="external">http://받는주소</a>. No ‘Access-Control-Allow-Origin’ header is present on the requested resource. Origin ‘<a href="http://보낸주소" target="_blank" rel="external">http://보낸주소</a>‘ is therefore not allowed access.</p>
+</blockquote>
+<p>즉, 도메인이 달라서 안된다는 것인데, 이것저것 찾아보다가 몇시간을 허비했다… 결국 찾은 해결책은 datatype속성을 jsonp로만 바꿔주면 되는 것이었다!</p>
+<p>이는 교차출처(Cross-Origin) HTTP요청에 대한 정책때문이었다. ajax요청을 받는 서버의 헤더에 크로스도메인 요청을 승인(CORS)이 되어 있지 않으면 서로다른 도메인간에 ajax요청은 승인되지 않는다. 그리고 CORS가 되어 있더라도 ie8 같은 낮은버젼의 브라우저에서는 이를 지원하지 않는다. 그래서 나온 해결책이 <code>jsonp</code>다. 결국 <code>jsonp</code>는 우회해서 크로스도메인 요청을 할 수 있는 방식인 것이다.</p>
+<p><code>jsonp</code>가 생소할수 있지만, 사실 <code>jsonp</code>은 script태그를 생성하고 해당 url을 호출하는 방식이다. 우리가 아주 많이쓰고 있는 방식이다. 예를 들면 우리가 <code>jquery</code> js파일을 호출할때 아래와 같이 할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"http://code.jquery.com/jquery-1.11.3.min.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>생각해보면 script태그로 호출하는 url주소는 도메인이 어디든지 영향을 받지 않는다. <code>jsonp</code>는 이 방법을 활용해서 해당 파일을 호출한다. 응답하는 파일의 내용에는 함수를 호출하는 자바스크립트 문장이 있으며, 인자로 json형태의 객체를 넘긴다. 예를 들면 다음과 같다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">callback([<span class="number">1</span>, <span class="number">2</span>, &#123;<span class="string">"name"</span> : <span class="string">"owen"</span>&#125;])<span class="comment">//여기서 함수명(callback)은 개발자가 정하기 나름이다.</span></div></pre></td></tr></table></figure></p>
+<p>그리고 이 함수에 대한 선언을 미리 해놓아서, <code>jsonp</code>으로 파일이 응답할때 해당 함수가 실행되도록 하는 것이다. 예를 들어.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">res</span>)</span>&#123;<span class="built_in">console</span>.log(res.name)&#125;</div><div class="line"><span class="comment">//jsonp로 파일을 가져오면 위 'callback'함수가 실행된다.</span></div></pre></td></tr></table></figure></p>
+<p><code>Jquery</code>의 <code>ajax</code>를 활용해서 <code>jsonp</code>를 사용하는건, 아래와 같이 쓴다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">  <span class="attr">dataType</span>: <span class="string">"jsonp"</span>,</div><div class="line">  <span class="attr">url</span>: <span class="string">"http://textsite.com/jsonp"</span>,</div><div class="line">  <span class="attr">type</span>: <span class="string">"GET"</span>,</div><div class="line">  <span class="attr">data</span>: &#123;<span class="string">'s'</span>:s&#125;,</div><div class="line">  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>아주쉽다. <code>json</code>을 <code>jsonp</code>로만 바꾸어주면 된다..<br>여기서 주의할 점은 위에서도 봤지만, 요청 받는 서버(<a href="http://textsite.com/jsonp)에서" target="_blank" rel="external">http://textsite.com/jsonp)에서</a> 자바스크립트 함수 호출하는 문장 형태로 값을 넘겨줄 준비가 되어 있어야 한다. 즉 아무 사이트나 <code>json</code>을 <code>jsonp</code>로 바꾼다고 값을 넘겨받을 수 있는건 아니라는 것이다. 다행히 요새 대부분의 sns, 포털사이트의 api들이 <code>jsonp</code>방식을 지원하고 있어서 큰 진행함에 있어서 큰 문제는 없다.</p>
+<p>보다 정확히 <code>jsonp</code>를 이해하기 위해서 <code>Jquery</code>를 쓰지 말고 직접 만들어보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getJSONP</span>(<span class="params">url</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(url.indexOf(<span class="string">"?"</span>) === <span class="number">-1</span>) url +=<span class="string">"?callback=cbFn"</span>; <span class="comment">//url에 파라미터가 있으면 '&amp;' 없으면 '?'</span></div><div class="line">  <span class="keyword">else</span> url += <span class="string">"&amp;callback=cbFn"</span>;</div><div class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);<span class="comment">//스크립트 엘리먼트를 생성한다.</span></div><div class="line">  <span class="built_in">window</span>.cbFn = <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;<span class="comment">//호출될 함수를 미리 선언한다.</span></div><div class="line">    <span class="keyword">try</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(res);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">finally</span>&#123;</div><div class="line">      <span class="keyword">delete</span> <span class="built_in">window</span>.cbFn;<span class="comment">//임시로 추가한 함수므로 함수 실행이 끝나고 나서 지운다.</span></div><div class="line">      script.parentNode.removeChild(script);<span class="comment">//추가한 스크립트 테그도도 지운다.</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  script.src = url;</div><div class="line">  <span class="built_in">document</span>.body.appendChild(script);<span class="comment">//DOM에 script가 추가됨에 따라 파일 안의 함수(cnFn)가 호출된다.</span></div><div class="line">&#125;</div><div class="line">getJSONP(<span class="string">'jsonp.php'</span>);</div></pre></td></tr></table></figure></p>
+<p>그리고 호출되는 jsonp.php파일은 아래와 같이 작성하였다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $_GET[<span class="string">'callback'</span>];<span class="meta">?&gt;</span>([</div><div class="line">  [<span class="number">1</span>,<span class="number">2</span>,&#123;<span class="string">"name"</span> : <span class="string">"owen"</span>&#125;]</div><div class="line">]);</div></pre></td></tr></table></figure></p>
+<p>결국 jsonp.php파일안의 <code>cbFn([[1,2,{&quot;name&quot; : &quot;owen&quot;}]])</code> 를 통해 전역함수인 <code>cbFn</code>함수가 호출되면서 콘솔 함수(<code>console.log(res);</code>)가 실행되는 것이다~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;jsonp라는 놈을 처음 접한건 instagram API에 대해서 스터디 하고 있었을 때였다.&lt;br&gt;jquery의 ajax매소드($.ajax(인자))를 써서 api를 써보는데, datatype속성을 json으로 하면 브라우저가 크로스도메인 에러를
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Javascript의 valueOf, toString</title>
+    <link href="http://wooner.net/2016/08/21/valueof-tostring/"/>
+    <id>http://wooner.net/2016/08/21/valueof-tostring/</id>
+    <published>2016-08-21T03:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Javascript의 <code>Object</code>객체의 내장 메소드 중,  자바스크립트 내부적으로는 많이 사용되지만, 사용자가 작성할때는 거의 사용되지 않는 것들이 있다. 그중에 대표적인 것이 <code>toString</code>, <code>valueOf</code> 이다.</p>
+<p>내부적으로 <code>toString</code>이 사용되는 대표적인 예는 DOM프로퍼티인 <code>innerHTML</code>을 사용할 때이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span> : <span class="string">'owen'</span>&#125;;</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'demo'</span>).innerHTML = obj;</div></pre></td></tr></table></figure></p>
+<p>이렇게 하면 자바스크립트는 demo아이디를 가진 엘리먼트에 <code>[object Object]</code>를 출력한다. 즉, 사용자는 사용하지 않았지만, 자바스크립트 내부적으로 <code>toString</code> 메소드를 사용해서 객체의 내용을 출력한 것이다.</p>
+<p><code>valueOf</code>가 가장 흔하게 사용되는 경우는 객체를 비교하는 연산자에서이다. “&gt;, &lt;, &gt;=, &lt;=”등의 연산자가 객체간에 실행될때 자바스크립트 내부적으로는 <code>valueOf</code> 메소드를 호출한다.</p>
+<p>이런 특성을 이용하면 흥미로운 예제를 만들 수 있다.<br><code>toString</code>, <code>valueOf</code>은 결국 프로토타입으로부터 상속받은 메소드이기 때문에, 사용자가 같은 이름의 메소드를 선언함으로써 위 두 메소드를 원하는 형태로 바꿀수 있다는 것이다.</p>
+<p>다음 예제를 보면… (자바스크립트의 프로토타입에 대해 잘 모르시는 분은 이해하기 어려울 수 있습니다.)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> students = [</div><div class="line">  &#123;<span class="attr">name</span> : <span class="string">'owen'</span>, <span class="attr">idx</span> : <span class="number">5</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span> : <span class="string">'jason'</span>, <span class="attr">idx</span> : <span class="number">3</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span> : <span class="string">'justin'</span>, <span class="attr">idx</span> : <span class="number">4</span>&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">var</span> proto = &#123;</div><div class="line">  <span class="attr">toString</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.name;&#125;,</div><div class="line">  <span class="attr">valueOf</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.idx&#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> students2 = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; students.length ; i++)&#123;</div><div class="line">  <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">  F.prototype = proto;</div><div class="line">  students2[i] = <span class="keyword">new</span> F();</div><div class="line">  students2[i].name = students[i].name;</div><div class="line">  students2[i].idx = students[i].idx;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(students2[<span class="number">0</span>] &lt; students2[<span class="number">1</span>]); <span class="comment">//false</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'demo'</span>).innerHTML = students2[<span class="number">0</span>]; <span class="comment">//owen 출력</span></div></pre></td></tr></table></figure></p>
+<p>이는 학교에서 학생들의 번호와 이름을 객체로 만드는 상황을 가정한 것이다. 첫번째로 학생들을 배열로 만들고 이름과 번호(idx)를 선언한다.<br><code>proto</code>라는 객체를 만들어서 <code>toString</code>과 <code>valueOf</code>메소드를 새롭게 정의한다. 즉 <code>toString</code>은 학생의 이름을, <code>valueOf</code>는 학생의 번호를 가져오는 메소드가 된 것이다.<br>for문을 실행시켜 새로운 배열을 생성하면서 각각의 요소에 <code>toString</code>과 <code>valueOf</code>를 프로토타입 상속을 통해 선언하고, 각이름과 <code>idx</code>값을 넣어준다.<br>이제 각요소의 <code>idx</code>프로퍼티나 <code>name</code>프로퍼티를 찾아가지 않아도 값비교나 이름 출력이 가능해 졌다.<br>이 예제는 크게 실용적으로 보이지는 않지만, 이런 자바스크립트 특성을 잘 활용하면 보다 효율적인 코드를 작성할 수 있을것 같다.^^</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Javascript의 &lt;code&gt;Object&lt;/code&gt;객체의 내장 메소드 중,  자바스크립트 내부적으로는 많이 사용되지만, 사용자가 작성할때는 거의 사용되지 않는 것들이 있다. 그중에 대표적인 것이 &lt;code&gt;toString&lt;/code&gt;, &lt;c
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>다른 퍼블리셔들의 사용패턴 설문조사</title>
+    <link href="http://wooner.net/2016/08/18/develop-patten/"/>
+    <id>http://wooner.net/2016/08/18/develop-patten/</id>
+    <published>2016-08-18T03:00:00.000Z</published>
+    <updated>2017-03-05T13:49:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>다른 퍼블리셔들은 어떻게 하는지 궁금한 것을이 있었다.<br>예를들어 에디터는 뭐를 쓸까? css 스타일은 한줄에 쓰나 나눠서 쓰나? 등등..</p>
+<p>그러던 와중 css사용 패턴에 대한 설문조사가 있는 글을 발견했다.</p>
+<p><a href="https://www.sitepoint.com/results-ultimate-css-survey/" target="_blank" rel="external">https://www.sitepoint.com/results-ultimate-css-survey/</a></p>
+<p>모수가 3,500명 정도 되고, 외국사람들을 대상으로 조사한 설문이다 보니 꽤 글로벌하게 의미있는 결과가 아닐까 싶다.</p>
+<p>재미있었던것 몇가지가 있는데..</p>
+<p>css스타일을 멀티라인이 아닌, 1개 라인에 쓰는 사람이 훨신 많다는 것.<br>css스타일링을 모바일 페이지 먼저 하는 사람이 많다는것<br>(이건 외국이니까 가능한 것 같다. 우리는 미디어 쿼리 따위는 무시하는 ie8의 눈치를 봐야 한다.)<br>얼마전까지 썼던 aptana 에디터는 순위 안에도 없다는것<br>부트스트랩 css를 사용하는 사람이 43%로 제일 많다는것.<br>(프레임워크 사용 안하는 사람은 20%…)<br>CSS preprocessor(SASS, LESS등)을 사용하는 사람이 73%라는것.</p>
+<p>설문조사가 영어로 되어 있어서 완전히 이해하기는 어렵다. 시간날때마다 천천히 봐야 겠다..</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;다른 퍼블리셔들은 어떻게 하는지 궁금한 것을이 있었다.&lt;br&gt;예를들어 에디터는 뭐를 쓸까? css 스타일은 한줄에 쓰나 나눠서 쓰나? 등등..&lt;/p&gt;
+&lt;p&gt;그러던 와중 css사용 패턴에 대한 설문조사가 있는 글을 발견했다.&lt;/p&gt;
+&lt;p&gt;&lt;a hr
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+      <category term="css" scheme="http://wooner.net/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>객체와 배열 구분하기</title>
+    <link href="http://wooner.net/2016/08/12/array-object/"/>
+    <id>http://wooner.net/2016/08/12/array-object/</id>
+    <published>2016-08-12T02:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.<br>근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;);<span class="comment">//"object"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []);<span class="comment">//"object"</span></div></pre></td></tr></table></figure></p>
+<p>이때 사용하는 방법은, 자바스크립트 객체의 메소드인 toString을 활용하는 것이다.<br>일단 소스는 아래와 같다.</p>
+<p>위의 예제에서 typeof 대신 toString을 실행해보면 아래와 같이 나온다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;))<span class="comment">//;"[object Object]"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([]));<span class="comment">//"[object Array]"</span></div></pre></td></tr></table></figure></p>
+<p>위 예제에서 특이한 것은 <code>toString</code>메소드를 해당 객체(또는 배열)에 직접 실행 한 것이 아니라 <code>Object</code>객체의 프로토타입 프로퍼티로 실행을 시키고 call이라는 재귀 함수를 통해 toString을 해당 객체(또는 배열)의 메소드화 시켰다는 것이다.</p>
+<p>일반적으로 우리가 사용하는 방법인 <code>[].toString()</code>과 이 방법의 차이는 무엇인가..?(이 방법으로 하면 배열을 콤마(,)로 구분된 문자열을 반환한다)</p>
+<p><code>[].toString()</code>의 toString은 배열(<code>[]</code>)의 프로토타입인 <code>Array</code> 객체로 부터 상속받아 사용하는 메소드이고,<br><code>Object.prototype.toString.call([])</code>의 toString은 배열(<code>[]</code>)에 Object의 메소드인 toString()을 직접 정의시킨 메소드 인 것이다.</p>
+<p>즉 Array객체의 toString을 사용하면 우리가 원하는 객체 타입을 반환하는 것이 아니라 배열을 문자열로 반환시켜 버리므로, Object객체의 toString을 사용하도록 강제로 설정했다고 볼 수 있다.</p>
+<p>자 그럼 이제 객체의 class를 구분하는 함수를 만들어 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClassType</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getClassType([]));<span class="comment">//"Array"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(&#123;&#125;));<span class="comment">//"Object"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="number">1</span>));<span class="comment">//"Number"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="keyword">new</span> <span class="built_in">Date</span>()));<span class="comment">//"Date"</span></div></pre></td></tr></table></figure></p>
+<p>이처럼 반환된 문자열을 slice 메소드를 통해 잘라내어 class를 구할 수 있다.^^</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.&lt;br&gt;근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.&lt;br&gt;&lt;figure class=&quot;highlight javascript
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://wooner.net/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>자바스크립트 프로토 타입의 프로퍼티 할당</title>
+    <link href="http://wooner.net/2016/08/10/prototype/"/>
+    <id>http://wooner.net/2016/08/10/prototype/</id>
+    <published>2016-08-10T03:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다.</p>
+<p>그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 하는 것을 확인했습니다.</p>
+<p>아래 소스를 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Test.prototype = &#123;</div><div class="line">    <span class="attr">a</span> : &#123;</div><div class="line">        <span class="attr">aa</span> : <span class="string">'1'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> TestA = <span class="keyword">new</span> Test();</div><div class="line"><span class="keyword">var</span> TestB = <span class="keyword">new</span> Test();</div><div class="line">TestB.a.aa= <span class="string">'2'</span>;</div><div class="line"><span class="built_in">console</span>.log(TestA.a.aa); <span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(TestB.a.aa); <span class="comment">//2</span></div></pre></td></tr></table></figure></p>
+<p>위에서 신기한 것은, TestB 객체에 직접 프로퍼티 값을 할당했는데도, Test 함수의 프로토 타입의 값이 바뀌었다는 것입니다. (이 내용이 잘 이해 안되시면 프로토 타입 체인에 대해서 찾아 보시기 바랍니다.^^)</p>
+<p>이유는 처음에도 말한것 처럼 자바스크립트의 객체는 값을 할당할 때도 프로토 타입 체인을 따라가기 때문입니다.</p>
+<p><code>TestB.a.aa= &#39;2&#39;;</code> 을 실행했을때, TestB에는 a라는 프로퍼티가 없기 때문에 <code>aa</code>라는 프로퍼티를 생성 할 수가 없습니다. 보통은 자바스크립트가 error를 뿌리면서 실행이 중지되죠.<br>하지만 이 경우에는 자바스크립트는 프로토타입에 <code>a</code>라는 프로퍼티가 존재합니다. 따라서 프로토타입 체인 순서에 의해 Test객체의 <code>prototype</code> 프로퍼티에 있는 <code>a.aa</code>에 값을 할당하게 됩니다.<br><code>Test</code>객체의 <code>prototype</code> 값이 바뀌었으므로 이를 상속받는 <code>TestA</code>객체도 영향을 받은 것이지요.</p>
+<p>자바스크립트는 참 유연한 언어라는걸 또한번 느낄수 있었네요.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다.&lt;/p&gt;
+&lt;p&gt;그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://wooner.net/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>프레임에 이미지 꽉 채우기 Part2(Javascript)</title>
+    <link href="http://wooner.net/2016/07/12/fill-image-javascript/"/>
+    <id>http://wooner.net/2016/07/12/fill-image-javascript/</id>
+    <published>2016-07-12T03:00:00.000Z</published>
+    <updated>2017-03-05T13:15:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>이 글은  프레임에 이미지 꽉 채우기 Part1(CSS)에 이어진 글입니다.</strong></p>
+<p>이번에는 자바스크립트를 이용한 방식이다.</p>
+<p>Javascript로 꽉 채우기.</p>
+<p>우선 소스…</p>
+<p><div class="codepen" data-default-tab="js" data-embed-version="2" data-height="324" data-slug-hash="mPKJoz" data-theme-id="0" data-user="wooner"><br>See the Pen <a href="http://codepen.io/wooner/pen/mPKJoz/" target="_blank" rel="external">이미지 꽉 채우기(javascript)</a> by owen (<a href="http://codepen.io/wooner" target="_blank" rel="external">@wooner</a>) on <a href="http://codepen.io/" target="_blank" rel="external">CodePen</a>.</div></p>
+<script src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-</section>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2017 Owen. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-        </div>
-        
-
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">Owen</h4>
-        
-            <div id="about-card-bio"><p>author.bio</p>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </div>
-        
-        
-    </div>
-</div>
-
-        <div id="algolia-search-modal" class="modal-container">
-    <div class="modal">
-        <div class="modal-header">
-            <span class="close-button"><i class="fa fa-close"></i></span>
-            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
-                <span class="searchby-algolia-text text-color-light text-small">by</span>
-                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-            </a>
-            <i class="search-icon fa fa-search"></i>
-            <form id="algolia-search-form">
-                <input type="text" id="algolia-search-input" name="search"
-                    class="form-control input--large search-input" placeholder="Search "
-                    autofocus="autofocus"/>
-            </form>
-        </div>
-        <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
-            <div class="results">
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/prototype/">
-                            <h3 class="media-heading">객체 및 프로토타입</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 7월 12일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-css/">
-                            <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(css)</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 7월 12일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-javascript/">
-                            <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(Javascript)</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 7월 12일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/10/prototype/">
-                            <h3 class="media-heading">자바스크립트 프로토 타입의 프로퍼티 할당</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 8월 10일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/12/array-object/">
-                            <h3 class="media-heading">객체와 배열 구분하기</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 8월 12일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/18/develop-patten/">
-                            <h3 class="media-heading">다른 퍼블리셔들의 사용패턴 설문조사</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 8월 18일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/21/valueof-tostring/">
-                            <h3 class="media-heading">Javascript의 valueOf, toString</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 8월 21일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/22/javascript-jsonp/">
-                            <h3 class="media-heading">JSONP에 관하여...</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 8월 22일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/08/28/javascript-reduce/">
-                            <h3 class="media-heading">ECMA5 javascript method : reduce</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 8월 28일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-                <div class="media">
-                    
-                    <div class="media-body">
-                        <a class="link-unstyled" href="http://wooner.net/2016/09/01/javascript-map/">
-                            <h3 class="media-heading">ECMA5 javascript method : map</h3>
-                        </a>
-                        <span class="media-meta">
-                            <span class="media-date text-small">
-                                
-                                    2016년 9월 1일
-                                
-                            </span>
-                        </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
-                    </div>
-                    <div style="clear:both;"></div>
-                    <hr>
-                </div>
-                
-            </div>
-        </div>
-        <div class="modal-footer">
-            <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                22 posts found
-            </p>
-        </div>
-    </div>
-</div>
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/jquery.fancybox-thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
-
-
-
-    </body>
-</html>
+<p>imgAlign이라는 함수를 만들었다.</p>
+<p>함수가 길고 복잡하니 함수에 대한 설명은 하지 않고 사용법에 대해서만 기록한다.</p>
+<p>우선 css스타일이 있어야 한다.<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-class">.h100p</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span> <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">width</span>: auto <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">position</span>: relative</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">img</span><span class="selector-class">.w100p</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span> <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">height</span>: auto <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>자바스크립트로 width와 height값을 처리하지 않고 클래스를 add, remove 해서 위치를 맞춘다. 그게더 속도가 빠르다고 해서 이렇게 한건데.. 실상은 잘 모르겠다.</p>
+<p>함수 실행할때 인자는 여러 방법으로 넘길 수 있다. 인자로는 이미지를 싸고있는 박스를 css selector방식으로 넘긴다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">imgAlign(<span class="string">'.imgBx'</span>); <span class="comment">//jquery로 씌워서 해당 element를 찾음</span></div><div class="line">imgAlign([<span class="string">'.imgBx'</span>, <span class="string">'.imgBx2'</span>]); <span class="comment">//배열을 돌면서 jquery로 씌워서 해당 element를 찾음</span></div><div class="line">imgAlign($(<span class="string">'.imgBx'</span>)); <span class="comment">//이미 jquery로 싸여 있으므로 바로 element를 찾음</span></div><div class="line">imgAlign(<span class="string">'.imgBx'</span>, &#123;<span class="attr">resize</span> : ture&#125;); <span class="comment">//리사이즈 될때마다 위치를 재 계산함.</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;이 글은  프레임에 이미지 꽉 채우기 Part1(CSS)에 이어진 글입니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이번에는 자바스크립트를 이용한 방식이다.&lt;/p&gt;
+&lt;p&gt;Javascript로 꽉 채우기.&lt;/p&gt;
+&lt;p&gt;우선 소스…&lt;/p&gt;
+&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wooner.net/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wooner.net/tags/javascript/"/>
+    
+  </entry>
+  
+</feed>

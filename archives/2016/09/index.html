@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Owen&#39;s Blog">
-    <title>Archives: 2017/3 - Owen&#39;s Blog</title>
+    <title>Archives: 2016/9 - Owen&#39;s Blog</title>
     <meta name="author" content="Owen">
     
     
@@ -15,7 +15,7 @@
     
     <meta property="og:type" content="blog">
 <meta property="og:title" content="Owen's Blog">
-<meta property="og:url" content="http://wooner.net/archives/2017/03/index.html">
+<meta property="og:url" content="http://wooner.net/archives/2016/09/index.html">
 <meta property="og:site_name" content="Owen's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Owen's Blog">
@@ -168,21 +168,21 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2017/03/03/angular-dynamic-component/">
-                            Angular2 Dynamic Component
+                        <a class="link-unstyled" href="/2016/09/01/javascript-map/">
+                            ECMA5 javascript method : map
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-03-03T12:34:00+09:00">
+    <time itemprop="datePublished" datetime="2016-09-01T00:00:00+09:00">
 	
-		    3월 03, 2017
+		    9월 01, 2016
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Angular/">Angular</a>
+    <a class="category-link" href="/categories/Javascript/">Javascript</a>
 
 
     
@@ -191,95 +191,20 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <p>Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.</p>
-<p>보통 Angular에서 컴포넌트의 추가는 <code>route</code>를 통해서만 이루어 집니다. 이때는 <code>route</code>에서 컴포넌트를 생성/제거를 해주기 때문에 우리는 크게 신경써야 할 부분이 없습니다.<br>하지만 동적으로 컴포넌트를 추가할때는 몇가지 신경써야 하는 부분들이 있습니다.</p>
-<h2 id="template에-동적-컴포넌트를-추가할-영역-정하기"><a href="#template에-동적-컴포넌트를-추가할-영역-정하기" class="headerlink" title="template에 동적 컴포넌트를 추가할 영역 정하기."></a>template에 동적 컴포넌트를 추가할 영역 정하기.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, ViewChild&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'home'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">&lt;div #container&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">`</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>위는 컴포넌트 템플릿의 <code>#container</code>은 컴포넌트를 추가할 영역입니다. 그럼 이제 class에서 해당 영역을 선언해봅시다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>) container;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이 <code>container</code>를 콘솔로 직어보면 <code>ElementRef</code>라는 객체가 보입니다. 이는 native 엘리먼트에 접근하기 위한 방법입니다.<br>하지만 우리는 <code>ViewContainerRef</code>가 필요합니다. 우리는 이를 다음과 같이 써서 얻을 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>, &#123;<span class="attr">read</span>:ViewContainerRef&#125;) container;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이렇게 하면, <code>container</code>를 <code>ElementRef</code>로 읽는 대신, <code>ViewContainerRef</code>로 읽어오게 됩니다.<br>다시 콘솔을 찍어보면 <code>ViewContainerRef</code> 객체가 보입니다. 이제 우리는 <code>this.container.createComponent</code>같은 메소드를 사용할 수 있습니다. 실제로 컴포넌트를 불러와 봅시다.</p>
-<h2 id="동적으로-컴포넌트-생성하기"><a href="#동적으로-컴포넌트-생성하기" class="headerlink" title="동적으로 컴포넌트 생성하기"></a>동적으로 컴포넌트 생성하기</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>, &#123;<span class="attr">read</span>:ViewContainerRef&#125;) container;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(private resolver:ComponentFactoryResolver)&#123;&#125;</div><div class="line">  ngAfterContentInit()&#123;</div><div class="line">    <span class="keyword">this</span>.container.createComponent(<span class="keyword">this</span>.resolver.resolveComponentFactory(WidgetThree));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>CreateComponent</code>는 <code>ComponentFactory</code>를 사용합니다. 컴포넌트를 생성하려면 <code>CreateComponent</code>에 <code>ComponentFactory</code>를 전달해야합니다.<br><code>ComponentFactory Resolver</code>(<code>ComponentFactoryResolver</code>) 서비스를 삽입함으로써 컴포넌트 팩토리를 얻습니다. 이 Resolver를 사용하여 <code>this.resolver.resolveComponentFactory</code>를 호출 한 다음 유형별로 조회 할 수 있습니다.<br>그리고 <code>WidgetThree</code>라는 컴포넌트를 인자로 넘깁니다.</p>
-<p>이를 좀 더 가독성 있게 바꿔보겠습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ngAfterContentInit()&#123;</div><div class="line">  <span class="keyword">const</span> widgetFactory = <span class="keyword">this</span>.resolver.resolveComponentFactory(WidgetThree);</div><div class="line">  <span class="keyword">this</span>.container.createComponent(widgetFactory);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>widgetFactory</code> 변수에 <code>resolveComponentFactory(WidgetThree)</code>를 담았습니다. 그리고 이를 <code>createComponent</code>함수를 이용해서 <code>container</code>안에 컴포넌트를 추가하려고 합니다.</p>
-<p>하지만 이 함수를 실행해보면 다음과 같은 에러가 납니다.</p>
-<p><code>ORIGINAL EXCEPTION: No component factory found for WidgetThree</code></p>
-<p>기본적으로 Angular와 Angular 컴파일러는 template들의 selector에 참조되지 않는 컴포넌트들은 컴파일 하지 않습니다. 즉, <code>selector</code>기반으로 찾고, 번들링 합니다. 그리고 나머지 컴포넌트들은 무시합니다.<br>따라서 우리가 만일 <code>WidgetThree</code>컴포넌트를 <code>module</code>에서 <code>declaration</code> 했다고 하더라도, <code>selector</code>에 지정되어 있지 않으면 번들링 되지 않는 것입니다.<br>따라서 이와같은 컴포넌트를 컴파일 대상에 강제로 배정하기 위해서는 <code>NgModule</code>의 옵션 <code>entryComponents</code>에 해당 컴포넌트를 추가해주어야 합니다. 이는 이 컴포넌트를 사용할 것이라고 정의하는 것입니다.</p>
-<p>아래는 해당내용에 대한 코드입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">  <span class="attr">imports</span>:[CommonModule],</div><div class="line">  <span class="attr">declarations</span>:[WidgetOne, WidgetTwo, WidgetThree],</div><div class="line">  <span class="attr">entryComponents</span>:[WidgetThree],</div><div class="line">  <span class="attr">exports</span>:[WidgetOne, WidgetTwo, WidgetThree, CommonModule]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>자 이렇게 해서 실행하면 동적으로 컴포넌트를 추가 할 수 있습니다.</p>
-<h2 id="동적으로-생성한-컴포넌트에-데이터-전달하기"><a href="#동적으로-생성한-컴포넌트에-데이터-전달하기" class="headerlink" title="동적으로 생성한 컴포넌트에 데이터 전달하기"></a>동적으로 생성한 컴포넌트에 데이터 전달하기</h2><p>생성한 컴포넌트의 <code>instance</code>객체를 이용하여 동적으로 생성한 컴포넌트에 데이터를 전달할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ngAfterViewInit()&#123;</div><div class="line">  <span class="keyword">const</span> widgetFactory = <span class="keyword">this</span>.resolver.resolveComponentFactory(WidgetThree);</div><div class="line">  <span class="keyword">const</span> widgetRef = <span class="keyword">this</span>.container.createComponent(widgetFactory);</div><div class="line">  widgetRef.instance.message = <span class="string">"I'm last!"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이제 데이터를 전달할 준비가 되었습니다. 받는쪽은 자식 컴포넌트가 부모 컴포넌트의 데이터를 받는 방식과 동일합니다. <code>WidgetThree</code>의 클래스에서 <code>@Input</code> 데코레이터를 사용하여 <code>message</code> 프로퍼티를 받습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'widget-three'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">&lt;input #input type="text" [value]="message"&gt;</div><div class="line">`</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">WidgetThree</span></span>&#123;</div><div class="line">  @Input() message;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+                    <h4 id="오늘은-ECMA5-javascript-메소드-중에-하나인-map에-대해서-포스팅-하고자-한다"><a href="#오늘은-ECMA5-javascript-메소드-중에-하나인-map에-대해서-포스팅-하고자-한다" class="headerlink" title="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다."></a>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.</h4><p>map메소드는 Array객체의 프로토타입 프로퍼티에 존재하는 메소드다. (즉 모든 배열에서 사용 가능하다.) 이 메소드는 배열의 각 요소들에 대해서 인자로 넘기는 함수를 실행시키고, 해당 배열을 리턴으로 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.map(<span class="function"><span class="keyword">function</span>(<span class="params">currentValue,index,arr</span>), <span class="title">thisValue</span>)</span></div></pre></td></tr></table></figure>
+<p>위에서 볼 수 있듯이 콜백함수에 첫번째 값으로 요소의 값을, 두번째로 인덱스, 세번째로 배열 자체를 넘긴다. 아래는 제곱근을 구하는 예제이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>];</div><div class="line"><span class="keyword">var</span> sq = numbers.map(<span class="function"><span class="keyword">function</span>(<span class="params">val, idx</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(val);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(sq);<span class="comment">//[2, 3, 4, 5]</span></div></pre></td></tr></table></figure>
+<p>map은 원래의 배열에 영향을 미치지는 않는다. 따라서 다시 numbers를 콘솔로 찍으면 원래 값([4, 9, 16, 25])을 반환한다.</p>
+<p>ECMA3에서 map메소드는 없지만, 다음과 같이 스크립트를 활용해 만들 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">Array</span>.prototype.map)&#123;</div><div class="line">  <span class="built_in">Array</span>.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">a, f</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> results = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = a.length; i &lt; len; i++) &#123;</div><div class="line">      <span class="keyword">if</span>(i <span class="keyword">in</span> a) results[i] = f.call(<span class="literal">null</span>, a[i], i, a);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> results;</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
                     
                         
                     
                     
                         <p>
-                            <a href="/2017/03/03/angular-dynamic-component/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/03/02/angular-RouteReuseStrategy/">
-                            Angular2 RouteReuseStrategy
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-03-02T12:34:00+09:00">
-	
-		    3월 02, 2017
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Angular/">Angular</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>컨텐츠의 리스트와 뷰를 만들다 보면, 뷰에서 리스트로 돌아갔을 때 사용자가 탐색하던 위치를 다시 보여주는 것이 중요합니다. 특히 SPA의 경우, 페이지 이동이 하나의 DOM 요소안에서 이루어지기 때문에 이를 기억하고 찾아가기 쉽지 않습니다.</p>
-<p>Angular도 마찬가지입니다. route를 써서 페이지 이동을 하다보면, <code>history.back()</code>으로 이전페이지로 돌아간다고 해도, 해당 위치를 찾을 수 없습니다.<br>route를 통해 뷰가 변경될 때, 지난 컴포넌트 인스턴스는 제거되기 때문입니다.</p>
-<p>이런 문제는 Angular의 <code>RouteReuseStrategy</code>를 이용해서 해결 할 수 있습니다. <code>RouteReuseStrategy</code>는 route가 활성화 후 재사용 될때 커스터마이징 할 수 있는 방법을 제공합니다.<br><code>RouteReuseStrategy</code>는 route를 나중에 재사용 하기 위해서 <code>store</code>에 올려둘 수 있습니다. 즉 인스턴스를 삭제하지 않고 저장해 두었다가 다시 그 route가 호출 될 때 해당 인스턴스를 다시 가져와 보여줄 수 있습니다(싱글톤).</p>
-<p><a href="https://angular.io/docs/ts/latest/api/router/index/RouteReuseStrategy-class.html" target="_blank" rel="external">구글 공식문서</a>에도 나와 있는 내용이지만 다시 정리해보면, <code>RouteReuseStrategy</code>는 다음과 같이 생겼습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RouteReuseStrategy</span> </span>&#123;</div><div class="line">  shouldDetach(route: ActivatedRouteSnapshot) : boolean</div><div class="line">  store(route: ActivatedRouteSnapshot, <span class="attr">handle</span>: DetachedRouteHandle) : <span class="keyword">void</span></div><div class="line">  shouldAttach(route: ActivatedRouteSnapshot) : boolean</div><div class="line">  retrieve(route: ActivatedRouteSnapshot) : DetachedRouteHandle</div><div class="line">  shouldReuseRoute(future: ActivatedRouteSnapshot, <span class="attr">curr</span>: ActivatedRouteSnapshot) : boolean</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>자세히 살펴보면 다음과 같은 메소드들로 구성되어 있습니다.</p>
-<p><code>shouldDetach(route: ActivatedRouteSnapshot) : boolean</code><br><br>이 route (및 해당 하위 트리)를 나중에 store에 올려 재사용하기 위해 분리할지(detached) 여부를 결정합니다.</p>
-<p><code>store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle) : void</code><br><br>분리 된 route를 저장합니다.</p>
-<p><code>shouldAttach(route: ActivatedRouteSnapshot) : boolean</code><br><br>route를 호출할 때 (및 해당 하위 트리)를 store에 올려둔 것으로 연결할지 여부를 결정합니다.</p>
-<p><code>retrieve(route: ActivatedRouteSnapshot) : DetachedRouteHandle</code><br><br>이전에 저장했던 route를 검색합니다.</p>
-<p><code>shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot) : boolean</code><br><br>route를 다시 사용해야하는지 여부를 결정합니다.</p>
-<p><strong>이 글은 추후 더 업데이트 될 예정입니다.</strong></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/03/02/angular-RouteReuseStrategy/#post-footer" class="postShorten-excerpt_link link">
+                            <a href="/2016/09/01/javascript-map/#post-footer" class="postShorten-excerpt_link link">
                                 Comment and share
                             </a>
                         </p>

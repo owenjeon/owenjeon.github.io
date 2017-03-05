@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Owen&#39;s Blog">
+    <title>RxJS Subject - Owen&#39;s Blog</title>
+    <meta name="author" content="Owen">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.
+RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="RxJS Subject">
+<meta property="og:url" content="http://wooner.net/2017/02/21/rxjs-subject/index.html">
+<meta property="og:site_name" content="Owen's Blog">
+<meta property="og:description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.
+RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)">
+<meta property="og:updated_time" content="2017-03-05T13:51:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxJS Subject">
+<meta name="twitter:description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.
+RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox-thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Owen&#39;s Blog</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            RxJS Subject
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-02-21T12:34:00+09:00">
+	
+		    2월 21, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/RxJS/">RxJS</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><em>이 글은 <a href="http://reactivex.io/rxjs/manual/overview.html#subject" target="_blank" rel="external">RxJS 공식사이트</a>의 내용 중 subject 영역을 번역한 글입니다.</em></p>
+<p>RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)이지만, Subject는 multicast입니다.</p>
+<blockquote>
+<p>Subject는 Observable과 비슷하지만 많은 Observers에게 멀티캐스트 할 수 있습니다. Subject는 EventEmitters와 유사합니다. 많은 수의 수신자(listeners)의 레지스트리를 관리합니다.</p>
+</blockquote>
+<p><strong>모든 Subject는 Observable입니다.</strong><br>Subject가 주어진다면 Observer를 구독(subscribe)하여 값을 정상적으로 받을 수 있습니다. Observer의 관점에서는, Observable 실행이 일반 unicast Observable에서 오는지, 또는 Subject에서 오는지를 알 수 없습니다.</p>
+<p>내부적으로 Subject에서 subscribe는 값을 전달하는 새로운 실행을 호출하지 않습니다. addListener가 다른 라이브러리 및 언어에서 일반적으로 작동하는 것과 마찬가지로 Observer를 Observer 목록에 등록합니다.</p>
+<p><strong>모든 Subject는 Observer입니다.</strong> Subject는 <code>next(v)</code>, <code>error(e)</code>, and <code>complete()</code> 메소드를 가진 객체입니다. Subject에 새 값을 공급하기위해 next를 호출하면 Subject를 수신하도록 등록 된 Observers로 멀티 캐스팅됩니다.</p>
+<p>아래 예제에서는 Subject에 첨부 된 두 개의 Observer가 있으며, Subject에 값을 공급합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(<span class="number">1</span>);</div><div class="line">subject.next(<span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>콘솔을 보면…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">observerA: <span class="number">1</span></div><div class="line">observerB: <span class="number">1</span></div><div class="line">observerA: <span class="number">2</span></div><div class="line">observerB: <span class="number">2</span></div></pre></td></tr></table></figure>
+<p>Subject는 Observer이므로, 아래 예제와 같이 Observable 구독에 대한 인수로 Subject를 제공 할 수도 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> observable = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line">observable.subscribe(subject); <span class="comment">// You can subscribe providing a Subject</span></div><div class="line"></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA: 2</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerA: 3</span></div><div class="line"><span class="comment">// observerB: 3</span></div></pre></td></tr></table></figure>
+<p>위의 접근 방식으로, 우리는 Subject를 사용해서 unicast Observable 실행을 multicast로 변환했습니다. 이것은 Observable 실행을 여러 Observer들과 공유 할 수 있는 유일한 방법입니다.</p>
+<p>Subject 유형에는 BehaviorSubject, ReplaySubject 및 AsyncSubject가 있습니다.</p>
+<p><br><br></p>
+<hr>
+<h3 id="Multicasted-Observables"><a href="#Multicasted-Observables" class="headerlink" title="Multicasted Observables"></a>Multicasted Observables</h3><p>“multicasted Observable”은 다수의 subscriber를 가질 수 있는 Subject를 통해 통지를 전달하는 반면, “unicast Observable”은 단일 Observer에게만 통지를 보냅니다.</p>
+<blockquote>
+<p>multicasted Observable은 여러 Observers가 동일한 Observable 실행을 바라보도록 Subject를 사용합니다.</p>
+</blockquote>
+<p>아래는 멀티캐스트 연산자가 작동하는 방식입니다.<br>Observer들은 아래의 Subject을 구독(subscribe)하고 Subject는 Observable 소스를 구독합니다. 다음 예제는 <code>observable.subscribe(subject)</code>를 사용한 이전 예제와 유사합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"></div><div class="line"><span class="comment">// These are, under the hood, `subject.subscribe(&#123;...&#125;)`:</span></div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// This is, under the hood, `source.subscribe(subject)`:</span></div><div class="line">multicasted.connect();</div></pre></td></tr></table></figure>
+<p><code>multicast</code>는 평범한 Observable처럼 보이는 <code>Observable</code>을 반환하지만 구독(subscribe)할 때의 <code>Subject</code>와 같이 작동합니다.<br><code>multicast</code>는<code>connectableObservable</code>을 리턴합니다. 이것은 <code>connect()</code> 메소드를 가진 간단한 <code>Observable</code>입니다.</p>
+<p><code>connect()</code> 메소드는 공유된 Observable 실행이 언제 시작될 것인지를 정확하게 결정합니다. <code>connect()</code>는 <code>source.subscribe(subject)</code>를 실행하기 때문에 <code>connect()</code>는 공유 <code>Observable</code>의 구독(subscribe)을 취소 할 수 있는 <code>Subscription</code>을 반환합니다.</p>
+<h4 id="Reference-counting-참조-카운팅"><a href="#Reference-counting-참조-카운팅" class="headerlink" title="Reference counting(참조 카운팅)"></a>Reference counting(참조 카운팅)</h4><p><code>connect()</code>를 수동으로 호출하고 Subscription을 처리하는 것은 종종 번거로운 일입니다. 일반적으로 첫 <code>Observer</code>가 도착하면 자동으로 연결하고, 마지막 <code>Observer</code>가 구독을 취소하면 공유 실행을 자동으로 취소하려고합니다.</p>
+<p>아래 목록에 설명 된대로 subscriptions이 발생하는 다음 예제를 살펴보겠습니다.</p>
+<ol>
+<li>첫번째 Observer가 multicasted Observable을 구독합니다.</li>
+<li>Multicasted Observable가 연결됩니다.</li>
+<li>다음 값 0이 첫번째 Observer에게 전달됩니다.</li>
+<li>두번째 Observer가 multicasted Observable을 구독합니다.</li>
+<li>다음 값 1이 첫번째 Observer에게 전달됩니다.</li>
+<li>다음 값 1이 두번째 Observer에게 전달됩니다.</li>
+<li>첫번째 Observer multicasted Observable 구독을 취소합니다.</li>
+<li>다음 값 2이 두번째 Observer에게 전달됩니다.</li>
+<li>두번째 Observer multicasted Observable 구독을 취소합니다.</li>
+<li>Multicasted Observable 연결이 unsubscribe 되었습니다.</li>
+</ol>
+<p><code>connect()</code>를 명시적으로 호출하면 위 내용을 달성하기 위해 다음 코드를 작성합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line">subscription1 = multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"><span class="comment">// We should call `connect()` here, because the first</span></div><div class="line"><span class="comment">// subscriber to `multicasted` is interested in consuming values</span></div><div class="line">subscriptionConnect = multicasted.connect();</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2 = multicasted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// We should unsubscribe the shared Observable execution here,</span></div><div class="line"><span class="comment">// because `multicasted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2.unsubscribe();</div><div class="line">  subscriptionConnect.unsubscribe(); <span class="comment">// for the shared Observable execution</span></div><div class="line">&#125;, <span class="number">2000</span>);</div></pre></td></tr></table></figure>
+<p><code>connect()</code>에 대한 명시적인 호출을 피하려면 <code>connectableObservable</code>의 <code>refCount()</code> 메서드(참조 카운팅)를 사용할 수 있습니다. 이 메서드는 <code>Observable</code>을 반환하며 <code>Observable</code>은 구독자 수를 추적합니다. 가입자 수가 0에서 1로 증가하면 <code>connect()</code>가 호출되어 공유 실행이 시작됩니다. 구독자 수가 1에서 0으로 줄어들 때만 완전히 구독 취소되어 더 이상 실행을 중지합니다.</p>
+<blockquote>
+<p><code>refCount</code>는 멀티캐스트 된 <code>Observable</code>에 첫 번째 subscriber가 도착하면 자동으로 실행을 시작하고 마지막 subscriber가 떠날 때 실행을 중지합니다.</p>
+</blockquote>
+<p>아래의 예제를 봅시다</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> refCounted = source.multicast(subject).refCount();</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line"><span class="comment">// This calls `connect()`, because</span></div><div class="line"><span class="comment">// it is the first subscriber to `refCounted`</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'observerA subscribed'</span>);</div><div class="line">subscription1 = refCounted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB subscribed'</span>);</div><div class="line">  subscription2 = refCounted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerA unsubscribed'</span>);</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// This is when the shared Observable execution will stop, because</span></div><div class="line"><span class="comment">// `refCounted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB unsubscribed'</span>);</div><div class="line">  subscription2.unsubscribe();</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line"></div><div class="line"><span class="comment">// observerA subscribed</span></div><div class="line"><span class="comment">// observerA: 0</span></div><div class="line"><span class="comment">// observerB subscribed</span></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA unsubscribed</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerB unsubscribed</span></div></pre></td></tr></table></figure>
+<p><code>refCount()</code> 메서드는 <code>ConnectableObservable</code>에만 존재하며 다른 <code>ConnectableObservable</code>이 아니라 <code>Observable</code>을 return합니다.</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/RxJS/">RxJS</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/02/24/observer/"  data-tooltip="RxJS Observer">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/27/angular-detection/" data-tooltip="Angular2의 변화 탐지(Change Detection)">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Owen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/02/24/observer/"  data-tooltip="RxJS Observer">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/27/angular-detection/" data-tooltip="Angular2의 변화 탐지(Change Detection)">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://wooner.net/2017/02/21/rxjs-subject/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Owen</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    autofocus="autofocus"/>
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/prototype/">
+                            <h3 class="media-heading">객체 및 프로토타입</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 7월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-css/">
+                            <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(css)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 7월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/07/12/fill-image-javascript/">
+                            <h3 class="media-heading">프레임에 이미지 꽉 채우기 Part2(Javascript)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 7월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/10/prototype/">
+                            <h3 class="media-heading">자바스크립트 프로토 타입의 프로퍼티 할당</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 10일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/12/array-object/">
+                            <h3 class="media-heading">객체와 배열 구분하기</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 12일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/18/develop-patten/">
+                            <h3 class="media-heading">다른 퍼블리셔들의 사용패턴 설문조사</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 18일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/21/valueof-tostring/">
+                            <h3 class="media-heading">Javascript의 valueOf, toString</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 21일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/22/javascript-jsonp/">
+                            <h3 class="media-heading">JSONP에 관하여...</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 22일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/08/28/javascript-reduce/">
+                            <h3 class="media-heading">ECMA5 javascript method : reduce</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 8월 28일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://wooner.net/2016/09/01/javascript-map/">
+                            <h3 class="media-heading">ECMA5 javascript method : map</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016년 9월 1일
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                22 posts found
+            </p>
+        </div>
+    </div>
+</div>
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/jquery.fancybox-thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+    </body>
+</html>
