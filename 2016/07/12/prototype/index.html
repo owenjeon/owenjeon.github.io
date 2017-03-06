@@ -13,37 +13,41 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.
-리터럴 방식1var o  = &amp;#123;x:1,y:2&amp;#125;
-객체 생성자를 통한 방식123var o  = new Object();o.x  = 1;o.y  = 2;
-모든 함수는 prototype이라는 프로퍼티를 가지고 있습니다. (함수도 객체이기 때문에 프로퍼티를 갖는게 가능합니다.)이 protot">
+    <meta name="description" content="우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="객체 및 프로토타입">
 <meta property="og:url" content="https://owenjeon.github.io/2016/07/12/prototype/index.html">
 <meta property="og:site_name" content="Owen's Blog">
-<meta property="og:description" content="우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.
-리터럴 방식1var o  = &amp;#123;x:1,y:2&amp;#125;
-객체 생성자를 통한 방식123var o  = new Object();o.x  = 1;o.y  = 2;
-모든 함수는 prototype이라는 프로퍼티를 가지고 있습니다. (함수도 객체이기 때문에 프로퍼티를 갖는게 가능합니다.)이 protot">
-<meta property="og:updated_time" content="2017-03-05T13:15:33.000Z">
+<meta property="og:description" content="우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.">
+<meta property="og:updated_time" content="2017-03-06T13:27:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="객체 및 프로토타입">
-<meta name="twitter:description" content="우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.
-리터럴 방식1var o  = &amp;#123;x:1,y:2&amp;#125;
-객체 생성자를 통한 방식123var o  = new Object();o.x  = 1;o.y  = 2;
-모든 함수는 prototype이라는 프로퍼티를 가지고 있습니다. (함수도 객체이기 때문에 프로퍼티를 갖는게 가능합니다.)이 protot">
+<meta name="twitter:description" content="우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.">
     
     
         
     
     
+        <meta property="og:image" content="https://owenjeon.github.io/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg"/>
+    
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-gkdwv6gpmsvziyqj09onb2nm8pqnf9m6mfclab1sabtzip0qozttwf89jomo.min.css">
+    <link rel="stylesheet" href="/assets/css/style-hw6hl3ozlfjufxmpxuvhnktvcas5adycullbyknmjpp2ctmkvznnlicf0py0.min.css">
     <!--STYLES END-->
     
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-82925001-3']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
     
 </head>
 
@@ -52,6 +56,10 @@
             <!-- Define author's picture -->
 
 
+    
+        
+            
+        
     
 
 <header id="header" data-behavior="4">
@@ -65,6 +73,8 @@
                 href="#about">
         
         
+            <img class="header-picture" src="/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -72,8 +82,23 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Owen</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>프론트 개발자 <br/>Owen의 기술 블로그입니다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -197,11 +222,10 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.</p>
+            <p>우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.<br><a id="more"></a></p>
 <h3 id="리터럴-방식"><a href="#리터럴-방식" class="headerlink" title="리터럴 방식"></a>리터럴 방식</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o  = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</div></pre></td></tr></table></figure>
 <h3 id="객체-생성자를-통한-방식"><a href="#객체-생성자를-통한-방식" class="headerlink" title="객체 생성자를 통한 방식"></a>객체 생성자를 통한 방식</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o  = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">o.x  = <span class="number">1</span>;</div><div class="line">o.y  = <span class="number">2</span>;</div></pre></td></tr></table></figure>
-<p>모든 함수는 prototype이라는 프로퍼티를 가지고 있습니다. (함수도 객체이기 때문에 프로퍼티를 갖는게 가능합니다.)<br>이 prototype프로퍼티의 역할은, 이 함수를 통해 생성되는 객체에게 prototype프로퍼티의 값을 상속해주는 역할을 합니다.​</p>
-<p>객체를 생성하면 우리가 만든 객체는 Object라는 최상위 함수 객체의 prototype이라는 프로퍼티를 상속받게 됩니다. ​<br>즉 우리가 위에서 생성한 ‘o’라는 객체는, <code>Object</code>라는 함수 객체가 가지고 있는 prototype 프로티의 값들들 상속받는 것입니다. <code>Object​</code>의 prototype 프로퍼티를 확인해보기 위해서는 콘솔을 찍어보면 되겠죠?<br><code>console.log(Object.prototype);</code></p>
+<p>모든 함수는 prototype이라는 프로퍼티를 가지고 있습니다. (함수도 객체이기 때문에 프로퍼티를 갖는게 가능합니다.)<br>이 prototype프로퍼티의 역할은, 이 함수를 통해 생성되는 객체에게 prototype프로퍼티의 값을 상속해주는 역할을 합니다.​<br><!--more--><br>객체를 생성하면 우리가 만든 객체는 Object라는 최상위 함수 객체의 prototype이라는 프로퍼티를 상속받게 됩니다. ​<br>즉 우리가 위에서 생성한 ‘o’라는 객체는, <code>Object</code>라는 함수 객체가 가지고 있는 prototype 프로티의 값들들 상속받는 것입니다. <code>Object​</code>의 prototype 프로퍼티를 확인해보기 위해서는 콘솔을 찍어보면 되겠죠?<br><code>console.log(Object.prototype);</code></p>
 <p>그러면 <code>toString</code>, <code>valueOf</code>등의 매쏘드 들이 보일겁니다. 즉 우리는 <code>Object</code>의 prototype로 부터 값들을 상속받아서 <code>o.toString()</code>같이 매쏘드들을 사용할 수 있는 것입니다.</p>
 <p>한단계 더 들어가 보겠습니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d  = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="built_in">console</span>.log(d.toString());</div></pre></td></tr></table></figure></p>
 <p>위 소스에서 우리는 Date라는 함수를 통해 d라는 객체를 만들었습니다.<br>그런데 d객체에서도 <code>toString</code>이라는 함수를 쓸수 있습니다. 이상합니다. 분명 <code>toString</code>은 <code>Object</code>라는 객체의 prototype에 있는 매쏘드라고 했는데… 여긴 <code>Object</code>가 등장 안하잖아요!</p>
@@ -381,22 +405,28 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-remove"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Owen</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>프론트 개발자 <br/>Owen의 기술 블로그입니다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Front-end Developer</p>
 
             </div>
         
@@ -436,7 +466,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -455,7 +485,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>코딩을 하다 보면 특정 프레임 안에 이미지를 꽉 채워야 할 때가 종종 있다.<br>여기서 꽉체운다는 것은, 프레임의 가로/세로 보다 이미지의 가로/세로가 크다면 세로가 100%로가 되고, 작다면 가로가 100%가 되는것을 의미한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -474,7 +504,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p><strong>이 글은  프레임에 이미지 꽉 채우기 Part1(CSS)에 이어진 글입니다.</strong><br>이번에는 자바스크립트를 이용한 방식이다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -493,7 +523,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다. 그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 합니다!<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -512,7 +542,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.<br>근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -531,7 +561,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>다른 퍼블리셔들은 어떻게 하는지 궁금한 것을이 있었다.<br>예를들어 에디터는 뭐를 쓸까? css 스타일은 한줄에 쓰나 나눠서 쓰나? 등등..<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -550,7 +580,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>Javascript의 <code>Object</code>객체의 내장 메소드 중,  자바스크립트 내부적으로는 많이 사용되지만, 사용자가 작성할때는 거의 사용되지 않는 것들이 있다. 그중에 대표적인 것이 <code>toString</code>, <code>valueOf</code> 이다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -569,7 +599,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>jsonp라는 놈을 처음 접한건 instagram API에 대해서 스터디 하고 있었을 때였다.<br>jquery의 ajax매소드($.ajax(인자))를 써서 api를 써보는데, datatype속성을 json으로 하면 브라우저가 크로스도메인 에러를 뿌린다.. 에러내용은 아래와 같다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -588,7 +618,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -607,7 +637,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다. map메소드는 Array객체의 프로토타입 프로퍼티에 존재하는 메소드다. (즉 모든 배열에서 사용 가능하다.) 이 메소드는 배열의 각 요소들에 대해서 인자로 넘기는 함수를 실행시키고, 해당 배열을 리턴으로 반환한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -620,7 +650,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                22 posts found
+                23 posts found
             </p>
         </div>
     </div>
@@ -628,7 +658,7 @@
         
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
-<script src="/assets/js/script-keald3mnqximb0hm6mvdqo5sxhnyqoujkpxdeikbcx5yiukrhiboqm2jxh0x.min.js"></script>
+<script src="/assets/js/script-m9aoekllttznfkqqozgjntsuzup0bwgwdrtmyjx78bm0egnxa5oxxvgdfkwz.min.js"></script>
 <!--SCRIPTS END-->
 
     

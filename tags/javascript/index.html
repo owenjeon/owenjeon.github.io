@@ -24,13 +24,26 @@
         
     
     
+        <meta property="og:image" content="https://owenjeon.github.io/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg"/>
+    
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-gkdwv6gpmsvziyqj09onb2nm8pqnf9m6mfclab1sabtzip0qozttwf89jomo.min.css">
+    <link rel="stylesheet" href="/assets/css/style-hw6hl3ozlfjufxmpxuvhnktvcas5adycullbyknmjpp2ctmkvznnlicf0py0.min.css">
     <!--STYLES END-->
     
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-82925001-3']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
     
 </head>
 
@@ -39,6 +52,10 @@
             <!-- Define author's picture -->
 
 
+    
+        
+            
+        
     
 
 <header id="header" data-behavior="1">
@@ -52,6 +69,8 @@
                 href="#about">
         
         
+            <img class="header-picture" src="/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -59,8 +78,23 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="1">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Owen</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>프론트 개발자 <br/>Owen의 기술 블로그입니다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -165,6 +199,49 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2017/03/06/angular-forms/">
+                            Angular2 Forms
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-03-06T12:34:00+09:00">
+	
+		    3월 06, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Angular/">Angular</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Web Application을 제작하다보면 빠질 수 없는 요소가 Form입니다. Angular Form요소들을 쉽게 제어할 수 있는 여러 기능들을 제공합니다. 이번에는 Angular가 제공하는 Form 기능의 중 가장 기본적인 내용들을 공유해 보려고 합니다.<br>
+                    
+                        <a href="/2017/03/06/angular-forms/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/03/03/angular-dynamic-component/">
                             Angular2 Dynamic Component
                         </a>
@@ -187,40 +264,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.</p>
-<p>보통 Angular에서 컴포넌트의 추가는 <code>route</code>를 통해서만 이루어 집니다. 이때는 <code>route</code>에서 컴포넌트를 생성/제거를 해주기 때문에 우리는 크게 신경써야 할 부분이 없습니다.<br>하지만 동적으로 컴포넌트를 추가할때는 몇가지 신경써야 하는 부분들이 있습니다.</p>
-<h2 id="template에-동적-컴포넌트를-추가할-영역-정하기"><a href="#template에-동적-컴포넌트를-추가할-영역-정하기" class="headerlink" title="template에 동적 컴포넌트를 추가할 영역 정하기."></a>template에 동적 컴포넌트를 추가할 영역 정하기.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, ViewChild&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'home'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">    &lt;div #container&gt;&lt;/div&gt;</div><div class="line">  `</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>위는 컴포넌트 템플릿의 <code>#container</code>은 컴포넌트를 추가할 영역입니다. 그럼 이제 class에서 해당 영역을 선언해봅시다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>) container;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이 <code>container</code>를 콘솔로 직어보면 <code>ElementRef</code>라는 객체가 보입니다. 이는 native 엘리먼트에 접근하기 위한 방법입니다.<br>하지만 우리는 <code>ViewContainerRef</code>가 필요합니다. 우리는 이를 다음과 같이 써서 얻을 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>, &#123;<span class="attr">read</span>:ViewContainerRef&#125;) container;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이렇게 하면, <code>container</code>를 <code>ElementRef</code>로 읽는 대신, <code>ViewContainerRef</code>로 읽어오게 됩니다.<br>다시 콘솔을 찍어보면 <code>ViewContainerRef</code> 객체가 보입니다. 이제 우리는 <code>this.container.createComponent</code>같은 메소드를 사용할 수 있습니다. 실제로 컴포넌트를 불러와 봅시다.</p>
-<h2 id="동적으로-컴포넌트-생성하기"><a href="#동적으로-컴포넌트-생성하기" class="headerlink" title="동적으로 컴포넌트 생성하기"></a>동적으로 컴포넌트 생성하기</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeComponent</span></span>&#123;</div><div class="line">  @ViewChild(<span class="string">'container'</span>, &#123;<span class="attr">read</span>:ViewContainerRef&#125;) container;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(private resolver:ComponentFactoryResolver)&#123;&#125;</div><div class="line">  ngAfterContentInit()&#123;</div><div class="line">    <span class="keyword">this</span>.container.createComponent(<span class="keyword">this</span>.resolver.resolveComponentFactory(WidgetThree));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>CreateComponent</code>는 <code>ComponentFactory</code>를 사용합니다. 컴포넌트를 생성하려면 <code>CreateComponent</code>에 <code>ComponentFactory</code>를 전달해야합니다.<br><code>ComponentFactory Resolver</code>(<code>ComponentFactoryResolver</code>) 서비스를 삽입함으로써 컴포넌트 팩토리를 얻습니다. 이 Resolver를 사용하여 <code>this.resolver.resolveComponentFactory</code>를 호출 한 다음 유형별로 조회 할 수 있습니다.<br>그리고 <code>WidgetThree</code>라는 컴포넌트를 인자로 넘깁니다.</p>
-<p>이를 좀 더 가독성 있게 바꿔보겠습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ngAfterContentInit()&#123;</div><div class="line">  <span class="keyword">const</span> widgetFactory = <span class="keyword">this</span>.resolver.resolveComponentFactory(WidgetThree);</div><div class="line">  <span class="keyword">this</span>.container.createComponent(widgetFactory);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>widgetFactory</code> 변수에 <code>resolveComponentFactory(WidgetThree)</code>를 담았습니다. 그리고 이를 <code>createComponent</code>함수를 이용해서 <code>container</code>안에 컴포넌트를 추가하려고 합니다.</p>
-<p>하지만 이 함수를 실행해보면 다음과 같은 에러가 납니다.</p>
-<p><code>ORIGINAL EXCEPTION: No component factory found for WidgetThree</code></p>
-<p>기본적으로 Angular와 Angular 컴파일러는 template들의 selector에 참조되지 않는 컴포넌트들은 컴파일 하지 않습니다. 즉, <code>selector</code>기반으로 찾고, 번들링 합니다. 그리고 나머지 컴포넌트들은 무시합니다.<br>따라서 우리가 만일 <code>WidgetThree</code>컴포넌트를 <code>module</code>에서 <code>declaration</code> 했다고 하더라도, <code>selector</code>에 지정되어 있지 않으면 번들링 되지 않는 것입니다.<br>따라서 이와같은 컴포넌트를 컴파일 대상에 강제로 배정하기 위해서는 <code>NgModule</code>의 옵션 <code>entryComponents</code>에 해당 컴포넌트를 추가해주어야 합니다. 이는 이 컴포넌트를 사용할 것이라고 정의하는 것입니다.</p>
-<p>아래는 해당내용에 대한 코드입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">  <span class="attr">imports</span>:[CommonModule],</div><div class="line">  <span class="attr">declarations</span>:[WidgetOne, WidgetTwo, WidgetThree],</div><div class="line">  <span class="attr">entryComponents</span>:[WidgetThree],</div><div class="line">  <span class="attr">exports</span>:[WidgetOne, WidgetTwo, WidgetThree, CommonModule]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>자 이렇게 해서 실행하면 동적으로 컴포넌트를 추가 할 수 있습니다.</p>
-<h2 id="동적으로-생성한-컴포넌트에-데이터-전달하기"><a href="#동적으로-생성한-컴포넌트에-데이터-전달하기" class="headerlink" title="동적으로 생성한 컴포넌트에 데이터 전달하기"></a>동적으로 생성한 컴포넌트에 데이터 전달하기</h2><p>생성한 컴포넌트의 <code>instance</code>객체를 이용하여 동적으로 생성한 컴포넌트에 데이터를 전달할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ngAfterViewInit()&#123;</div><div class="line">  <span class="keyword">const</span> widgetFactory = <span class="keyword">this</span>.resolver.resolveComponentFactory(WidgetThree);</div><div class="line">  <span class="keyword">const</span> widgetRef = <span class="keyword">this</span>.container.createComponent(widgetFactory);</div><div class="line">  widgetRef.instance.message = <span class="string">"I'm last!"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이제 데이터를 전달할 준비가 되었습니다. 받는쪽은 자식 컴포넌트가 부모 컴포넌트의 데이터를 받는 방식과 동일합니다. <code>WidgetThree</code>의 클래스에서 <code>@Input</code> 데코레이터를 사용하여 <code>message</code> 프로퍼티를 받습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'widget-three'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">&lt;input #input type="text" [value]="message"&gt;</div><div class="line">`</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">WidgetThree</span></span>&#123;</div><div class="line">  @Input() message;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Angular로 애플리케이션을 제작하다보면 동적으로 컴포넌트를 추가해야할 때가 있습니다. 레이어 팝업을 띄운다던지, 페이지 내에서 사용자의 인터랙션에 따라 컨텐츠를 추가할 때, 우리는 특정 element를 생성해서 DOM에 추가하여야 합니다.<br>
                     
+                        <a href="/2017/03/03/angular-dynamic-component/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/03/03/angular-dynamic-component/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -257,29 +307,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>컨텐츠의 리스트와 뷰를 만들다 보면, 뷰에서 리스트로 돌아갔을 때 사용자가 탐색하던 위치를 다시 보여주는 것이 중요합니다. 특히 SPA의 경우, 페이지 이동이 하나의 DOM 요소안에서 이루어지기 때문에 이를 기억하고 찾아가기 쉽지 않습니다.</p>
-<p>Angular도 마찬가지입니다. route를 써서 페이지 이동을 하다보면, <code>history.back()</code>으로 이전페이지로 돌아간다고 해도, 해당 위치를 찾을 수 없습니다.<br>route를 통해 뷰가 변경될 때, 지난 컴포넌트 인스턴스는 제거되기 때문입니다.</p>
-<p>이런 문제는 Angular의 <code>RouteReuseStrategy</code>를 이용해서 해결 할 수 있습니다. <code>RouteReuseStrategy</code>는 route가 활성화 후 재사용 될때 커스터마이징 할 수 있는 방법을 제공합니다.<br><code>RouteReuseStrategy</code>는 route를 나중에 재사용 하기 위해서 <code>store</code>에 올려둘 수 있습니다. 즉 인스턴스를 삭제하지 않고 저장해 두었다가 다시 그 route가 호출 될 때 해당 인스턴스를 다시 가져와 보여줄 수 있습니다(싱글톤).</p>
-<p><a href="https://angular.io/docs/ts/latest/api/router/index/RouteReuseStrategy-class.html" target="_blank" rel="external">구글 공식문서</a>에도 나와 있는 내용이지만 다시 정리해보면, <code>RouteReuseStrategy</code>는 다음과 같이 생겼습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RouteReuseStrategy</span> </span>&#123;</div><div class="line">  shouldDetach(route: ActivatedRouteSnapshot) : boolean</div><div class="line">  store(route: ActivatedRouteSnapshot, <span class="attr">handle</span>: DetachedRouteHandle) : <span class="keyword">void</span></div><div class="line">  shouldAttach(route: ActivatedRouteSnapshot) : boolean</div><div class="line">  retrieve(route: ActivatedRouteSnapshot) : DetachedRouteHandle</div><div class="line">  shouldReuseRoute(future: ActivatedRouteSnapshot, <span class="attr">curr</span>: ActivatedRouteSnapshot) : boolean</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>자세히 살펴보면 다음과 같은 메소드들로 구성되어 있습니다.</p>
-<p><code>shouldDetach(route: ActivatedRouteSnapshot) : boolean</code><br><br>이 route (및 해당 하위 트리)를 나중에 store에 올려 재사용하기 위해 분리할지(detached) 여부를 결정합니다.</p>
-<p><code>store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle) : void</code><br><br>분리 된 route를 저장합니다.</p>
-<p><code>shouldAttach(route: ActivatedRouteSnapshot) : boolean</code><br><br>route를 호출할 때 (및 해당 하위 트리)를 store에 올려둔 것으로 연결할지 여부를 결정합니다.</p>
-<p><code>retrieve(route: ActivatedRouteSnapshot) : DetachedRouteHandle</code><br><br>이전에 저장했던 route를 검색합니다.</p>
-<p><code>shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot) : boolean</code><br><br>route를 다시 사용해야하는지 여부를 결정합니다.</p>
-<p><strong>이 글은 추후 더 업데이트 될 예정입니다.</strong></p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>컨텐츠의 리스트와 뷰를 만들다 보면, 뷰에서 리스트로 돌아갔을 때 사용자가 탐색하던 위치를 다시 보여주는 것이 중요합니다. 특히 SPA의 경우, 페이지 이동이 하나의 DOM 요소안에서 이루어지기 때문에 이를 기억하고 찾아가기 쉽지 않습니다.<br>
                     
+                        <a href="/2017/03/02/angular-RouteReuseStrategy/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/03/02/angular-RouteReuseStrategy/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -316,57 +350,14 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html" target="_blank" rel="external">Thoughtram 블로그</a>를 참고하여 작성한 것입니다.</strong></p>
-<p>Angular의 router를 이용하면 쉽게 페이지 전환을 할 수 있습니다. 하지만 좀 더 완벽히 구동되는 application을 만들기 위해서 router는 해결해야 할 문제점이 하나 있습니다. 바로 바인딩되는 데이터 로딩이 라우터가 실행보다 빠르게 완료되는 것이 보장되지 않는다는 것입니다. 예를들어 http통신을 통해 api로 특정 데이터를 가져오고, 이를 화면에 뿌린다고 했을때, http통신은 비동기이기 때문에 라우터가 먼저 실행되고 나서 얼마 후에 데이터 도착하면 view가 rendering 됩니다. 이 때문에 사용자들은 가끔 데이터가 듬성듬성 빠져있는 화면을 잠깐동안 보게 됩니다.</p>
-<p>이를 해결하는 방법은 여러가지가 있습니다(데이터가 들어오기 전까지 host경로에 <code>ngIf</code>를 <code>false</code>로 한다는 등의…). 여기서는 <strong>Route의 resolver를</strong> 통해 문제를 해결해 보려고 합니다.</p>
-<h3 id="무엇이-문제일까요"><a href="#무엇이-문제일까요" class="headerlink" title="무엇이 문제일까요?"></a>무엇이 문제일까요?</h3><p>자, contact 애플리케이션을 만들어 봅시다. 우리는 <code>contacts list</code>와 <code>contacts detail</code>을 위한 라우터를 가지고 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Routes &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ContactsListComponent &#125; <span class="keyword">from</span> <span class="string">'./contacts-list'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ContactsDetailComponent &#125; <span class="keyword">from</span> <span class="string">'./contacts-detail'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> AppRoutes: Routes = [</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">''</span>, <span class="attr">component</span>: ContactsListComponent &#125;,</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'contact/:id'</span>, <span class="attr">component</span>: ContactsDetailComponent &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
-<p>그리고 당연히 우리는 해당 라우터를 탑재한 루트모듈이 필요합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</div><div class="line"><span class="keyword">import</span> &#123; RouterModule &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AppRoutes &#125; <span class="keyword">from</span> <span class="string">'./app.routes'</span>;</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">  <span class="attr">imports</span>: [</div><div class="line">    BrowserModule,</div><div class="line">    RouterModule.forRoot(AppRoutes)</div><div class="line">  ],</div><div class="line">  ...</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>여기까지 특별할 것은 없습니다. 만일 이 소스가 낯설다면 라우팅에 관한 <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt5.html" target="_blank" rel="external">다른 글</a>을 먼저 읽으시는걸 권장합니다.</p>
-<p><code>ContactsDetailComponent</code>을 살펴 봅시다. 이 컴포넌트는 contact data를 보여주는 역할을 가지고 있습니다. 따라서 route URL에서 제공되는 <code>id</code>값(route에서 <code>:id</code>로 포현되는 파라미터)을 가지고 <code>contact object</code>에 접근해야 합니다. <code>ActivatedRoute</code>를 통해서 쉽게 route parameter에 접근 할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ActivatedRoute &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ContactsService &#125; <span class="keyword">from</span> <span class="string">'../contacts.service'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Contact &#125; <span class="keyword">from</span> <span class="string">'../interfaces/contact'</span>;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'contacts-detail'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">'...'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsDetailComponent</span> <span class="title">implements</span> <span class="title">OnInit</span> </span>&#123;</div><div class="line"></div><div class="line">  contact: Contact;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(</div><div class="line">    private contactsService: ContactsService,</div><div class="line">    private route: ActivatedRoute</div><div class="line">  ) &#123;&#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="keyword">let</span> id = <span class="keyword">this</span>.route.snapshot.params[<span class="string">'id'</span>];</div><div class="line">    <span class="keyword">this</span>.contactsService.getContact(id)</div><div class="line">        .subscribe(<span class="function"><span class="params">contact</span> =&gt;</span> <span class="keyword">this</span>.contact = contact);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>좋습니다. <code>ContactsDetailComponent</code>는 받은 <code>id</code>를 가지고 <code>contact</code> 객체를 가져오고, 로컬 <code>contact</code> property에 제공합니다. 그리고 `{{contact.name}}`같은 표현을 통해 컴포넌트의 템플릿에 값을 삽입합니다.<br>컴포넌트의 템플릿을 살펴봅시다!</p>
-
-undefined
-
-
-<p><code>contact</code>객체 뒤에 물음표(?)를 붙였습니다. 이를 Safe Navigation Operators(SNO)라고 부릅니다. 이는 만일 비동기로 <code>contact</code> 데이터를 바인딩한다면, 컴포넌트가 초기화될때 <code>contact</code>는 <code>undefined</code>이기 때문에, 프로퍼티를 가질 수 없어 에러를 내는 것을 방지하기 위한 표현입니다.<br>이 이슈를 구현하기 위해서, <code>ContactsService#getContact()</code>에 3초 딜레이를 주고 <code>contact</code> 오브젝트를 내보내겠습니다. <code>RxJS</code>의 <code>delay</code> 오퍼레이터를 쓰면 쉽게 구현할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsService</span> </span>&#123;</div><div class="line"></div><div class="line">  getContact(id) &#123;</div><div class="line">    <span class="keyword">return</span> Observable.of(&#123;</div><div class="line">      <span class="attr">id</span>: id,</div><div class="line">      <span class="attr">name</span>: <span class="string">'Pascal Precht'</span>,</div><div class="line">      <span class="attr">website</span>: <span class="string">'http://thoughtram.io'</span>,</div><div class="line">    &#125;).delay(<span class="number">3000</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>템플릿 마다 SNO를 모든 곳에 추가하는 것도 상당히 힘든 일이 될 수 있습니다. 그 외에도 <code>NgModel</code> 및 <code>RouterLink</code> Directive와 같은 일부 연산자는 SNO를 지원하지 않습니다. 이제 <code>route resolver</code>를 사용하여 어떻게 해결할 수 있는지 살펴 보겠습니다.</p>
-<h3 id="resolver의-정의"><a href="#resolver의-정의" class="headerlink" title="resolver의 정의"></a>resolver의 정의</h3><p><code>route resolvers</code>는 route가 활성화 되기전에, route에게 필요한 데이터를 제공하는 것을 도와줍니다. <code>resolver</code>를 생성하는 것은 여러 방법이 있습니다. 우리는 가장 쉬운것 부터 시작할 것입니다. <code>resolver</code>는 <code>Observable&lt;any&gt;</code>, <code>Promise&lt;any&gt;</code> 또는 단지 데이터를 반환하는 함수입니다.</p>
-<p>Resolver는 Angular Module의 <code>providers</code>에 등록되어야 합니다.</p>
-<p>여기에 static한 <code>contact</code> object를 반환하는 resolver 함수가 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">  ...</div><div class="line">  providers: [</div><div class="line">    ContactsService,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">provide</span>: <span class="string">'contact'</span>,</div><div class="line">      <span class="attr">useValue</span>: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">          <span class="attr">id</span>: <span class="number">1</span>,</div><div class="line">          <span class="attr">name</span>: <span class="string">'Some Contact'</span>,</div><div class="line">          <span class="attr">website</span>: <span class="string">'http://some.website.com'</span></div><div class="line">        &#125;;</div><div class="line">      &#125;</div><div class="line">  ]&#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>우리는 <code>resolver</code>가 사용될때 항상 같은 <code>contact</code> object가 반환되는걸 바라지 않습니다. 우리는 Angular의 <code>dependency injection(DI, 의존성 주입)</code>를 사용해서 간단한 <code>resolver</code> 함수를 등록할 수 있습니다. 어떻게 이 <code>resolver</code>를 <code>route</code>에 연결하면 될까요? resolve 프로퍼티를 <code>resolver</code>를 사용할 route 구성안에 추가하면 됩니다.</p>
-<p>아래는 어떻게 우리의 <code>resolver</code> 함수를 <code>route</code> 구성에 추가하는지 보여줍니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> AppRoutes: Routes = [</div><div class="line">  ...</div><div class="line">  &#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">'contact/:id'</span>,</div><div class="line">    <span class="attr">component</span>: ContactsDetailComponent,</div><div class="line">    <span class="attr">resolve</span>: &#123;</div><div class="line">      <span class="attr">contact</span>: <span class="string">'contact'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
-<p>이게 다인가요? 네 맞습니다! <code>&#39;contact&#39;</code>는 <code>resolver</code>를 route 구성에 추가할때에 참고하는 <code>provider</code> 토큰입니다.</p>
-<p>이제 우리가해야 할 일은 <code>ContactsDetailComponent</code>가 <code>contact</code> 객체를 유지하는 방법을 변경하는 것입니다. <strong>route resolvers를</strong> 통해 전달되는 모든 것은 <code>ActivatedRoute</code>의 데이터 속성에 노출됩니다. 즉, 이제 우리는 다음과 같이 <code>ContactsService</code> 종속성(dependency)을 제거 할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@Component()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsDetailComponent</span> <span class="title">implements</span> <span class="title">OnInit</span> </span>&#123;</div><div class="line"></div><div class="line">  contact;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(private route: ActivatedRoute) &#123;&#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="keyword">this</span>.contact = <span class="keyword">this</span>.route.snapshot.data[<span class="string">'contact'</span>];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>사실, resolver함수를 정의하면, 우리는 <code>RouterStateSnapshot</code>뿐 아니라 <code>ActivatedRouteSnapshot</code>에도 접근할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">  ...</div><div class="line">  providers: [</div><div class="line">    ContactsService,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">provide</span>: <span class="string">'contact'</span>,</div><div class="line">      <span class="attr">useValue</span>: <span class="function">(<span class="params">route: ActivatedRouteSnapshot, state: RouterStateSnapshot</span>) =&gt;</span> &#123;</div><div class="line">        ...</div><div class="line">      &#125;</div><div class="line">  ]&#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>이것은 <em>라우터 파라미터</em> 같이 우리가 접근이 필요한 곳에 접근할 수 있어, 유용하게 쓰일 수 있습니다.<br>하지만, 우리는 <code>ContactsService</code> 인스턴스도 필요합니다. 하지만 우리는 여기에 서비스를 주입할 수 없습니다. 그러면 <code>dependency injection</code>이 필요한 <code>resolver</code>는 어떻게 만들어야 할까요?</p>
-<h3 id="Resolvers-with-dependencies"><a href="#Resolvers-with-dependencies" class="headerlink" title="Resolvers with dependencies"></a>Resolvers with dependencies</h3><p>이미 알다시피, <code>dependency injection</code>은 <code>class</code> 구조에서 작동합니다. 따라서 우린 <code>class</code>가 필요합니다. 다행히 우리는 <code>class</code>를 써서 <code>resolver</code>를 만들 수 있습니다. 우리가 해야하는 유일한 것은, <code>resolver</code> 클래스를 <code>Resolve</code> 인터페이스를 구현(implement)하고, <code>resolve()</code> 메소드를 추가하는 것입니다. 이 <code>resolve()</code> 메소드는 위에서 <code>DI</code>를 통해 등록한 것과 거의 같은 함수입니다.</p>
-<p>아래는 클래스로 contact <code>resolver</code>를 구현한 것입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Resolve, ActivatedRouteSnapshot &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ContactsService &#125; <span class="keyword">from</span> <span class="string">'./contacts.service'</span>;</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactResolve</span> <span class="title">implements</span> <span class="title">Resolve</span>&lt;<span class="title">Contact</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(private contactsService: ContactsService) &#123;&#125;</div><div class="line"></div><div class="line">  resolve(route: ActivatedRouteSnapshot) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.contactsService.getContact(route.params[<span class="string">'id'</span>]);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>resolver</code>가 클래스가 되면, 클래스는 <code>provider token</code>으로 사용될 수 있기 때문에 <code>provider</code> 구성은 매우 심플해집니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">  ...</div><div class="line">  providers: [</div><div class="line">    ContactsService,</div><div class="line">    ContactResolve</div><div class="line">  ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>그리고 동일한 토큰을 route에 <code>resolver</code>로 사용하면 됩니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> AppRoutes: Routes = [</div><div class="line">  ...</div><div class="line">  &#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">'contact/:id'</span>,</div><div class="line">    <span class="attr">component</span>: ContactsDetailComponent,</div><div class="line">    <span class="attr">resolve</span>: &#123;</div><div class="line">      <span class="attr">contact</span>: ContactResolve</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
-<p>Angular는 <code>resolver</code>가 함수인지, 클래스인지, <code>resolve()</code>를 호출하는 클래스인지 탐지하기에 충분히 똑똑합니다.<br>어떻게 Angular가 데이터가 도착할때까지 컴포넌트를 인스턴스화 시키는 것을 지연시키는지(3초), 아래의 데모에서 확인해보세요.</p>
-<iframe src="https://embed.plnkr.co/q8w7qf6aN5pzGw40GG0i/" frameborder="0" style="width:100%;height:500px;"></iframe>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html">Thoughtram 블로그</a>를 참고하여 작성한 것입니다.</strong></p>
+<p>Angular의 router를 이용하면 쉽게 페이지 전환을 할 수 있습니다. 하지만 좀 더 완벽히 구동되는 application을 만들기 위해서 router는 해결해야 할 문제점이 하나 있습니다. 바로 바인딩되는 데이터 로딩이 라우터가 실행보다 빠르게 완료되는 것이 보장되지 않는다는 것입니다.<br>
                     
+                        <a href="/2017/02/28/angular-resolve/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/02/28/angular-resolve/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -403,32 +394,13 @@ undefined
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h3 id="이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다"><a href="#이번에는-RxJS의-구성요소-중-observer에-대해서-알아보겠습니다" class="headerlink" title="이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다."></a>이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다.</h3><p><code>Observable</code>에 의해 전달 된 값을 처리하는 콜백 콜렉션입니다.<br><code>Observer</code>는 <code>Observable</code>에 의해 전달되는 특정한 알림에 대한  간단한 콜백함수 집합(<code>next</code>, <code>error</code>, and <code>complete</code>)입니다.</p>
-<p>다음은 일반적인 <code>Observer</code> 객체의 예입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> observer = &#123;</div><div class="line">  <span class="attr">next</span>: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  <span class="attr">error</span>: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">  <span class="attr">complete</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p><code>Observer</code>를 사용하기 위해서 <code>Observable</code>의 <code>subscribe</code>에게 <code>Observer</code>를 인자로 넘깁니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(observer);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Observer는 Observable이 전달하는 특정 알림에 대한 3개의 콜백을 가진 객체입니다.</p>
-</blockquote>
-<p>RxJS의 <code>Observer</code>는 불완전하게 쓰일 수 있습니다. 콜백 중 하나를 제공하지 않을경우, <code>Observable</code>에서 해당 콜백이 없기 때문에 일부 유형의 알림이 무시된다는 점을 제외하면 <code>Observable</code>의 실행은 계속 정상적으로 수행됩니다.</p>
-<p>아래의 예제는 <code>observer</code>의 <code>complete</code>이 없는 케이스입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> observer = &#123;</div><div class="line">  <span class="attr">next</span>: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  <span class="attr">error</span>: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p><code>Observable</code>을 <code>subscribe</code>할 때, <code>Observer</code> 객체 대신 콜백을 <code>arguments</code>로 제공할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x));</div></pre></td></tr></table></figure>
-<p><code>observable.subscribe</code>는 첫번째 콜백 <code>argument</code>를 사용해서 <code>Observer</code> 객체의 <code>next</code>핸들러를 만듭니다. 총 3개의 콜백 타입은 아래와 같이 쓸 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(</div><div class="line">  <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  err =&gt; <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>이번에는 RxJS의 구성요소 중 <code>observer</code>에 대해서 알아보겠습니다.<br>
                     
+                        <a href="/2017/02/24/observer/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/02/24/observer/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -465,66 +437,13 @@ undefined
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p><em>이 글은 <a href="http://reactivex.io/rxjs/manual/overview.html#subject" target="_blank" rel="external">RxJS 공식사이트</a>의 내용 중 subject 영역을 번역한 글입니다.</em></p>
-<p>RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)이지만, Subject는 multicast입니다.</p>
-<blockquote>
-<p>Subject는 Observable과 비슷하지만 많은 Observers에게 멀티캐스트 할 수 있습니다. Subject는 EventEmitters와 유사합니다. 많은 수의 수신자(listeners)의 레지스트리를 관리합니다.</p>
-</blockquote>
-<p><strong>모든 Subject는 Observable입니다.</strong><br>Subject가 주어진다면 Observer를 구독(subscribe)하여 값을 정상적으로 받을 수 있습니다. Observer의 관점에서는, Observable 실행이 일반 unicast Observable에서 오는지, 또는 Subject에서 오는지를 알 수 없습니다.</p>
-<p>내부적으로 Subject에서 subscribe는 값을 전달하는 새로운 실행을 호출하지 않습니다. addListener가 다른 라이브러리 및 언어에서 일반적으로 작동하는 것과 마찬가지로 Observer를 Observer 목록에 등록합니다.</p>
-<p><strong>모든 Subject는 Observer입니다.</strong> Subject는 <code>next(v)</code>, <code>error(e)</code>, and <code>complete()</code> 메소드를 가진 객체입니다. Subject에 새 값을 공급하기위해 next를 호출하면 Subject를 수신하도록 등록 된 Observers로 멀티 캐스팅됩니다.</p>
-<p>아래 예제에서는 Subject에 첨부 된 두 개의 Observer가 있으며, Subject에 값을 공급합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(<span class="number">1</span>);</div><div class="line">subject.next(<span class="number">2</span>);</div></pre></td></tr></table></figure>
-<p>콘솔을 보면…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">observerA: <span class="number">1</span></div><div class="line">observerB: <span class="number">1</span></div><div class="line">observerA: <span class="number">2</span></div><div class="line">observerB: <span class="number">2</span></div></pre></td></tr></table></figure>
-<p>Subject는 Observer이므로, 아래 예제와 같이 Observable 구독에 대한 인수로 Subject를 제공 할 수도 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> observable = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line">observable.subscribe(subject); <span class="comment">// You can subscribe providing a Subject</span></div><div class="line"></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA: 2</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerA: 3</span></div><div class="line"><span class="comment">// observerB: 3</span></div></pre></td></tr></table></figure>
-<p>위의 접근 방식으로, 우리는 Subject를 사용해서 unicast Observable 실행을 multicast로 변환했습니다. 이것은 Observable 실행을 여러 Observer들과 공유 할 수 있는 유일한 방법입니다.</p>
-<p>Subject 유형에는 BehaviorSubject, ReplaySubject 및 AsyncSubject가 있습니다.</p>
-<p><br><br></p>
-<hr>
-<h3 id="Multicasted-Observables"><a href="#Multicasted-Observables" class="headerlink" title="Multicasted Observables"></a>Multicasted Observables</h3><p>“multicasted Observable”은 다수의 subscriber를 가질 수 있는 Subject를 통해 통지를 전달하는 반면, “unicast Observable”은 단일 Observer에게만 통지를 보냅니다.</p>
-<blockquote>
-<p>multicasted Observable은 여러 Observers가 동일한 Observable 실행을 바라보도록 Subject를 사용합니다.</p>
-</blockquote>
-<p>아래는 멀티캐스트 연산자가 작동하는 방식입니다.<br>Observer들은 아래의 Subject을 구독(subscribe)하고 Subject는 Observable 소스를 구독합니다. 다음 예제는 <code>observable.subscribe(subject)</code>를 사용한 이전 예제와 유사합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"></div><div class="line"><span class="comment">// These are, under the hood, `subject.subscribe(&#123;...&#125;)`:</span></div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// This is, under the hood, `source.subscribe(subject)`:</span></div><div class="line">multicasted.connect();</div></pre></td></tr></table></figure>
-<p><code>multicast</code>는 평범한 Observable처럼 보이는 <code>Observable</code>을 반환하지만 구독(subscribe)할 때의 <code>Subject</code>와 같이 작동합니다.<br><code>multicast</code>는<code>connectableObservable</code>을 리턴합니다. 이것은 <code>connect()</code> 메소드를 가진 간단한 <code>Observable</code>입니다.</p>
-<p><code>connect()</code> 메소드는 공유된 Observable 실행이 언제 시작될 것인지를 정확하게 결정합니다. <code>connect()</code>는 <code>source.subscribe(subject)</code>를 실행하기 때문에 <code>connect()</code>는 공유 <code>Observable</code>의 구독(subscribe)을 취소 할 수 있는 <code>Subscription</code>을 반환합니다.</p>
-<h4 id="Reference-counting-참조-카운팅"><a href="#Reference-counting-참조-카운팅" class="headerlink" title="Reference counting(참조 카운팅)"></a>Reference counting(참조 카운팅)</h4><p><code>connect()</code>를 수동으로 호출하고 Subscription을 처리하는 것은 종종 번거로운 일입니다. 일반적으로 첫 <code>Observer</code>가 도착하면 자동으로 연결하고, 마지막 <code>Observer</code>가 구독을 취소하면 공유 실행을 자동으로 취소하려고합니다.</p>
-<p>아래 목록에 설명 된대로 subscriptions이 발생하는 다음 예제를 살펴보겠습니다.</p>
-<ol>
-<li>첫번째 Observer가 multicasted Observable을 구독합니다.</li>
-<li>Multicasted Observable가 연결됩니다.</li>
-<li>다음 값 0이 첫번째 Observer에게 전달됩니다.</li>
-<li>두번째 Observer가 multicasted Observable을 구독합니다.</li>
-<li>다음 값 1이 첫번째 Observer에게 전달됩니다.</li>
-<li>다음 값 1이 두번째 Observer에게 전달됩니다.</li>
-<li>첫번째 Observer multicasted Observable 구독을 취소합니다.</li>
-<li>다음 값 2이 두번째 Observer에게 전달됩니다.</li>
-<li>두번째 Observer multicasted Observable 구독을 취소합니다.</li>
-<li>Multicasted Observable 연결이 unsubscribe 되었습니다.</li>
-</ol>
-<p><code>connect()</code>를 명시적으로 호출하면 위 내용을 달성하기 위해 다음 코드를 작성합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line">subscription1 = multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"><span class="comment">// We should call `connect()` here, because the first</span></div><div class="line"><span class="comment">// subscriber to `multicasted` is interested in consuming values</span></div><div class="line">subscriptionConnect = multicasted.connect();</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2 = multicasted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// We should unsubscribe the shared Observable execution here,</span></div><div class="line"><span class="comment">// because `multicasted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2.unsubscribe();</div><div class="line">  subscriptionConnect.unsubscribe(); <span class="comment">// for the shared Observable execution</span></div><div class="line">&#125;, <span class="number">2000</span>);</div></pre></td></tr></table></figure>
-<p><code>connect()</code>에 대한 명시적인 호출을 피하려면 <code>connectableObservable</code>의 <code>refCount()</code> 메서드(참조 카운팅)를 사용할 수 있습니다. 이 메서드는 <code>Observable</code>을 반환하며 <code>Observable</code>은 구독자 수를 추적합니다. 가입자 수가 0에서 1로 증가하면 <code>connect()</code>가 호출되어 공유 실행이 시작됩니다. 구독자 수가 1에서 0으로 줄어들 때만 완전히 구독 취소되어 더 이상 실행을 중지합니다.</p>
-<blockquote>
-<p><code>refCount</code>는 멀티캐스트 된 <code>Observable</code>에 첫 번째 subscriber가 도착하면 자동으로 실행을 시작하고 마지막 subscriber가 떠날 때 실행을 중지합니다.</p>
-</blockquote>
-<p>아래의 예제를 봅시다</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> refCounted = source.multicast(subject).refCount();</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line"><span class="comment">// This calls `connect()`, because</span></div><div class="line"><span class="comment">// it is the first subscriber to `refCounted`</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'observerA subscribed'</span>);</div><div class="line">subscription1 = refCounted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB subscribed'</span>);</div><div class="line">  subscription2 = refCounted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerA unsubscribed'</span>);</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// This is when the shared Observable execution will stop, because</span></div><div class="line"><span class="comment">// `refCounted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB unsubscribed'</span>);</div><div class="line">  subscription2.unsubscribe();</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line"></div><div class="line"><span class="comment">// observerA subscribed</span></div><div class="line"><span class="comment">// observerA: 0</span></div><div class="line"><span class="comment">// observerB subscribed</span></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA unsubscribed</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerB unsubscribed</span></div></pre></td></tr></table></figure>
-<p><code>refCount()</code> 메서드는 <code>ConnectableObservable</code>에만 존재하며 다른 <code>ConnectableObservable</code>이 아니라 <code>Observable</code>을 return합니다.</p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>이 글은 <a href="http://reactivex.io/rxjs/manual/overview.html#subject">RxJS 공식사이트</a>의 내용 중 subject 영역을 번역한 글입니다.</em><br>
                     
+                        <a href="/2017/02/21/rxjs-subject/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/02/21/rxjs-subject/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -561,107 +480,13 @@ undefined
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html" target="_blank" rel="external">Thoughtram 블로그</a>의 글을 번역한 것입니다. 번역이 미흡하더라도 너그럽게 이해해주세요.</strong></p>
-<p>만일 이 이야기에 흥미가 있다면, 이 <a href="https://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/" target="_blank" rel="external">슬라이드</a>를 보거나 <a href="https://www.youtube.com/watch?v=CUxD91DWkGM" target="_blank" rel="external">유튜브 비디오</a>를 봐도 됩니다.</p>
-<h3 id="What’s-Change-Detection-anyways"><a href="#What’s-Change-Detection-anyways" class="headerlink" title="What’s Change Detection anyways?"></a>What’s Change Detection anyways?</h3><p>변화 감지(change detection)의 기본적인 태스크는 프로그램 내부의 상태(stats)를 가져와서 그것을 사용자 인터페이스에 구현하는 것입니다. 이 상태는 objects, arrays, primitives등 모든 종류의 자바스크립트 데이터 구조일 것입니다.</p>
-<p>이 stats는 사용자 인터페이스나 DOM 웹사이트의 특정부분의 paragraphs, forms, 링크 또는 버튼 에서 보여질 것입니다. 따라서 기본적으로 우리는 데이터 구조를 입력받아 DOM 출력을 생성하여 사용자가 화면에서 볼 수 있도록 만듭니다. 우리는 이 프로세스를 rendering이라고 부르죠.</p>
-<p><img src="/assets/images/angular/cd-4.svg" alt="" style="background-color:#0c4eb2"></p>
-<p>하지만, 그것이 런타임에 변경이 발생하거나, DOM이 이미 랜더링된 얼마 후 일 경우에 처리가 까다로워집니다. Model에서 무엇이 바뀌 었는지, 그리고 DOM을 어디에서 업데이트해야하는지 어떻게 알 수 있을까요? DOM 트리에 액세스하는 것은 항상 비용이 많이 들기 때문에 업데이트가 필요한 위치를 알아야 하고, 액세스를 가능한 한 작게 유지해야 합니다.</p>
-<p>이 이슈는 여러 가지 방법으로 해결할 수 있습니다. 한 가지 방법은 단순히 HTTP 요청을 하고 전체 페이지를 다시 렌더링하는 것입니다. 또 다른 접근법은 새로운 상태의 DOM을 이전 상태와 구분하여 차이점 만 렌더링하는 것입니다. ReactJS가 가상 DOM을 사용하여 수행하는 것처럼..</p>
-<p>이와 관련해서 Tero는 <a href="http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html" target="_blank" rel="external">Change and its detection in JavaScript frameworks</a>라는 훌륭한 글을 썼습니다. 만일 당신이 프레임워크들이 어떻게 이 이슈를 해결하는지 좀 더 흥미가 있다면 이 글을 읽어보기를 추천합니다. 본 글에서는 Angular2 이상 버전에 대해서만 집중합니다.</p>
-<p>기본적으로 변경 감지의 목표는 항상 데이터와 그 변화를 투영(projecting)하는 것입니다.</p>
-<h3 id="무엇이-변화를-일으키는가"><a href="#무엇이-변화를-일으키는가" class="headerlink" title="무엇이 변화를 일으키는가?"></a>무엇이 변화를 일으키는가?</h3><p>자, 이제 우리는 변화 탐지가 무엇인지 알게되었으므로 정확히 언제 그러한 변화가 일어날 수 있는지 알아보겠습니다. Angular는 View를 업데이트 해야한다는 것을 언제 알 수 있을까요?<br>
-undefined
-
-</p>
-<p>앵귤러 component를 처음 보는 경우 탭 <a href="https://blog.thoughtram.io/angular/2015/04/09/developing-a-tabs-component-in-angular-2.html" target="_blank" rel="external">component 작성에 대한 도움말</a>을 읽는 것이 좋습니다.</p>
-<p>위의 component는 두 개의 속성(property)을 표시하고 템플릿의 button을 클릭 할 때 변경하는 메서드를 제공합니다. 이 특정 단추를 클릭하는 순간 application 상태(state)가 변경되면 component의 속성이 변경되기 때문입니다. 그 순간에 우리는 view를 업데이트하려고 합니다.</p>
-<p>여기에 다른 코드가 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Component()</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContactsApp</span> <span class="title">implements</span> <span class="title">OnInit</span></span>&#123;</div><div class="line"></div><div class="line">  contacts:Contact[] = [];</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(private http: Http) &#123;&#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="keyword">this</span>.http.get(<span class="string">'/contacts'</span>)</div><div class="line">      .map(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</div><div class="line">      .subscribe(<span class="function"><span class="params">contacts</span> =&gt;</span> <span class="keyword">this</span>.contacts = contacts);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>이 component는 컨텐츠 목록을 가지고 있고, 그것이 초기화 되었을때 http 요청을 수행합니다. 이 요청이 다시 들어 오면 목록이 업데이트됩니다. 다시, 이 시점에서 application 상태가 변경되었으므로 view를 업데이트하려고 합니다.</p>
-<p>기본적으로 application 상태 변화는 3가지에 의해 발생됩니다.</p>
-<ul>
-<li><strong>Events</strong> - click, submit, …</li>
-<li><strong>XHR</strong> - 원격 데이터로부터 데이터를 가져오는 것</li>
-<li><strong>Timers</strong> - <code>setTimeout()</code>, <code>setInterval()</code></li>
-</ul>
-<p>이것들은 모두 비동기입니다. 따라서 기본적으로 일부 비동기 작업이 수행 될 때마다 application 상태가 변경될 수 있다는 결론을 얻습니다. 이것은 누군가가 Angular에게 view를 업데이트 하라고 말해 줄 필요가 있을 때입니다.</p>
-<h3 id="Angular에게-알리는-것은-무엇일까요"><a href="#Angular에게-알리는-것은-무엇일까요" class="headerlink" title="Angular에게 알리는 것은 무엇일까요?"></a>Angular에게 알리는 것은 무엇일까요?</h3><p>자, 이제 응용 프로그램 상태 변경의 원인을 알았습니다. 그러나 이 특정 순간에 view가 업데이트되어야 한다고 Angular에게 알리는 것은 무엇일까요?</p>
-<p>Angular는 우리에게 native API(web의 경우 addEventListener 같은…)를 직접 사용하는 것을 허용합니다. Angular가 DOM을 업데이트 하는 알림을 받기 위해서, 우리가 호출 해야만하는 어떠한 가로채는(interceptor) methods도 없습니다. 이것은 마술일까요?</p>
-<p>만일 최신 버젼의 글을 읽었다면, 당신은 이것을 처리하는 Zones을 알것입니다. 실제로, Angular는 <code>NgZone</code>이라는 자체 영역(zone)을 제공합니다. 우리는 <a href="https://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html" target="_blank" rel="external">Zones in Angular</a>라는 글을 기록 했었습니다.</p>
-<p>Angular 소스 코드에서 <code>NgZones</code>, <code>onTurnDone</code> 이벤트를 수신하는 <code>ApplicationRef</code>라는 것이 있습니다. 이 이벤트가 발생하면, 본질적으로 변경 검출을 실시하는 <code>tick()</code> 함수를 실행합니다.</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 실제 Angular 코드의 매우 짧은 버젼</span></div><div class="line"><span class="keyword">class</span> ApplicationRef &#123;</div><div class="line"></div><div class="line">  changeDetectorRefs:ChangeDetectorRef[] = [];</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> zone: NgZone</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.zone.onTurnDone.subscribe(() =&gt; <span class="keyword">this</span>.zone.run(() =&gt; <span class="keyword">this</span>.tick());</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  tick() &#123;</div><div class="line">    <span class="keyword">this</span>.changeDetectorRefs</div><div class="line">      .forEach((ref) =&gt; ref.detectChanges());</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Change-Detection"><a href="#Change-Detection" class="headerlink" title="Change Detection"></a>Change Detection</h3><p>좋습니다. 이제 변경 감지가 트리거되는 시점을 알 수 있지만 어떻게 수행될까요? Angular에서는 각 component마다 고유 한 변경 감지기가 있습니다.</p>
-<p><img src="/assets/images/angular/cd-tree-2.svg" alt="" style="background-color:#0c4eb2"></p>
-<p>이는 중요한 사실입니다. 이는 각 component에 대해 변경 감지가 수행되는 방법과시기를 개별적으로 제어 할 수 있기 때문입니다!</p>
-<p>component 트리의 어딘가에 이벤트가 발생했다고 가정 해 봅시다. 버튼이 클릭되었을 수도 있습니다. 다음에 어떻게 될까요? 영역이 주어진 핸들러를 실행하고 턴이 완료되면 Angular에 알리고, 결국 Angular가 변경 감지를 수행한다는 것을 알았습니다.</p>
-<p><img src="/assets/images/angular/cd-tree-7.svg" alt="" style="background-color:#0c4eb2"></p>
-<p>각 component에는 고유 한 변경 감지기가 있고, Angular application은 component 트리로 구성되므로 결론적으로 변경 감지기 트리도 있다는 것입니다. 이 트리는 데이터가 항상 위에서 아래로 흐르는 방향 그래프로 볼 수도 있습니다.</p>
-<p>데이터가 위에서 아래로 흐르는 이유는 root component부터 모든 단일 component에 대해 항상 변경 감지가 항상 위에서 아래로 수행되기 때문입니다. 단방향 데이터 흐름이 주기(cycles)보다 예측 가능하기 때문에 매우 좋습니다. 우리는 뷰에서 사용하는 데이터의 출처를 항상 알고 있습니다. 이는 해당 component에서만 발생할 수 있기 때문입니다.</p>
-<p>또 다른 흥미로운 점은 변경 감지가 단일 패스(single pass) 후에 안정화된다는 것입니다. 즉, component 중 하나가 변경 감지 중에 첫 번째 실행 후 추가적인 부작용이 발생하면 Angular는 오류를 발생시킵니다.</p>
-<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p>기본적으로 이벤트가 발생할 때마다 모든 단일 component를 검사해야 하더라도 Angular는 매우 빠릅니다. 몇 milliseconds 내에 수십만 개의 점검을 수행 할 수 있습니다. 이것은 Angular가 VM 친화적인 코드(VM friendly code)를 생성하기 때문에 가능합니다.</p>
-<p>무슨 뜻일까요? 각 component마다 고유 한 변경 감지기가 있다는 것은, 각 개별 component의 변경 감지를 처리하는 Angular의 하나의 포괄적인 처리기(generic thing)가 있다는 것과 같은 의미가 아닙니다.</p>
-<p>그 이유는 변경 감지기가 동적 방식으로 작성되어야 하기 때문에 모델 구조가 어떻든간에 모든 component를 확인할 수 있기 때문입니다. VM은 최적화 할 수 없다는 이유로 이런 종류의 동적 코드를 좋아하지 않습니다. 객체의 모양이 항상 동일하지는 않기 때문에 다형성(polymorphic)으로 간주됩니다.</p>
-<p>Angular는 component 모델의 모양이 무엇인지 정확하게 알고 있기 때문에, 단일 component인 각 component의 런타임에 변경 감지기 클래스를 만듭니다. VM은이 코드를 완벽하게 최적화 할 수 있으므로 실행 속도가 매우 빠릅니다. 좋은 점은 Angular가 자동으로 처리하므로 너무 많이 신경 쓰지 않아도 된다는 것입니다.</p>
-<h3 id="Smarter-Change-Detection"><a href="#Smarter-Change-Detection" class="headerlink" title="Smarter Change Detection"></a>Smarter Change Detection</h3><p>다시 말하지만, Angular는 이벤트가 발생할 때마다 모든 component를 확인해야합니다. 애플리케이션 상태가 변경되었을 수 있기 때문입니다. 그러나 Angular가 상태를 변경 한 application의 부분에 대해서만 변경 감지를 실행하도록 말할 수 있다면 좋지 않을까요?</p>
-<p>그렇습니다. 할 수 있습니다! 무언가가 바뀌 었는지 여부에 대한 보장을 제공하는 데이터 구조(data structures)가 있습니다.</p>
-<ul>
-<li><strong>Immutables and Observables</strong> 이러한 structure 나 type을 사용하게되면 Angular에 알려줌으로써 변경 감지가 훨씬 더 빠를 수 있습니다. 그럼 어떻게 해야 할까요?</li>
-</ul>
-<h4 id="Understanding-Mutability"><a href="#Understanding-Mutability" class="headerlink" title="Understanding Mutability"></a>Understanding Mutability</h4><p>이유 및 방법을 이해하기 위해 불변의 데이터 구조(immutable data structures)가 도움이된다면, 우리는 변경 가능성(mutability)의 의미를 이해할 필요가 있습니다. 다음과 같은 component가 있다고 가정합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;v-card [vData]="vData"&gt;&lt;/v-card&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VCardApp</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>() &#123;</div><div class="line">    <span class="keyword">this</span>.vData = &#123;</div><div class="line">      <span class="attr">name</span>: <span class="string">'Christoph Burgdorf'</span>,</div><div class="line">      <span class="attr">email</span>: <span class="string">'christoph@thoughtram.io'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  changeData() &#123;</div><div class="line">    <span class="keyword">this</span>.vData.name = <span class="string">'Pascal Precht'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>VCardApp</code>는 <code>&lt;v-card&gt;</code>를 하위 component로 사용하며 이 component에는 <code>vData</code> 입력 속성이 있습니다. <code>VCardApp</code>의 <code>vData</code> 속성을 사용하여 해당 component로 데이터를 전달합니다. <code>vData</code>는 두 가지 속성을 가진 객체입니다. 또한 <code>vData</code>의 이름을 변경하는 <code>changeData()</code> 메서드가 있습니다. 여기에 별다른 신기한 점은 없습니다.</p>
-<p>중요한 부분은 <code>changeData()</code>가 <code>name</code> 속성을 변경하여 <code>vData</code>를 변경한다는 점입니다. 해당 속성이 변경 되더라도 <code>vData</code> 참조 자체는 그대로 유지됩니다.</p>
-<p>어떤 이벤트로 인해 <code>changeData()</code>가 실행된다고 가정하고, 변경 감지가 수행 될 때 어떤 일이 발생할까요? 먼저 <code>vData.name</code>이 변경된 다음 <code>&lt;v-card&gt;</code>로 전달됩니다. <code>&lt;v-card&gt;</code>의 변경 감지기는 이제 <code>vData</code>가 이전과 여전히 동일한지 확인합니다. 참조(reference)는 변경되지 않았습니다. 그러나 <code>name</code> 속성이 변경되었으므로 Angular는 해당 객체에 대한 변경 감지를 수행합니다.</p>
-<p>자바 스크립트에서는 객체가 기본적으로 변경 가능하기 때문에 (프리미티브(primitives) 제외) Angular는 보수적이어야하며 이벤트가 발생할 때마다 모든 component에 대해 변경 감지를 실행해야합니다.</p>
-<p>다음은 불변의(immutable) 데이터 구조가 작동하는 곳입니다.</p>
-<h3 id="Immutable-Objects"><a href="#Immutable-Objects" class="headerlink" title="Immutable Objects"></a>Immutable Objects</h3><p>변경할 수 없는 객체는 객체 불변을 보장해 줍니다. 즉, 불변 객체를 사용하고 그러한 객체를 변경하고자 할 때, 원래 객체가 변경되지 않기 때문에 우리는 항상 그 변경으로 새로운 참조를 얻습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vData = someAPIForImmutables.create(&#123;</div><div class="line">              <span class="attr">name</span>: <span class="string">'Pascal Precht'</span></div><div class="line">            &#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> vData2 = vData.set(<span class="string">'name'</span>, <span class="string">'Christoph Burgdorf'</span>);</div><div class="line"></div><div class="line">vData === vData2 <span class="comment">// false</span></div></pre></td></tr></table></figure>
-<p><code>someAPIForImmutables</code>는 변경 불가능한 데이터 구조에 사용하려는 모든 API가 될 수 있습니다. 그러나 예제에서 볼 수 있듯이 단순히 name 속성을 변경할 수는 없습니다. 우리는 그 특별한 변화를 가진 새로운 객체를 얻게 될 것이고 이 객체는 새로운 참조를 가지고 있습니다.</p>
-<h3 id="점검-횟수-줄이기-Reducing-the-number-of-checks"><a href="#점검-횟수-줄이기-Reducing-the-number-of-checks" class="headerlink" title="점검 횟수 줄이기(Reducing the number of checks)"></a>점검 횟수 줄이기(Reducing the number of checks)</h3><p>Angular는 입력 속성이 변경되지 않을 때 전체 변경 감지 하위 트리를 건너 뛸 수 있습니다. 우리는 방금 “변화”가 “새로운 참조”를 의미한다는 것을 배웠습니다. Angular 앱에서 불변 객체를 사용하는 경우, 입력 값이 변경되지 않은 경우 component가 변경 감지를 건너 뛸 수 있다고 Angular에 알려주면됩니다.</p>
-<p><code>&lt;v-card&gt;</code>를 통해 어떻게 작동하는지 봅시다.<br>
-undefined
-
-<br>보시다시피, <code>VCardCmp</code>는 입력 속성에만 의존합니다. 좋습니다. 변경 감지 전략을 다음과 같이 <code>OnPush</code>로 설정하여 입력이 변경되지 않으면 이 component의 하위 트리에 대한 변경 감지를 건너 뛰도록 Angular에 지시 할 수 있습니다.<br>
-undefined
-
-<br>이게 전부입니다! 이제 더 큰 component 트리를 상상해보십시오. 불변 객체를 사용하고, Angular에 적절하게 정보가 전달되면 전체 하위 트리를 건너 뛸 수 있습니다.</p>
-<p><img src="/assets/images/angular/cd-tree-8.svg" alt="" style="background-color:#0c4eb2"></p>
-<h3 id="Observables"><a href="#Observables" class="headerlink" title="Observables"></a>Observables</h3><p>이전에 언급 한 바와 같이 Observables는 변경 사항이 언제 발생했는지 확실하게 보장합니다. 불변 객체와는 달리, 변경 사항이있을 때 새로운 참조(references)를 제공하지 않습니다.<br>대신, Observables은 그들에게 반응하기 위해 우리가 구독 할 수 있는 이벤트를 제공합니다.</p>
-<p>만일 우리가 Observables을 사용하고, 우리가 변경 감지 하위트리를 건너뛰기 위해서 <code>OnPush</code>를 사용하기를 원한다 할 때, 이러한 객체의 참조가 변경되지 않으면 어떻게 처리해야 할까요? Angular는 component 트리의 경로에서 특정 이벤트를 검사 할 수 있는 매우 현명한 방법을 제공합니다.</p>
-<p>이것이 의미하는 것을 이해하기 위해 아래의 component를 살펴 보겠습니다.<br>
-undefined
-
-</p>
-<p>장바구니가있는 e-commerce 애플리케이션을 구축한다고 가정 해 보겠습니다. 사용자가 장바구니에 제품을 올릴 때마다 우리는 UI에 작은 카운터를 표시하여 카트의 제품 수량을 볼 수 있습니다.</p>
-<p><code>CartBadgeCmp</code>의 역할이 그것입니다. 제품에는 장바구니에 제품이 추가 될 때마다 실행되는 이벤트 스트림 인 <code>counter</code> 와 입력 속성 <code>addItemStream</code>이 있습니다.</p>
-<p>우리는 이 글에서 observables이 어떻게 작동하는지에 대해 자세히 설명하지 않을 것입니다. observables에 대해 더 자세히 알고 싶다면 <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank" rel="external">Observables in Angular를 활용하는 방법에 대한 글</a>를 읽어보세요.</p>
-<p>또한 변경 검색 전략을 <code>OnPush</code>로 설정하므로, 오직 component의 입력 속성이 변경될 때만 변경 감지가 수행됩니다.</p>
-<p>그러나 앞에서 언급했듯이 <code>addItemStream</code>의 참조는 변경되지 않으므로 이 component의 하위 트리에 대한 변경 감지가 수행되지 않습니다. component가 <code>ngOnInit</code> 라이프 사이클 hook에서 해당 스트림을 subscribe하고 카운터를 증가시키기 때문에 이는 문제가됩니다. 이것은 응용 프로그램 상태 변경이며 이를 반영하고 싶습니다.</p>
-<p>변경 탐지기 트리가 어떻게 생겼는지 (모든 것을 OnPush로 설정했습니다) 이벤트가 발생하면 변경 감지가 수행되지 않습니다.</p>
-<p><img src="/assets/images/angular/cd-tree-10.svg" alt="" style="background-color:#0c4eb2"></p>
-<p>이 변화에 대해 Angular에게 어떻게 알릴 수 있습니까? 전체 트리가 OnPush로 설정된 경우에도이 component에 대해 변경 감지를 수행해야한다는 Angular를 어떻게 알 수 있습니까?</p>
-<p>걱정 마세요. Angular는 우리에게 적용됩니다. 앞서 학습 한 것처럼 변경 감지는 항상 위에서 아래로 수행됩니다. 따라서 우리는 변경이 발생한 component에 대한 트리의 전체 경로에 대한 변경을 감지하는 방법이 필요합니다. Angular는 어느 경로인지 알 수 없지만 우리는 알수 있습니다.</p>
-<p>우리는 <code>markForCheck()</code>라는 API와 함께 제공되는 의존성 삽입을 통해 컴포넌트의 <code>ChangeDetectorRef</code>에 액세스 할 수 있습니다. 이 방법은 우리가 필요로하는 것을 정확히 수행합니다! 다음 변경 감지 실행을 위해 루트까지 component의 경로를 표시합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constructor</span>(private cd: ChangeDetectorRef) &#123;&#125;</div></pre></td></tr></table></figure>
-<p>그런 다음 Angular에 이 component의 경로를 확인할 루트까지 표시하도록 지시합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="keyword">this</span>.addItemStream.subscribe(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">this</span>.counter++; <span class="comment">// application state changed</span></div><div class="line">      <span class="keyword">this</span>.cd.markForCheck(); <span class="comment">// marks path</span></div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>다됐습니다! observable 이벤트가 시작된 후, 변경 감지 시작 전의 모습은 다음과 같습니다.</p>
-<p><img src="/assets/images/angular/cd-tree-12.svg" alt="" style="background-color:#0c4eb2"></p>
-<p>이제 변경 감지가 수행되면 단순히 위에서 아래로 이동합니다.</p>
-<p><img src="/assets/images/angular/cd-tree-13.svg" alt="" style="background-color:#0c4eb2"></p>
-<p>멋지죠? 변경 감지 실행이 끝나면 전체 트리의 <code>OnPush</code> 상태를 복원합니다.</p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><strong>이 글은 <a href="https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html">Thoughtram 블로그</a>의 글을 번역한 것입니다. 번역이 미흡하더라도 너그럽게 이해해주세요.</strong><br>
                     
+                        <a href="/2017/01/27/angular-detection/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/01/27/angular-detection/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -698,46 +523,13 @@ undefined
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h3 id="buffer"><a href="#buffer" class="headerlink" title="buffer"></a>buffer</h3><p>buffer는 말그대로 Obervable의 실행을 일정기간 미루는 것이다. 시리즈 성격의 buffer Operators는 몇가지가 있는데, 이들 모두 공통적으로 Obervable의 실행을 일정기간 미룬다.</p>
-<h4 id="buffer-1"><a href="#buffer-1" class="headerlink" title="buffer"></a>buffer</h4><p>Obervable을 인자로 받으며, 인자의 Obervable이 subscribe될 때 미루고 있던 이전의 Obervable의 subscribe값들을 배열로 반환한다.  </p>
-<p>아래 예재에서는 document 클릭할때마다 1초마다 쌓인 스트림을 배열로 반환 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obBuffer = Rx.Observable.interval(<span class="number">1000</span>)</div><div class="line">  .buffer(Rx.Observable.fromEvent(<span class="built_in">document</span>,<span class="string">'click'</span>));</div><div class="line">obBuffer.subscribe(<span class="function"><span class="params">x</span>=&gt;</span><span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
-<h4 id="bufferCount"><a href="#bufferCount" class="headerlink" title="bufferCount"></a>bufferCount</h4><p>bufferCount는 두개의 인자를 받는다. 첫 번째는 도출되는 buffer의 최대 사이즈가 오며, 두 번째는 새로운 buffer가 몇번의 스트림을 주기로 실행될것인지가 온다. 즉 bufferCount(3,2)라면 여기서 도출되는 스트림은, input Observable의 스트림중 최근 3개를 인자로 묶은 배열이 2번의 주기로 실행되는 것이다.(말이 어렵다… ㅠ)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obBufferCount = Rx.Observable.interval(<span class="number">1000</span>)</div><div class="line">  .bufferCount(<span class="number">3</span>, <span class="number">4</span>);</div><div class="line">obBufferCount.subscribe(<span class="function"><span class="params">x</span>=&gt;</span><span class="built_in">console</span>.log(x)); <span class="comment">//[0,1,2], [4,5,6] ...</span></div></pre></td></tr></table></figure>
-<h4 id="bufferTime"><a href="#bufferTime" class="headerlink" title="bufferTime"></a>bufferTime</h4><p>Observable 값을 특정 시간단위로 지연시켜 배출한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obBufferTime = Rx.Observable.interval(<span class="number">1000</span>).bufferTime(<span class="number">3000</span>);</div><div class="line">obBufferTime.subscribe(<span class="function"><span class="params">x</span>=&gt;</span><span class="built_in">console</span>.log(x)); <span class="comment">//[0, 1], [2,3,4], [5,6,7]</span></div></pre></td></tr></table></figure></p>
-<h4 id="bufferToggle"><a href="#bufferToggle" class="headerlink" title="bufferToggle"></a>bufferToggle</h4><p>bufferToggle은 두개의 인자를 받는다. 첫 번째는 buffer를 시작하는, 두 번째는 buffer를 마무리 하기 위한 인자가 온다. 첫 번째는 구독가능하거나 Promise로 반환되는(Subscribable Or Promise) 값이오고, 두 번째는 구독가능하거나 Promise로 반환되는(Subscribable Or Promise) 값을 도출하는 함수가 온다. 결국 두개의 Observable을 인자로 받아 시작점과 끝나는 지점을 정하고 이 안에 있는 스트림을 배열로 묶어 배출한다. 만일 promise라면 resolve함수가 실행되는 시점이 시작하거나 마무리하는 시점이 되며, 이는 시점을 정할뿐 인자를 넘겨 줄 수 없다(아마도….)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obBufferToggle = Rx.Observable.interval(<span class="number">1000</span>) <span class="comment">//1초에 1씩 증가하는 값을 반환하는 스트림</span></div><div class="line">  .bufferToggle(Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>), (e)=&gt;&#123; <span class="comment">//시작 시점은 문서를 클릭할때</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">res, rej</span>)</span>&#123;</div><div class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span>&#123;</div><div class="line">        res(<span class="number">100</span>)<span class="comment">//인자는 쓰이지 않는다...?</span></div><div class="line">      &#125;, <span class="number">2000</span>)</div><div class="line">    &#125;)<span class="comment">//끝나는 시점은 2초가 지난 후.</span></div><div class="line">  &#125;);</div><div class="line">obBufferToggle.subscribe(<span class="function"><span class="params">x</span>=&gt;</span><span class="built_in">console</span>.log(x)); <span class="comment">//[n, n+1], [m, m+1]...</span></div></pre></td></tr></table></figure>
-<hr>
-<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><h4 id="map-1"><a href="#map-1" class="headerlink" title="map"></a>map</h4><p><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-map" target="_blank" rel="external">map</a>은 Array method들 중에 가장 많이 쓰이는 것 중에 하나이다. RxJS의 맵도 거의 같은 역할을 한다. 차이점이라면 Array method는 배열의 인자를 순회하면서 콜백 함수에 의한 값을 리턴하는 반면, RxJS의 map은 스트림 값을 받아 콜백함수에 의한 값을 그대로 흘려보내준다는 것이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obMap = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line">  .map(<span class="function"><span class="params">x</span> =&gt;</span> x+<span class="number">10</span>);</div><div class="line">obMap.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">// 11, 12, 13, 14</span></div></pre></td></tr></table></figure></p>
-<h4 id="mapTo"><a href="#mapTo" class="headerlink" title="mapTo"></a>mapTo</h4><p><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-mapTo" target="_blank" rel="external">mapTo</a>는 map과 거의 유사하다. 하지만 아웃풋 값이 mapTo의 인자 값으로 고정이다. 다음에 나오는 operator들에도 뒤에 to가 붙는 것들이 있는데, 대부분 기본 operator 기능에 인자 값을 subscribe로 넘기는 비슷한 역할을 한다.  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obMapTo = Rx.subscribe.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line">  .mapTo(<span class="string">'10'</span>);</div><div class="line">obMapTo.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//10, 10, 10, 10</span></div></pre></td></tr></table></figure>
-<hr>
-<h3 id="concatMap-exhaustMap-mergeMap-switchMap"><a href="#concatMap-exhaustMap-mergeMap-switchMap" class="headerlink" title="concatMap exhaustMap mergeMap switchMap"></a>concatMap exhaustMap mergeMap switchMap</h3><p>이 Operator들은 인자로 Observable을 받는다. 그리고 인풋의 Observable과 인자의 Observable을 합쳐(flat) 하나의 스트림을 반환한다. 두 번째 인자로는 콜백함수를 포함시킬 수 있다. 인자로는 총 4개를 받는데, <code>Outer Observable의 값</code>, <code>Inner Observable의 값</code>, <code>Outer Observable의 Index</code>, <code>Inner Observable의 Index</code>로 구성된다. 각각은 다음과 같은 특징을 가지고 있다.</p>
-<ul>
-<li><code>concat</code> Observable이 끝나면 이어서 다음 Observable을 실행. 첫 번째 Observable이 끝나기 에 두 번째 Observable이 실행해도 첫 번째 Observable이 끝나고 나서 두 번째가 실행된다.</li>
-<li><code>exhaust</code> Observable이 실행되고 있을때 실행되는 다음 Observable을 무시한다.</li>
-<li><code>merge</code> Observable이 발생하는대로 모두 실행한다. (<code>flatMap</code>과 동일한 것으로 보인다.)</li>
-<li><code>switch</code> Observable이 실행되고 있을때 다음 Observable이 실행되면 먼저실행된 Observable을 중단시킨다.</li>
-</ul>
-<p>모든 Operator가 비슷하게 작동하므로 소스예제는 하나만 기록한다. 중간에 Operator만 바꾸면 작동한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line"><span class="keyword">const</span> higherOrder = clicks.concatMap(<span class="function"><span class="params">ev</span> =&gt;</span> Rx.Observable.interval(<span class="number">1000</span>).take(<span class="number">3</span>), (i,j,k,l) =&gt; &#123;</div><div class="line">  <span class="keyword">return</span> [i,j,k,l];</div><div class="line">&#125;);</div><div class="line">higherOrder.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="window"><a href="#window" class="headerlink" title="window"></a>window</h3><p><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-window" target="_blank" rel="external">window</a>는 Transformation Operator중 개념 이해하기가 가장 난해했다. 결과적으로 이야기 하면… Outer Observable이 발생할 때마다 Inner Observable을 각각의 Observable(window)로 쪼개서 배출한다. 이는 마치 자바스크립트의 <code>split</code> method와 비슷하다.<br><code>window</code>로 시작하는 Operator들이 몇가지 있는데 기본 동작 원칙은 같다. 한 Observable의 스트림을 기반으로 새로운 Observable들을 반환한다. 그리고 이 Operator의 인자로 언제 새로운 Observable을 만들고, 언제 없앨지를 정한다.</p>
-<p>아래 소스에서는 2초마다 스트림이 발생하는 Observable(interval)이 있고, 각 스트림이 실행될 때 마다 클릭 이벤트를 바라보는 Observable(clicks)이 생성된다. 이 clicks는 스트림이 끝날 때 같이 종료된다. 또한 clicks은 한 스트림 안에서 2번까지의 클릭만 스트림을 발생시킨다. 다소 복잡할 수 있지만 아래의 소스를 이해한다면 window의 개념을 어느정도 잡을 수 있을 것이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line"><span class="keyword">const</span> interval = Rx.Observable.interval(<span class="number">2000</span>);</div><div class="line"><span class="keyword">const</span> result = clicks.window(interval) <span class="comment">//2초마다 클릭 이벤트를 바라보는 Observable(윈도우)틀 배출한다.</span></div><div class="line">  .map(<span class="function"><span class="params">win</span> =&gt;</span> win.take(<span class="number">2</span>)) <span class="comment">// 각 윈도우는 2개의 스트림만을 받는다.</span></div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'out'</span>);<span class="comment">//2초마다 클릭이벤트 Observable 발생</span></div><div class="line">  x.subscribe(</div><div class="line">    <span class="function"><span class="params">y</span> =&gt;</span> <span class="built_in">console</span>.log(y),<span class="comment">//클릭할때 스트림 발생</span></div><div class="line">    err =&gt; <span class="built_in">console</span>.log(err),</div><div class="line">    () =&gt; <span class="built_in">console</span>.log(<span class="string">'finish'</span>)<span class="comment">//2번의 클릭 스트림 발생했거나 2초가 지났으면 complete매소드 실행</span></div><div class="line">  )&#125;</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<h4 id="windowCount"><a href="#windowCount" class="headerlink" title="windowCount"></a>windowCount</h4><p><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-windowCount" target="_blank" rel="external">windowCount</a>는 인자로 숫자를 받는다. 이 숫자 개수만큼 Outer Observable의 스트림을 묶어서 하나의 Observable로 분출한다. 위에서 살펴본 인자의 숫자만큼 대기한다는 측면에서 <code>bufferCount</code>과 매칭된다.</p>
-<p>아래 소스는 클릭 스트림이 3번 쌓일때마다 클릭 Observable을 complete하고 새로운 클릭 스트림을 만든다. (순수함수라는 측면에서 전역변수를 쓰는건 안좋은 방법이지만 이해를 돕기위해 cnt라는 전역변수를 만들었다.)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cnt = <span class="number">0</span>;</div><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line"><span class="keyword">const</span> result = clicks.windowCount(<span class="number">3</span>)</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'click Observable Start'</span>); <span class="comment">//클릭 Observable 생성</span></div><div class="line">  x.subscribe(</div><div class="line">    <span class="function"><span class="params">y</span> =&gt;</span> <span class="built_in">console</span>.log(++cnt),<span class="comment">//클릭할때마다 숫자 1씩 증가</span></div><div class="line">    e =&gt; e,</div><div class="line">    () =&gt; (cnt = <span class="number">0</span>, <span class="built_in">console</span>.log(<span class="string">'click Observable completed'</span>)) <span class="comment">//클릭 Observable 종료</span></div><div class="line">  ),</div><div class="line">  e =&gt; e,</div><div class="line">  () =&gt; (<span class="built_in">console</span>.log(<span class="string">'completed'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h4 id="windowTime"><a href="#windowTime" class="headerlink" title="windowTime"></a>windowTime</h4><p><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-windowTime" target="_blank" rel="external">windowTime</a>는 인자로 두개의 숫자를 받는다, 첫번째는 생성된 window가 지속될 시간이고, 두번째는 window의 생성 주기를 나타내는 시간이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line"><span class="keyword">const</span> result = clicks.windowTime(<span class="number">2000</span>, <span class="number">5000</span>) <span class="comment">//Observable이 2초후 종료됨. Observable생성 5초 후에 새로운 Observable이 시작.</span></div><div class="line">  .map(<span class="function"><span class="params">win</span> =&gt;</span> win.take(<span class="number">2</span>)) <span class="comment">// 각 윈도우는 2개의 스트림만을 받는다.</span></div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'start'</span>)</div><div class="line">  x.subscribe(</div><div class="line">    <span class="function"><span class="params">y</span> =&gt;</span> <span class="built_in">console</span>.log(y), <span class="comment">//클릭할때 스트림 발생</span></div><div class="line">    err =&gt; <span class="built_in">console</span>.log(err),</div><div class="line">    () =&gt; <span class="built_in">console</span>.log(<span class="string">'finish'</span>) <span class="comment">//2초가 지나거나 클릭 스트림이 2번 발생할경우 complete</span></div><div class="line">  )</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="windowToggle"><a href="#windowToggle" class="headerlink" title="windowToggle"></a>windowToggle</h4>
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>RxJS의 Operator중에 Transformation관련 Operator들에 대해 정리한 글입니다.<br>
                     
+                        <a href="/2017/01/01/rxjs-trans-operator/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2017/01/01/rxjs-trans-operator/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -774,33 +566,13 @@ undefined
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>Operators는 Observable에서 작동되는 method들이다. (<code>.map(...)</code>, <code>.filter(...)</code>, <code>.merge(...)</code> …) 이들은 실행되면 현재 Observable의 인스턴스를 바꾸지는 않는다. 다만 첫번째 Observable의 subscription 로직을 기반으로 새로운 Observable을 return한다. 따라서 이전의 Observable은 수정되거나 하지 않는다(immutability).<br>Operator는 필수적으로  Observable를 취하고, 새로운 Observable을 생성하는 순수함수이다.</p>
-<p>우선 이번 페이지에서는  Observable을 생성하는 Operators를 살펴보려고 한다.</p>
-<hr>
-<h4 id="bindCallback"><a href="#bindCallback" class="headerlink" title="bindCallback"></a>bindCallback</h4><p>인자로는 3개를 받는데, <code>1.콜백이 포함된 함수</code>, <code>2.출력될 옵저버블에 전달할 값</code>, <code>3.스케줄러</code> 로 구성된다. 해당 함수의 마지막 인자를 콜백으로 실행시킨다.아래는 <code>getJSON</code>의 예제이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getJSONAsObservable = Rx.Observable.bindCallback(jQuery.getJSON);</div><div class="line"><span class="keyword">const</span> result = getJSONAsObservable(<span class="string">'/my/url'</span>);</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x), e =&gt; <span class="built_in">console</span>.error(e));</div></pre></td></tr></table></figure>
-<h4 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h4><p>defer는 스트림의 실행을 미루는 method이다.  인자는 옵저버블이나 프라미스 객체를 리턴하는 함수를 받으며  observable을 생성한다. 따라서 defer가 어떤 observable을 리턴하느냐에 따라서 스트림이 결정된다.<br><em>public static defer(observableFactory: function(): Observable or Promise): Observable</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicksOrInterval = Rx.Observable.defer(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span>) &#123;</div><div class="line">    <span class="keyword">return</span> Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> Rx.Observable.interval(<span class="number">1000</span>);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">clicksOrInterval.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure>
-<h4 id="empty"><a href="#empty" class="headerlink" title="empty"></a>empty</h4><p>empty는 빈 스트림을 반환한다. 일단 스트림을 만들고 동적으로 값을 생성하거나 할 때, 혹은 조건에 따라 동적으로 다른 스트림을 만들때 쓰일것으로 보인다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> result = Rx.Observable.empty().startWith(<span class="number">7</span>);</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//7</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> interval = Rx.Observable.interval(<span class="number">1000</span>);</div><div class="line"><span class="keyword">const</span> result = interval.mergeMap(<span class="function"><span class="params">x</span> =&gt;</span></div><div class="line">  x % <span class="number">2</span> === <span class="number">1</span> ? Rx.Observable.of(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>) : Rx.Observable.empty()</div><div class="line">);<span class="comment">//1초에 한번씩 일어나는 스트림에 조건(x % 2 === 1)에따른 스트림을 합친다(mergeMap).</span></div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure>
-<h4 id="from"><a href="#from" class="headerlink" title="from"></a>from</h4><p>가장많이 쓰이는 생성 operator중 하나일것이다. 인자로는 Observable로 변환시킬 수 있는 모든 값을 받을 수 있다. 구독가능한 객체, Promise 객체, 배열, 유사배열, 이터러블 인터페이스를 따르는 값들이 된다. iterable interface는 ES6에 추가된 문법으로 이에 해당되는 것으로는 배열, 문자열, gernerator 함수로 부터 도출된 interator 객체, Map 객체, Set 객체 등이다.</p>
-<p>가장 기본적인 from method형태. 배열을 인자로 받아 스트림을 생성한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> input = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]);</div><div class="line">input.subscribe(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(i)</div><div class="line">&#125;,<span class="string">''</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'completed'</span>)</div><div class="line">&#125;); <span class="comment">//1, 2, 3, 4, 'completed'</span></div></pre></td></tr></table></figure></p>
-<p>from은 generator 함수로부터 생성된 interator객체도 인자로 받을 수 있다. generator에 대한 자세한 설명은 <a href="http://hacks.mozilla.or.kr/2015/08/es6-in-depth-generators/" target="_blank" rel="external">여기</a>를 참조.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generateDoubles</span>(<span class="params">seed</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> i = seed;</div><div class="line">  <span class="keyword">while</span> (i&lt;<span class="number">100</span>) &#123;</div><div class="line">    <span class="keyword">yield</span> i;</div><div class="line">    i = <span class="number">2</span> * i; <span class="comment">// double it</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> iterator = generateDoubles(<span class="number">3</span>);</div><div class="line"><span class="keyword">var</span> result = Rx.Observable.from(iterator);</div><div class="line">result.subscribe(</div><div class="line">  <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x),</div><div class="line">  e =&gt; <span class="built_in">console</span>.error(e),</div><div class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'finished'</span>));</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>앞서 야기 한대로, from operator는 promise도 받는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> data = fetch(<span class="string">'https://api.zigbang.com/v1/search/subway?q='</span>).then(<span class="function"><span class="params">data</span>=&gt;</span>&#123;</div><div class="line">  <span class="keyword">return</span> data.json();</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> ob = Rx.Observable.from(data).flatMap(<span class="function"><span class="params">x</span>=&gt;</span>x);</div><div class="line">ob.subscribe(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(e.name); <span class="comment">//지하철역들...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h4 id="fromEvent"><a href="#fromEvent" class="headerlink" title="fromEvent"></a>fromEvent</h4><p>Creates an Observable that emits events of a specific type coming from the given event target.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
-<h4 id="fromEventPattern"><a href="#fromEventPattern" class="headerlink" title="fromEventPattern"></a>fromEventPattern</h4><p>Creates an Observable from an API based on addHandler/removeHandler functions.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.removeEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> clicks = Rx.Observable.fromEventPattern(addClickHandler,removeClickHandler);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
-<h4 id="fromPromise"><a href="#fromPromise" class="headerlink" title="fromPromise"></a>fromPromise</h4><p>Promise를 Observable로 컨버팅한다. 만일 Promise가 resolve된다면 resolved value를 Observable로 넘긴다. 만일 Promise가 reject되면 Observable error를 넘긴다.</p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Operators는 Observable에서 작동되는 method들이다. (<code>.map(...)</code>, <code>.filter(...)</code>, <code>.merge(...)</code> …) 이들은 실행되면 현재 Observable의 인스턴스를 바꾸지는 않는다.<br>
                     
+                        <a href="/2016/12/31/rxjs-create-operator/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2016/12/31/rxjs-create-operator/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -837,98 +609,13 @@ undefined
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h3 id="RxJS-Purity-순수성"><a href="#RxJS-Purity-순수성" class="headerlink" title="RxJS - Purity(순수성)"></a>RxJS - Purity(순수성)</h3><h4 id="Purity-순수성"><a href="#Purity-순수성" class="headerlink" title="Purity(순수성)"></a>Purity(순수성)</h4><p>RxJS는 순수함수로 이루어져있다는 뜻이다. 순수함수란 함수형 프로그래밍에서 쓰이는 단어이다. 사람들마다 그리고 언어들마다 순수함수에 대한 정의가 약간씩 다른 것 같긴 하지만.. 내가 아는 순수함수의 정의는 아래와 같다.</p>
-<ul>
-<li>같은 입력에 항상 같은 출력을 반환한다.</li>
-<li>사이드 이펙트가 없다.</li>
-<li>외부 상태와 무관하다.</li>
-</ul>
-<p>순수함수는 해당 함수보다 상위의 스콥에서 정의된 함수를 참조하지 않는다. 오로지 인자로 인해 제어된다. 같은 값을 출력하기때문에 랜덤(Math.random)이나 날짜(new Date)등을 사용하지 않는다. 따라서 오류가 발생할 가능성이 적다. RxJS는 이 부분을 장점으로 내세우고 있다.</p>
-<p>아래 예제를 보면…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> observable = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line"> .map(<span class="function"><span class="params">x</span> =&gt;</span> x*x)</div><div class="line"> .scan(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b, <span class="number">0</span>);</div><div class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//1, 5, 14, 50</span></div></pre></td></tr></table></figure></p>
-<p>RxJS는 위처럼 체이닝으로 method들을 이어 나간다. 그리고 다음 method들의 함수 내부는 이전함수로 부터 return받은 인자로만 이루어 진다. 물론 global 영역에 변수를 지정하고 가져오는게 불가능 한건 아니지만, 되도록 순수하게 함수를 사용하는 것을 권장한다. 아무래도 순수함수가 가진 안정성과 속도의 장점을 가져가려는 것이 아닐까 생각한다.</p>
-<h4 id="Flow-흐름"><a href="#Flow-흐름" class="headerlink" title="Flow(흐름)"></a>Flow(흐름)</h4><p>RxJS에는 관찰자를 통해 이벤트가 흐르는 방식을 제어하는 데 도움이되는 다양한 연산자(operator)가 있다. 위에서 등장한 map, scan 등이 그것이다. 하나 하나의 흐름을 operator들로 전달하는 방식으로 동작하는 것이다.</p>
-<h4 id="Values-값"><a href="#Values-값" class="headerlink" title="Values(값)"></a>Values(값)</h4><p>RxJS의 흐름이 진행되는 과정에서 인자로 값들을 넘긴다. RxJS는 operator들을 통해 이 값들을 원하는 값을 도출한다.</p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>RxJS 공식문서에서 소개하고 있는 RxJS의 핵심 특징 3가지 입니다.<br>
                     
-                        
-                    
-                    
-                        <p>
-                            <a href="/2016/12/29/rxjs-purity/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/12/23/rxjs/">
-                            Reactive extension JS (RxJS) 시작!
+                        <a href="/2016/12/29/rxjs-purity/" class="postShorten-excerpt_link link">
+                            Continue reading
                         </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-12-23T12:34:00+09:00">
-	
-		    12월 23, 2016
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/RxJS/">RxJS</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="Reactive-extension-JS-RxJS"><a href="#Reactive-extension-JS-RxJS" class="headerlink" title="Reactive extension JS (RxJS)"></a>Reactive extension JS (RxJS)</h2><p>RxJS에 대해 학습한 내용을 정리해서 포스팅 해보고자 한다.</p>
-<p>여기 글을 RxJS공식 사이트(<a href="http://reactivex.io/rxjs)를" target="_blank" rel="external">http://reactivex.io/rxjs)를</a> 근간으로 하고 있다.</p>
-<p>RxJS 공식사이트에서는 RxJS를 한문장으로 정의하고 있다..</p>
-<blockquote>
-<p>Think of RxJS as Lodash for events.</p>
-</blockquote>
-<p>이벤트의 로다시 같다는 것이다.. 로다시가 무엇인가. 함수형 프로그래밍을 위한 라이브러리가 아닌가…? 대신 로다시가 절차지향적 방식이라면 RxJS는 이벤트 기반의 비동시 방식이라는 차이가 있는 것으로 보인다.</p>
-<p>RxJS는 다음과 같은 키워드로 정의되고 있다.</p>
-<ul>
-<li>Observable: 미래의 값(value)나 이벤트의 호출 가능한 수집의 개념을 나타냄.</li>
-<li>Observer: Observable에 의해 전달 된 값을 처리하는 콜백 콜렉션.</li>
-<li>Subscription: Observable의 실행을 나타냄. 주로 실행 취소에 유용함.</li>
-<li>Operators: map, filter, concat, flatMap 등과 같은 method를 사용하여 컬렉션을 다루는 함수 프로그래밍 스타일을 가능하게하는 순수(pure) 함수.</li>
-<li>Subject: EventEmitter와 동일하며 여러 Observers에 값 또는 이벤트를 멀티 캐스팅함.</li>
-<li>Schedulers: 동시 처리를 제어하는 중앙 집중식 디스패처로서 계산이 언제 발생하는지 조정할 수 있다. setTimeout or requestAnimationFrame or others.</li>
-</ul>
-<p>RxJS가 힘든 이유는 2가지 인것 같다.</p>
-<ul>
-<li>이벤트 기반의 비동기 처리 프로그래밍 방식이 개념적으로 익숙하지 않다.</li>
-<li>익혀야할 용어나 method들이 많다.<br>앞으로 하나씩 하나씩 익혀보자.</li>
-</ul>
-<p>초반 개념을 잡는데 네이버 김훈민 님의 강의가 많은 도움이 됐다. 아래는 관련 블로그나 강의 영상의 링크다. 내용이 많이 겹치지만 일부 다른 부분들도 있어서 되도록 알고있는 모든 링크를 첨부한다.</p>
-<p>블로그: <a href="http://huns.me/development/2051" target="_blank" rel="external">http://huns.me/development/2051</a><br>나프타 컨퍼런스 영상: <a href="https://www.youtube.com/watch?v=3FKlYO4okts" target="_blank" rel="external">https://www.youtube.com/watch?v=3FKlYO4okts</a><br>웹 프론트엔드 개발자의 얕고 넓은 Rx 이야기: <a href="http://www.slideshare.net/jeokrang/rx-70197043" target="_blank" rel="external">http://www.slideshare.net/jeokrang/rx-70197043</a></p>
-
-                    
                         
-                    
-                    
-                        <p>
-                            <a href="/2016/12/23/rxjs/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -966,22 +653,28 @@ undefined
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-remove"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/myphoto/12135220_865648716867253_996138637_n.jpg" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Owen</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>프론트 개발자 <br/>Owen의 기술 블로그입니다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Front-end Developer</p>
 
             </div>
         
@@ -1021,7 +714,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>우리가 객체를 생성하는 방법을 크게 2가지로 배웠습니다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1040,7 +733,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>코딩을 하다 보면 특정 프레임 안에 이미지를 꽉 채워야 할 때가 종종 있다.<br>여기서 꽉체운다는 것은, 프레임의 가로/세로 보다 이미지의 가로/세로가 크다면 세로가 100%로가 되고, 작다면 가로가 100%가 되는것을 의미한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1059,7 +752,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p><strong>이 글은  프레임에 이미지 꽉 채우기 Part1(CSS)에 이어진 글입니다.</strong><br>이번에는 자바스크립트를 이용한 방식이다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1078,7 +771,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다. 그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 합니다!<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1097,7 +790,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.<br>근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1116,7 +809,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>다른 퍼블리셔들은 어떻게 하는지 궁금한 것을이 있었다.<br>예를들어 에디터는 뭐를 쓸까? css 스타일은 한줄에 쓰나 나눠서 쓰나? 등등..<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1135,7 +828,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>Javascript의 <code>Object</code>객체의 내장 메소드 중,  자바스크립트 내부적으로는 많이 사용되지만, 사용자가 작성할때는 거의 사용되지 않는 것들이 있다. 그중에 대표적인 것이 <code>toString</code>, <code>valueOf</code> 이다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1154,7 +847,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>jsonp라는 놈을 처음 접한건 instagram API에 대해서 스터디 하고 있었을 때였다.<br>jquery의 ajax매소드($.ajax(인자))를 써서 api를 써보는데, datatype속성을 json으로 하면 브라우저가 크로스도메인 에러를 뿌린다.. 에러내용은 아래와 같다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1173,7 +866,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1192,7 +885,7 @@ undefined
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다. map메소드는 Array객체의 프로토타입 프로퍼티에 존재하는 메소드다. (즉 모든 배열에서 사용 가능하다.) 이 메소드는 배열의 각 요소들에 대해서 인자로 넘기는 함수를 실행시키고, 해당 배열을 리턴으로 반환한다.<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1205,7 +898,7 @@ undefined
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                22 posts found
+                23 posts found
             </p>
         </div>
     </div>
@@ -1213,7 +906,7 @@ undefined
         
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
-<script src="/assets/js/script-keald3mnqximb0hm6mvdqo5sxhnyqoujkpxdeikbcx5yiukrhiboqm2jxh0x.min.js"></script>
+<script src="/assets/js/script-m9aoekllttznfkqqozgjntsuzup0bwgwdrtmyjx78bm0egnxa5oxxvgdfkwz.min.js"></script>
 <!--SCRIPTS END-->
 
 
