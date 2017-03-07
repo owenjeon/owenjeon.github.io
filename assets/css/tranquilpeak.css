@@ -115,11 +115,11 @@ dl {
 
 a, a:hover, a:active, a:visited {
   cursor: pointer;
-  color: #349ef3;
+  color: #b82377;
   text-decoration: none; }
 
 a:hover {
-  color: #349ef3;
+  color: #b82377;
   text-decoration: underline; }
 
 table {
@@ -648,7 +648,7 @@ blockquote {
   #sidebar .sidebar-container {
     overflow: auto; }
   #sidebar .sidebar-profile {
-    color: #ebebeb;
+    color: #f1f1f1;
     text-align: center;
     padding-top: 18px;
     margin-bottom: 15px; }
@@ -657,7 +657,7 @@ blockquote {
       margin: 0 auto; }
     #sidebar .sidebar-profile .sidebar-profile-name {
       font-size: 1.1em;
-      color: #ebebeb; }
+      color: #f1f1f1; }
   #sidebar ul.sidebar-buttons {
     padding: 0;
     margin: 0 0 20px 0; }
@@ -667,7 +667,7 @@ blockquote {
       height: 45px;
       line-height: 45px; }
       #sidebar ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
-        color: #ebebeb;
+        color: #f1f1f1;
         display: block;
         height: 100%; }
         #sidebar ul.sidebar-buttons li.sidebar-button .sidebar-button-link:hover, #sidebar ul.sidebar-buttons li.sidebar-button .sidebar-button-link:active {
@@ -1030,7 +1030,7 @@ blockquote {
       #sidebar[data-behavior="1"] .sidebar-profile .sidebar-profile-location {
         font-weight: 400;
         font-size: 1.6rem;
-        color: #ebebeb; }
+        color: #f1f1f1; }
       #sidebar[data-behavior="1"] .sidebar-profile .sidebar-profile-job,
       #sidebar[data-behavior="1"] .sidebar-profile .sidebar-profile-location {
         margin-top: 0;
@@ -1171,7 +1171,7 @@ blockquote {
       #sidebar[data-behavior="4"] .sidebar-profile .sidebar-profile-location {
         font-weight: 400;
         font-size: 1.6rem;
-        color: #ebebeb; }
+        color: #f1f1f1; }
       #sidebar[data-behavior="4"] .sidebar-profile .sidebar-profile-job,
       #sidebar[data-behavior="4"] .sidebar-profile .sidebar-profile-location {
         margin-top: 0;
@@ -1884,7 +1884,7 @@ a.fancybox {
     hypens: auto; }
     .post .post-content img {
       display: block;
-      width: auto;
+      /* width:     auto; */
       max-width: 100%; }
     .post .post-content :not(blockquote):not(.alert) > p {
       margin: 1.5em 0 0 0; }
@@ -2409,7 +2409,7 @@ a.tag--small,
   color: #9eabb3 !important; }
 
 .text-color-link {
-  color: #349ef3 !important; }
+  color: #b82377 !important; }
 
 .font-merryweather {
   font-family: "Open Sans", sans-serif; }

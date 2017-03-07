@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://owenjeon.github.io/"/>
-  <updated>2017-03-06T14:09:21.000Z</updated>
+  <updated>2017-03-07T15:18:38.000Z</updated>
   <id>https://owenjeon.github.io/</id>
   
   <author>
@@ -20,16 +20,16 @@
     <link href="https://owenjeon.github.io/2017/03/06/angular-forms/"/>
     <id>https://owenjeon.github.io/2017/03/06/angular-forms/</id>
     <published>2017-03-06T03:34:00.000Z</published>
-    <updated>2017-03-06T14:09:21.000Z</updated>
+    <updated>2017-03-07T15:18:38.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Web Application을 제작하다보면 빠질 수 없는 요소가 Form입니다. Angular Form요소들을 쉽게 제어할 수 있는 여러 기능들을 제공합니다. 이번에는 Angular가 제공하는 Form 기능의 중 가장 기본적인 내용들을 공유해 보려고 합니다.<br><a id="more"></a><br>이 페이지는 다음의 기능들을 다루고 있습니다.</p>
+    <content type="html"><![CDATA[<p>Web Application에 빠질 수 없는 요소가 form입니다. Angular Form요소들을 쉽게 제어할 수 있는 여러 기능들을 제공합니다. 이번에는 Angular가 제공하는 Form 기능의 중 가장 기본적인 내용들을 공유해 보려고 합니다.<br><a id="more"></a><br>이 페이지는 다음의 기능들을 다루고 있습니다.</p>
 <ul>
 <li>컴포넌트와 템플릿에 Angular form 만들기.</li>
 <li>인풋 값의 읽기와 쓰기를 위한 two-way 바인딩을 만드는 ngModel 사용하기.</li>
 <li>상태와 변경을 추적하고, form 컨트롤 유효성 검사하기.</li>
 <li>컨트롤 상태를 추적하는 CSS 클래스들을 이용해서 view에 표현하기.</li>
 <li>사용자에게 유효성 검사 에러를 보여주고, 사용/비사용 컨트롤 하기.</li>
-<li>template 참조 변수를 이용하여 HTML 엘리먼트 간에 정보 공유하기.</li>
+<li>template 참조 변수를 이용하여 HTML 테그 간에 정보 공유하기.</li>
 </ul>
 <h3 id="템플릿-기반의-form"><a href="#템플릿-기반의-form" class="headerlink" title="템플릿 기반의 form."></a>템플릿 기반의 form.</h3><p>이 페이지에서는 form에 특화된 directives와 명시된 기술을 가지고, Angular template 문법으로 템플릿을 작성하여 form을 만듭니다.</p>
 <blockquote>
@@ -37,22 +37,44 @@
 </blockquote>
 <p>Angular 템플릿을 사용하면 대부분의 form을 만들 수 있습니다. 로그인, 문의하기, 그외 많은 사업적인 form들을.. Angular를 쓰면 레이아웃을 창의적으로 만들고, 데이터를 바인딩 하고, 특정 유효성 검사를 적용하고, 검사 에러를 보여주고, 활성/비활성을 조절하고, view에 피드백을 보여줄 수 있습니다.</p>
 <p>Angular는 반복적인 작업 프로세스를 쉽게 핸들링 할 수 있게 도와줍니다.</p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ol>
-<li>An Angular HTML form template.</li>
-<li>A form component class with a @Component decorator.</li>
-<li>Handling form submission by binding to the NgForm.ngSubmit event property.</li>
-<li>Template-reference variables such as #heroForm and #name.</li>
-<li>[(ngModel)] syntax for two-way data binding.</li>
-<li>The use of name attributes for validation and form-element change tracking.</li>
-<li>The reference variable’s valid property on input controls to check if a control is valid and show/hide error messages.</li>
-<li>Controlling the Submit button’s enabled state by binding to NgForm validity.</li>
-<li>Custom CSS classes that provide visual feedback to users about invalid controls.</li>
-</ol>
+<p><a href="https://embed.plnkr.co/GF3zi2SiAOty8NqMNSMX/" target="_blank" rel="external">여기서</a> 실시간 예제를 보실 수 있으니 함께 테스트하시면 더욱 좋습니다. 실시간 예제를 열어보시면 아래 이미지와 같은 화면을 볼 수 있습니다.</p>
+<img src="//s3.amazonaws.com/s.wooner/blog/angular/image_2017-03-07_23-27-13.png" width="400">
+<h3 id="Angular-form-만들기"><a href="#Angular-form-만들기" class="headerlink" title="Angular form 만들기"></a>Angular form 만들기</h3><p>아래는 임의 <code>app/hero-form.component.html</code> 컴포넌트의 템플릿 소스입니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hero Form<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">required</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"alterEgo"</span>&gt;</span>Alter Ego<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"alterEgo"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>소스 안에 form 요소가 있고 form 안에는 input, button등의 form을 구성하는 요소들이 있습니다. 별다를게 없다구요? 네 맞습니다. 당연한 이야기 일 수 있지만 angular의 form은 기본 html form으로 부터 출발합니다. 여기에 angular만의 기능들을 하나하나 추가해 봅시다.</p>
+<h3 id="Add-powers-with-ngFor"><a href="#Add-powers-with-ngFor" class="headerlink" title="Add powers with *ngFor"></a>Add powers with *ngFor</h3><p>이번 주제와는 큰 상관없지만, <code>select</code> 요소를 추가 하기 위에 <code>*ngFor</code> 지시자를 추가하겠습니다. <code>button</code> 테그 위에 아래 소스를 추가합니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"power"</span>&gt;</span>Hero Power<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"power"</span> <span class="attr">required</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> *<span class="attr">ngFor</span>=<span class="string">"let pow of powers"</span> [<span class="attr">value</span>]=<span class="string">"pow"</span>&gt;</span>&#123;&#123;pow&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>위 소스에서 <code>*ngfor</code>는, component의 <code>powers</code> 배열 길이만큼 순회하면서 <code>option</code> 테그를 생성하고 <code>value</code>와 <code>text</code>에 배열의 각 요소를 바인딩합니다.</p>
+<h3 id="two-way-바인딩"><a href="#two-way-바인딩" class="headerlink" title="two-way 바인딩"></a>two-way 바인딩</h3><p>위 form에 two-way 바인딩을 만들어 봅시다. two-way 바인딩을 위해서는 <code>ngModel</code> 지시자(directive)를 추가해 줍니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">required</span></span></div><div class="line">       [(<span class="attr">ngModel</span>)]=<span class="string">"model.name"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</div><div class="line">TODO: remove this: &#123;&#123;model.name&#125;&#125;</div></pre></td></tr></table></figure>
+<p>자, 이제 인풋 요소에는 <code>Owen Jeon</code>이라는 이름이 보입니다. 그리고 <code>input</code> 값을 수정할 때마다 <code>TODO: remove this:</code>에 동일한 텍스트가 실시간 반영되어 나타납니다.<br>Angular에서 데이타 바인딩의 방향은 기본적으로 컴포넌트(클래스) -&gt; 템플릿 입니다. two-way 바인딩을 사용하면 템플릿에서 컴포넌트로도 데이터를 바인딩 할 수 있습니다.<br>즉 위 예제에서 <code>input</code> 값이 수정되면 이 데이터가 컴포넌트로 바인딩 되고, 이 데이터가 다시 템플릿에 바인딩 되어 <code>TODO: remove this:</code>에 나타나게 되는 것입니다.</p>
+<p>two-way 바인딩에 대한 더 자세한 내용은 <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#ngModel" target="_blank" rel="external">구글 공식문서</a>를 참고하세요.</p>
+<p><code>&lt;input&gt;</code> 태그에 <code>name</code> 속성을 추가하고 <code>&quot;name&quot;</code>으로 설정한 것은 다른 의미가 있습니다. <code>[(ngModel)]</code>을 <code>form</code> 태그와 함께 사용하려면 <code>name</code> 속성을 정의해야합니다.<br>(다시 말해서, <code>form</code> 태그를 쓰지 않는다면 <code>name</code>속성은 없어도 잘 동작 합니다.)</p>
+<blockquote>
+<p>내부적으로 Angular는 <code>FormControl</code> 인스턴스를 만들고 <code>&lt;form&gt;</code> 태그에 Angular가 첨부한 <code>NgForm</code> 지시자(directive)를 등록합니다. 각 <code>FormControl</code>은 <code>name</code> 속성에 지정한 이름으로 등록됩니다.<br><!-- 이 페이지의 뒷부분에서 `The NgForm` 지시문을 읽어보세요. --></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;diagnostic&#125;&#125;</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">required</span></span></div><div class="line">         [(<span class="attr">ngModel</span>)]=<span class="string">"model.name"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"alterEgo"</span>&gt;</span>Alter Ego<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"alterEgo"</span></span></div><div class="line">         [(<span class="attr">ngModel</span>)]=<span class="string">"model.alterEgo"</span> <span class="attr">name</span>=<span class="string">"alterEgo"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"power"</span>&gt;</span>Hero Power<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"form-control"</span>  <span class="attr">id</span>=<span class="string">"power"</span> <span class="attr">required</span></span></div><div class="line">          [(<span class="attr">ngModel</span>)]=<span class="string">"model.power"</span> <span class="attr">name</span>=<span class="string">"power"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">option</span> *<span class="attr">ngFor</span>=<span class="string">"let pow of powers"</span> [<span class="attr">value</span>]=<span class="string">"pow"</span>&gt;</span>&#123;&#123;pow&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>각 <code>input</code> 태그에는, <code>label</code> 태그의 for 속성이 input과 매칭시키는 데 사용하는 id 속성이 있습니다.</li>
+<li>각 <code>input</code> 태그에는 <strong>angular의 form</strong> 이 가진 컨트롤을 form에 등록하는 데 필요한 name 속성이 있습니다.</li>
+</ul>
+<h4 id="이글은-작성중입니다…"><a href="#이글은-작성중입니다…" class="headerlink" title="이글은 작성중입니다…"></a>이글은 작성중입니다…</h4><!-- ### Conclusion
+
+1. An Angular HTML form template.
+2. A form component class with a @Component decorator.
+3. Handling form submission by binding to the NgForm.ngSubmit event property.
+4. Template-reference variables such as #heroForm and #name.
+5. [(ngModel)] syntax for two-way data binding.
+6. The use of name attributes for validation and form-element change tracking.
+7. The reference variable’s valid property on input controls to check if a control is valid and show/hide error messages.
+8. Controlling the Submit button's enabled state by binding to NgForm validity.
+9. Custom CSS classes that provide visual feedback to users about invalid controls.
+ -->
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Web Application을 제작하다보면 빠질 수 없는 요소가 Form입니다. Angular Form요소들을 쉽게 제어할 수 있는 여러 기능들을 제공합니다. 이번에는 Angular가 제공하는 Form 기능의 중 가장 기본적인 내용들을 공유해 보려고 합니다.&lt;br&gt;
+      &lt;p&gt;Web Application에 빠질 수 없는 요소가 form입니다. Angular Form요소들을 쉽게 제어할 수 있는 여러 기능들을 제공합니다. 이번에는 Angular가 제공하는 Form 기능의 중 가장 기본적인 내용들을 공유해 보려고 합니다.&lt;br&gt;
     
     </summary>
     
