@@ -2281,7 +2281,7 @@ a.fancybox {
 
 a.tag,
 .tag {
-  display: inline-block;
+  /* display:        inline-block; */
   background: #fff;
   width: auto;
   height: auto;
