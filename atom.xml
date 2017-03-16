@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://owenjeon.github.io/"/>
-  <updated>2017-03-14T14:49:17.000Z</updated>
+  <updated>2017-03-16T14:38:34.000Z</updated>
   <id>https://owenjeon.github.io/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Google map API - custom overlay</title>
+    <link href="https://owenjeon.github.io/2017/03/16/google-api-overlay/"/>
+    <id>https://owenjeon.github.io/2017/03/16/google-api-overlay/</id>
+    <published>2017-03-16T03:34:00.000Z</published>
+    <updated>2017-03-16T14:38:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>google map api에서는 사용자가 오버레이 영역을 지정할 수 있는 클래스(OverlayView)를 제공합니다. 이 기능에 관심을 가지고 찾아보게 된 계기는 지도에 뿌려지는 마커를 커스터마이징 하기 위해 이래저래 시도하던 중, google map api에서 제공하는 기본 마커에는 커스터마이징의 범위가 제한적인 것을 알게 되었기 때문입니다.<br><a id="more"></a></p>
+<h3 id="사용자-지정-오버레이"><a href="#사용자-지정-오버레이" class="headerlink" title="사용자 지정 오버레이"></a>사용자 지정 오버레이</h3><p>google map API에서 기본으로 제공하는 마커는 css class를 제어할 수 있는 방법이 없을 뿐 아니라, 해당 DOM 엘리먼트에 접근하는 기능도 제공하고 있지 않아서 사용자 입맛에 맞게 수정하기가 어려웠습니다.</p>
+<p>우회해서 접근할 수 있는 방법이 있긴 하지만, 꼼수라는 생각을 지울 수 없었습니다.. <a href="http://stackoverflow.com/questions/2065485/get-dom-element-of-a-marker-in-google-maps-api-3" target="_blank" rel="external">자세히 보기</a></p>
+<p><code>OverlayView</code> 클래스를 이용하면 직접 오버레이 영역에 접근해서 마커를 생성 할 수 있습니다. 이 기능은 <a href="https://developers.google.com/maps/documentation/javascript/customoverlays?hl=ko" target="_blank" rel="external">구글 공식 문서</a>를 참고하셔도 됩니다. 이 글에서는 해당 기능을 마커를 커스터마이징 하는 관점에서 좀 더 쉽게 작성해보려고 합니다.</p>
+<h3 id="오버레이-객체-만들기"><a href="#오버레이-객체-만들기" class="headerlink" title="오버레이 객체 만들기"></a>오버레이 객체 만들기</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MyOverlay.prototype = <span class="keyword">new</span> google.maps.OverlayView();</div></pre></td></tr></table></figure>
+<p>자 이제 시작입니다. <code>MyOverlay</code>라는 생성자 함수의 프로토타입에 <code>google.maps.OverlayView</code>클래스의 인스턴스를 할당 했습니다. 그러면 <code>MyOverlay</code>를 통해 생성되는 객체는 <code>google.maps.OverlayView</code>의 프로퍼티와 메소드들을 상속받게 되겠죠. 이 부분이 잘 이해가 되지 않으신다면 JavaScript의 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain" target="_blank" rel="external">프로토타입</a>에 대해서 살펴보시길 바랍니다.</p>
+<p>헌데 우리는 아직 <code>MyOverlay</code> 생성자 함수를 정의하지 않았습니다. 순서상으로는 <code>MyOverlay</code>를 먼저 정의해야 합니다. 다시 소스를 작성해 보면…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyOverlay</span>(<span class="params">&#123;position, label, map&#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.position_ = position;</div><div class="line">  <span class="keyword">this</span>.label_ = label;</div><div class="line">  <span class="keyword">this</span>.img_ = <span class="string">'https://s.zigbang.com/v1/web/search/marker.png'</span>;</div><div class="line">  <span class="keyword">this</span>.cssClass_ = <span class="string">'subway_marker'</span>;</div><div class="line">  <span class="keyword">this</span>.div_ = <span class="literal">null</span>;</div><div class="line">  <span class="keyword">this</span>.setMap(map);</div><div class="line">&#125;</div><div class="line">MyOverlay.prototype = <span class="keyword">new</span> google.maps.OverlayView();</div></pre></td></tr></table></figure>
+<p>생성자 함수를 선언했습니다. 인자는 3개를 받습니다. position은 마커의 좌표값(lat, lng)입니다. label은 마커에 적힐 text이고, map은 마커가 찍힐 지도를 참조합니다. 나머지 변수들은 나중에 마커를 생성할때 사용하기 위해서 미리 생성해 둔 것입니다.<br>마지막에 <code>MyOverlay</code>함수를 통해서 객체가 생성될 때, <code>this.setMap(map)</code> 함수가 실행 되면서 지도(map)에 마커가 표시되는 것입니다.</p>
+<p>위 설정만으로는 실제 마커가 찍히지 않습니다. <code>MyOverlay</code>의 프로토타입 프로퍼티에 onAdd, draw, onRemove 메소드를 정의해야 합니다.</p>
+<ul>
+<li><code>onAdd()</code>는 지도에 오버레이를 연결합니다. <code>OverlayView.onAdd()</code>는 지도가 오버레이를 연결할 준비가 되면 호출됩니다.</li>
+<li><code>draw()</code>는 객체의 시각적 디스플레이를 처리합니다. <code>OverlayView.draw()</code>는 객체가 먼저 표시되면 호출됩니다.</li>
+<li><code>onRemove()</code>는 오버레이 내에 추가한 요소를 삭제 합니다.  </li>
+</ul>
+<p>간단한 소스를 작성해 보면..</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">MyOverlay.prototype.onAdd = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">  <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</div><div class="line">  <span class="keyword">var</span> txt = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">  div.className = <span class="keyword">this</span>.cssClass_;</div><div class="line">  img.src = <span class="keyword">this</span>.img_;</div><div class="line">  txt.innerHTML = <span class="keyword">this</span>.label_;</div><div class="line">  div.appendChild(img);</div><div class="line">  div.appendChild(txt);</div><div class="line">  <span class="keyword">this</span>.div_ = div;</div><div class="line">  <span class="keyword">var</span> panes = <span class="keyword">this</span>.getPanes();</div><div class="line">  panes.overlayMouseTarget.appendChild(div);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">MyOverlay.prototype.draw = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> overlayProjection = <span class="keyword">this</span>.getProjection();</div><div class="line">  <span class="keyword">var</span> sw = overlayProjection.fromLatLngToDivPixel(<span class="keyword">this</span>.center_);</div><div class="line">  <span class="keyword">var</span> div = <span class="keyword">this</span>.div_;</div><div class="line">  div.style.left = <span class="built_in">Math</span>.round(sw.x) + <span class="string">'px'</span>;</div><div class="line">  div.style.top = <span class="built_in">Math</span>.round(sw.y) + <span class="string">'px'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">MyOverlay.prototype.onRemove = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.div_.parentNode.removeChild(<span class="keyword">this</span>.div_);</div><div class="line">  <span class="keyword">this</span>.div_ = <span class="literal">null</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><code>onAdd</code> 메소드는 객체(마커)를 생성하고 스타일을 정의합니다. 여기서 <code>&lt;div&gt;</code>엘리먼트를 생성하고 그안에 <code>&lt;img&gt;</code>엘리먼트와 <code>&lt;div&gt;</code>엘리먼트를 추가합니다. 여기 개발자는 원하는대로 마커를 구성할 수 있습니다. css class도 추가 할 수 있고, 원하는 대로 엘리먼트도 구성할 수 있습니다.</p>
+<p>여기서 <code>var panes = this.getPanes();</code>는 지도에 다양한 계층이 쌓이는 순서를 지정합니다. 예제에서는 <code>overlayMouseTarget</code>에 마커를 추가했습니다. <code>overlayMouseTarget</code>는 마커와 같은 DOM 마우스 이벤트를 수신하는 요소를 포함시킬 수 있습니다. 다른 창들에 대한 설명은 <a href="https://developers.google.com/maps/documentation/javascript/customoverlays?hl=ko" target="_blank" rel="external">공식문서</a>를 참고하세요.</p>
+<p>그리고 <code>draw</code> 메소드는 지도상에서 마커의 위치를 잡습니다.</p>
+<h3 id="오버레이-그리기"><a href="#오버레이-그리기" class="headerlink" title="오버레이 그리기"></a>오버레이 그리기</h3><p>오버레이를 그려봅시다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> google.maps.Map(<span class="built_in">document</span>.getElementById(<span class="string">'map'</span>), &#123;</div><div class="line">  <span class="attr">zoom</span>: <span class="number">11</span>,</div><div class="line">  <span class="attr">center</span>: &#123;<span class="attr">lat</span>: <span class="number">62.323907</span>, <span class="attr">lng</span>: <span class="number">-150.109291</span>&#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> overlay = <span class="keyword">new</span> MyOverlay(<span class="keyword">new</span> google.maps.LatLng(<span class="number">62.281819</span>, <span class="number">-150.287132</span>), <span class="string">'텍스트'</span>, map);</div></pre></td></tr></table></figure>
+<p>끝입니다! <code>MyOverlay</code> 당연히 생성자 함수를 여러번 호출해서 마커를 여러개 그릴수도 있습니다.</p>
+<p>그리고 이렇게 생성한 마커는 google API가 제공하는 마커보다 상속받는 변수나 메소드가 적습니다. 그 말은 사용하지 않는 메소드는 상속받지 않을 수 있다는 것입니다. 예를들어 클릭할 필요가 없는 마커인데 클릭 메소드가 있을필요는 없겠죠. 따라서 사용자가 생성한 오버레이는 더 가볍게 마커를 생성할 수 있습니다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;google map api에서는 사용자가 오버레이 영역을 지정할 수 있는 클래스(OverlayView)를 제공합니다. 이 기능에 관심을 가지고 찾아보게 된 계기는 지도에 뿌려지는 마커를 커스터마이징 하기 위해 이래저래 시도하던 중, google map api에서 제공하는 기본 마커에는 커스터마이징의 범위가 제한적인 것을 알게 되었기 때문입니다.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>Angular2 Forms</title>
@@ -899,9 +945,9 @@ undefined
       <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
     
     
-      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
-    
       <category term="css" scheme="https://owenjeon.github.io/tags/css/"/>
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -927,34 +973,6 @@ undefined
     <summary type="html">
     
       &lt;p&gt;자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.&lt;br&gt;근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>자바스크립트 프로토 타입의 프로퍼티 할당</title>
-    <link href="https://owenjeon.github.io/2016/08/10/prototype/"/>
-    <id>https://owenjeon.github.io/2016/08/10/prototype/</id>
-    <published>2016-08-10T03:00:00.000Z</published>
-    <updated>2017-03-06T13:26:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다. 그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 합니다!<br><a id="more"></a></p>
-<p>아래 소스를 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Test.prototype = &#123;</div><div class="line">    <span class="attr">a</span> : &#123;</div><div class="line">        <span class="attr">aa</span> : <span class="string">'1'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> TestA = <span class="keyword">new</span> Test();</div><div class="line"><span class="keyword">var</span> TestB = <span class="keyword">new</span> Test();</div><div class="line">TestB.a.aa= <span class="string">'2'</span>;</div><div class="line"><span class="built_in">console</span>.log(TestA.a.aa); <span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(TestB.a.aa); <span class="comment">//2</span></div></pre></td></tr></table></figure></p>
-<p>위에서 신기한 것은, TestB 객체에 직접 프로퍼티 값을 할당했는데도, Test 함수의 프로토 타입의 값이 바뀌었다는 것입니다. (이 내용이 잘 이해 안되시면 프로토 타입 체인에 대해서 찾아 보시기 바랍니다.^^)</p>
-<p>이유는 처음에도 말한것 처럼 자바스크립트의 객체는 값을 할당할 때도 프로토 타입 체인을 따라가기 때문입니다.</p>
-<p><code>TestB.a.aa= &#39;2&#39;;</code> 을 실행했을때, TestB에는 a라는 프로퍼티가 없기 때문에 <code>aa</code>라는 프로퍼티를 생성 할 수가 없습니다. 보통은 자바스크립트가 error를 뿌리면서 실행이 중지되죠.<br>하지만 이 경우에는 자바스크립트는 프로토타입에 <code>a</code>라는 프로퍼티가 존재합니다. 따라서 프로토타입 체인 순서에 의해 Test객체의 <code>prototype</code> 프로퍼티에 있는 <code>a.aa</code>에 값을 할당하게 됩니다.<br><code>Test</code>객체의 <code>prototype</code> 값이 바뀌었으므로 이를 상속받는 <code>TestA</code>객체도 영향을 받은 것이지요.</p>
-<p>자바스크립트는 참 유연한 언어라는걸 또한번 느낄수 있었네요.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다. 그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 합니다!&lt;br&gt;
     
     </summary>
     
