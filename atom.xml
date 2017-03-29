@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://owenjeon.github.io/"/>
-  <updated>2017-03-16T14:38:34.000Z</updated>
+  <updated>2017-03-18T03:05:37.000Z</updated>
   <id>https://owenjeon.github.io/</id>
   
   <author>
@@ -16,11 +16,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://owenjeon.github.io/2017/03/18/amazon-awsomeday/"/>
+    <id>https://owenjeon.github.io/2017/03/18/amazon-awsomeday/</id>
+    <published>2017-03-18T01:12:37.000Z</published>
+    <updated>2017-03-18T03:05:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="아마존-웹서비스"><a href="#아마존-웹서비스" class="headerlink" title="아마존 웹서비스"></a>아마존 웹서비스</h3><ul>
+<li>16개 글로벌 리전</li>
+<li>42개 가용영역(AZ) = CDN</li>
+<li>72개 엣지 로케이션</li>
+</ul>
+<p>servicenow, workday, salesforce</p>
+<ul>
+<li>컴퓨팅 서비스 - 수십가지 인스턴스. 세로운 인스턴스 런칭 lightsail, t2, r4, f1</li>
+<li>데이터 분석 - 키네시스, 엘라스틱서비스,레드싯, quick sight, machine learning</li>
+</ul>
+<p>Athena(new) - 표쥰sql을 기반으로 amazon s3에서 바로 손쉽게 필요한 질의 수행 가능.</p>
+<p>Amazom AI - Rekognition, Polly, Lex</p>
+<h4 id="AWS와-함께하는-클라우드-컴퓨팅"><a href="#AWS와-함께하는-클라우드-컴퓨팅" class="headerlink" title="AWS와 함께하는 클라우드 컴퓨팅"></a>AWS와 함께하는 클라우드 컴퓨팅</h4><p><strong>amazon/go</strong></p>
+<ul>
+<li>리전 - 지리적 위치 최소 2개 이상의 가용영역</li>
+<li>가용영역(데이터 센터의 클러스터)</li>
+<li>엣지로케이션 72개(Route 53, CloudFront)</li>
+</ul>
+<h3 id="EC2"><a href="#EC2" class="headerlink" title="EC2"></a>EC2</h3><ul>
+<li>AMI 머신 이미지 -&gt; 인스턴스 생성</li>
+<li>다음 기준으로 생성 / 리전 -&gt; 운영체제 -&gt; 아키택처 -&gt; 시작 권한 -&gt; 루트 디바이스</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;아마존-웹서비스&quot;&gt;&lt;a href=&quot;#아마존-웹서비스&quot; class=&quot;headerlink&quot; title=&quot;아마존 웹서비스&quot;&gt;&lt;/a&gt;아마존 웹서비스&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;16개 글로벌 리전&lt;/li&gt;
+&lt;li&gt;42개 가용영역(AZ) = CDN&lt;/
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Google map API - custom overlay</title>
     <link href="https://owenjeon.github.io/2017/03/16/google-api-overlay/"/>
     <id>https://owenjeon.github.io/2017/03/16/google-api-overlay/</id>
     <published>2017-03-16T03:34:00.000Z</published>
-    <updated>2017-03-16T14:38:34.000Z</updated>
+    <updated>2017-03-17T17:22:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>google map api에서는 사용자가 오버레이 영역을 지정할 수 있는 클래스(OverlayView)를 제공합니다. 이 기능에 관심을 가지고 찾아보게 된 계기는 지도에 뿌려지는 마커를 커스터마이징 하기 위해 이래저래 시도하던 중, google map api에서 제공하는 기본 마커에는 커스터마이징의 범위가 제한적인 것을 알게 되었기 때문입니다.<br><a id="more"></a></p>
 <h3 id="사용자-지정-오버레이"><a href="#사용자-지정-오버레이" class="headerlink" title="사용자 지정 오버레이"></a>사용자 지정 오버레이</h3><p>google map API에서 기본으로 제공하는 마커는 css class를 제어할 수 있는 방법이 없을 뿐 아니라, 해당 DOM 엘리먼트에 접근하는 기능도 제공하고 있지 않아서 사용자 입맛에 맞게 수정하기가 어려웠습니다.</p>
@@ -613,7 +655,7 @@ undefined
     <link href="https://owenjeon.github.io/2016/12/31/rxjs-create-operator/"/>
     <id>https://owenjeon.github.io/2016/12/31/rxjs-create-operator/</id>
     <published>2016-12-31T07:34:43.000Z</published>
-    <updated>2017-03-06T13:23:34.000Z</updated>
+    <updated>2017-03-29T15:21:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>Operators는 Observable에서 작동되는 method들이다. (<code>.map(...)</code>, <code>.filter(...)</code>, <code>.merge(...)</code> …) 이들은 실행되면 현재 Observable의 인스턴스를 바꾸지는 않는다.<br><a id="more"></a>다만 첫번째 Observable의 subscription 로직을 기반으로 새로운 Observable을 return한다. 따라서 이전의 Observable은 수정되거나 하지 않는다(immutability).<br>Operator는 필수적으로  Observable를 취하고, 새로운 Observable을 생성하는 순수함수이다.</p>
 <p>우선 이번 페이지에서는  Observable을 생성하는 Operators를 살펴보려고 한다.</p>
@@ -628,9 +670,14 @@ undefined
 <p>가장 기본적인 from method형태. 배열을 인자로 받아 스트림을 생성한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> input = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]);</div><div class="line">input.subscribe(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(i)</div><div class="line">&#125;,<span class="string">''</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'completed'</span>)</div><div class="line">&#125;); <span class="comment">//1, 2, 3, 4, 'completed'</span></div></pre></td></tr></table></figure></p>
 <p>from은 generator 함수로부터 생성된 interator객체도 인자로 받을 수 있다. generator에 대한 자세한 설명은 <a href="http://hacks.mozilla.or.kr/2015/08/es6-in-depth-generators/" target="_blank" rel="external">여기</a>를 참조.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generateDoubles</span>(<span class="params">seed</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> i = seed;</div><div class="line">  <span class="keyword">while</span> (i&lt;<span class="number">100</span>) &#123;</div><div class="line">    <span class="keyword">yield</span> i;</div><div class="line">    i = <span class="number">2</span> * i; <span class="comment">// double it</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> iterator = generateDoubles(<span class="number">3</span>);</div><div class="line"><span class="keyword">var</span> result = Rx.Observable.from(iterator);</div><div class="line">result.subscribe(</div><div class="line">  <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x),</div><div class="line">  e =&gt; <span class="built_in">console</span>.error(e),</div><div class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'finished'</span>));</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>앞서 야기 한대로, from operator는 promise도 받는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> data = fetch(<span class="string">'https://api.zigbang.com/v1/search/subway?q='</span>).then(<span class="function"><span class="params">data</span>=&gt;</span>&#123;</div><div class="line">  <span class="keyword">return</span> data.json();</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> ob = Rx.Observable.from(data).flatMap(<span class="function"><span class="params">x</span>=&gt;</span>x);</div><div class="line">ob.subscribe(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(e.name); <span class="comment">//지하철역들...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h4 id="fromEvent"><a href="#fromEvent" class="headerlink" title="fromEvent"></a>fromEvent</h4><p>Creates an Observable that emits events of a specific type coming from the given event target.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
-<h4 id="fromEventPattern"><a href="#fromEventPattern" class="headerlink" title="fromEventPattern"></a>fromEventPattern</h4><p>Creates an Observable from an API based on addHandler/removeHandler functions.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.removeEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> clicks = Rx.Observable.fromEventPattern(addClickHandler,removeClickHandler);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
-<h4 id="fromPromise"><a href="#fromPromise" class="headerlink" title="fromPromise"></a>fromPromise</h4><p>Promise를 Observable로 컨버팅한다. 만일 Promise가 resolve된다면 resolved value를 Observable로 넘긴다. 만일 Promise가 reject되면 Observable error를 넘긴다.</p>
+<h4 id="fromEvent"><a href="#fromEvent" class="headerlink" title="fromEvent"></a>fromEvent</h4><p>특정 이벤트 타입의 실행을 관찰하는 Operator다. 첫번째 인자로 이벤트가 발생하는 타겟(DOM 엘리먼트), 두번째로 이벤트 타입(<code>click</code>, <code>keyup</code> 등)을 받는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
+<h4 id="fromEventPattern"><a href="#fromEventPattern" class="headerlink" title="fromEventPattern"></a>fromEventPattern</h4><p>API기반의 <code>addHandler</code>/<code>removeHandler</code>로부터 <code>Observable</code>을 생성하는 operator다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClickHandler</span>(<span class="params">handler</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.removeEventListener(<span class="string">'click'</span>, handler);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> clicks = Rx.Observable.fromEventPattern(addClickHandler,removeClickHandler);</div><div class="line">clicks.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</div></pre></td></tr></table></figure></p>
+<p>fromEventPattern은 특정 플러그인에서 사용되는 이벤트를 <code>Observable</code>로 사용할 때 용이하다. 예를 들어 구글 지도 API에 <code>idle</code>이라는 이벤트가 있다. 이 이벤트를 관찰하는 observable을 만들려면 아래처럼 사용할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> idle$ = <span class="function"><span class="keyword">function</span> (<span class="params">handler</span>)</span>&#123;</div><div class="line">  google.maps.event.addListener(map, <span class="string">'idle'</span>, handler);</div><div class="line">&#125;</div><div class="line">Rx.Observable.fromEventPattern(idle$)</div></pre></td></tr></table></figure></p>
+<h4 id="fromPromise"><a href="#fromPromise" class="headerlink" title="fromPromise"></a>fromPromise</h4><p>Promise를 Observable로 컨버팅한다. 만일 Promise가 resolve된다면 resolved value를 Observable로 넘긴다. 만일 Promise가 reject되면 Observable error를 넘긴다. 아래는 <code>Promise</code>객체를 반환하는 fetch 함수를 이용해서 Observable를 생성한 예제이다. 하지만 위에서 설명한 <code>from</code> operator가 <code>Promise</code>객체를 받을 수 있기 때문에 큰 활용성은 없어 보인다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = Rx.Observable.fromPromise(fetch(<span class="string">'http://myserver.com/'</span>));</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x), e =&gt; <span class="built_in">console</span>.error(e));</div></pre></td></tr></table></figure></p>
+<h4 id="never"><a href="#never" class="headerlink" title="never"></a>never</h4><p>아무것도 방출(emit)하지 않는 Observable을 생성한다. 이 정적 operator는 값이나 오류도 없으며 subscribe도 내보내지 않는 간단한 Observable을 만든다. 테스트(TDD, BDD) 목적으로 사용할때 유용하다고 하는데 직접 써본적은 없다. 자동으로 subscribe하지 않기 때문에 subscribe를 해줘야 실행된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'이 콘솔은 실행되지 않습니다!'</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> result = Rx.Observable.never();</div><div class="line">result.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x), info, info);</div></pre></td></tr></table></figure>
+<p>위 예제는 실제로 subscribe되지만 아무것도 실행되지 않는다.</p>
+<h3 id="of"><a href="#of" class="headerlink" title="of"></a>of</h3><p>아주 정직한 operator다. 인자를 하나씩 내보내고, 모두 내보내면 스트림이 끝난다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> letters = Rx.Observable.of(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>);</div><div class="line">letters.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">// a--b--c</span></div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -945,41 +992,9 @@ undefined
       <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
     
     
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
+    
       <category term="css" scheme="https://owenjeon.github.io/tags/css/"/>
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>객체와 배열 구분하기</title>
-    <link href="https://owenjeon.github.io/2016/08/12/array-object/"/>
-    <id>https://owenjeon.github.io/2016/08/12/array-object/</id>
-    <published>2016-08-12T02:00:00.000Z</published>
-    <updated>2017-03-06T13:26:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.<br>근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.<br><a id="more"></a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;);<span class="comment">//"object"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []);<span class="comment">//"object"</span></div></pre></td></tr></table></figure>
-<p>이때 사용하는 방법은, 자바스크립트 객체의 메소드인 toString을 활용하는 것이다.<br>일단 소스는 아래와 같다.</p>
-<p>위의 예제에서 typeof 대신 toString을 실행해보면 아래와 같이 나온다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;))<span class="comment">//;"[object Object]"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([]));<span class="comment">//"[object Array]"</span></div></pre></td></tr></table></figure></p>
-<p>위 예제에서 특이한 것은 <code>toString</code>메소드를 해당 객체(또는 배열)에 직접 실행 한 것이 아니라 <code>Object</code>객체의 프로토타입 프로퍼티로 실행을 시키고 call이라는 재귀 함수를 통해 toString을 해당 객체(또는 배열)의 메소드화 시켰다는 것이다.</p>
-<p>일반적으로 우리가 사용하는 방법인 <code>[].toString()</code>과 이 방법의 차이는 무엇인가..?(이 방법으로 하면 배열을 콤마(,)로 구분된 문자열을 반환한다)</p>
-<p><code>[].toString()</code>의 toString은 배열(<code>[]</code>)의 프로토타입인 <code>Array</code> 객체로 부터 상속받아 사용하는 메소드이고,<br><code>Object.prototype.toString.call([])</code>의 toString은 배열(<code>[]</code>)에 Object의 메소드인 toString()을 직접 정의시킨 메소드 인 것이다.</p>
-<p>즉 Array객체의 toString을 사용하면 우리가 원하는 객체 타입을 반환하는 것이 아니라 배열을 문자열로 반환시켜 버리므로, Object객체의 toString을 사용하도록 강제로 설정했다고 볼 수 있다.</p>
-<p>자 그럼 이제 객체의 class를 구분하는 함수를 만들어 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClassType</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getClassType([]));<span class="comment">//"Array"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(&#123;&#125;));<span class="comment">//"Object"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="number">1</span>));<span class="comment">//"Number"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="keyword">new</span> <span class="built_in">Date</span>()));<span class="comment">//"Date"</span></div></pre></td></tr></table></figure></p>
-<p>이처럼 반환된 문자열을 slice 메소드를 통해 잘라내어 class를 구할 수 있다.^^</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.&lt;br&gt;근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
