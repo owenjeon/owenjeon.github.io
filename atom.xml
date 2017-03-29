@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://owenjeon.github.io/"/>
-  <updated>2017-03-18T03:05:37.000Z</updated>
+  <updated>2017-03-17T17:22:54.000Z</updated>
   <id>https://owenjeon.github.io/</id>
   
   <author>
@@ -14,48 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://owenjeon.github.io/2017/03/18/amazon-awsomeday/"/>
-    <id>https://owenjeon.github.io/2017/03/18/amazon-awsomeday/</id>
-    <published>2017-03-18T01:12:37.000Z</published>
-    <updated>2017-03-18T03:05:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="아마존-웹서비스"><a href="#아마존-웹서비스" class="headerlink" title="아마존 웹서비스"></a>아마존 웹서비스</h3><ul>
-<li>16개 글로벌 리전</li>
-<li>42개 가용영역(AZ) = CDN</li>
-<li>72개 엣지 로케이션</li>
-</ul>
-<p>servicenow, workday, salesforce</p>
-<ul>
-<li>컴퓨팅 서비스 - 수십가지 인스턴스. 세로운 인스턴스 런칭 lightsail, t2, r4, f1</li>
-<li>데이터 분석 - 키네시스, 엘라스틱서비스,레드싯, quick sight, machine learning</li>
-</ul>
-<p>Athena(new) - 표쥰sql을 기반으로 amazon s3에서 바로 손쉽게 필요한 질의 수행 가능.</p>
-<p>Amazom AI - Rekognition, Polly, Lex</p>
-<h4 id="AWS와-함께하는-클라우드-컴퓨팅"><a href="#AWS와-함께하는-클라우드-컴퓨팅" class="headerlink" title="AWS와 함께하는 클라우드 컴퓨팅"></a>AWS와 함께하는 클라우드 컴퓨팅</h4><p><strong>amazon/go</strong></p>
-<ul>
-<li>리전 - 지리적 위치 최소 2개 이상의 가용영역</li>
-<li>가용영역(데이터 센터의 클러스터)</li>
-<li>엣지로케이션 72개(Route 53, CloudFront)</li>
-</ul>
-<h3 id="EC2"><a href="#EC2" class="headerlink" title="EC2"></a>EC2</h3><ul>
-<li>AMI 머신 이미지 -&gt; 인스턴스 생성</li>
-<li>다음 기준으로 생성 / 리전 -&gt; 운영체제 -&gt; 아키택처 -&gt; 시작 권한 -&gt; 루트 디바이스</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;아마존-웹서비스&quot;&gt;&lt;a href=&quot;#아마존-웹서비스&quot; class=&quot;headerlink&quot; title=&quot;아마존 웹서비스&quot;&gt;&lt;/a&gt;아마존 웹서비스&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;16개 글로벌 리전&lt;/li&gt;
-&lt;li&gt;42개 가용영역(AZ) = CDN&lt;/
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Google map API - custom overlay</title>
@@ -995,6 +953,38 @@ undefined
       <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
       <category term="css" scheme="https://owenjeon.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>객체와 배열 구분하기</title>
+    <link href="https://owenjeon.github.io/2016/08/12/array-object/"/>
+    <id>https://owenjeon.github.io/2016/08/12/array-object/</id>
+    <published>2016-08-12T02:00:00.000Z</published>
+    <updated>2017-03-06T13:26:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.<br>근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.<br><a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;);<span class="comment">//"object"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []);<span class="comment">//"object"</span></div></pre></td></tr></table></figure>
+<p>이때 사용하는 방법은, 자바스크립트 객체의 메소드인 toString을 활용하는 것이다.<br>일단 소스는 아래와 같다.</p>
+<p>위의 예제에서 typeof 대신 toString을 실행해보면 아래와 같이 나온다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;))<span class="comment">//;"[object Object]"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([]));<span class="comment">//"[object Array]"</span></div></pre></td></tr></table></figure></p>
+<p>위 예제에서 특이한 것은 <code>toString</code>메소드를 해당 객체(또는 배열)에 직접 실행 한 것이 아니라 <code>Object</code>객체의 프로토타입 프로퍼티로 실행을 시키고 call이라는 재귀 함수를 통해 toString을 해당 객체(또는 배열)의 메소드화 시켰다는 것이다.</p>
+<p>일반적으로 우리가 사용하는 방법인 <code>[].toString()</code>과 이 방법의 차이는 무엇인가..?(이 방법으로 하면 배열을 콤마(,)로 구분된 문자열을 반환한다)</p>
+<p><code>[].toString()</code>의 toString은 배열(<code>[]</code>)의 프로토타입인 <code>Array</code> 객체로 부터 상속받아 사용하는 메소드이고,<br><code>Object.prototype.toString.call([])</code>의 toString은 배열(<code>[]</code>)에 Object의 메소드인 toString()을 직접 정의시킨 메소드 인 것이다.</p>
+<p>즉 Array객체의 toString을 사용하면 우리가 원하는 객체 타입을 반환하는 것이 아니라 배열을 문자열로 반환시켜 버리므로, Object객체의 toString을 사용하도록 강제로 설정했다고 볼 수 있다.</p>
+<p>자 그럼 이제 객체의 class를 구분하는 함수를 만들어 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClassType</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getClassType([]));<span class="comment">//"Array"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(&#123;&#125;));<span class="comment">//"Object"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="number">1</span>));<span class="comment">//"Number"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="keyword">new</span> <span class="built_in">Date</span>()));<span class="comment">//"Date"</span></div></pre></td></tr></table></figure></p>
+<p>이처럼 반환된 문자열을 slice 메소드를 통해 잘라내어 class를 구할 수 있다.^^</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.&lt;br&gt;근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
