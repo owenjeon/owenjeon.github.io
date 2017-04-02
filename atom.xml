@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://owenjeon.github.io/"/>
-  <updated>2017-03-17T17:22:54.000Z</updated>
+  <updated>2017-04-02T05:10:33.000Z</updated>
   <id>https://owenjeon.github.io/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Angular AOT (with CLI)</title>
+    <link href="https://owenjeon.github.io/2017/04/02/angular-aot/"/>
+    <id>https://owenjeon.github.io/2017/04/02/angular-aot/</id>
+    <published>2017-04-02T03:34:00.000Z</published>
+    <updated>2017-04-02T05:10:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Angular 응용 프로그램은 주로 <code>Component</code>와 <code>HTML Template</code>로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다.</p>
+<p>응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴파일 할 수 있습니다. 이것은 표준 개발 방식입니다. 이것은 좋은 방식이지만 결점이 있습니다.<br><a id="more"></a></p>
+<p><strong>JIT 컴파일은 런타임 성능 저하를 초래합니다.</strong> 브라우저 내 컴파일 단계로 인해 렌더링에 시간이 오래 걸립니다. Angular 컴파일러와 응용 프로그램에서 실제로 필요하지 않은 많은 라이브러리 코드가 포함되어 있으므로 응용 프로그램이 더 커집니다. 앱 크기가 커질수록 전송하는 데 시간이 오래 걸리며 로드 속도가 느려집니다.</p>
+<p>컴파일은 많은 구성 요소 템플릿 바인딩 오류를 발견 할 수 있습니다. JIT 컴파일은 런타임에 이를 발견합니다. 이는 프로세스의 마지막 단계입니다.</p>
+<p>AOT (ahead-of-time) 컴파일러는 템플릿 오류를 일찍 잡아 내고 빌드시 컴파일하여 성능을 향상시킬 수 있습니다.</p>
+<h3 id="Ahead-of-time-AOT-vs-just-in-time-JIT"><a href="#Ahead-of-time-AOT-vs-just-in-time-JIT" class="headerlink" title="Ahead-of-time (AOT) vs just-in-time (JIT)"></a>Ahead-of-time (AOT) vs just-in-time (JIT)</h3><p>사실 Angular 컴파일러는 하나만 있습니다. AOT와 JIT의 차이점은 타이밍과 툴링(tooling)입니다. AOT를 사용하면 컴파일러는 한 세트의 라이브러리를 사용하여 빌드시 한 번 실행됩니다. JIT를 사용하면 런타임마다 다른 라이브러리 세트를 사용하여 실행됩니다.</p>
+<h3 id="왜-AOT-컴퍼일을-사용하나요"><a href="#왜-AOT-컴퍼일을-사용하나요" class="headerlink" title="왜 AOT 컴퍼일을 사용하나요?"></a>왜 AOT 컴퍼일을 사용하나요?</h3><h4 id="Faster-rendering"><a href="#Faster-rendering" class="headerlink" title="Faster rendering"></a>Faster rendering</h4><p>AOT를 사용하면 브라우저가 사전 컴파일 된 응용 프로그램 버전을 다운로드합니다. 브라우저는 실행 가능한 코드를 로드하므로 먼저 응용 프로그램을 컴파일 할 때까지 기다리지 않고 즉시 응용 프로그램을 렌더링 할 수 있습니다.</p>
+<h4 id="비동기-요청-감소"><a href="#비동기-요청-감소" class="headerlink" title="비동기 요청 감소"></a>비동기 요청 감소</h4><p>컴파일러는 애플리케이션 JavaScript 내에서 외부 HTML template 및 CSS 스타일 시트를 인라인하여 해당 소스 파일에 대한 별도의 ajax 요청을 제거합니다.</p>
+<h4 id="작은-Angular-framework-다운로드-크기"><a href="#작은-Angular-framework-다운로드-크기" class="headerlink" title="작은 Angular framework 다운로드 크기"></a>작은 Angular framework 다운로드 크기</h4><p>앱이 이미 컴파일 된 경우 Angular 컴파일러를 다운로드 할 필요가 없습니다. 컴파일러는 Angular의 절반 정도이므로 컴파일러를 생략하면 응용 프로그램의 페이로드가 크게 줄어 듭니다.</p>
+<h4 id="템플릿-오류를-더-빨리-감지"><a href="#템플릿-오류를-더-빨리-감지" class="headerlink" title="템플릿 오류를 더 빨리 감지"></a>템플릿 오류를 더 빨리 감지</h4><p>AOT 컴파일러는 사용자가 빌드 단계를 볼 수 있기 전에 템플릿 바인딩 오류를 감지하고보고합니다.</p>
+<h4 id="보안-강화"><a href="#보안-강화" class="headerlink" title="보안 강화"></a>보안 강화</h4><p>AOT는 HTML template와 구성 요소를 클라이언트에 제공되기 훨씬 전에 JavaScript 파일로 컴파일합니다. template을 읽을 필요가 없고 위험한 클라이언트 측 HTML 또는 JavaScript 평가가 없으므로 공격의 기회가 줄어 듭니다.</p>
+<h3 id="Angular-CLI-에서-AOT-사용하기"><a href="#Angular-CLI-에서-AOT-사용하기" class="headerlink" title="Angular CLI 에서 AOT 사용하기."></a>Angular CLI 에서 AOT 사용하기.</h3><p>angular CLI 에서 AOT를 사용하기 위해서 webpack파일을 수정해야 합니다. <code>ng eject</code>명령어를 사용하면 wepack.config.js파일이 루트 경로로 이동됩니다. <code>ng eject --aot</code>옵션을 사용하면 AOT가 사용가능하도록 세팅되어 webpack파일이 도출됩니다. (몇번의 테스트 결과 <code>--aot</code>옵션을 주지않아도 AOT 플러그인이 포함되어 도출되는 것 같았습니다.)<br>소스를 살펴보면…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;AotPlugin&#125; <span class="keyword">from</span> <span class="string">'@ngtools/webpack'</span></div><div class="line"></div><div class="line">exports = &#123; <span class="comment">/* ... */</span></div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    <span class="attr">rules</span>: [</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.ts$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'@ngtools/webpack'</span>,</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> AotPlugin(&#123;</div><div class="line">      <span class="string">"mainPath"</span>: <span class="string">"main.ts"</span>,</div><div class="line">      <span class="string">"exclude"</span>: [],</div><div class="line">      <span class="string">"tsConfigPath"</span>: <span class="string">"src/tsconfig.app.json"</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>로더는 webpack 플러그인과 함께 작동하여 TypeScript를 컴파일합니다. 이 두 가지를 모두 포함하고 다른 TypeScript 컴파일러 로더를 포함하지 않는 것이 중요합니다.</p>
+<h4 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h4><ul>
+<li><strong>tsConfigPath</strong> <code>tsconfig.json</code> 파일의 경로입니다. 필수 옵션입니다. <code>tsconfig.json</code>에서 <code>angularCompilerOptions</code>를 사용하여 angular 컴파일러에 옵션을 전달할 수 있습니다.</li>
+<li><strong>basePath</strong> 선택항목. 파일 경로를 확인하기 위해 컴파일러에서 사용할 루트입니다. 기본적으로 <code>tsConfigPath</code> 루트를 사용합니다.</li>
+<li><strong>entryModule</strong> <code>tsconfig.json</code>에서 <code>angularCompilerOptions</code>이 지정된 경우 선택 사항입니다. Angular application의 루트 모듈의 경로와 클래스 이름입니다. 이것은 <code>path / to / file # ClassName</code> 형식을 따릅니다.</li>
+<li><p><strong>mainPath</strong> <code>entryModule</code>이 지정된 경우 선택항목입니다. 부트 스트랩 코드가 포함 된 <code>main.ts</code> 파일. 플러그인은 <code>AST</code>를 사용하여 <code>entryModule</code>을 판별합니다.</p>
+</li>
+<li><p><strong>skipCodeGeneration</strong> 선택항목으로 기본값은 false입니다. true이면 코드 생성을 비활성화하고 코드를 부트 스트랩으로 리팩토링하지 않습니다. 이렇게하면 <code>templateUrl : &quot;string&quot;</code>을 <code>template : require ( &quot;string&quot;)</code>로 대체하여 webpack에서 자원을 적절하게 연결할 수 있습니다. 개발작업중에 <code>webpack-dev-server</code>의 hot loader를 사용한다면 이 옵션을 false로 설정해두어야 소스 수정시마다 변화가 바로 반영되어 보이게 될 것입니다.</p>
+</li>
+<li><strong>typeChecking</strong> 선택항목으로, 기본값은 true입니다. 응용 프로그램을 통해 유형 검사를 활성화합니다. 이것은 컴파일 속도를 느리게,하지만 웹팩에서 구문 및 의미 오류가 표시됩니다.</li>
+<li><strong>exclude</strong> 선택항목. TypeScript 컴파일에서 제외 할 파일입니다.</li>
+<li><strong>compilerOptions</strong> 선택항목. <code>tsconfig.json</code>의 옵션을 재정의합니다.</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Angular 응용 프로그램은 주로 &lt;code&gt;Component&lt;/code&gt;와 &lt;code&gt;HTML Template&lt;/code&gt;로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다.&lt;/p&gt;
+&lt;p&gt;응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴파일 할 수 있습니다. 이것은 표준 개발 방식입니다. 이것은 좋은 방식이지만 결점이 있습니다.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Angular" scheme="https://owenjeon.github.io/categories/Angular/"/>
+    
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
+    
+      <category term="Angular" scheme="https://owenjeon.github.io/tags/Angular/"/>
+    
+  </entry>
   
   <entry>
     <title>Google map API - custom overlay</title>
@@ -953,38 +1004,6 @@ undefined
       <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
       <category term="css" scheme="https://owenjeon.github.io/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>객체와 배열 구분하기</title>
-    <link href="https://owenjeon.github.io/2016/08/12/array-object/"/>
-    <id>https://owenjeon.github.io/2016/08/12/array-object/</id>
-    <published>2016-08-12T02:00:00.000Z</published>
-    <updated>2017-03-06T13:26:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.<br>근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.<br><a id="more"></a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;);<span class="comment">//"object"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []);<span class="comment">//"object"</span></div></pre></td></tr></table></figure>
-<p>이때 사용하는 방법은, 자바스크립트 객체의 메소드인 toString을 활용하는 것이다.<br>일단 소스는 아래와 같다.</p>
-<p>위의 예제에서 typeof 대신 toString을 실행해보면 아래와 같이 나온다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;))<span class="comment">//;"[object Object]"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([]));<span class="comment">//"[object Array]"</span></div></pre></td></tr></table></figure></p>
-<p>위 예제에서 특이한 것은 <code>toString</code>메소드를 해당 객체(또는 배열)에 직접 실행 한 것이 아니라 <code>Object</code>객체의 프로토타입 프로퍼티로 실행을 시키고 call이라는 재귀 함수를 통해 toString을 해당 객체(또는 배열)의 메소드화 시켰다는 것이다.</p>
-<p>일반적으로 우리가 사용하는 방법인 <code>[].toString()</code>과 이 방법의 차이는 무엇인가..?(이 방법으로 하면 배열을 콤마(,)로 구분된 문자열을 반환한다)</p>
-<p><code>[].toString()</code>의 toString은 배열(<code>[]</code>)의 프로토타입인 <code>Array</code> 객체로 부터 상속받아 사용하는 메소드이고,<br><code>Object.prototype.toString.call([])</code>의 toString은 배열(<code>[]</code>)에 Object의 메소드인 toString()을 직접 정의시킨 메소드 인 것이다.</p>
-<p>즉 Array객체의 toString을 사용하면 우리가 원하는 객체 타입을 반환하는 것이 아니라 배열을 문자열로 반환시켜 버리므로, Object객체의 toString을 사용하도록 강제로 설정했다고 볼 수 있다.</p>
-<p>자 그럼 이제 객체의 class를 구분하는 함수를 만들어 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClassType</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getClassType([]));<span class="comment">//"Array"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(&#123;&#125;));<span class="comment">//"Object"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="number">1</span>));<span class="comment">//"Number"</span></div><div class="line"><span class="built_in">console</span>.log(getClassType(<span class="keyword">new</span> <span class="built_in">Date</span>()));<span class="comment">//"Date"</span></div></pre></td></tr></table></figure></p>
-<p>이처럼 반환된 문자열을 slice 메소드를 통해 잘라내어 class를 구할 수 있다.^^</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;자바스크립트를 작성하다 보면, 객체와 배열을 구분해야할 때가 있다.&lt;br&gt;근데 타입을 조사하는 함수인 typeof 를 실행해 보면 객체와 배열 모두 ‘object’를 반환한다.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
     
   </entry>
   
