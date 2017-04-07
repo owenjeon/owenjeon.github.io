@@ -6,23 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Owen&#39;s Blog">
-    <title>RxJS Subject - Owen&#39;s Blog</title>
+    <title>RxJS 가지고 놀기 - Owen&#39;s Blog</title>
     <meta name="author" content="Owen">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.">
+    <meta name="description" content="개인적으로 개발이 지루하거나 심심할때 개발을 가지고 노는 방법으로, 특정한 프레임웤이나 라이브러리의 이상하게 시도해보고 어떻게 동작하는지 살펴보는 걸 좋아합니다.(좀… 변태같네여ㅠ) 오늘은 RxJS에 대해서 좀 찜찜했던 부분이나 궁금했던 부분을 테스트를 통해서 확인해 볼 생각입니다.">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="RxJS Subject">
-<meta property="og:url" content="https://owenjeon.github.io/2017/02/21/rxjs-subject/index.html">
+<meta property="og:title" content="RxJS 가지고 놀기">
+<meta property="og:url" content="https://owenjeon.github.io/2017/04/07/rxjs-testing/index.html">
 <meta property="og:site_name" content="Owen's Blog">
-<meta property="og:description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.">
-<meta property="og:updated_time" content="2017-03-06T13:21:40.000Z">
+<meta property="og:description" content="개인적으로 개발이 지루하거나 심심할때 개발을 가지고 노는 방법으로, 특정한 프레임웤이나 라이브러리의 이상하게 시도해보고 어떻게 동작하는지 살펴보는 걸 좋아합니다.(좀… 변태같네여ㅠ) 오늘은 RxJS에 대해서 좀 찜찜했던 부분이나 궁금했던 부분을 테스트를 통해서 확인해 볼 생각입니다.">
+<meta property="og:updated_time" content="2017-04-07T14:09:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RxJS Subject">
-<meta name="twitter:description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.">
+<meta name="twitter:title" content="RxJS 가지고 놀기">
+<meta name="twitter:description" content="개인적으로 개발이 지루하거나 심심할때 개발을 가지고 노는 방법으로, 특정한 프레임웤이나 라이브러리의 이상하게 시도해보고 어떻게 동작하는지 살펴보는 걸 좋아합니다.(좀… 변태같네여ㅠ) 오늘은 RxJS에 대해서 좀 찜찜했던 부분이나 궁금했던 부분을 테스트를 통해서 확인해 볼 생각입니다.">
     
     
         
@@ -230,13 +230,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            RxJS Subject
+            RxJS 가지고 놀기
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-02-21T12:34:00+09:00">
+    <time itemprop="datePublished" datetime="2017-04-07T12:34:00+09:00">
 	
-		    2월 21, 2017
+		    4월 07, 2017
     	
     </time>
     
@@ -252,54 +252,21 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p><em>이 글은 <a href="http://reactivex.io/rxjs/manual/overview.html#subject" target="_blank" rel="external">RxJS 공식사이트</a>의 내용 중 subject 영역을 번역한 글입니다.</em><br><a id="more"></a><br>RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)이지만, Subject는 multicast입니다.</p>
+            <p>개인적으로 개발이 지루하거나 심심할때 개발을 가지고 노는 방법으로, 특정한 프레임웤이나 라이브러리의 이상하게 시도해보고 어떻게 동작하는지 살펴보는 걸 좋아합니다.(좀… 변태같네여ㅠ) 오늘은 RxJS에 대해서 좀 찜찜했던 부분이나 궁금했던 부분을 테스트를 통해서 확인해 볼 생각입니다.<br><a id="more"></a></p>
+<h3 id="RxJS에서-observable로-넘겨지는-인자들은-immutable한가"><a href="#RxJS에서-observable로-넘겨지는-인자들은-immutable한가" class="headerlink" title="RxJS에서 observable로 넘겨지는 인자들은 immutable한가?"></a>RxJS에서 observable로 넘겨지는 인자들은 immutable한가?</h3><p>사실 함수형 프로그래밍에 대해서 잘 모릅니다. 순수함수와 일급함수를 지향하며, 값 변화를 지양한(immutable)다는 것 정도는 들어봤지만 어떻게 적용해야 하는지는 늘 햇깔립니다. 알팍한 지식을 기반으로 위와 같은 궁금증이 생겼습니다. <code>JavaScript</code>의 <code>map</code>메소드가 그러하듯이, operator를 통해서 객체가 <code>return</code> 될 때,  넘겨받은 객체과는 별개의 객체을 생성해서 넘겨주는 것인가?</p>
+<p>아래와 같이 실행해보았습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a, b;</div><div class="line">Rx.Observable.of([<span class="string">'owen'</span>, <span class="string">'bbo'</span>, <span class="string">'jane'</span>])</div><div class="line">  .map(<span class="function"><span class="params">i</span> =&gt;</span>&#123;</div><div class="line">    a = i;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">  &#125;)</div><div class="line">  .map(<span class="function"><span class="params">i</span> =&gt;</span>&#123;</div><div class="line">    b = i;</div><div class="line">    b.pop();</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">  &#125;)</div><div class="line">  .subscribe(<span class="function">(<span class="params">i</span>) =&gt;</span> <span class="built_in">console</span>.log(a, a===b)) <span class="comment">//["owen", "bbo"], true</span></div></pre></td></tr></table></figure>
+<p>전혀 Functional 하지 않은 소스지만, 어쨌든 결과는 확인했습니다. 새로운 객체를 생성하지않고, 받은 객체를 그대로 참조한다는 것입니다. RxJS의 operator안에서 객체를 수정해도, 새로운 객체를 생성해서 넘기는 것이 아니기 때문에 <code>a === b</code>가 <code>true</code>가 됩니다. RxJS를 쓸때 operator를 여러개 연결함을로서 퍼포먼스에 악영향을 끼치지 않을까..  막연한 불안감이 있었는데 어느정도는 해소된 것 같습니다.</p>
+<p>그렇다면 <code>Subject</code>로 observable을 multicast 했을때는 어떨까요?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> ev$ = Rx.Observable.of([<span class="string">'owen'</span>, <span class="string">'bbo'</span>, <span class="string">'jane'</span>]);</div><div class="line"></div><div class="line"><span class="keyword">const</span> sb = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">const</span> sb1 = sb.map(<span class="function"><span class="params">i</span> =&gt;</span> i);</div><div class="line"><span class="keyword">const</span> sb2 = sb.map(<span class="function"><span class="params">j</span> =&gt;</span> j);</div><div class="line"></div><div class="line">sb1.combineLatest(sb2, (i, j) =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(i === j); <span class="comment">//true</span></div><div class="line">    j.pop();</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">  &#125;)</div><div class="line">  .subscribe(<span class="function"><span class="params">i</span> =&gt;</span> <span class="built_in">console</span>.log(i)); <span class="comment">//["owen", "bbo"]</span></div><div class="line"></div><div class="line">ev$.subscribe(sb);</div></pre></td></tr></table></figure>
+<p>역시 결과는 같네요. 새로 만들어지는 객체는 없습니다. 위 소스 로직을 살펴보면 하나의 stream을 <code>Subject</code>를 이용해 2개로 쪼갰습니다. 그리고 <code>combineLatest</code>를 통해 다시 하나의 stream으로 합쳤습니다. 이 과정에서 <code>sb1, sb2</code> 2개의 스트림에서 각각 <code>return</code>을 받은 <code>i, j</code>를 비교해 본 것입니다. 결국 이 녀석들은 2개의 스트림에서 왔지만 같은 객체를 참조하는 변수입니다.</p>
+<p>이 같은 특징을 혼란을 야기할 수 있습니다. 보통 stream을 여러개로 쪼개는 것은 인자로 넘어온 값을 가지고 각기 다른 함수에서 처리하기 위함인데, 하나의 stream에서 값을 수정한다면 다른 stream도 영향을 받을 수 있기 때문입니다. 같은 데이터를 사용한다면 subject로 스트림을 늘리는 것보다 하나의 스트림 안에서 처리하는 것이 안전하게 느껴집니다.</p>
+<p>위 소스에 아래 코드를 추가해 보았다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(sb1, sb2, sb1 === sb2); <span class="comment">//&#123;observable객체&#125;, &#123;observable객체&#125;, false</span></div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>Subject는 Observable과 비슷하지만 많은 Observers에게 멀티캐스트 할 수 있습니다. Subject는 EventEmitters와 유사합니다. 많은 수의 수신자(listeners)의 레지스트리를 관리합니다.</p>
+<p>생각해 보면 당연한 결과일 수 도 있겠다 생각이 든다.</p>
 </blockquote>
-<p><strong>모든 Subject는 Observable입니다.</strong><br>Subject가 주어진다면 Observer를 구독(subscribe)하여 값을 정상적으로 받을 수 있습니다. Observer의 관점에서는, Observable 실행이 일반 unicast Observable에서 오는지, 또는 Subject에서 오는지를 알 수 없습니다.</p>
-<p>내부적으로 Subject에서 subscribe는 값을 전달하는 새로운 실행을 호출하지 않습니다. addListener가 다른 라이브러리 및 언어에서 일반적으로 작동하는 것과 마찬가지로 Observer를 Observer 목록에 등록합니다.</p>
-<p><strong>모든 Subject는 Observer입니다.</strong> Subject는 <code>next(v)</code>, <code>error(e)</code>, and <code>complete()</code> 메소드를 가진 객체입니다. Subject에 새 값을 공급하기위해 next를 호출하면 Subject를 수신하도록 등록 된 Observers로 멀티 캐스팅됩니다.</p>
-<p>아래 예제에서는 Subject에 첨부 된 두 개의 Observer가 있으며, Subject에 값을 공급합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(<span class="number">1</span>);</div><div class="line">subject.next(<span class="number">2</span>);</div></pre></td></tr></table></figure>
-<p>콘솔을 보면…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">observerA: <span class="number">1</span></div><div class="line">observerB: <span class="number">1</span></div><div class="line">observerA: <span class="number">2</span></div><div class="line">observerB: <span class="number">2</span></div></pre></td></tr></table></figure>
-<p>Subject는 Observer이므로, 아래 예제와 같이 Observable 구독에 대한 인수로 Subject를 제공 할 수도 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> observable = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line">observable.subscribe(subject); <span class="comment">// You can subscribe providing a Subject</span></div><div class="line"></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA: 2</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerA: 3</span></div><div class="line"><span class="comment">// observerB: 3</span></div></pre></td></tr></table></figure>
-<p>위의 접근 방식으로, 우리는 Subject를 사용해서 unicast Observable 실행을 multicast로 변환했습니다. 이것은 Observable 실행을 여러 Observer들과 공유 할 수 있는 유일한 방법입니다.</p>
-<p>Subject 유형에는 BehaviorSubject, ReplaySubject 및 AsyncSubject가 있습니다.</p>
-<p><br><br></p>
-<hr>
-<h3 id="Multicasted-Observables"><a href="#Multicasted-Observables" class="headerlink" title="Multicasted Observables"></a>Multicasted Observables</h3><p>“multicasted Observable”은 다수의 subscriber를 가질 수 있는 Subject를 통해 통지를 전달하는 반면, “unicast Observable”은 단일 Observer에게만 통지를 보냅니다.</p>
-<blockquote>
-<p>multicasted Observable은 여러 Observers가 동일한 Observable 실행을 바라보도록 Subject를 사용합니다.</p>
-</blockquote>
-<p>아래는 멀티캐스트 연산자가 작동하는 방식입니다.<br>Observer들은 아래의 Subject을 구독(subscribe)하고 Subject는 Observable 소스를 구독합니다. 다음 예제는 <code>observable.subscribe(subject)</code>를 사용한 이전 예제와 유사합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"></div><div class="line"><span class="comment">// These are, under the hood, `subject.subscribe(&#123;...&#125;)`:</span></div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// This is, under the hood, `source.subscribe(subject)`:</span></div><div class="line">multicasted.connect();</div></pre></td></tr></table></figure>
-<p><code>multicast</code>는 평범한 Observable처럼 보이는 <code>Observable</code>을 반환하지만 구독(subscribe)할 때의 <code>Subject</code>와 같이 작동합니다.<br><code>multicast</code>는<code>connectableObservable</code>을 리턴합니다. 이것은 <code>connect()</code> 메소드를 가진 간단한 <code>Observable</code>입니다.</p>
-<p><code>connect()</code> 메소드는 공유된 Observable 실행이 언제 시작될 것인지를 정확하게 결정합니다. <code>connect()</code>는 <code>source.subscribe(subject)</code>를 실행하기 때문에 <code>connect()</code>는 공유 <code>Observable</code>의 구독(subscribe)을 취소 할 수 있는 <code>Subscription</code>을 반환합니다.</p>
-<h4 id="Reference-counting-참조-카운팅"><a href="#Reference-counting-참조-카운팅" class="headerlink" title="Reference counting(참조 카운팅)"></a>Reference counting(참조 카운팅)</h4><p><code>connect()</code>를 수동으로 호출하고 Subscription을 처리하는 것은 종종 번거로운 일입니다. 일반적으로 첫 <code>Observer</code>가 도착하면 자동으로 연결하고, 마지막 <code>Observer</code>가 구독을 취소하면 공유 실행을 자동으로 취소하려고합니다.</p>
-<p>아래 목록에 설명 된대로 subscriptions이 발생하는 다음 예제를 살펴보겠습니다.</p>
-<ol>
-<li>첫번째 Observer가 multicasted Observable을 구독합니다.</li>
-<li>Multicasted Observable가 연결됩니다.</li>
-<li>다음 값 0이 첫번째 Observer에게 전달됩니다.</li>
-<li>두번째 Observer가 multicasted Observable을 구독합니다.</li>
-<li>다음 값 1이 첫번째 Observer에게 전달됩니다.</li>
-<li>다음 값 1이 두번째 Observer에게 전달됩니다.</li>
-<li>첫번째 Observer multicasted Observable 구독을 취소합니다.</li>
-<li>다음 값 2이 두번째 Observer에게 전달됩니다.</li>
-<li>두번째 Observer multicasted Observable 구독을 취소합니다.</li>
-<li>Multicasted Observable 연결이 unsubscribe 되었습니다.</li>
-</ol>
-<p><code>connect()</code>를 명시적으로 호출하면 위 내용을 달성하기 위해 다음 코드를 작성합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line">subscription1 = multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"><span class="comment">// We should call `connect()` here, because the first</span></div><div class="line"><span class="comment">// subscriber to `multicasted` is interested in consuming values</span></div><div class="line">subscriptionConnect = multicasted.connect();</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2 = multicasted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// We should unsubscribe the shared Observable execution here,</span></div><div class="line"><span class="comment">// because `multicasted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2.unsubscribe();</div><div class="line">  subscriptionConnect.unsubscribe(); <span class="comment">// for the shared Observable execution</span></div><div class="line">&#125;, <span class="number">2000</span>);</div></pre></td></tr></table></figure>
-<p><code>connect()</code>에 대한 명시적인 호출을 피하려면 <code>connectableObservable</code>의 <code>refCount()</code> 메서드(참조 카운팅)를 사용할 수 있습니다. 이 메서드는 <code>Observable</code>을 반환하며 <code>Observable</code>은 구독자 수를 추적합니다. 가입자 수가 0에서 1로 증가하면 <code>connect()</code>가 호출되어 공유 실행이 시작됩니다. 구독자 수가 1에서 0으로 줄어들 때만 완전히 구독 취소되어 더 이상 실행을 중지합니다.</p>
-<blockquote>
-<p><code>refCount</code>는 멀티캐스트 된 <code>Observable</code>에 첫 번째 subscriber가 도착하면 자동으로 실행을 시작하고 마지막 subscriber가 떠날 때 실행을 중지합니다.</p>
-</blockquote>
-<p>아래의 예제를 봅시다</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> refCounted = source.multicast(subject).refCount();</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line"><span class="comment">// This calls `connect()`, because</span></div><div class="line"><span class="comment">// it is the first subscriber to `refCounted`</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'observerA subscribed'</span>);</div><div class="line">subscription1 = refCounted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB subscribed'</span>);</div><div class="line">  subscription2 = refCounted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerA unsubscribed'</span>);</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// This is when the shared Observable execution will stop, because</span></div><div class="line"><span class="comment">// `refCounted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB unsubscribed'</span>);</div><div class="line">  subscription2.unsubscribe();</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line"></div><div class="line"><span class="comment">// observerA subscribed</span></div><div class="line"><span class="comment">// observerA: 0</span></div><div class="line"><span class="comment">// observerB subscribed</span></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA unsubscribed</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerB unsubscribed</span></div></pre></td></tr></table></figure>
-<p><code>refCount()</code> 메서드는 <code>ConnectableObservable</code>에만 존재하며 다른 <code>ConnectableObservable</code>이 아니라 <code>Observable</code>을 return합니다.</p>
+<p>RxJS가 immutable하게 넘기는 건 스트림안에서의 메소드 체이닝으로 넘어가는 observable이고, 그안에 값은 기본 자바스크립트 특성 안에서 자유롭게 짜면 되는것… 이라고 생각하면 편할까?</p>
+<p>그래도 찜찜한 부분이 어느정도 해소되어 다행이다.ㅋ</p>
 
             
         </div>
@@ -318,7 +285,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/02/24/observer/"  data-tooltip="RxJS Observer">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -326,7 +293,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/27/angular-detection/" data-tooltip="Angular2의 변화 탐지(Change Detection)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/02/angular-aot/" data-tooltip="Angular AOT (with CLI)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -341,17 +308,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -399,7 +366,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/02/24/observer/"  data-tooltip="RxJS Observer">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -407,7 +374,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/27/angular-detection/" data-tooltip="Angular2의 변화 탐지(Change Detection)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/02/angular-aot/" data-tooltip="Angular AOT (with CLI)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -422,17 +389,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -458,17 +425,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/04/07/rxjs-testing/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
@@ -749,9 +716,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://owenjeon.github.io/2017/02/21/rxjs-subject/';
+                 this.page.url = 'https://owenjeon.github.io/2017/04/07/rxjs-testing/';
                  
-                    this.page.identifier = '2017/02/21/rxjs-subject/';
+                    this.page.identifier = '2017/04/07/rxjs-testing/';
                  
              };
             (function() {
