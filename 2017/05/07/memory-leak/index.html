@@ -6,20 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Owen&#39;s Blog">
-    <title>all-categories - Owen&#39;s Blog</title>
+    <title>JavaScript Memory Leak(DOM Tree) - Owen&#39;s Blog</title>
     <meta name="author" content="Owen">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="all-categories">
-<meta property="og:url" content="https://owenjeon.github.io/all-categories/index.html">
+    <meta name="description" content="일반적으로 memory leak은 말그대로 메모리 누수입니다. 참조되는 곳이 없는 객체는 해당 객체에 접근할 수 있는 방법이 없고, 사용될 일이 없기 때문에 메모리에서 삭제 됩니다.JavaScript의 GC(Garbage Collection)가 주기적으로 돌면서 이 역할을 수행합니다. 헌데 사용하지 않는 객체임에도 불구하고 특정 변수가 이를 참조(refer">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="JavaScript Memory Leak(DOM Tree)">
+<meta property="og:url" content="https://owenjeon.github.io/2017/05/07/memory-leak/index.html">
 <meta property="og:site_name" content="Owen's Blog">
-<meta property="og:updated_time" content="2017-03-05T14:23:47.000Z">
+<meta property="og:description" content="일반적으로 memory leak은 말그대로 메모리 누수입니다. 참조되는 곳이 없는 객체는 해당 객체에 접근할 수 있는 방법이 없고, 사용될 일이 없기 때문에 메모리에서 삭제 됩니다.JavaScript의 GC(Garbage Collection)가 주기적으로 돌면서 이 역할을 수행합니다. 헌데 사용하지 않는 객체임에도 불구하고 특정 변수가 이를 참조(refer">
+<meta property="og:image" content="https://owenjeon.github.io/images/memory_leak1.png">
+<meta property="og:image" content="https://owenjeon.github.io/images/memory_leak2.png">
+<meta property="og:updated_time" content="2017-05-07T11:36:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="all-categories">
+<meta name="twitter:title" content="JavaScript Memory Leak(DOM Tree)">
+<meta name="twitter:description" content="일반적으로 memory leak은 말그대로 메모리 누수입니다. 참조되는 곳이 없는 객체는 해당 객체에 접근할 수 있는 방법이 없고, 사용될 일이 없기 때문에 메모리에서 삭제 됩니다.JavaScript의 GC(Garbage Collection)가 주기적으로 돌면서 이 역할을 수행합니다. 헌데 사용하지 않는 객체임에도 불구하고 특정 변수가 이를 참조(refer">
+<meta name="twitter:image" content="https://owenjeon.github.io/images/memory_leak1.png">
     
     
         
@@ -62,7 +68,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Owen&#39;s Blog</a>
@@ -86,7 +92,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -216,60 +222,133 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
                 
-<div id="categories-archives" class="main-content-wrap">
-    <form id="filter-form" action="##">
-        <input name="category" type="text" class="form-control input--xlarge"
-               placeholder="Search category" autofocus="autofocus">
-    </form>
-    <h5 class="archive-result text-color-base text-xlarge"
-        data-message-zero="no category found"
-        data-message-one="1 cartegory found"
-        data-message-other="{n} categories found"></h5>
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            JavaScript Memory Leak(DOM Tree)
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-05-07T12:34:00+09:00">
+	
+		    5월 07, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/javascript/">javascript</a>
 
-        <section class="boxes">
-        
-            
-                <div><a href="#posts-list-Angular" class="category-anchor" data-category="angular" data-parent-categories="">Angular</a></div>
-            
-        
-            
-                <div><a href="#posts-list-RxJS" class="category-anchor" data-category="rxjs" data-parent-categories="">RxJS</a></div>
-            
-        
-            
-                <div><a href="#posts-list-css" class="category-anchor" data-category="css" data-parent-categories="">css</a></div>
-            
-        
-            
-                <div><a href="#posts-list-javascript" class="category-anchor" data-category="javascript" data-parent-categories="">javascript</a></div>
-            
-        
-    </section>
-    <section class="boxes">
-        
-            
-                    <div id="posts-list-Angular" class="archive box" data-category="angular" data-parent-categories=""><h4 class="archive-title text-xlarge"><a class="link-unstyled" href="/categories/Angular/">Angular (7)</a></h4><ul class="archive-posts"><li class="archive-post"><a class="archive-post-title" href="/2017/01/27/angular-detection/">Angular2의 변화 탐지(Change Detection)</a><span class="archive-post-date"> - 1월 27, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/02/28/angular-resolve/">Angular2 Resolve</a><span class="archive-post-date"> - 2월 28, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/03/02/angular-RouteReuseStrategy/">Angular2 RouteReuseStrategy</a><span class="archive-post-date"> - 3월 02, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/03/03/angular-dynamic-component/">Angular2 Dynamic Component</a><span class="archive-post-date"> - 3월 03, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/05/06/angular-cross/">Angular For IE(with CLI)</a><span class="archive-post-date"> - 5월 06, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/03/06/angular-forms/">Angular2 Forms</a><span class="archive-post-date"> - 3월 06, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/04/02/angular-aot/">Angular AOT (with CLI)</a><span class="archive-post-date"> - 4월 02, 2017</span></li></ul></div>
-            
-        
-            
-                    <div id="posts-list-RxJS" class="archive box" data-category="rxjs" data-parent-categories=""><h4 class="archive-title text-xlarge"><a class="link-unstyled" href="/categories/RxJS/">RxJS (6)</a></h4><ul class="archive-posts"><li class="archive-post"><a class="archive-post-title" href="/2016/12/23/rxjs/">Reactive extension JS (RxJS) 시작!</a><span class="archive-post-date"> - 12월 23, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/12/29/rxjs-purity/">RxJS - Purity(순수성)</a><span class="archive-post-date"> - 12월 29, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/12/31/rxjs-create-operator/">RxJS Create Operator</a><span class="archive-post-date"> - 12월 31, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/01/01/rxjs-trans-operator/">RxJS Transformation Operator</a><span class="archive-post-date"> - 1월 01, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/02/21/rxjs-subject/">RxJS Subject</a><span class="archive-post-date"> - 2월 21, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/02/24/observer/">RxJS Observer</a><span class="archive-post-date"> - 2월 24, 2017</span></li></ul></div>
-            
-        
-            
-                    <div id="posts-list-css" class="archive box" data-category="css" data-parent-categories=""><h4 class="archive-title text-xlarge"><a class="link-unstyled" href="/categories/css/">css (1)</a></h4><ul class="archive-posts"><li class="archive-post"><a class="archive-post-title" href="/2016/07/12/fill-image-css/">프레임에 이미지 꽉 채우기 Part2(css)</a><span class="archive-post-date"> - 7월 12, 2016</span></li></ul></div>
-            
-        
-            
-                    <div id="posts-list-javascript" class="archive box" data-category="javascript" data-parent-categories=""><h4 class="archive-title text-xlarge"><a class="link-unstyled" href="/categories/javascript/">javascript (13)</a></h4><ul class="archive-posts"><li class="archive-post"><a class="archive-post-title" href="/2016/07/12/prototype/">객체 및 프로토타입</a><span class="archive-post-date"> - 7월 12, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/08/12/array-object/">객체와 배열 구분하기</a><span class="archive-post-date"> - 8월 12, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/07/12/fill-image-javascript/">프레임에 이미지 꽉 채우기 Part2(Javascript)</a><span class="archive-post-date"> - 7월 12, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/08/10/prototype/">자바스크립트 프로토 타입의 프로퍼티 할당</a><span class="archive-post-date"> - 8월 10, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/08/18/develop-patten/">다른 퍼블리셔들의 사용패턴 설문조사</a><span class="archive-post-date"> - 8월 18, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/08/21/valueof-tostring/">Javascript의 valueOf, toString</a><span class="archive-post-date"> - 8월 21, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/08/22/javascript-jsonp/">JSONP에 관하여...</a><span class="archive-post-date"> - 8월 22, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/09/01/javascript-map/">ECMA5 javascript method : map</a><span class="archive-post-date"> - 9월 01, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/08/28/javascript-reduce/">ECMA5 javascript method : reduce</a><span class="archive-post-date"> - 8월 28, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/12/15/javascript-funtional/">함수형프로그래밍</a><span class="archive-post-date"> - 12월 15, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2016/12/16/react-lifecycle/">React Life Cycle</a><span class="archive-post-date"> - 12월 16, 2016</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/05/07/memory-leak/">JavaScript Memory Leak(DOM Tree)</a><span class="archive-post-date"> - 5월 07, 2017</span></li><li class="archive-post"><a class="archive-post-title" href="/2017/03/16/google-api-overlay/">Google map API - custom overlay</a><span class="archive-post-date"> - 3월 16, 2017</span></li></ul></div>
-            
-        
-    </section>
+
+    
 </div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>일반적으로 memory leak은 말그대로 메모리 누수입니다. 참조되는 곳이 없는 객체는 해당 객체에 접근할 수 있는 방법이 없고, 사용될 일이 없기 때문에 메모리에서 삭제 됩니다.<br>JavaScript의 GC(Garbage Collection)가 주기적으로 돌면서 이 역할을 수행합니다. 헌데 사용하지 않는 객체임에도 불구하고 특정 변수가 이를 참조(reference)하고 있어서 메모리에서 삭제되지 않는 현상을 memory leak이라고 합니다.<br><a id="more"></a></p>
+<p>보통은 크게 신경쓸 필요가 없습니다. 브라우져가 새로고침 될때마다 메모리 릴리즈 되기 때문이죠. 하지만 SPA(Single Page Application)라면 얘기는 달라집니다. 메모리 누수가 발생한다면 페이지를 이동할때마다 메모리 사용량이 늘어날 것이고 이는 어플리케이션 성능 저하로 이어집니다.</p>
+<p>이번 포스트에서 memory leak의 주제는 DOM leak입니다. 말그대로 DOM 객체가 제대로 메모리에서 삭제되지 않아 발생하는 현상입니다.</p>
+<p>보통 document에서 element가 삭제되면 이는 GC에 의해 메모리에서 제거됩니다. 예를 보면..<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"area"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addElement</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>);</div><div class="line">  div.id = <span class="string">'out_box'</span>;</div><div class="line">  div.innerHTML = <span class="string">'&lt;div id="in_box"&gt;추가된 엘리먼트 입니다.'</span>;</div><div class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'area'</span>).appendChild(div);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeElement</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'area'</span>).removeChild(<span class="built_in">document</span>.getElementById(<span class="string">'out_box'</span>));</div><div class="line">&#125;</div><div class="line">addElement(); <span class="comment">//DOM에 엘리먼트 추가</span></div><div class="line">removeElement(); <span class="comment">//DOM에서 엘리먼트 삭제</span></div></pre></td></tr></table></figure>
+<p><code>out_box</code>라는 아이디를 가진 <code>div</code>엘리먼트를 추가하고 <code>removeChild</code> 메소드를 써서 바로 삭제한 것입니다. 이 경우 삭제한 엘리먼트(<code>out_box</code>)는 더이상 참조 되고 있지 않으므로 GC에 의해 메모리에서 제거 됩니다.<br>그렇다면 다음 의 경우에는 어떨까요?<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addElement</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">'DIV'</span>);</div><div class="line">  div.id = <span class="string">'out_box'</span>;</div><div class="line">  div.innerHTML = <span class="string">'&lt;div id="in_box"&gt;추가된 엘리먼트 입니다.'</span>;</div><div class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'area'</span>).appendChild(div);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeElement</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">window</span>.inBox = <span class="built_in">document</span>.getElementById(<span class="string">'in_box'</span>);<span class="comment">//바뀐 부분</span></div><div class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'area'</span>).removeChild(<span class="built_in">document</span>.getElementById(<span class="string">'out_box'</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>다른 내용은 모두 똑같고, <code>div#in_box</code>를 참조하는 <code>inBox</code>라는 변수를 전역에 만든것만 바뀌었습니다. 이렇게 하면 <code>document DOM</code>에서 해당 <code>div#out_box</code>이 삭제되었지만 메모리 상에는 남아 있게 됩니다.<br>구글 개발자도구의 profile을 이용해 이를 확인해보겠습니다.</p>
+<p><code>addElement</code>실행 전과 후를 비교해 보면…<br><img src="/images/memory_leak1.png" alt=""><br>엘리먼트가 추가되면서 DOM 엔트리가 22개에서 25개로 늘었습니다.</p>
+<p><code>addElement</code>실행 후와 <code>removeElement</code> 실행 후를 비교해 보면…<br><img src="/images/memory_leak2.png" alt=""><br>엘리먼트가 제거되면서 DOM 엔트리가 25개에서 22개로 다시 줄었습니다. 그리고 <code>Detached DOM tree</code>가 생성 되었습니다. 즉, <code>document</code>에서 분리된 <code>DOM tree</code>가 생성되었고, 이것을 <code>inBox</code>변수가 참조하고 있어서 GC가 이를 수집하지 않은 것입니다.</p>
+<p>눈치채셨을수도 있지만, <code>removeChild</code>는 인자로 넘기는 엘리먼트를 <code>DOM tree</code>에서 분리하는 역할만을 수행합니다. 메모리 제거와는 관계가 없죠. 그리고 분리된 <code>DOM tree</code>를 리턴합니다. 따라서 이를 변수에 받아 다른 위치에 <code>appendChild</code>하는 등의 작업을 수 행할 수 있습니다. 반대로 이를 변수에 참조시키지 않고, 분리된 <code>DOM tree</code>의 특정 엘리먼트를 참조하고 있는 곳이 없다면 GC가 이를 수집하여 메모리에서 제거하게 됩니다.</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/06/angular-cross/" data-tooltip="Angular For IE(with CLI)">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
@@ -278,6 +357,90 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/06/angular-cross/" data-tooltip="Angular For IE(with CLI)">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/07/memory-leak/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
             
         </div>
         
@@ -547,6 +710,25 @@
 <script src="/assets/js/jquery.fancybox-thumbs.js"></script>
 <script src="/assets/js/tranquilpeak.js"></script>
 <!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'https://owenjeon.github.io/2017/05/07/memory-leak/';
+                 
+                    this.page.identifier = '2017/05/07/memory-leak/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'owenblog';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
 
 
 
