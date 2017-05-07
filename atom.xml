@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://owenjeon.github.io/"/>
-  <updated>2017-04-02T05:10:33.000Z</updated>
+  <updated>2017-05-07T09:50:35.000Z</updated>
   <id>https://owenjeon.github.io/</id>
   
   <author>
@@ -16,11 +16,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Angular For IE(with CLI)</title>
+    <link href="https://owenjeon.github.io/2017/05/06/angular-cross/"/>
+    <id>https://owenjeon.github.io/2017/05/06/angular-cross/</id>
+    <published>2017-05-06T03:34:00.000Z</published>
+    <updated>2017-05-07T09:50:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>angular로 프로젝트를 개발하던 중 큰 난관에 봉착했습니다. 그것은 프론트개발자라면 누구나 사라졌으면 하는 그것… 크로스 브라우징 이슈입니다. 분명 크롬에서는 잘 돌아가던 것들이 ie에만 가면 깨지고 에러나고…</p>
+<a id="more"></a>
+<p>angular공식 홈페이지에서는 <a href="https://angular.io/docs/ts/latest/guide/browser-support.html" target="_blank" rel="external">크로스브라우징 이슈를 해결하기 위한 내용</a>을 포함하고 있습니다. 공식 홈페이지에서는 아래와 같은 방법으로 polyfill할 것을 권장하고 있습니다.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/core-js/client/shim.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>angular CLI 에서는 크로스 브라우징 이슈를 해결하기 위해 <code>polyfill</code> 을 직접 구성할 수 있습니다. angular CLI를 살펴보면 <code>/src/polyfills.ts</code>이라는 파일이 있으며, 여기에 <code>import</code>되어있는 모듈이 <code>webpack</code>을 통해 번들링 되어 어플리케이션에 포함되도록 되어있습니다.<br>한국 웹시장의 특성상 아직 IE를 포기할 수 없기때문에.. IE호환을 위한 <code>polyfill</code>들을 추가해 봅시다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** IE9, IE10 and IE11 requires all of the following polyfills. **/</span></div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/symbol'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/object'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/function'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/parse-int'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/parse-float'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/number'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/math'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/string'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/date'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/array'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/regexp'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/map'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/set'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es7/object'</span>;</div></pre></td></tr></table></figure>
+<p>es6 <code>polyfill</code>들이 포함되어 있네요. <code>map</code>, <code>set</code> 등도 사용 할 수 있고, <code>date</code>, <code>object</code>, <code>string</code>등의 자료형에도 추가된 메소드나 프로퍼티를 사용할 수 있도록 지원해주는 모양입니다. 여기서.. <code>core-js</code>라는 npm패키지가 눈에 띕니다. 이건 뭘까요? JavaScript를 pollyfill을 모듈별로 분리해서 제공하는 라이브러리라고 보시면 될 것 같습니다. 관련 github은 <a href="https://github.com/zloirock/core-js" target="_blank" rel="external">여기</a>를 참고해주세요.</p>
+<p>헌데 pollyfill을 위해서 저렇게 모듈을 하나하나 import 해줘야 하다니… 불편하지 않나요? <code>core-js</code>에서는 기본적으로 모듈을 한번에 포함시킬 수 있는 방법이 있습니다.</p>
+<p><code>import &#39;core-js&#39;;</code> 표준 및 비표준의 모든 기능을 포함합니다.<br><code>import &#39;core-js/library&#39;;</code> 위와 비슷하지만 전역 네임 스페이스를 오염시키지 않습니다.<br><code>import &#39;core-js/shim&#39;;</code> 표준 기능만 포함합니다.</p>
+<p>위 파일중에 shim을 열어보면..</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.symbol'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.create'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.define-property'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.define-properties'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.get-own-property-descriptor'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.get-prototype-of'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.keys'</span>);</div><div class="line">...</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>이렇게 각 모듈들이 import되어 있습니다.</p>
+<p>또한 es버젼별로도 polyfill할 수 있습니다.<br><code>import &#39;core-js/es5&#39;;</code>, <code>import &#39;core-js/es6&#39;;</code>, <code>import &#39;core-js/es7&#39;;</code></p>
+<p>물론 이렇게 한번에 import하는게 개발할때는 편하겠지만, 쓰지않는 메소드 들도 포함될 수 있으니, 개인적으로는 그때그때 필요한걸 찾아서 추가하는것을 좋아합니다.</p>
+<p>Angular에서 권장하는 <code>polyfill</code>은 몇가지가 더 있습니다.</p>
+<h4 id="classlist"><a href="#classlist" class="headerlink" title="classlist"></a>classlist</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'classlist.js'</span>;</div></pre></td></tr></table></figure>
+<p>IE10과 11에서 SVG요소에 대한 NgClass지원을 위해 필요한 pollyfill입니다. 이는 core-js에 포함 되어 있지 않기 때문에 <code>npm install --save classlist.js</code> 명령을 통해 설치해야 합니다. 당연히 SVG를 사용하지 않거나 SVG에 NgClass 디렉티브를 사용하지 않는다면 포함시킬 필요 없습니다.</p>
+<h4 id="animations"><a href="#animations" class="headerlink" title="animations"></a>animations</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'web-animations-js'</span>;</div></pre></td></tr></table></figure>
+<p>Angular에서 제공하는 Animation을 사용하기 위해 필요한 pollyfill입니다. 마찬가지로 <code>npm install --save web-animations-js</code>를 통해 설치해야 합니다. ie10, 11, 파이어 폭스에서 필요합니다.</p>
+<h4 id="intl"><a href="#intl" class="headerlink" title="intl"></a>intl</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'intl'</span>;  <span class="comment">// Run `npm install --save intl`.</span></div></pre></td></tr></table></figure>
+<p>Angular의 pipes 기능에서 날짜, 통화, 정수, 퍼센트 등을 사용하기 위해 필요한 패키지입니다. Chrome, Firefox, Edge, IE11, Safari 10을 제외하고 모두 필요합니다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;angular로 프로젝트를 개발하던 중 큰 난관에 봉착했습니다. 그것은 프론트개발자라면 누구나 사라졌으면 하는 그것… 크로스 브라우징 이슈입니다. 분명 크롬에서는 잘 돌아가던 것들이 ie에만 가면 깨지고 에러나고…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Angular" scheme="https://owenjeon.github.io/categories/Angular/"/>
+    
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
+    
+      <category term="Angular" scheme="https://owenjeon.github.io/tags/Angular/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Angular AOT (with CLI)</title>
     <link href="https://owenjeon.github.io/2017/04/02/angular-aot/"/>
     <id>https://owenjeon.github.io/2017/04/02/angular-aot/</id>
     <published>2017-04-02T03:34:00.000Z</published>
-    <updated>2017-04-02T05:10:33.000Z</updated>
+    <updated>2017-04-24T01:33:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>Angular 응용 프로그램은 주로 <code>Component</code>와 <code>HTML Template</code>로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다.</p>
 <p>응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴파일 할 수 있습니다. 이것은 표준 개발 방식입니다. 이것은 좋은 방식이지만 결점이 있습니다.<br><a id="more"></a></p>
@@ -973,37 +1017,6 @@ undefined
     
     
       <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>다른 퍼블리셔들의 사용패턴 설문조사</title>
-    <link href="https://owenjeon.github.io/2016/08/18/develop-patten/"/>
-    <id>https://owenjeon.github.io/2016/08/18/develop-patten/</id>
-    <published>2016-08-18T03:00:00.000Z</published>
-    <updated>2017-03-14T14:49:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>다른 퍼블리셔들은 어떻게 하는지 궁금한 것을이 있었다.<br>예를들어 에디터는 뭐를 쓸까? css 스타일은 한줄에 쓰나 나눠서 쓰나? 등등..<br><a id="more"></a></p>
-<p>그러던 와중 css사용 패턴에 대한 설문조사가 있는 글을 발견했다.</p>
-<p><a href="https://www.sitepoint.com/results-ultimate-css-survey/" target="_blank" rel="external">https://www.sitepoint.com/results-ultimate-css-survey/</a></p>
-<p>모수가 3,500명 정도 되고, 외국사람들을 대상으로 조사한 설문이다 보니 꽤 글로벌하게 의미있는 결과가 아닐까 싶다.</p>
-<p>재미있었던것 몇가지가 있는데..</p>
-<p>css스타일을 멀티라인이 아닌, 1개 라인에 쓰는 사람이 훨신 많다는 것.<br>css스타일링을 모바일 페이지 먼저 하는 사람이 많다는것<br>(이건 외국이니까 가능한 것 같다. 우리는 미디어 쿼리 따위는 무시하는 ie8의 눈치를 봐야 한다.)<br>얼마전까지 썼던 aptana 에디터는 순위 안에도 없다는것<br>부트스트랩 css를 사용하는 사람이 43%로 제일 많다는것.<br>(프레임워크 사용 안하는 사람은 20%…)<br>CSS preprocessor(SASS, LESS등)을 사용하는 사람이 73%라는것.</p>
-<p>설문조사가 영어로 되어 있어서 완전히 이해하기는 어렵다. 시간날때마다 천천히 봐야 겠다..</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;다른 퍼블리셔들은 어떻게 하는지 궁금한 것을이 있었다.&lt;br&gt;예를들어 에디터는 뭐를 쓸까? css 스타일은 한줄에 쓰나 나눠서 쓰나? 등등..&lt;br&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
-    
-      <category term="css" scheme="https://owenjeon.github.io/tags/css/"/>
     
   </entry>
   

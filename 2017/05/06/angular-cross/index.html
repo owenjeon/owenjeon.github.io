@@ -6,23 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Owen&#39;s Blog">
-    <title>RxJS Subject - Owen&#39;s Blog</title>
+    <title>Angular For IE(with CLI) - Owen&#39;s Blog</title>
     <meta name="author" content="Owen">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.">
+    <meta name="description" content="angular로 프로젝트를 개발하던 중 큰 난관에 봉착했습니다. 그것은 프론트개발자라면 누구나 사라졌으면 하는 그것… 크로스 브라우징 이슈입니다. 분명 크롬에서는 잘 돌아가던 것들이 ie에만 가면 깨지고 에러나고…">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="RxJS Subject">
-<meta property="og:url" content="https://owenjeon.github.io/2017/02/21/rxjs-subject/index.html">
+<meta property="og:title" content="Angular For IE(with CLI)">
+<meta property="og:url" content="https://owenjeon.github.io/2017/05/06/angular-cross/index.html">
 <meta property="og:site_name" content="Owen's Blog">
-<meta property="og:description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.">
-<meta property="og:updated_time" content="2017-03-06T13:21:40.000Z">
+<meta property="og:description" content="angular로 프로젝트를 개발하던 중 큰 난관에 봉착했습니다. 그것은 프론트개발자라면 누구나 사라졌으면 하는 그것… 크로스 브라우징 이슈입니다. 분명 크롬에서는 잘 돌아가던 것들이 ie에만 가면 깨지고 에러나고…">
+<meta property="og:updated_time" content="2017-05-07T09:50:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RxJS Subject">
-<meta name="twitter:description" content="이 글은 RxJS 공식사이트의 내용 중 subject 영역을 번역한 글입니다.">
+<meta name="twitter:title" content="Angular For IE(with CLI)">
+<meta name="twitter:description" content="angular로 프로젝트를 개발하던 중 큰 난관에 봉착했습니다. 그것은 프론트개발자라면 누구나 사라졌으면 하는 그것… 크로스 브라우징 이슈입니다. 분명 크롬에서는 잘 돌아가던 것들이 ie에만 가면 깨지고 에러나고…">
     
     
         
@@ -230,19 +230,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            RxJS Subject
+            Angular For IE(with CLI)
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-02-21T12:34:00+09:00">
+    <time itemprop="datePublished" datetime="2017-05-06T12:34:00+09:00">
 	
-		    2월 21, 2017
+		    5월 06, 2017
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/RxJS/">RxJS</a>
+    <a class="category-link" href="/categories/Angular/">Angular</a>
 
 
     
@@ -252,54 +252,26 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p><em>이 글은 <a href="http://reactivex.io/rxjs/manual/overview.html#subject" target="_blank" rel="external">RxJS 공식사이트</a>의 내용 중 subject 영역을 번역한 글입니다.</em><br><a id="more"></a><br>RxJS Subject는 값을 많은 관찰자(Observer)에게 multicast 할 수 있게하는 특별한 유형의 Observable입니다. 일반 Observable은 unicast(각각의 subscribe된 Observer는 바라보고 있는 Observable을 독립적으로 실행함)이지만, Subject는 multicast입니다.</p>
-<blockquote>
-<p>Subject는 Observable과 비슷하지만 많은 Observers에게 멀티캐스트 할 수 있습니다. Subject는 EventEmitters와 유사합니다. 많은 수의 수신자(listeners)의 레지스트리를 관리합니다.</p>
-</blockquote>
-<p><strong>모든 Subject는 Observable입니다.</strong><br>Subject가 주어진다면 Observer를 구독(subscribe)하여 값을 정상적으로 받을 수 있습니다. Observer의 관점에서는, Observable 실행이 일반 unicast Observable에서 오는지, 또는 Subject에서 오는지를 알 수 없습니다.</p>
-<p>내부적으로 Subject에서 subscribe는 값을 전달하는 새로운 실행을 호출하지 않습니다. addListener가 다른 라이브러리 및 언어에서 일반적으로 작동하는 것과 마찬가지로 Observer를 Observer 목록에 등록합니다.</p>
-<p><strong>모든 Subject는 Observer입니다.</strong> Subject는 <code>next(v)</code>, <code>error(e)</code>, and <code>complete()</code> 메소드를 가진 객체입니다. Subject에 새 값을 공급하기위해 next를 호출하면 Subject를 수신하도록 등록 된 Observers로 멀티 캐스팅됩니다.</p>
-<p>아래 예제에서는 Subject에 첨부 된 두 개의 Observer가 있으며, Subject에 값을 공급합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(<span class="number">1</span>);</div><div class="line">subject.next(<span class="number">2</span>);</div></pre></td></tr></table></figure>
-<p>콘솔을 보면…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">observerA: <span class="number">1</span></div><div class="line">observerB: <span class="number">1</span></div><div class="line">observerA: <span class="number">2</span></div><div class="line">observerB: <span class="number">2</span></div></pre></td></tr></table></figure>
-<p>Subject는 Observer이므로, 아래 예제와 같이 Observable 구독에 대한 인수로 Subject를 제공 할 수도 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> observable = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line">observable.subscribe(subject); <span class="comment">// You can subscribe providing a Subject</span></div><div class="line"></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA: 2</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerA: 3</span></div><div class="line"><span class="comment">// observerB: 3</span></div></pre></td></tr></table></figure>
-<p>위의 접근 방식으로, 우리는 Subject를 사용해서 unicast Observable 실행을 multicast로 변환했습니다. 이것은 Observable 실행을 여러 Observer들과 공유 할 수 있는 유일한 방법입니다.</p>
-<p>Subject 유형에는 BehaviorSubject, ReplaySubject 및 AsyncSubject가 있습니다.</p>
-<p><br><br></p>
-<hr>
-<h3 id="Multicasted-Observables"><a href="#Multicasted-Observables" class="headerlink" title="Multicasted Observables"></a>Multicasted Observables</h3><p>“multicasted Observable”은 다수의 subscriber를 가질 수 있는 Subject를 통해 통지를 전달하는 반면, “unicast Observable”은 단일 Observer에게만 통지를 보냅니다.</p>
-<blockquote>
-<p>multicasted Observable은 여러 Observers가 동일한 Observable 실행을 바라보도록 Subject를 사용합니다.</p>
-</blockquote>
-<p>아래는 멀티캐스트 연산자가 작동하는 방식입니다.<br>Observer들은 아래의 Subject을 구독(subscribe)하고 Subject는 Observable 소스를 구독합니다. 다음 예제는 <code>observable.subscribe(subject)</code>를 사용한 이전 예제와 유사합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"></div><div class="line"><span class="comment">// These are, under the hood, `subject.subscribe(&#123;...&#125;)`:</span></div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line">multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// This is, under the hood, `source.subscribe(subject)`:</span></div><div class="line">multicasted.connect();</div></pre></td></tr></table></figure>
-<p><code>multicast</code>는 평범한 Observable처럼 보이는 <code>Observable</code>을 반환하지만 구독(subscribe)할 때의 <code>Subject</code>와 같이 작동합니다.<br><code>multicast</code>는<code>connectableObservable</code>을 리턴합니다. 이것은 <code>connect()</code> 메소드를 가진 간단한 <code>Observable</code>입니다.</p>
-<p><code>connect()</code> 메소드는 공유된 Observable 실행이 언제 시작될 것인지를 정확하게 결정합니다. <code>connect()</code>는 <code>source.subscribe(subject)</code>를 실행하기 때문에 <code>connect()</code>는 공유 <code>Observable</code>의 구독(subscribe)을 취소 할 수 있는 <code>Subscription</code>을 반환합니다.</p>
-<h4 id="Reference-counting-참조-카운팅"><a href="#Reference-counting-참조-카운팅" class="headerlink" title="Reference counting(참조 카운팅)"></a>Reference counting(참조 카운팅)</h4><p><code>connect()</code>를 수동으로 호출하고 Subscription을 처리하는 것은 종종 번거로운 일입니다. 일반적으로 첫 <code>Observer</code>가 도착하면 자동으로 연결하고, 마지막 <code>Observer</code>가 구독을 취소하면 공유 실행을 자동으로 취소하려고합니다.</p>
-<p>아래 목록에 설명 된대로 subscriptions이 발생하는 다음 예제를 살펴보겠습니다.</p>
-<ol>
-<li>첫번째 Observer가 multicasted Observable을 구독합니다.</li>
-<li>Multicasted Observable가 연결됩니다.</li>
-<li>다음 값 0이 첫번째 Observer에게 전달됩니다.</li>
-<li>두번째 Observer가 multicasted Observable을 구독합니다.</li>
-<li>다음 값 1이 첫번째 Observer에게 전달됩니다.</li>
-<li>다음 값 1이 두번째 Observer에게 전달됩니다.</li>
-<li>첫번째 Observer multicasted Observable 구독을 취소합니다.</li>
-<li>다음 값 2이 두번째 Observer에게 전달됩니다.</li>
-<li>두번째 Observer multicasted Observable 구독을 취소합니다.</li>
-<li>Multicasted Observable 연결이 unsubscribe 되었습니다.</li>
-</ol>
-<p><code>connect()</code>를 명시적으로 호출하면 위 내용을 달성하기 위해 다음 코드를 작성합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> multicasted = source.multicast(subject);</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line">subscription1 = multicasted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"><span class="comment">// We should call `connect()` here, because the first</span></div><div class="line"><span class="comment">// subscriber to `multicasted` is interested in consuming values</span></div><div class="line">subscriptionConnect = multicasted.connect();</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2 = multicasted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// We should unsubscribe the shared Observable execution here,</span></div><div class="line"><span class="comment">// because `multicasted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  subscription2.unsubscribe();</div><div class="line">  subscriptionConnect.unsubscribe(); <span class="comment">// for the shared Observable execution</span></div><div class="line">&#125;, <span class="number">2000</span>);</div></pre></td></tr></table></figure>
-<p><code>connect()</code>에 대한 명시적인 호출을 피하려면 <code>connectableObservable</code>의 <code>refCount()</code> 메서드(참조 카운팅)를 사용할 수 있습니다. 이 메서드는 <code>Observable</code>을 반환하며 <code>Observable</code>은 구독자 수를 추적합니다. 가입자 수가 0에서 1로 증가하면 <code>connect()</code>가 호출되어 공유 실행이 시작됩니다. 구독자 수가 1에서 0으로 줄어들 때만 완전히 구독 취소되어 더 이상 실행을 중지합니다.</p>
-<blockquote>
-<p><code>refCount</code>는 멀티캐스트 된 <code>Observable</code>에 첫 번째 subscriber가 도착하면 자동으로 실행을 시작하고 마지막 subscriber가 떠날 때 실행을 중지합니다.</p>
-</blockquote>
-<p>아래의 예제를 봅시다</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = Rx.Observable.interval(<span class="number">500</span>);</div><div class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Rx.Subject();</div><div class="line"><span class="keyword">var</span> refCounted = source.multicast(subject).refCount();</div><div class="line"><span class="keyword">var</span> subscription1, subscription2, subscriptionConnect;</div><div class="line"></div><div class="line"><span class="comment">// This calls `connect()`, because</span></div><div class="line"><span class="comment">// it is the first subscriber to `refCounted`</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'observerA subscribed'</span>);</div><div class="line">subscription1 = refCounted.subscribe(&#123;</div><div class="line">  <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerA: '</span> + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB subscribed'</span>);</div><div class="line">  subscription2 = refCounted.subscribe(&#123;</div><div class="line">    <span class="attr">next</span>: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'observerB: '</span> + v)</div><div class="line">  &#125;);</div><div class="line">&#125;, <span class="number">600</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerA unsubscribed'</span>);</div><div class="line">  subscription1.unsubscribe();</div><div class="line">&#125;, <span class="number">1200</span>);</div><div class="line"></div><div class="line"><span class="comment">// This is when the shared Observable execution will stop, because</span></div><div class="line"><span class="comment">// `refCounted` would have no more subscribers after this</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'observerB unsubscribed'</span>);</div><div class="line">  subscription2.unsubscribe();</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line"></div><div class="line"><span class="comment">// observerA subscribed</span></div><div class="line"><span class="comment">// observerA: 0</span></div><div class="line"><span class="comment">// observerB subscribed</span></div><div class="line"><span class="comment">// observerA: 1</span></div><div class="line"><span class="comment">// observerB: 1</span></div><div class="line"><span class="comment">// observerA unsubscribed</span></div><div class="line"><span class="comment">// observerB: 2</span></div><div class="line"><span class="comment">// observerB unsubscribed</span></div></pre></td></tr></table></figure>
-<p><code>refCount()</code> 메서드는 <code>ConnectableObservable</code>에만 존재하며 다른 <code>ConnectableObservable</code>이 아니라 <code>Observable</code>을 return합니다.</p>
+            <p>angular로 프로젝트를 개발하던 중 큰 난관에 봉착했습니다. 그것은 프론트개발자라면 누구나 사라졌으면 하는 그것… 크로스 브라우징 이슈입니다. 분명 크롬에서는 잘 돌아가던 것들이 ie에만 가면 깨지고 에러나고…</p>
+<a id="more"></a>
+<p>angular공식 홈페이지에서는 <a href="https://angular.io/docs/ts/latest/guide/browser-support.html" target="_blank" rel="external">크로스브라우징 이슈를 해결하기 위한 내용</a>을 포함하고 있습니다. 공식 홈페이지에서는 아래와 같은 방법으로 polyfill할 것을 권장하고 있습니다.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/core-js/client/shim.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>angular CLI 에서는 크로스 브라우징 이슈를 해결하기 위해 <code>polyfill</code> 을 직접 구성할 수 있습니다. angular CLI를 살펴보면 <code>/src/polyfills.ts</code>이라는 파일이 있으며, 여기에 <code>import</code>되어있는 모듈이 <code>webpack</code>을 통해 번들링 되어 어플리케이션에 포함되도록 되어있습니다.<br>한국 웹시장의 특성상 아직 IE를 포기할 수 없기때문에.. IE호환을 위한 <code>polyfill</code>들을 추가해 봅시다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** IE9, IE10 and IE11 requires all of the following polyfills. **/</span></div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/symbol'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/object'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/function'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/parse-int'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/parse-float'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/number'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/math'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/string'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/date'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/array'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/regexp'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/map'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/set'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es7/object'</span>;</div></pre></td></tr></table></figure>
+<p>es6 <code>polyfill</code>들이 포함되어 있네요. <code>map</code>, <code>set</code> 등도 사용 할 수 있고, <code>date</code>, <code>object</code>, <code>string</code>등의 자료형에도 추가된 메소드나 프로퍼티를 사용할 수 있도록 지원해주는 모양입니다. 여기서.. <code>core-js</code>라는 npm패키지가 눈에 띕니다. 이건 뭘까요? JavaScript를 pollyfill을 모듈별로 분리해서 제공하는 라이브러리라고 보시면 될 것 같습니다. 관련 github은 <a href="https://github.com/zloirock/core-js" target="_blank" rel="external">여기</a>를 참고해주세요.</p>
+<p>헌데 pollyfill을 위해서 저렇게 모듈을 하나하나 import 해줘야 하다니… 불편하지 않나요? <code>core-js</code>에서는 기본적으로 모듈을 한번에 포함시킬 수 있는 방법이 있습니다.</p>
+<p><code>import &#39;core-js&#39;;</code> 표준 및 비표준의 모든 기능을 포함합니다.<br><code>import &#39;core-js/library&#39;;</code> 위와 비슷하지만 전역 네임 스페이스를 오염시키지 않습니다.<br><code>import &#39;core-js/shim&#39;;</code> 표준 기능만 포함합니다.</p>
+<p>위 파일중에 shim을 열어보면..</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.symbol'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.create'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.define-property'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.define-properties'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.get-own-property-descriptor'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.get-prototype-of'</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">'./modules/es6.object.keys'</span>);</div><div class="line">...</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>이렇게 각 모듈들이 import되어 있습니다.</p>
+<p>또한 es버젼별로도 polyfill할 수 있습니다.<br><code>import &#39;core-js/es5&#39;;</code>, <code>import &#39;core-js/es6&#39;;</code>, <code>import &#39;core-js/es7&#39;;</code></p>
+<p>물론 이렇게 한번에 import하는게 개발할때는 편하겠지만, 쓰지않는 메소드 들도 포함될 수 있으니, 개인적으로는 그때그때 필요한걸 찾아서 추가하는것을 좋아합니다.</p>
+<p>Angular에서 권장하는 <code>polyfill</code>은 몇가지가 더 있습니다.</p>
+<h4 id="classlist"><a href="#classlist" class="headerlink" title="classlist"></a>classlist</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'classlist.js'</span>;</div></pre></td></tr></table></figure>
+<p>IE10과 11에서 SVG요소에 대한 NgClass지원을 위해 필요한 pollyfill입니다. 이는 core-js에 포함 되어 있지 않기 때문에 <code>npm install --save classlist.js</code> 명령을 통해 설치해야 합니다. 당연히 SVG를 사용하지 않거나 SVG에 NgClass 디렉티브를 사용하지 않는다면 포함시킬 필요 없습니다.</p>
+<h4 id="animations"><a href="#animations" class="headerlink" title="animations"></a>animations</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'web-animations-js'</span>;</div></pre></td></tr></table></figure>
+<p>Angular에서 제공하는 Animation을 사용하기 위해 필요한 pollyfill입니다. 마찬가지로 <code>npm install --save web-animations-js</code>를 통해 설치해야 합니다. ie10, 11, 파이어 폭스에서 필요합니다.</p>
+<h4 id="intl"><a href="#intl" class="headerlink" title="intl"></a>intl</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'intl'</span>;  <span class="comment">// Run `npm install --save intl`.</span></div></pre></td></tr></table></figure>
+<p>Angular의 pipes 기능에서 날짜, 통화, 정수, 퍼센트 등을 사용하기 위해 필요한 패키지입니다. Chrome, Firefox, Edge, IE11, Safari 10을 제외하고 모두 필요합니다.</p>
 
             
         </div>
@@ -309,7 +281,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/RxJS/">RxJS</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Angular/">Angular</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
 
             </div>
         
@@ -318,7 +290,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/02/24/observer/"  data-tooltip="RxJS Observer">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -326,7 +298,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/27/angular-detection/" data-tooltip="Angular2의 변화 탐지(Change Detection)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/02/angular-aot/" data-tooltip="Angular AOT (with CLI)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -341,17 +313,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -399,7 +371,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/02/24/observer/"  data-tooltip="RxJS Observer">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -407,7 +379,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/27/angular-detection/" data-tooltip="Angular2의 변화 탐지(Change Detection)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/02/angular-aot/" data-tooltip="Angular AOT (with CLI)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -422,17 +394,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -458,17 +430,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/02/21/rxjs-subject/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/06/angular-cross/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
@@ -749,9 +721,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://owenjeon.github.io/2017/02/21/rxjs-subject/';
+                 this.page.url = 'https://owenjeon.github.io/2017/05/06/angular-cross/';
                  
-                    this.page.identifier = '2017/02/21/rxjs-subject/';
+                    this.page.identifier = '2017/05/06/angular-cross/';
                  
              };
             (function() {
