@@ -6,23 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Owen&#39;s Blog">
-    <title>ECMA5 javascript method : reduce - Owen&#39;s Blog</title>
+    <title>JavaScript ES6 Symbol properties - Owen&#39;s Blog</title>
     <meta name="author" content="Owen">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.">
+    <meta name="description" content="Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="ECMA5 javascript method : reduce">
-<meta property="og:url" content="https://owenjeon.github.io/2016/08/28/javascript-reduce/index.html">
+<meta property="og:title" content="JavaScript ES6 Symbol properties">
+<meta property="og:url" content="https://owenjeon.github.io/2017/05/18/es6-symbol/index.html">
 <meta property="og:site_name" content="Owen's Blog">
-<meta property="og:description" content="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.">
-<meta property="og:updated_time" content="2017-03-14T14:49:45.000Z">
+<meta property="og:description" content="Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.">
+<meta property="og:updated_time" content="2017-05-20T03:06:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ECMA5 javascript method : reduce">
-<meta name="twitter:description" content="오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.">
+<meta name="twitter:title" content="JavaScript ES6 Symbol properties">
+<meta name="twitter:description" content="Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.">
     
     
         
@@ -228,13 +228,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            ECMA5 javascript method : reduce
+            JavaScript ES6 Symbol properties
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-08-28T23:00:00+09:00">
+    <time itemprop="datePublished" datetime="2017-05-18T12:34:00+09:00">
 	
-		    8월 28, 2016
+		    5월 18, 2017
     	
     </time>
     
@@ -250,17 +250,42 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.<br><a id="more"></a><br>자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효율적인 소스를 제작 할 수 있음에도 불구하고, 아직 우리나라는 익스8버젼을 고려해야하기 때문에 포기하는 경우가 많았다.</p>
-<p>하지만 가까운 미래에 우리나라도 ECMA5기반으로 만들어진 사이트 들이 늘어날 것이고, 또 node.js의 경우에는 서버단의 언어이고 V8엔진 기반으로 해석되기 때문에 익스에 대한 고민없이 ECMA5 또는 6기반으로 소스를 설계할 수 있다.</p>
-<p><a href="http://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="external">reduce 메소드</a>의 기본형태는 아래와 같다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">리턴값,현재요소,현재요소의 index,배열</span>),초기값)</span></div></pre></td></tr></table></figure></p>
-<p>여기서 리턴값이란 1번째 순회에서는 초기값을, 이후 순회에서는 그전 순회에서 받은 리턴값을 나타낸다. 아래는 reduce의 가장기본적인 예제이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> sum = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">total, val</span>)</span>&#123;<span class="keyword">return</span> total + val;&#125;, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(sum);<span class="comment">//15</span></div></pre></td></tr></table></figure>
-<p>위 예제에서는 리턴값에 현재요소를 더한값을 다음 순회로 리턴시킨다. 결국 모든 요소를 더한값을 반환한다.</p>
-<p>다음은 배열안의 수 중 가장 큰 수를 추출하는 스크립트이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>];</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;<span class="keyword">return</span> a &gt; b ? a : b;&#125;);</div><div class="line"><span class="built_in">console</span>.log(max);<span class="comment">//100</span></div></pre></td></tr></table></figure>
-<p>위 예제는 리턴된 값과 현재요소를 비교해서 큰 값을 리턴시킨다. 물론 배열에서 가장 큰 값을 구하는 방법은 apply함수를 이용하는 방법이 더 효율적이긴 하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, arr);</div></pre></td></tr></table></figure></p>
-<p>이제 좀 더 복잡한 예제를 보자. 아래는 배열중에 연속된 수들이 있으면 해당 수들을 배열로 묶어서 반환시키는 함수이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">101</span>, <span class="number">103</span>];</div><div class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;<span class="keyword">return</span> a - b&#125;); <span class="comment">//sort 메소드로 오름차순 정렬.</span></div><div class="line"><span class="keyword">var</span> cnt = <span class="number">0</span>,tArr = [],len;</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (a + <span class="number">1</span> === b) &#123; <span class="comment">//현재요소가 리턴값과 이어지는 정수면...</span></div><div class="line">        <span class="keyword">if</span> (!cnt) &#123; <span class="comment">//연속된 수의 첫 시작이면</span></div><div class="line">            <span class="keyword">var</span> tArr2 = [];</div><div class="line">            tArr2.push(a, b);</div><div class="line">            len = tArr.push(tArr2);</div><div class="line">            cnt = <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//연속된 수가 계속 이어지고 있는 상태면..</span></div><div class="line">            tArr[(len - <span class="number">1</span>)].push(b);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//수가 이어지지 않으면..</span></div><div class="line">        cnt = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> b; <span class="comment">//현재 요소를 반훤</span></div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(tArr); <span class="comment">//[[1, 2], [4, 5, 6], [100, 101]]</span></div></pre></td></tr></table></figure></p>
-<p>결론적으로 reduce는 어떤값을 리턴시키느냐에 따라 다양하게 확장해서 사용할 수 있다!</p>
+            <p>Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.</p>
+<a id="more"></a>
+<h3 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol?"></a>Symbol?</h3><p>ECMAScript6 에 Symbol이라는 타입이 추가되었습니다. <code>Symbol()</code> 명령어로 생성한 값은 중복되지 않는 고유한 값을 리턴합니다. 이를 객체의 프로퍼티 key으로 사용하여, 중복되지 않는 key를 생성할 수 있습니다.<br>Symbol에 대한 자세한 설명은 <a href="http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/" target="_blank" rel="external">mozilla 블로그</a>에 잘 나와 있으니 참고하시기 바랍니다.</p>
+<h3 id="Symbol-프로퍼티"><a href="#Symbol-프로퍼티" class="headerlink" title="Symbol 프로퍼티"></a>Symbol 프로퍼티</h3><p>앞서 이야기 한 것처럼 Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형(<code>well-known Symbol</code>)의 이름들입니다. 자바스크립트 스펙에서 @@iterator 형태로 작성 됩니다.<br>같은 이름의 Symbol 작성하면 엔진의 디폴트 처리 대신 프로그램에 작성된 코드를 <strong>오버라이드</strong> 해서 실행합니다. Symbol의 종류는 다음과 같습니다.</p>
+<h4 id="이터레이터-반복-심볼"><a href="#이터레이터-반복-심볼" class="headerlink" title="이터레이터(반복) 심볼"></a>이터레이터(반복) 심볼</h4><ul>
+<li><code>Symbol.iterator</code> 객체의 기본 반복자(iterator)를 반환하는 메소드. for…of에서 사용됩니다. ECMAScript6의 대부분 스팩은 이터레이터와 연관이 있습니다. 따라서 이터레이터는 별도 포스트로 다룰 예정입니다.</li>
+</ul>
+<h4 id="정규표현식-심볼"><a href="#정규표현식-심볼" class="headerlink" title="정규표현식 심볼"></a>정규표현식 심볼</h4><ul>
+<li><code>Symbol.match</code>: 문자열과 매치(match)되는 메소드, 또한 객체가 정규식으로서 사용되는지 확인하는데도 사용. String.prototype.match()에서 사용됩니다.</li>
+<li><code>Symbol.replace</code>: 문자열 중 매치되는 일부 문자열을 대체하는 메소드. String.prototype.replace()에서 사용됩니다.</li>
+<li><code>Symbol.search</code>: 정규식과 매치되는 문자열의 인덱스(index)를 반환하는 메소드. String.prototype.search()에서 사용됩니다.</li>
+<li><code>Symbol.split</code>: 문자열을 정규식과 매치되는 인덱스들에서 나누는 메소드. String.prototype.split()에서 사용됩니다.</li>
+</ul>
+<h4 id="그-외-심볼들"><a href="#그-외-심볼들" class="headerlink" title="그 외 심볼들"></a>그 외 심볼들</h4><h5 id="toStringTag"><a href="#toStringTag" class="headerlink" title="toStringTag"></a>toStringTag</h5><p><code>[object Object]</code> 형태에서 <code>Object</code>를 <code>Symbol.toStringTag</code> 값으로 표시합니다.<br><code>Symbol.toStringTag</code>를 사용하여 <code>[object Object]</code>의 <code>Object</code>에 표시될 문자열을 지정할 수 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Sports = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">let</span> sportsObj = <span class="keyword">new</span> Sports;</div><div class="line"><span class="built_in">console</span>.log(sportsObj.toString()); <span class="comment">//[object Object]</span></div><div class="line"></div><div class="line">Sports.prototype[<span class="built_in">Symbol</span>.toStringTag] = <span class="string">"Sports-Function"</span>;</div><div class="line"><span class="built_in">console</span>.log(sportsObj.toString()); <span class="comment">//[object Sports-Function]</span></div></pre></td></tr></table></figure>
+<h5 id="isConcatSpreadable"><a href="#isConcatSpreadable" class="headerlink" title="isConcatSpreadable"></a>isConcatSpreadable</h5><p>Array 오프젝트의 concat()에서 배열을 결합할 때 결합하는 배열의 펼침 여부를 지정합니다. 디폴트는 true입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> one = [<span class="number">11</span>, <span class="number">12</span>], two = [<span class="number">21</span>, <span class="number">22</span>];</div><div class="line"><span class="keyword">let</span> result = one.concat(two);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, 21, 22] 4</span></div><div class="line"></div><div class="line">two[<span class="built_in">Symbol</span>.isConcatSpreadable] = <span class="literal">false</span>;</div><div class="line">result = one.concat(two);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, Array(2)] 3</span></div><div class="line"></div><div class="line">two[<span class="built_in">Symbol</span>.isConcatSpreadable] = <span class="literal">true</span>;</div><div class="line">result = one.concat(two);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, 21, 22] 4</span></div></pre></td></tr></table></figure>
+<p>유사배열 객체에서도 사용할 수 있습니다. 디폴트는 false입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> one = [<span class="number">11</span>, <span class="number">12</span>];</div><div class="line"><span class="keyword">let</span> fiveSix = &#123;</div><div class="line">  <span class="number">0</span>: <span class="string">"five"</span>,</div><div class="line">  <span class="number">1</span>: <span class="string">"six"</span>,</div><div class="line">  <span class="attr">length</span>: <span class="number">2</span></div><div class="line">&#125;; <span class="comment">//유사배열</span></div><div class="line"><span class="keyword">let</span> result = one.concat(fiveSix);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, Object] 3</span></div><div class="line"></div><div class="line">fiveSix[<span class="built_in">Symbol</span>.isConcatSpreadable] = <span class="literal">true</span>;</div><div class="line">result = one.concat(fiveSix);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, "five", "six"] 4</span></div></pre></td></tr></table></figure>
+<h5 id="unscopables"><a href="#unscopables" class="headerlink" title="unscopables"></a>unscopables</h5><p>with문에서 사용하며, 값이 <code>true</code>이면 프로퍼티를 전개하지 않습니다.</p>
+<p>with란? with 이후에 오는 구문을 위해 scope chain에 인자로 받는 object를 추가합니다. with의 인자로 받는 object는 그 이후의 statement나 블럭 {} 안에 scope chain이 추가되어서 실행이 가능합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>:<span class="string">'owen'</span>,</div><div class="line">  <span class="attr">gender</span>:<span class="string">'male'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">with</span>(obj)&#123;</div><div class="line">	<span class="built_in">console</span>.log(gender); <span class="comment">//male</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>unscopables를 사용해보면…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>:<span class="string">'owen'</span>,</div><div class="line">  <span class="attr">gender</span>:<span class="string">'male'</span></div><div class="line">&#125;;</div><div class="line">obj[<span class="built_in">Symbol</span>.unscopables] = &#123;</div><div class="line">	<span class="attr">gender</span>: <span class="literal">true</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">with</span>(obj)&#123;</div><div class="line">	<span class="built_in">console</span>.log(gender);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//Error: gender is not defined</span></div></pre></td></tr></table></figure>
+<h5 id="species"><a href="#species" class="headerlink" title="species"></a>species</h5><p><code>Symbol.species</code>는 <code>constructor</code>를 반환합니다. <code>constructor</code>를 반환한다는 것은 <code>constructor</code>로 인스턴스를 생성하여 변환하는 것과 같습니다. 이를 오버라이드 함으로써 개발자 코드로 반환되는 인스턴스를 변경할 수 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExtendArray</span> <span class="keyword">extends</span> <span class="title">Array</span> </span>&#123;</div><div class="line">  getValue()&#123;&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> newArray = <span class="keyword">new</span> ExtendArray(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line"><span class="keyword">let</span> newInst = newArray.slice(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(newInst <span class="keyword">instanceof</span> ExtendArray); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>인스턴스의 매서드를 호출했을 때 인스턴스를 반환하도록 하는 것이 <code>Symbol.species</code>입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExtendArray</span> <span class="keyword">extends</span> <span class="title">Array</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> get [<span class="built_in">Symbol</span>.species]() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> oneInstance = <span class="keyword">new</span> ExtendArray(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line"><span class="keyword">let</span> twoInstance = oneInstance.slice(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(oneInstance <span class="keyword">instanceof</span> ExtendArray); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(twoInstance <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(twoInstance <span class="keyword">instanceof</span> ExtendArray); <span class="comment">//false</span></div></pre></td></tr></table></figure>
+<p>위 예제에서는 상속받은 Array 생성자를 <code>Symbol.species</code>로 설정했지만, 전혀 다른 Class를 설정 할 수도 있습니다.<br>또한 <code>[Symbol.species]()</code> 가 <code>null</code>을 반환하면 디폴트 <code>[Symbol.species]()</code>가 호출됩니다.</p>
+<h5 id="toPrimitive"><a href="#toPrimitive" class="headerlink" title="toPrimitive"></a>toPrimitive</h5><p>오브젝트를 프리미티브 타입으로 변환합니다.</p>
+<p>자바스크립트의 프리미티브 값은 number, string, boolean, undefined, null, Symbol입니다.<br>연산 대상이 Number가 아닐 경우 toPrimitive모듈을 기준으로 값을 변환합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">  [<span class="built_in">Symbol</span>.toPrimitive](hint)&#123;</div><div class="line">    <span class="keyword">if</span> (hint === <span class="string">"number"</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">if</span> (hint === <span class="string">"string"</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">"문자열"</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> <span class="string">"디폴트"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"1:"</span>, <span class="number">20</span> + obj);<span class="comment">//1: 20디폴트</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"2:"</span>, <span class="number">20</span> * obj);<span class="comment">//2: 600</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"3:"</span>, obj + <span class="number">50</span>);<span class="comment">//3: 디폴트50</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"4:"</span>, +obj + <span class="number">50</span>);<span class="comment">//4: 80</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"5:"</span>, <span class="string">`<span class="subst">$&#123;obj&#125;</span>`</span> + <span class="number">123</span>);<span class="comment">//5: 문자열123</span></div></pre></td></tr></table></figure>
+<h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><ul>
+<li>ECMAScript6책[김영보 지음]: <a href="http://www.rubypaper.co.kr/entry/ECMAScript6" target="_blank" rel="external">http://www.rubypaper.co.kr/entry/ECMAScript6</a></li>
+<li>HACKS-웹기술블로그: <a href="http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/" target="_blank" rel="external">http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/</a></li>
+</ul>
 
             
         </div>
@@ -270,7 +295,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/ECMAScript6/">ECMAScript6</a> <a class="tag tag--primary tag--small t-link" href="/tags/Symbol/">Symbol</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
 
             </div>
         
@@ -279,7 +304,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/01/javascript-map/"  data-tooltip="ECMA5 javascript method : map">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -287,7 +312,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/22/javascript-jsonp/" data-tooltip="JSONP에 관하여...">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/07/memory-leak/" data-tooltip="JavaScript Memory Leak(DOM Tree)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -302,17 +327,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -360,7 +385,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/01/javascript-map/"  data-tooltip="ECMA5 javascript method : map">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -368,7 +393,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/22/javascript-jsonp/" data-tooltip="JSONP에 관하여...">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/07/memory-leak/" data-tooltip="JavaScript Memory Leak(DOM Tree)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -383,17 +408,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -419,17 +444,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2016/08/28/javascript-reduce/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/18/es6-symbol/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
@@ -707,9 +732,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://owenjeon.github.io/2016/08/28/javascript-reduce/';
+                 this.page.url = 'https://owenjeon.github.io/2017/05/18/es6-symbol/';
                  
-                    this.page.identifier = '2016/08/28/javascript-reduce/';
+                    this.page.identifier = '2017/05/18/es6-symbol/';
                  
              };
             (function() {

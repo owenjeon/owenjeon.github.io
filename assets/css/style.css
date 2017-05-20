@@ -2131,48 +2131,6 @@
 	}
 }
 @charset "UTF-8";
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Lato"), local("OpenSans"), url(https://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3SZ2oysoEQEeKwjgmXLRnTc.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Lato Bold"), local("OpenSans-Bold"), url(https://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzJS3E-kSBmtLoNJPDtbj2Pk.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Merriweather Light"), local("Merriweather-Light"), url(https://fonts.gstatic.com/s/merriweather/v8/ZvcMqxEwPfh2qDWBPxn6nk7nEl83IKQRaQwpv_tz1Eg.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Merriweather"), url(https://fonts.gstatic.com/s/merriweather/v8/RFda8w1V0eDZheqfcyQ4EJS3E-kSBmtLoNJPDtbj2Pk.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(https://fonts.gstatic.com/s/merriweather/v8/ZvcMqxEwPfh2qDWBPxn6nv83cGrqhiQgWmjXfohD0fc.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: italic;
-  font-weight: 300;
-  src: local("Merriweather Light Italic"), local("Merriweather-LightItalic"), url(https://fonts.gstatic.com/s/merriweather/v8/EYh7Vl4ywhowqULgRdYwIGrKw6K5wsYdxr6rUL2ZGaM.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: italic;
-  font-weight: 700;
-  src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"), url(https://fonts.gstatic.com/s/merriweather/v8/EYh7Vl4ywhowqULgRdYwII1kRdeHIFWYEsp6A2f99b0.ttf) format("truetype"); }
-
 html {
   font-family: "Lato", sans-serif;
   font-size: 10px;
@@ -2203,7 +2161,7 @@ h3,
 h4,
 h5,
 h6 {
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   font-family: "Lato", sans-serif;
   font-weight: 700;
   line-height: 1.45em;
@@ -2292,7 +2250,7 @@ pre > code {
   cursor: text;
   overflow-x: auto;
   line-height: 1.7em;
-  font-size: 1.4rem; }
+  font-size: 1.3rem; }
 
 code {
   font-size: 1.5rem;
@@ -2801,7 +2759,8 @@ blockquote {
       #sidebar ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
         color: #f1f1f1;
         display: block;
-        height: 100%; }
+        height: 100%;
+        text-transform: uppercase; }
         #sidebar ul.sidebar-buttons li.sidebar-button .sidebar-button-link:hover, #sidebar ul.sidebar-buttons li.sidebar-button .sidebar-button-link:active {
           text-decoration: none;
           color: white; }
@@ -3628,7 +3587,7 @@ figure.highlight,
   figure.highlight .line,
   .codeblock .line {
     height: 1.3em;
-    font-size: 1.4rem; }
+    font-size: 1.3rem; }
 
 .codeblock--tabbed figure.highlight,
 .codeblock--tabbed pre > code {
@@ -3990,6 +3949,7 @@ a.fancybox {
   display: inline-block;
   vertical-align: top; }
   .post .post-header .post-title {
+    font-weight: 300;
     margin: 0;
     word-break: initial;
     overflow: hidden; }
@@ -4034,10 +3994,6 @@ a.fancybox {
 @media only screen and (min-width: 1024px) {
   .post .post-header .post-title {
     font-size: 3.7rem; } }
-
-@media only screen and (min-width: 768px) {
-  .post-content {
-    font-size: 1.7rem; } }
 
 .post-actions-wrap {
   height: 60px;
@@ -4262,6 +4218,8 @@ a.fancybox {
   .postShorten .postShorten-thumbnailimg {
     overflow: hidden; }
   .postShorten .postShorten-header .postShorten-title {
+    letter-spacing: 0px;
+    font-weight: 300;
     margin: 0;
     word-break: initial;
     overflow: hidden; }
@@ -4281,14 +4239,14 @@ a.fancybox {
   .postShorten .postShorten-excerpt_link {
     font-family: "Lato", sans-serif;
     font-size: 1.3rem;
-    font-weight: 400; }
+    font-weight: 300; }
   .postShorten .postShorten-excerpt,
   .postShorten .postShorten-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
     font-family: "Lato", sans-serif;
     color: #5d686f;
-    font-weight: 400;
+    font-weight: 300;
     overflow: hidden;
     -webkit-hypens: auto;
     -moz-hypens: auto;
@@ -4298,6 +4256,9 @@ a.fancybox {
       display: block;
       width: auto;
       max-width: 100%; }
+    .postShorten .postShorten-excerpt strong,
+    .postShorten .postShorten-content strong {
+      font-weight: 400; }
   .postShorten .postShorten-excerpt {
     margin-top: 15px; }
   .postShorten .postShorten-content {
