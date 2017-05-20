@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://owenjeon.github.io/"/>
-  <updated>2017-05-20T03:06:08.000Z</updated>
+  <updated>2017-05-20T03:36:16.000Z</updated>
   <id>https://owenjeon.github.io/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaScript Quick Sort Algorithm</title>
+    <link href="https://owenjeon.github.io/2017/05/19/algorithm-quick-sort/"/>
+    <id>https://owenjeon.github.io/2017/05/19/algorithm-quick-sort/</id>
+    <published>2017-05-19T03:34:00.000Z</published>
+    <updated>2017-05-20T03:36:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>quick 정렬을 구현해 봅시다.</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">100</span>,<span class="number">83</span>,<span class="number">12</span>,<span class="number">55</span>,<span class="number">24</span>,<span class="number">18</span>,<span class="number">71</span>,<span class="number">56</span>,<span class="number">43</span>,<span class="number">21</span>,<span class="number">59</span>,<span class="number">89</span>,<span class="number">21</span>,<span class="number">44</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (arr.length &lt; <span class="number">2</span>) <span class="keyword">return</span> arr;</div><div class="line">  <span class="keyword">let</span> pivotIndex = arr.length - <span class="number">1</span>;</div><div class="line">  <span class="keyword">let</span> pivot = arr[pivotIndex];</div><div class="line">  <span class="keyword">let</span> divIndex = pivotIndex - <span class="number">1</span>;</div><div class="line">  firstLoop: <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= divIndex; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (arr[i] &gt; pivot) &#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> j = divIndex; j &gt;= i; j--) &#123;</div><div class="line">        <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</div><div class="line">          [arr[i], arr[j]] = [arr[j], arr[i]];</div><div class="line">          divIndex = j;</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(i === j)&#123;</div><div class="line">          [arr[pivotIndex], arr[i]] = [arr[i], arr[pivotIndex]];</div><div class="line">          <span class="keyword">break</span> firstLoop;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> [].concat(quickSort(arr.slice(<span class="number">0</span>,i)), pivot, quickSort(arr.slice(i+<span class="number">1</span>)));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(quickSort(arr)); <span class="comment">// [12, 18, 21, 21, 24, 43, 44, 55, 56, 59, 71, 83, 89, 100]</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;quick 정렬을 구현해 봅시다.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://owenjeon.github.io/categories/algorithm/"/>
+    
+    
+      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
+    
+      <category term="algorithm" scheme="https://owenjeon.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript ES6 Symbol properties</title>
     <link href="https://owenjeon.github.io/2017/05/18/es6-symbol/"/>
     <id>https://owenjeon.github.io/2017/05/18/es6-symbol/</id>
     <published>2017-05-18T03:34:00.000Z</published>
-    <updated>2017-05-20T03:06:08.000Z</updated>
+    <updated>2017-05-20T03:21:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.</p>
 <a id="more"></a>
@@ -82,7 +109,7 @@
     <link href="https://owenjeon.github.io/2017/05/07/memory-leak/"/>
     <id>https://owenjeon.github.io/2017/05/07/memory-leak/</id>
     <published>2017-05-07T03:34:00.000Z</published>
-    <updated>2017-05-07T11:36:48.000Z</updated>
+    <updated>2017-05-20T03:22:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>일반적으로 memory leak은 말그대로 메모리 누수입니다. 참조되는 곳이 없는 객체는 해당 객체에 접근할 수 있는 방법이 없고, 사용될 일이 없기 때문에 메모리에서 삭제 됩니다.<br>JavaScript의 GC(Garbage Collection)가 주기적으로 돌면서 이 역할을 수행합니다. 헌데 사용하지 않는 객체임에도 불구하고 특정 변수가 이를 참조(reference)하고 있어서 메모리에서 삭제되지 않는 현상을 memory leak이라고 합니다.<br><a id="more"></a></p>
 <p>보통은 크게 신경쓸 필요가 없습니다. 브라우져가 새로고침 될때마다 메모리 릴리즈 되기 때문이죠. 하지만 SPA(Single Page Application)라면 얘기는 달라집니다. 메모리 누수가 발생한다면 페이지를 이동할때마다 메모리 사용량이 늘어날 것이고 이는 어플리케이션 성능 저하로 이어집니다.</p>
@@ -1006,39 +1033,6 @@ undefined
     <summary type="html">
     
       &lt;p&gt;오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다. map메소드는 Array객체의 프로토타입 프로퍼티에 존재하는 메소드다. (즉 모든 배열에서 사용 가능하다.) 이 메소드는 배열의 각 요소들에 대해서 인자로 넘기는 함수를 실행시키고, 해당 배열을 리턴으로 반환한다.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="https://owenjeon.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ECMA5 javascript method : reduce</title>
-    <link href="https://owenjeon.github.io/2016/08/28/javascript-reduce/"/>
-    <id>https://owenjeon.github.io/2016/08/28/javascript-reduce/</id>
-    <published>2016-08-28T14:00:00.000Z</published>
-    <updated>2017-03-14T14:49:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.<br><a id="more"></a><br>자바스크립트를 쓰다보면 ECMA5에서 표준화된 메소드들을 접하게 된다. 이를 사용하면 ECMA3보다 훨신 효율적인 소스를 제작 할 수 있음에도 불구하고, 아직 우리나라는 익스8버젼을 고려해야하기 때문에 포기하는 경우가 많았다.</p>
-<p>하지만 가까운 미래에 우리나라도 ECMA5기반으로 만들어진 사이트 들이 늘어날 것이고, 또 node.js의 경우에는 서버단의 언어이고 V8엔진 기반으로 해석되기 때문에 익스에 대한 고민없이 ECMA5 또는 6기반으로 소스를 설계할 수 있다.</p>
-<p><a href="http://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="external">reduce 메소드</a>의 기본형태는 아래와 같다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">리턴값,현재요소,현재요소의 index,배열</span>),초기값)</span></div></pre></td></tr></table></figure></p>
-<p>여기서 리턴값이란 1번째 순회에서는 초기값을, 이후 순회에서는 그전 순회에서 받은 리턴값을 나타낸다. 아래는 reduce의 가장기본적인 예제이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> sum = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">total, val</span>)</span>&#123;<span class="keyword">return</span> total + val;&#125;, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(sum);<span class="comment">//15</span></div></pre></td></tr></table></figure>
-<p>위 예제에서는 리턴값에 현재요소를 더한값을 다음 순회로 리턴시킨다. 결국 모든 요소를 더한값을 반환한다.</p>
-<p>다음은 배열안의 수 중 가장 큰 수를 추출하는 스크립트이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>];</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;<span class="keyword">return</span> a &gt; b ? a : b;&#125;);</div><div class="line"><span class="built_in">console</span>.log(max);<span class="comment">//100</span></div></pre></td></tr></table></figure>
-<p>위 예제는 리턴된 값과 현재요소를 비교해서 큰 값을 리턴시킨다. 물론 배열에서 가장 큰 값을 구하는 방법은 apply함수를 이용하는 방법이 더 효율적이긴 하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, arr);</div></pre></td></tr></table></figure></p>
-<p>이제 좀 더 복잡한 예제를 보자. 아래는 배열중에 연속된 수들이 있으면 해당 수들을 배열로 묶어서 반환시키는 함수이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">101</span>, <span class="number">103</span>];</div><div class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;<span class="keyword">return</span> a - b&#125;); <span class="comment">//sort 메소드로 오름차순 정렬.</span></div><div class="line"><span class="keyword">var</span> cnt = <span class="number">0</span>,tArr = [],len;</div><div class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (a + <span class="number">1</span> === b) &#123; <span class="comment">//현재요소가 리턴값과 이어지는 정수면...</span></div><div class="line">        <span class="keyword">if</span> (!cnt) &#123; <span class="comment">//연속된 수의 첫 시작이면</span></div><div class="line">            <span class="keyword">var</span> tArr2 = [];</div><div class="line">            tArr2.push(a, b);</div><div class="line">            len = tArr.push(tArr2);</div><div class="line">            cnt = <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//연속된 수가 계속 이어지고 있는 상태면..</span></div><div class="line">            tArr[(len - <span class="number">1</span>)].push(b);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//수가 이어지지 않으면..</span></div><div class="line">        cnt = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> b; <span class="comment">//현재 요소를 반훤</span></div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(tArr); <span class="comment">//[[1, 2], [4, 5, 6], [100, 101]]</span></div></pre></td></tr></table></figure></p>
-<p>결론적으로 reduce는 어떤값을 리턴시키느냐에 따라 다양하게 확장해서 사용할 수 있다!</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;오늘은 ECMA5 javascript 메소드 중에 하나인 map에 대해서 포스팅 하고자 한다.&lt;br&gt;
     
     </summary>
     
