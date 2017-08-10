@@ -6,23 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Owen&#39;s Blog">
-    <title>JavaScript ES6 Symbol properties - Owen&#39;s Blog</title>
+    <title>d3 Hierarchy - Owen&#39;s Blog</title>
     <meta name="author" content="Owen">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.">
+    <meta name="description" content="d3 라이브러리의 Hierarchy 메서드는 계층구조를 만들어 주는 역할을 합니다.
+계층 구조를 만들기 위해서는 루트 노드가 필요합니다. 만일 이미 데이터가 JSON 처럼 계층 구조으로 만들어져 있다면, 바로 d3.hierarchy를 사용할 수 있습니다. 만일 CSV(comma-separated values)와 같은 표 형식의 데이터로 만들어져 있다면 d3">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="JavaScript ES6 Symbol properties">
-<meta property="og:url" content="https://owenjeon.github.io/2017/05/18/es6-symbol/index.html">
+<meta property="og:title" content="d3 Hierarchy">
+<meta property="og:url" content="https://owenjeon.github.io/2017/07/17/d3-hierarchy/index.html">
 <meta property="og:site_name" content="Owen's Blog">
-<meta property="og:description" content="Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.">
-<meta property="og:updated_time" content="2017-05-20T03:21:54.000Z">
+<meta property="og:description" content="d3 라이브러리의 Hierarchy 메서드는 계층구조를 만들어 주는 역할을 합니다.
+계층 구조를 만들기 위해서는 루트 노드가 필요합니다. 만일 이미 데이터가 JSON 처럼 계층 구조으로 만들어져 있다면, 바로 d3.hierarchy를 사용할 수 있습니다. 만일 CSV(comma-separated values)와 같은 표 형식의 데이터로 만들어져 있다면 d3">
+<meta property="og:updated_time" content="2017-08-10T08:37:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript ES6 Symbol properties">
-<meta name="twitter:description" content="Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.">
+<meta name="twitter:title" content="d3 Hierarchy">
+<meta name="twitter:description" content="d3 라이브러리의 Hierarchy 메서드는 계층구조를 만들어 주는 역할을 합니다.
+계층 구조를 만들기 위해서는 루트 노드가 필요합니다. 만일 이미 데이터가 JSON 처럼 계층 구조으로 만들어져 있다면, 바로 d3.hierarchy를 사용할 수 있습니다. 만일 CSV(comma-separated values)와 같은 표 형식의 데이터로 만들어져 있다면 d3">
     
     
         
@@ -228,19 +231,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            JavaScript ES6 Symbol properties
+            d3 Hierarchy
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-05-18T12:34:00+09:00">
+    <time itemprop="datePublished" datetime="2017-07-17T12:34:00+09:00">
 	
-		    5월 18, 2017
+		    7월 17, 2017
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/javascript/">javascript</a>
+    <a class="category-link" href="/categories/d3/">d3</a>
 
 
     
@@ -250,42 +253,42 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형들입니다. 개발자는 이 알고리즘에 개입해서 엔진의 동작을 수정할 수 있습니다.</p>
-<a id="more"></a>
-<h3 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol?"></a>Symbol?</h3><p>ECMAScript6 에 Symbol이라는 타입이 추가되었습니다. <code>Symbol()</code> 명령어로 생성한 값은 중복되지 않는 고유한 값을 리턴합니다. 이를 객체의 프로퍼티 key으로 사용하여, 중복되지 않는 key를 생성할 수 있습니다.<br>Symbol에 대한 자세한 설명은 <a href="http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/" target="_blank" rel="external">mozilla 블로그</a>에 잘 나와 있으니 참고하시기 바랍니다.</p>
-<h3 id="Symbol-프로퍼티"><a href="#Symbol-프로퍼티" class="headerlink" title="Symbol 프로퍼티"></a>Symbol 프로퍼티</h3><p>앞서 이야기 한 것처럼 Symbol 프로퍼티는 자바스크립트 엔진이 디폴트로 처리하는 알고리즘 유형(<code>well-known Symbol</code>)의 이름들입니다. 자바스크립트 스펙에서 @@iterator 형태로 작성 됩니다.<br>같은 이름의 Symbol 작성하면 엔진의 디폴트 처리 대신 프로그램에 작성된 코드를 <strong>오버라이드</strong> 해서 실행합니다. Symbol의 종류는 다음과 같습니다.</p>
-<h4 id="이터레이터-반복-심볼"><a href="#이터레이터-반복-심볼" class="headerlink" title="이터레이터(반복) 심볼"></a>이터레이터(반복) 심볼</h4><ul>
-<li><code>Symbol.iterator</code> 객체의 기본 반복자(iterator)를 반환하는 메소드. for…of에서 사용됩니다. ECMAScript6의 대부분 스팩은 이터레이터와 연관이 있습니다. 따라서 이터레이터는 별도 포스트로 다룰 예정입니다.</li>
+            <p>d3 라이브러리의 Hierarchy 메서드는 계층구조를 만들어 주는 역할을 합니다.</p>
+<p>계층 구조를 만들기 위해서는 루트 노드가 필요합니다. 만일 이미 데이터가 JSON 처럼 계층 구조으로 만들어져 있다면, 바로 <code>d3.hierarchy</code>를 사용할 수 있습니다. 만일 CSV(comma-separated values)와 같은 표 형식의 데이터로 만들어져 있다면 <code>d3.stratify</code>를 사용하여 계층 구조로 재정렬 할 수 있습니다.<br><a id="more"></a></p>
+<h3 id="d3-hierarchy-data-children"><a href="#d3-hierarchy-data-children" class="headerlink" title="d3.hierarchy(data[, children])"></a>d3.hierarchy(data[, children])</h3><p>지정된 계층 데이터로부터 루트 노드를 구축합니다. 데이터는 루트 노드를 나타내는 객체 여야합니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"Eve"</span>,</div><div class="line">  <span class="string">"children"</span>: [</div><div class="line">    &#123;<span class="string">"name"</span>: <span class="string">"Cain"</span>&#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"name"</span>: <span class="string">"Seth"</span>,</div><div class="line">      <span class="string">"children"</span>: [&#123;<span class="string">"name"</span>: <span class="string">"Enos"</span>&#125;,&#123;<span class="string">"name"</span>: <span class="string">"Noam"</span>&#125;]</div><div class="line">    &#125;,</div><div class="line">    &#123;<span class="string">"name"</span>: <span class="string">"Abel"</span>&#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"name"</span>: <span class="string">"Awan"</span>,</div><div class="line">      <span class="string">"children"</span>: [&#123;<span class="string">"name"</span>: <span class="string">"Enoch"</span>&#125;]</div><div class="line">    &#125;,</div><div class="line">    &#123;<span class="string">"name"</span>: <span class="string">"Azura"</span>&#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>지정된 자식 접근자 함수는 루트 데이터로부터 시작되는 각데이터에 대해 호출됩니다. 그리고 자식을 나타내는 데이터 배열이나, 현재 데이터에 자식이 없다면 <code>null</code>을 반환해야 합니다. 자식을 지정하지 않으면 기본값은 다음과 같습니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">children</span>(<span class="params">d</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> d.children;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>리턴되는 노드와 각 자손은 다음과 같은 속성을 가지고 있습니다.</p>
+<ul>
+<li>node.data - 관련 지을 수 있었던 데이터.</li>
+<li>node.depth - 루트 노드는 0이고 각 자손 생성마다 하나씩 증가합니다.</li>
+<li>node.height - 마지막(leaf) 노드의 경우 0이고, 내부 노드라면 하위 마지막 노드 까지의 거리입니다.</li>
+<li>node.parent - 부모 노드이고, 루트 노드의 경우 <code>null</code>입니다.</li>
+<li>node.children - 자식노드 배열입입니다. 마지막 노드의 경우 <code>undefined</code>입니다.</li>
+<li>node.value - 노드와 그 자손의 합계 된 값입니다. 선택 사항입니다.</li>
 </ul>
-<h4 id="정규표현식-심볼"><a href="#정규표현식-심볼" class="headerlink" title="정규표현식 심볼"></a>정규표현식 심볼</h4><ul>
-<li><code>Symbol.match</code>: 문자열과 매치(match)되는 메소드, 또한 객체가 정규식으로서 사용되는지 확인하는데도 사용. String.prototype.match()에서 사용됩니다.</li>
-<li><code>Symbol.replace</code>: 문자열 중 매치되는 일부 문자열을 대체하는 메소드. String.prototype.replace()에서 사용됩니다.</li>
-<li><code>Symbol.search</code>: 정규식과 매치되는 문자열의 인덱스(index)를 반환하는 메소드. String.prototype.search()에서 사용됩니다.</li>
-<li><code>Symbol.split</code>: 문자열을 정규식과 매치되는 인덱스들에서 나누는 메소드. String.prototype.split()에서 사용됩니다.</li>
-</ul>
-<h4 id="그-외-심볼들"><a href="#그-외-심볼들" class="headerlink" title="그 외 심볼들"></a>그 외 심볼들</h4><h5 id="toStringTag"><a href="#toStringTag" class="headerlink" title="toStringTag"></a>toStringTag</h5><p><code>[object Object]</code> 형태에서 <code>Object</code>를 <code>Symbol.toStringTag</code> 값으로 표시합니다.<br><code>Symbol.toStringTag</code>를 사용하여 <code>[object Object]</code>의 <code>Object</code>에 표시될 문자열을 지정할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Sports = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">let</span> sportsObj = <span class="keyword">new</span> Sports;</div><div class="line"><span class="built_in">console</span>.log(sportsObj.toString()); <span class="comment">//[object Object]</span></div><div class="line"></div><div class="line">Sports.prototype[<span class="built_in">Symbol</span>.toStringTag] = <span class="string">"Sports-Function"</span>;</div><div class="line"><span class="built_in">console</span>.log(sportsObj.toString()); <span class="comment">//[object Sports-Function]</span></div></pre></td></tr></table></figure>
-<h5 id="isConcatSpreadable"><a href="#isConcatSpreadable" class="headerlink" title="isConcatSpreadable"></a>isConcatSpreadable</h5><p>Array 오프젝트의 concat()에서 배열을 결합할 때 결합하는 배열의 펼침 여부를 지정합니다. 디폴트는 true입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> one = [<span class="number">11</span>, <span class="number">12</span>], two = [<span class="number">21</span>, <span class="number">22</span>];</div><div class="line"><span class="keyword">let</span> result = one.concat(two);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, 21, 22] 4</span></div><div class="line"></div><div class="line">two[<span class="built_in">Symbol</span>.isConcatSpreadable] = <span class="literal">false</span>;</div><div class="line">result = one.concat(two);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, Array(2)] 3</span></div><div class="line"></div><div class="line">two[<span class="built_in">Symbol</span>.isConcatSpreadable] = <span class="literal">true</span>;</div><div class="line">result = one.concat(two);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, 21, 22] 4</span></div></pre></td></tr></table></figure>
-<p>유사배열 객체에서도 사용할 수 있습니다. 디폴트는 false입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> one = [<span class="number">11</span>, <span class="number">12</span>];</div><div class="line"><span class="keyword">let</span> fiveSix = &#123;</div><div class="line">  <span class="number">0</span>: <span class="string">"five"</span>,</div><div class="line">  <span class="number">1</span>: <span class="string">"six"</span>,</div><div class="line">  <span class="attr">length</span>: <span class="number">2</span></div><div class="line">&#125;; <span class="comment">//유사배열</span></div><div class="line"><span class="keyword">let</span> result = one.concat(fiveSix);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, Object] 3</span></div><div class="line"></div><div class="line">fiveSix[<span class="built_in">Symbol</span>.isConcatSpreadable] = <span class="literal">true</span>;</div><div class="line">result = one.concat(fiveSix);</div><div class="line"><span class="built_in">console</span>.log(result, result.length); <span class="comment">//[11, 12, "five", "six"] 4</span></div></pre></td></tr></table></figure>
-<h5 id="unscopables"><a href="#unscopables" class="headerlink" title="unscopables"></a>unscopables</h5><p>with문에서 사용하며, 값이 <code>true</code>이면 프로퍼티를 전개하지 않습니다.</p>
-<p>with란? with 이후에 오는 구문을 위해 scope chain에 인자로 받는 object를 추가합니다. with의 인자로 받는 object는 그 이후의 statement나 블럭 {} 안에 scope chain이 추가되어서 실행이 가능합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>:<span class="string">'owen'</span>,</div><div class="line">  <span class="attr">gender</span>:<span class="string">'male'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">with</span>(obj)&#123;</div><div class="line">	<span class="built_in">console</span>.log(gender); <span class="comment">//male</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>unscopables를 사용해보면…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>:<span class="string">'owen'</span>,</div><div class="line">  <span class="attr">gender</span>:<span class="string">'male'</span></div><div class="line">&#125;;</div><div class="line">obj[<span class="built_in">Symbol</span>.unscopables] = &#123;</div><div class="line">	<span class="attr">gender</span>: <span class="literal">true</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">with</span>(obj)&#123;</div><div class="line">	<span class="built_in">console</span>.log(gender);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//Error: gender is not defined</span></div></pre></td></tr></table></figure>
-<h5 id="species"><a href="#species" class="headerlink" title="species"></a>species</h5><p><code>Symbol.species</code>는 <code>constructor</code>를 반환합니다. <code>constructor</code>를 반환한다는 것은 <code>constructor</code>로 인스턴스를 생성하여 변환하는 것과 같습니다. 이를 오버라이드 함으로써 개발자 코드로 반환되는 인스턴스를 변경할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExtendArray</span> <span class="keyword">extends</span> <span class="title">Array</span> </span>&#123;</div><div class="line">  getValue()&#123;&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> newArray = <span class="keyword">new</span> ExtendArray(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line"><span class="keyword">let</span> newInst = newArray.slice(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(newInst <span class="keyword">instanceof</span> ExtendArray); <span class="comment">// true</span></div></pre></td></tr></table></figure>
-<p>인스턴스의 매서드를 호출했을 때 인스턴스를 반환하도록 하는 것이 <code>Symbol.species</code>입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExtendArray</span> <span class="keyword">extends</span> <span class="title">Array</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> get [<span class="built_in">Symbol</span>.species]() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> oneInstance = <span class="keyword">new</span> ExtendArray(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line"><span class="keyword">let</span> twoInstance = oneInstance.slice(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(oneInstance <span class="keyword">instanceof</span> ExtendArray); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(twoInstance <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(twoInstance <span class="keyword">instanceof</span> ExtendArray); <span class="comment">//false</span></div></pre></td></tr></table></figure>
-<p>위 예제에서는 상속받은 Array 생성자를 <code>Symbol.species</code>로 설정했지만, 전혀 다른 Class를 설정 할 수도 있습니다.<br>또한 <code>[Symbol.species]()</code> 가 <code>null</code>을 반환하면 디폴트 <code>[Symbol.species]()</code>가 호출됩니다.</p>
-<h5 id="toPrimitive"><a href="#toPrimitive" class="headerlink" title="toPrimitive"></a>toPrimitive</h5><p>오브젝트를 프리미티브 타입으로 변환합니다.</p>
-<p>자바스크립트의 프리미티브 값은 number, string, boolean, undefined, null, Symbol입니다.<br>연산 대상이 Number가 아닐 경우 toPrimitive모듈을 기준으로 값을 변환합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">  [<span class="built_in">Symbol</span>.toPrimitive](hint)&#123;</div><div class="line">    <span class="keyword">if</span> (hint === <span class="string">"number"</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">if</span> (hint === <span class="string">"string"</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">"문자열"</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> <span class="string">"디폴트"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"1:"</span>, <span class="number">20</span> + obj);<span class="comment">//1: 20디폴트</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"2:"</span>, <span class="number">20</span> * obj);<span class="comment">//2: 600</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"3:"</span>, obj + <span class="number">50</span>);<span class="comment">//3: 디폴트50</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"4:"</span>, +obj + <span class="number">50</span>);<span class="comment">//4: 80</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"5:"</span>, <span class="string">`<span class="subst">$&#123;obj&#125;</span>`</span> + <span class="number">123</span>);<span class="comment">//5: 문자열123</span></div></pre></td></tr></table></figure>
-<h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><ul>
-<li>ECMAScript6책[김영보 지음]: <a href="http://www.rubypaper.co.kr/entry/ECMAScript6" target="_blank" rel="external">http://www.rubypaper.co.kr/entry/ECMAScript6</a></li>
-<li>HACKS-웹기술블로그: <a href="http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/" target="_blank" rel="external">http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/</a></li>
-</ul>
+<p>이 메소드는 노드가 <code>d3.hierarchy</code>의 인스턴스인지 테스트하고 노드 prototype을 확장하는 데에도 사용할 수 있습니다.</p>
+<h4 id="node-ancestors"><a href="#node-ancestors" class="headerlink" title="node.ancestors()"></a>node.ancestors()</h4><p>현재 노드를 포함해서, 루트 노드까지의 상위 노드들을 배열로 반환합니다.<br><!--  --></p>
+<h4 id="node-descendants"><a href="#node-descendants" class="headerlink" title="node.descendants()"></a>node.descendants()</h4><p>현재 노드를 포함해서, 루트 노드까지의 하위 노드들을 배열로 반환합니다.</p>
+<h4 id="node-leaves"><a href="#node-leaves" class="headerlink" title="node.leaves()"></a>node.leaves()</h4><p>횡단 순서로 leaf 노드를 배열로 반환합니다. (leaf 노드는 자식이 없는 마지막 요소입니다.)</p>
+<h4 id="node-path-target"><a href="#node-path-target" class="headerlink" title="node.path(target)"></a>node.path(target)</h4><p>node로부터 지정된 target 노드까지의 계층을 통과하는 최단 경로를 리턴합니다. 경로는 이 노드에서 시작하여 이 노드와 target 노드의 가장 가까운 상위 노드로 상승한 다음 대상 노드로 내립니다. 이것은 계층적 엣지 번들링에 특히 유용합니다.</p>
+<h4 id="node-links"><a href="#node-links" class="headerlink" title="node.links()"></a>node.links()</h4><p>node의 링크들을 배열로 반환합니다. 링크들은 <code>source</code>와 <code>target</code> 요소를 정의하는 객체입니다. 각 링크의 <code>source</code>는 부모 노드이며 <code>target</code>은 자식 노드입니다.</p>
+<h4 id="node-sum-value-function"><a href="#node-sum-value-function" class="headerlink" title="node.sum(value: function)"></a>node.sum(value: function)</h4><p>노드와 각 자손들에 대해 <a href="&#39;https://en.wikipedia.org/wiki/Tree_traversal#Post-order&#39;">post-order traversal</a>방식으로 지정된 함수의 리턴값을 측정하고, 이 노드를 리턴합니다.<br>각 노드의 <code>node.value</code>요소는 지정된 함수가 리턴 한 숫자 <code>value</code>와, 모든 자손의 결합 된 <code>value</code>를 더한 값으로 설정됩니다.<br>함수는 노드의 데이터를 넘겨 받고, non-negative number를 반환해야 합니다.<br>value 접근자는 노드와 안쪽 노드들을 포함함 모든 자손들을 측정합니다.</p>
+<p>만일 마지막 노드의 내부 값만 원한다면, 자식이 있는 노드에 대해서 <code>0</code>을 리턴하면 됩니다.<br>예를들어 <code>node.count</code> 대신에…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root.sum(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.children ? <span class="number">0</span> : <span class="number">1</span>; &#125;);</div></pre></td></tr></table></figure></p>
+<p> <code>node.value</code>가 필요한 hierarchical 레이아웃(<code>d3.treemap</code> 등…)을 호출하기 전에는 반드시 <code>node.sum</code> 또는 <code>node.count</code>를 호출해야 합니다. 그다음에 모든 자손 노드들의 배열을 만들어야 합니다.<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> treemap = d3.treemap()</div><div class="line">    .size([width, height])</div><div class="line">    .padding(<span class="number">2</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> nodes = treemap(root</div><div class="line">    .sum(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.value; &#125;)</div><div class="line">    .sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b.height - a.height || b.value - a.value; &#125;))</div><div class="line">  .descendants();</div></pre></td></tr></table></figure></p>
+<p>위 예제는 노드 데이타가 <code>value</code>를 가지고 있다고 가정합니다.</p>
+<h4 id="node-count"><a href="#node-count" class="headerlink" title="node.count()"></a>node.count()</h4><p>자신을 포함한 모든 자손요소에 대해서 자식노드의 수를 계산하고, 이를 <code>node.value</code>에 할당합니다. 만일 마지막 노드라면, <code>count</code>는 1입니다.</p>
+<h4 id="node-sort-compare"><a href="#node-sort-compare" class="headerlink" title="node.sort(compare)"></a>node.sort(compare)</h4><p>지정된 <code>compare</code> 함수를 사용하여 <a href="&#39;https://en.wikipedia.org/wiki/Tree_traversal#Post-order&#39;">pre-order traversal</a> 방식으로 현재 노드의 자식 노드와 현재 노드의 자손 자식들을 각각 정렬하고 현재 노드를 반환합니다. <code>compare</code>함수는 비교하기 위한 노드 두개(a, b)를 인자로 받습니다. 만일 a가 b앞에 위치해야 한다면, 함수는 반드시 0보다 작은 수를 반환해야 한다. 만일 b가 앞에 위치해야 한다면 함수는 0보다 큰수를 반환해야 한다. 그렇지 않으면 a와 b의 순서가 지정되지 않습니다. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="external">Array의 sort매소드 참고</a></p>
+<p><code>node.sum</code>과는 다르게, <code>compare</code>함수는 2개의 노드 데이터가 아닌, 2개의 노드를 인자로 받습니다. 예를들어 만일 <code>data</code>가 <code>value</code> 프로퍼티를 가지고 있다면,<br>예를 들어, <code>data</code>에 <code>value</code> 프로퍼티이 있으면 <code>circle-packing</code>에서 권장되는 것처럼 노드와 그 하위 노드의 내림차순 집계 값별로 노드를 정렬합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">root</div><div class="line">    .sum(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.value; &#125;) <span class="comment">//data.value</span></div><div class="line">    .sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b.value - a.value; &#125;); <span class="comment">//node.value</span></div></pre></td></tr></table></figure>
+<p>비슷하게, <code>treemaps</code>과 <code>icicles</code>에 권장되는 높이(마지막 노드에서 가장 큰 거리)를 내림차순으로 노드를 정렬 한 다음 내림차순으로 정렬하려면 다음을 수행합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">root</div><div class="line">    .sum(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.value; &#125;)</div><div class="line">    .sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b.height - a.height || b.value - a.value; &#125;);</div></pre></td></tr></table></figure>
+<p><code>trees</code> and <code>dendrograms</code>에 권장되는 것처럼 높이를 내림차순으로 정렬하고 노드를 오름차순으로 정렬하려면 :<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">root</div><div class="line">    .sum(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.value; &#125;)</div><div class="line">    .sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b.height - a.height || a.id.localeCompare(b.id); &#125;);</div></pre></td></tr></table></figure></p>
+<p>만일 레이아웃을 새롭게 정렬하기 윈한다면, 계층적인 레이아웃을 실행하기전에 반드시 <code>node.sort</code>를 호출해야 합니다.</p>
+<h4 id="node-each-function"><a href="#node-each-function" class="headerlink" title="node.each(function)"></a>node.each(function)</h4><p>해당 노드와 각각의 자손노드를 <a href="https://en.wikipedia.org/wiki/Tree_traversal#Breadth-first_search" target="_blank" rel="external">breadth-first order</a> 기준으로 순회하면서 지정된 함수를 실행합니다. 함수에는 현재 node가 인자로 전달됩니다.</p>
+<h4 id="node-eachAfter-function"><a href="#node-eachAfter-function" class="headerlink" title="node.eachAfter(function)"></a>node.eachAfter(function)</h4><p>주어진 노드가 모든 자손이 이미 방문 된 후에 만 방문하도록 <a href="&#39;https://en.wikipedia.org/wiki/Tree_traversal#Post-order&#39;">pre-order traversal</a>방식으로 순회하면서 지정된 함수를 호출합니다. 마찬가지로 지정된 함수가 현재 노드에 전달됩니다.<br>Invokes the specified function for node and each descendant in post-order traversal, such that a given node is only visited after all of its descendants have already been visited. The specified function is passed the current node.</p>
+<h4 id="node-eachBefore-function"><a href="#node-eachBefore-function" class="headerlink" title="node.eachBefore(function)"></a>node.eachBefore(function)</h4><p><a href="https://en.wikipedia.org/wiki/Tree_traversal#Pre-order" target="_blank" rel="external">pre-order traversal</a>방식으로 순회하면서 지정된 함수를 호출하여, 주어진 노드가 모든 조상이 이미 방문 된 후에 만 방문하도록 합니다. 지정된 함수가 현재 노드에 전달됩니다.</p>
+<h4 id="node-copy"><a href="#node-copy" class="headerlink" title="node.copy()"></a>node.copy()</h4><p>해당 노드로부터 시작하여 하위요소들의 깊은복사(deep cody)본을 반환합니다.(하지만 리턴되는 복사본은 같은 데이터를 참조합니다.)<br>반환 된 노드는 새 트리의 루트입니다. 당연하겠지만, 반환된 노드의 부모는 항상 null이며 깊이는 항상 0입니다.</p>
+<h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><p><a href="https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify" target="_blank" rel="external">API Reference</a></p>
 
             
         </div>
@@ -295,7 +298,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/ECMAScript6/">ECMAScript6</a> <a class="tag tag--primary tag--small t-link" href="/tags/Symbol/">Symbol</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Hierarchy/">Hierarchy</a> <a class="tag tag--primary tag--small t-link" href="/tags/d3/">d3</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
 
             </div>
         
@@ -304,7 +307,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/19/algorithm-quick-sort/"  data-tooltip="JavaScript Quick Sort Algorithm">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -312,7 +315,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/07/memory-leak/" data-tooltip="JavaScript Memory Leak(DOM Tree)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/19/algorithm-quick-sort/" data-tooltip="JavaScript Quick Sort Algorithm">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -327,17 +330,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -385,7 +388,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/19/algorithm-quick-sort/"  data-tooltip="JavaScript Quick Sort Algorithm">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -393,7 +396,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/07/memory-leak/" data-tooltip="JavaScript Memory Leak(DOM Tree)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/19/algorithm-quick-sort/" data-tooltip="JavaScript Quick Sort Algorithm">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -408,17 +411,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -444,17 +447,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/05/18/es6-symbol/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2017/07/17/d3-hierarchy/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
@@ -732,9 +735,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://owenjeon.github.io/2017/05/18/es6-symbol/';
+                 this.page.url = 'https://owenjeon.github.io/2017/07/17/d3-hierarchy/';
                  
-                    this.page.identifier = '2017/05/18/es6-symbol/';
+                    this.page.identifier = '2017/07/17/d3-hierarchy/';
                  
              };
             (function() {

@@ -6,23 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Owen&#39;s Blog">
-    <title>RxJS - Purity(순수성) - Owen&#39;s Blog</title>
+    <title>Archives: 2017/7 - Owen&#39;s Blog</title>
     <meta name="author" content="Owen">
     
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="RxJS 공식문서에서 소개하고 있는 RxJS의 핵심 특징 3가지 입니다.">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="RxJS - Purity(순수성)">
-<meta property="og:url" content="https://owenjeon.github.io/2016/12/29/rxjs-purity/index.html">
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Owen's Blog">
+<meta property="og:url" content="https://owenjeon.github.io/archives/2017/07/index.html">
 <meta property="og:site_name" content="Owen's Blog">
-<meta property="og:description" content="RxJS 공식문서에서 소개하고 있는 RxJS의 핵심 특징 3가지 입니다.">
-<meta property="og:updated_time" content="2017-03-06T13:24:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RxJS - Purity(순수성)">
-<meta name="twitter:description" content="RxJS 공식문서에서 소개하고 있는 RxJS의 핵심 특징 3가지 입니다.">
+<meta name="twitter:title" content="Owen's Blog">
     
     
         
@@ -63,7 +59,7 @@
         
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Owen&#39;s Blog</a>
@@ -87,7 +83,7 @@
         
     
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="1">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -217,133 +213,66 @@
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
                 
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    <section class="postShorten-group main-content-wrap">
     
     
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            RxJS - Purity(순수성)
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-12-29T00:00:00+09:00">
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/07/17/d3-hierarchy/">
+                            d3 Hierarchy
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-07-17T12:34:00+09:00">
 	
-		    12월 29, 2016
+		    7월 17, 2017
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/RxJS/">RxJS</a>
+    <a class="category-link" href="/categories/d3/">d3</a>
 
 
     
 </div>
-
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <p>RxJS 공식문서에서 소개하고 있는 RxJS의 핵심 특징 3가지 입니다.<br><a id="more"></a></p>
-<h4 id="Purity-순수성"><a href="#Purity-순수성" class="headerlink" title="Purity(순수성)"></a>Purity(순수성)</h4><p>RxJS는 순수함수로 이루어져있다는 뜻이다. 순수함수란 함수형 프로그래밍에서 쓰이는 단어이다. 사람들마다 그리고 언어들마다 순수함수에 대한 정의가 약간씩 다른 것 같긴 하지만.. 내가 아는 순수함수의 정의는 아래와 같다.</p>
-<ul>
-<li>같은 입력에 항상 같은 출력을 반환한다.</li>
-<li>사이드 이펙트가 없다.</li>
-<li>외부 상태와 무관하다.</li>
-</ul>
-<p>순수함수는 해당 함수보다 상위의 스콥에서 정의된 함수를 참조하지 않는다. 오로지 인자로 인해 제어된다. 같은 값을 출력하기때문에 랜덤(Math.random)이나 날짜(new Date)등을 사용하지 않는다. 따라서 오류가 발생할 가능성이 적다. RxJS는 이 부분을 장점으로 내세우고 있다.</p>
-<p>아래 예제를 보면…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> observable = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line"> .map(<span class="function"><span class="params">x</span> =&gt;</span> x*x)</div><div class="line"> .scan(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b, <span class="number">0</span>);</div><div class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//1, 5, 14, 50</span></div></pre></td></tr></table></figure></p>
-<p>RxJS는 위처럼 체이닝으로 method들을 이어 나간다. 그리고 다음 method들의 함수 내부는 이전함수로 부터 return받은 인자로만 이루어 진다. 물론 global 영역에 변수를 지정하고 가져오는게 불가능 한건 아니지만, 되도록 순수하게 함수를 사용하는 것을 권장한다. 아무래도 순수함수가 가진 안정성과 속도의 장점을 가져가려는 것이 아닐까 생각한다.</p>
-<h4 id="Flow-흐름"><a href="#Flow-흐름" class="headerlink" title="Flow(흐름)"></a>Flow(흐름)</h4><p>RxJS에는 관찰자를 통해 이벤트가 흐르는 방식을 제어하는 데 도움이되는 다양한 연산자(operator)가 있다. 위에서 등장한 map, scan 등이 그것이다. 하나 하나의 흐름을 operator들로 전달하는 방식으로 동작하는 것이다.</p>
-<h4 id="Values-값"><a href="#Values-값" class="headerlink" title="Values(값)"></a>Values(값)</h4><p>RxJS의 흐름이 진행되는 과정에서 인자로 값들을 넘긴다. RxJS는 operator들을 통해 이 값들을 원하는 값을 도출한다.</p>
-
-            
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/RxJS/">RxJS</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
 
             </div>
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/31/rxjs-create-operator/"  data-tooltip="RxJS Create Operator">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/23/rxjs/" data-tooltip="Reactive extension JS (RxJS) 시작!">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-        <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#">
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>d3 라이브러리의 Hierarchy 메서드는 계층구조를 만들어 주는 역할을 합니다.</p>
+<p>계층 구조를 만들기 위해서는 루트 노드가 필요합니다. 만일 이미 데이터가 JSON 처럼 계층 구조으로 만들어져 있다면, 바로 <code>d3.hierarchy</code>를 사용할 수 있습니다. 만일 CSV(comma-separated values)와 같은 표 형식의 데이터로 만들어져 있다면 <code>d3.stratify</code>를 사용하여 계층 구조로 재정렬 할 수 있습니다.<br>
+                    
+                        <a href="/2017/07/17/d3-hierarchy/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
             
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
     </ul>
 </div>
 
-
-        
-            
-                <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-            
-        
-    </div>
-</article>
+</section>
 
 
 
@@ -354,90 +283,6 @@
 </footer>
 
             </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/31/rxjs-create-operator/"  data-tooltip="RxJS Create Operator">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/23/rxjs/" data-tooltip="Reactive extension JS (RxJS) 시작!">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://owenjeon.github.io/2016/12/29/rxjs-purity/">
-                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-
             
         </div>
         
@@ -704,25 +549,6 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-mws3gymygk25zy2jsr9ivpmfvtqfffpll4vmh4ec9fjzr2jlartfeqmhalpj.min.js"></script>
 <!--SCRIPTS END-->
-
-    
-        <script>
-             var disqus_config = function () {
-                 this.page.url = 'https://owenjeon.github.io/2016/12/29/rxjs-purity/';
-                 
-                    this.page.identifier = '2016/12/29/rxjs-purity/';
-                 
-             };
-            (function() {
-                var d = document, s = d.createElement('script');
-                var disqus_shortname = 'owenblog';
-                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        </script>
-    
 
 
 
