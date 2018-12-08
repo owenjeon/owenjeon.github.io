@@ -13,19 +13,18 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="Angular 응용 프로그램은 주로 Component와 HTML Template로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다.
-응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴">
+    <meta name="description" content="Angular 응용 프로그램은 주로 Component와 HTML Template로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다. 응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴">
+<meta name="keywords" content="javascript,Angular">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Angular AOT (with CLI)">
 <meta property="og:url" content="https://owenjeon.github.io/2017/04/02/angular-aot/index.html">
-<meta property="og:site_name" content="Owen's Blog">
-<meta property="og:description" content="Angular 응용 프로그램은 주로 Component와 HTML Template로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다.
-응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴">
+<meta property="og:site_name" content="Owen&#39;s Blog">
+<meta property="og:description" content="Angular 응용 프로그램은 주로 Component와 HTML Template로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다. 응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴">
+<meta property="og:locale" content="ko">
 <meta property="og:updated_time" content="2017-04-24T01:33:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular AOT (with CLI)">
-<meta name="twitter:description" content="Angular 응용 프로그램은 주로 Component와 HTML Template로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다.
-응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴">
+<meta name="twitter:description" content="Angular 응용 프로그램은 주로 Component와 HTML Template로 구성됩니다. 브라우저가 응용 프로그램을 렌더링하기 전에 Angular 컴파일러가 구성 요소와 템플릿을 실행 가능 JavaScript로 변환해야 합니다. 응용 프로그램이 로드 될 때, JIT (Just-In-Time) 컴파일러를 사용하여 런타임에 브라우저에서 응용 프로그램을 컴">
     
     
         
@@ -56,7 +55,7 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-5608087567415166",
+        google_ad_client: "ca-pub-3248840767283437",
         enable_page_level_ads: true
       });
     </script>
@@ -272,7 +271,7 @@
 <h4 id="템플릿-오류를-더-빨리-감지"><a href="#템플릿-오류를-더-빨리-감지" class="headerlink" title="템플릿 오류를 더 빨리 감지"></a>템플릿 오류를 더 빨리 감지</h4><p>AOT 컴파일러는 사용자가 빌드 단계를 볼 수 있기 전에 템플릿 바인딩 오류를 감지하고보고합니다.</p>
 <h4 id="보안-강화"><a href="#보안-강화" class="headerlink" title="보안 강화"></a>보안 강화</h4><p>AOT는 HTML template와 구성 요소를 클라이언트에 제공되기 훨씬 전에 JavaScript 파일로 컴파일합니다. template을 읽을 필요가 없고 위험한 클라이언트 측 HTML 또는 JavaScript 평가가 없으므로 공격의 기회가 줄어 듭니다.</p>
 <h3 id="Angular-CLI-에서-AOT-사용하기"><a href="#Angular-CLI-에서-AOT-사용하기" class="headerlink" title="Angular CLI 에서 AOT 사용하기."></a>Angular CLI 에서 AOT 사용하기.</h3><p>angular CLI 에서 AOT를 사용하기 위해서 webpack파일을 수정해야 합니다. <code>ng eject</code>명령어를 사용하면 wepack.config.js파일이 루트 경로로 이동됩니다. <code>ng eject --aot</code>옵션을 사용하면 AOT가 사용가능하도록 세팅되어 webpack파일이 도출됩니다. (몇번의 테스트 결과 <code>--aot</code>옵션을 주지않아도 AOT 플러그인이 포함되어 도출되는 것 같았습니다.)<br>소스를 살펴보면…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;AotPlugin&#125; <span class="keyword">from</span> <span class="string">'@ngtools/webpack'</span></div><div class="line"></div><div class="line">exports = &#123; <span class="comment">/* ... */</span></div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    <span class="attr">rules</span>: [</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.ts$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'@ngtools/webpack'</span>,</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> AotPlugin(&#123;</div><div class="line">      <span class="string">"mainPath"</span>: <span class="string">"main.ts"</span>,</div><div class="line">      <span class="string">"exclude"</span>: [],</div><div class="line">      <span class="string">"tsConfigPath"</span>: <span class="string">"src/tsconfig.app.json"</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;AotPlugin&#125; <span class="keyword">from</span> <span class="string">'@ngtools/webpack'</span></span><br><span class="line"></span><br><span class="line">exports = &#123; <span class="comment">/* ... */</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.ts$/</span>,</span><br><span class="line">        loader: <span class="string">'@ngtools/webpack'</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> AotPlugin(&#123;</span><br><span class="line">      <span class="string">"mainPath"</span>: <span class="string">"main.ts"</span>,</span><br><span class="line">      <span class="string">"exclude"</span>: [],</span><br><span class="line">      <span class="string">"tsConfigPath"</span>: <span class="string">"src/tsconfig.app.json"</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>로더는 webpack 플러그인과 함께 작동하여 TypeScript를 컴파일합니다. 이 두 가지를 모두 포함하고 다른 TypeScript 컴파일러 로더를 포함하지 않는 것이 중요합니다.</p>
 <h4 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h4><ul>
 <li><strong>tsConfigPath</strong> <code>tsconfig.json</code> 파일의 경로입니다. 필수 옵션입니다. <code>tsconfig.json</code>에서 <code>angularCompilerOptions</code>를 사용하여 angular 컴파일러에 옵션을 전달할 수 있습니다.</li>
@@ -718,7 +717,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                32 posts found
+                34 posts found
             </p>
         </div>
     </div>

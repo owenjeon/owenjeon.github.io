@@ -14,11 +14,13 @@
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description" content="이 글은  프레임에 이미지 꽉 채우기 Part1(CSS)에 이어진 글입니다.이번에는 자바스크립트를 이용한 방식이다.">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="프레임에 이미지 꽉 채우기 Part2(Javascript)">
 <meta property="og:url" content="https://owenjeon.github.io/2016/07/12/fill-image-javascript/index.html">
-<meta property="og:site_name" content="Owen's Blog">
+<meta property="og:site_name" content="Owen&#39;s Blog">
 <meta property="og:description" content="이 글은  프레임에 이미지 꽉 채우기 Part1(CSS)에 이어진 글입니다.이번에는 자바스크립트를 이용한 방식이다.">
+<meta property="og:locale" content="ko">
 <meta property="og:updated_time" content="2017-03-14T14:49:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="프레임에 이미지 꽉 채우기 Part2(Javascript)">
@@ -53,7 +55,7 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-5608087567415166",
+        google_ad_client: "ca-pub-3248840767283437",
         enable_page_level_ads: true
       });
     </script>
@@ -260,14 +262,14 @@
             <p><strong>이 글은  프레임에 이미지 꽉 채우기 Part1(CSS)에 이어진 글입니다.</strong><br>이번에는 자바스크립트를 이용한 방식이다.<br><a id="more"></a></p>
 <p>Javascript로 꽉 채우기.</p>
 <p>우선 소스…</p>
-<p><div class="codepen" data-default-tab="js" data-embed-version="2" data-height="324" data-slug-hash="mPKJoz" data-theme-id="0" data-user="wooner"><br>See the Pen <a href="http://codepen.io/wooner/pen/mPKJoz/" target="_blank" rel="external">이미지 꽉 채우기(javascript)</a> by owen (<a href="http://codepen.io/wooner" target="_blank" rel="external">@wooner</a>) on <a href="http://codepen.io/" target="_blank" rel="external">CodePen</a>.</div></p>
+<p><div class="codepen" data-default-tab="js" data-embed-version="2" data-height="324" data-slug-hash="mPKJoz" data-theme-id="0" data-user="wooner"><br>See the Pen <a href="http://codepen.io/wooner/pen/mPKJoz/" target="_blank" rel="noopener">이미지 꽉 채우기(javascript)</a> by owen (<a href="http://codepen.io/wooner" target="_blank" rel="noopener">@wooner</a>) on <a href="http://codepen.io/" target="_blank" rel="noopener">CodePen</a>.</div></p>
 <script src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>imgAlign이라는 함수를 만들었다.</p>
 <p>함수가 길고 복잡하니 함수에 대한 설명은 하지 않고 사용법에 대해서만 기록한다.</p>
-<p>우선 css스타일이 있어야 한다.<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-class">.h100p</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span> <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">width</span>: auto <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">position</span>: relative</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">img</span><span class="selector-class">.w100p</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span> <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">height</span>: auto <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>우선 css스타일이 있어야 한다.<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span><span class="selector-class">.h100p</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">width</span>: auto <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span><span class="selector-class">.w100p</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">height</span>: auto <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>자바스크립트로 width와 height값을 처리하지 않고 클래스를 add, remove 해서 위치를 맞춘다. 그게더 속도가 빠르다고 해서 이렇게 한건데.. 실상은 잘 모르겠다.</p>
-<p>함수 실행할때 인자는 여러 방법으로 넘길 수 있다. 인자로는 이미지를 싸고있는 박스를 css selector방식으로 넘긴다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">imgAlign(<span class="string">'.imgBx'</span>); <span class="comment">//jquery로 씌워서 해당 element를 찾음</span></div><div class="line">imgAlign([<span class="string">'.imgBx'</span>, <span class="string">'.imgBx2'</span>]); <span class="comment">//배열을 돌면서 jquery로 씌워서 해당 element를 찾음</span></div><div class="line">imgAlign($(<span class="string">'.imgBx'</span>)); <span class="comment">//이미 jquery로 싸여 있으므로 바로 element를 찾음</span></div><div class="line">imgAlign(<span class="string">'.imgBx'</span>, &#123;<span class="attr">resize</span> : ture&#125;); <span class="comment">//리사이즈 될때마다 위치를 재 계산함.</span></div></pre></td></tr></table></figure></p>
+<p>함수 실행할때 인자는 여러 방법으로 넘길 수 있다. 인자로는 이미지를 싸고있는 박스를 css selector방식으로 넘긴다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">imgAlign(<span class="string">'.imgBx'</span>); <span class="comment">//jquery로 씌워서 해당 element를 찾음</span></span><br><span class="line">imgAlign([<span class="string">'.imgBx'</span>, <span class="string">'.imgBx2'</span>]); <span class="comment">//배열을 돌면서 jquery로 씌워서 해당 element를 찾음</span></span><br><span class="line">imgAlign($(<span class="string">'.imgBx'</span>)); <span class="comment">//이미 jquery로 싸여 있으므로 바로 element를 찾음</span></span><br><span class="line">imgAlign(<span class="string">'.imgBx'</span>, &#123;<span class="attr">resize</span> : ture&#125;); <span class="comment">//리사이즈 될때마다 위치를 재 계산함.</span></span><br></pre></td></tr></table></figure></p>
 
             
         </div>
@@ -700,7 +702,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                32 posts found
+                34 posts found
             </p>
         </div>
     </div>

@@ -14,11 +14,13 @@
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description" content="지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다. 그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 합니다!">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="자바스크립트 프로토 타입의 프로퍼티 할당">
 <meta property="og:url" content="https://owenjeon.github.io/2016/08/10/prototype/index.html">
-<meta property="og:site_name" content="Owen's Blog">
+<meta property="og:site_name" content="Owen&#39;s Blog">
 <meta property="og:description" content="지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다. 그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 합니다!">
+<meta property="og:locale" content="ko">
 <meta property="og:updated_time" content="2017-03-06T13:26:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 프로토 타입의 프로퍼티 할당">
@@ -53,7 +55,7 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-5608087567415166",
+        google_ad_client: "ca-pub-3248840767283437",
         enable_page_level_ads: true
       });
     </script>
@@ -258,7 +260,7 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <p>지난번 게시물에서 자바스크립트의 객체에서 특정 프로퍼티를 찾을 때, 프로토 타입 체인의 순서에 의해서 값을 찾아 나간다는 것을 배웠습니다. 그런데 이 프로토 타입 체인이 값을 “찾을 때” 뿐 아니라 값을 “할당 할 때”도 동일하게 작동 합니다!<br><a id="more"></a></p>
-<p>아래 소스를 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Test.prototype = &#123;</div><div class="line">    <span class="attr">a</span> : &#123;</div><div class="line">        <span class="attr">aa</span> : <span class="string">'1'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> TestA = <span class="keyword">new</span> Test();</div><div class="line"><span class="keyword">var</span> TestB = <span class="keyword">new</span> Test();</div><div class="line">TestB.a.aa= <span class="string">'2'</span>;</div><div class="line"><span class="built_in">console</span>.log(TestA.a.aa); <span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(TestB.a.aa); <span class="comment">//2</span></div></pre></td></tr></table></figure></p>
+<p>아래 소스를 보면..<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Test.prototype = &#123;</span><br><span class="line">    a : &#123;</span><br><span class="line">        aa : <span class="string">'1'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> TestA = <span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">var</span> TestB = <span class="keyword">new</span> Test();</span><br><span class="line">TestB.a.aa= <span class="string">'2'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(TestA.a.aa); <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(TestB.a.aa); <span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
 <p>위에서 신기한 것은, TestB 객체에 직접 프로퍼티 값을 할당했는데도, Test 함수의 프로토 타입의 값이 바뀌었다는 것입니다. (이 내용이 잘 이해 안되시면 프로토 타입 체인에 대해서 찾아 보시기 바랍니다.^^)</p>
 <p>이유는 처음에도 말한것 처럼 자바스크립트의 객체는 값을 할당할 때도 프로토 타입 체인을 따라가기 때문입니다.</p>
 <p><code>TestB.a.aa= &#39;2&#39;;</code> 을 실행했을때, TestB에는 a라는 프로퍼티가 없기 때문에 <code>aa</code>라는 프로퍼티를 생성 할 수가 없습니다. 보통은 자바스크립트가 error를 뿌리면서 실행이 중지되죠.<br>하지만 이 경우에는 자바스크립트는 프로토타입에 <code>a</code>라는 프로퍼티가 존재합니다. 따라서 프로토타입 체인 순서에 의해 Test객체의 <code>prototype</code> 프로퍼티에 있는 <code>a.aa</code>에 값을 할당하게 됩니다.<br><code>Test</code>객체의 <code>prototype</code> 값이 바뀌었으므로 이를 상속받는 <code>TestA</code>객체도 영향을 받은 것이지요.</p>
@@ -695,7 +697,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                32 posts found
+                34 posts found
             </p>
         </div>
     </div>

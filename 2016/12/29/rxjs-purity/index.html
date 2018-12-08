@@ -14,11 +14,13 @@
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description" content="RxJS 공식문서에서 소개하고 있는 RxJS의 핵심 특징 3가지 입니다.">
+<meta name="keywords" content="javascript,RxJS">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="RxJS - Purity(순수성)">
 <meta property="og:url" content="https://owenjeon.github.io/2016/12/29/rxjs-purity/index.html">
-<meta property="og:site_name" content="Owen's Blog">
+<meta property="og:site_name" content="Owen&#39;s Blog">
 <meta property="og:description" content="RxJS 공식문서에서 소개하고 있는 RxJS의 핵심 특징 3가지 입니다.">
+<meta property="og:locale" content="ko">
 <meta property="og:updated_time" content="2017-03-06T13:24:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RxJS - Purity(순수성)">
@@ -53,7 +55,7 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-5608087567415166",
+        google_ad_client: "ca-pub-3248840767283437",
         enable_page_level_ads: true
       });
     </script>
@@ -265,7 +267,7 @@
 <li>외부 상태와 무관하다.</li>
 </ul>
 <p>순수함수는 해당 함수보다 상위의 스콥에서 정의된 함수를 참조하지 않는다. 오로지 인자로 인해 제어된다. 같은 값을 출력하기때문에 랜덤(Math.random)이나 날짜(new Date)등을 사용하지 않는다. 따라서 오류가 발생할 가능성이 적다. RxJS는 이 부분을 장점으로 내세우고 있다.</p>
-<p>아래 예제를 보면…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> observable = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line"> .map(<span class="function"><span class="params">x</span> =&gt;</span> x*x)</div><div class="line"> .scan(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b, <span class="number">0</span>);</div><div class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//1, 5, 14, 50</span></div></pre></td></tr></table></figure></p>
+<p>아래 예제를 보면…<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observable = Rx.Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"> .map(<span class="function"><span class="params">x</span> =&gt;</span> x*x)</span><br><span class="line"> .scan(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b, <span class="number">0</span>);</span><br><span class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x)); <span class="comment">//1, 5, 14, 50</span></span><br></pre></td></tr></table></figure></p>
 <p>RxJS는 위처럼 체이닝으로 method들을 이어 나간다. 그리고 다음 method들의 함수 내부는 이전함수로 부터 return받은 인자로만 이루어 진다. 물론 global 영역에 변수를 지정하고 가져오는게 불가능 한건 아니지만, 되도록 순수하게 함수를 사용하는 것을 권장한다. 아무래도 순수함수가 가진 안정성과 속도의 장점을 가져가려는 것이 아닐까 생각한다.</p>
 <h4 id="Flow-흐름"><a href="#Flow-흐름" class="headerlink" title="Flow(흐름)"></a>Flow(흐름)</h4><p>RxJS에는 관찰자를 통해 이벤트가 흐르는 방식을 제어하는 데 도움이되는 다양한 연산자(operator)가 있다. 위에서 등장한 map, scan 등이 그것이다. 하나 하나의 흐름을 operator들로 전달하는 방식으로 동작하는 것이다.</p>
 <h4 id="Values-값"><a href="#Values-값" class="headerlink" title="Values(값)"></a>Values(값)</h4><p>RxJS의 흐름이 진행되는 과정에서 인자로 값들을 넘긴다. RxJS는 operator들을 통해 이 값들을 원하는 값을 도출한다.</p>
@@ -701,7 +703,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                32 posts found
+                34 posts found
             </p>
         </div>
     </div>

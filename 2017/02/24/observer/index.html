@@ -14,11 +14,13 @@
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description" content="이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다.">
+<meta name="keywords" content="javascript,RxJS">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="RxJS Observer">
 <meta property="og:url" content="https://owenjeon.github.io/2017/02/24/observer/index.html">
-<meta property="og:site_name" content="Owen's Blog">
+<meta property="og:site_name" content="Owen&#39;s Blog">
 <meta property="og:description" content="이번에는 RxJS의 구성요소 중 observer에 대해서 알아보겠습니다.">
+<meta property="og:locale" content="ko">
 <meta property="og:updated_time" content="2017-03-06T13:21:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RxJS Observer">
@@ -53,7 +55,7 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-5608087567415166",
+        google_ad_client: "ca-pub-3248840767283437",
         enable_page_level_ads: true
       });
     </script>
@@ -259,19 +261,19 @@
         <div class="main-content-wrap">
             <p>이번에는 RxJS의 구성요소 중 <code>observer</code>에 대해서 알아보겠습니다.<br><a id="more"></a><br><code>Observable</code>에 의해 전달 된 값을 처리하는 콜백 콜렉션입니다.<br><code>Observer</code>는 <code>Observable</code>에 의해 전달되는 특정한 알림에 대한  간단한 콜백함수 집합(<code>next</code>, <code>error</code>, and <code>complete</code>)입니다.</p>
 <p>다음은 일반적인 <code>Observer</code> 객체의 예입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> observer = &#123;</div><div class="line">  <span class="attr">next</span>: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  <span class="attr">error</span>: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">  <span class="attr">complete</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observer = &#123;</span><br><span class="line">  next: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</span><br><span class="line">  error: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>Observer</code>를 사용하기 위해서 <code>Observable</code>의 <code>subscribe</code>에게 <code>Observer</code>를 인자로 넘깁니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(observer);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observable.subscribe(observer);</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Observer는 Observable이 전달하는 특정 알림에 대한 3개의 콜백을 가진 객체입니다.</p>
 </blockquote>
 <p>RxJS의 <code>Observer</code>는 불완전하게 쓰일 수 있습니다. 콜백 중 하나를 제공하지 않을경우, <code>Observable</code>에서 해당 콜백이 없기 때문에 일부 유형의 알림이 무시된다는 점을 제외하면 <code>Observable</code>의 실행은 계속 정상적으로 수행됩니다.</p>
 <p>아래의 예제는 <code>observer</code>의 <code>complete</code>이 없는 케이스입니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> observer = &#123;</div><div class="line">  <span class="attr">next</span>: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  <span class="attr">error</span>: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observer = &#123;</span><br><span class="line">  next: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</span><br><span class="line">  error: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>Observable</code>을 <code>subscribe</code>할 때, <code>Observer</code> 객체 대신 콜백을 <code>arguments</code>로 제공할 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x));</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x));</span><br></pre></td></tr></table></figure>
 <p><code>observable.subscribe</code>는 첫번째 콜백 <code>argument</code>를 사용해서 <code>Observer</code> 객체의 <code>next</code>핸들러를 만듭니다. 총 3개의 콜백 타입은 아래와 같이 쓸 수 있습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">observable.subscribe(</div><div class="line">  <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</div><div class="line">  err =&gt; <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</div><div class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">observable.subscribe(</span><br><span class="line">  x =&gt; <span class="built_in">console</span>.log(<span class="string">'Observer got a next value: '</span> + x),</span><br><span class="line">  err =&gt; <span class="built_in">console</span>.error(<span class="string">'Observer got an error: '</span> + err),</span><br><span class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'Observer got a complete notification'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
             
         </div>
@@ -704,7 +706,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                32 posts found
+                34 posts found
             </p>
         </div>
     </div>
